@@ -88,6 +88,11 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    any case the form could be counts; 3 lives (+1 per 15 catches, max 5); faster every 8 catches;
    misses show the answer; pauses when the tab is hidden; record per word type + pattern.
 5. Polish: sounds, Vzory picker, stats screen.
+6. ✅ **Hľadaj** (look up): type any noun/adjective form → word card with lemma, meaning, "this form can be"
+   case chips (with use + prepositions), and the colour-coded table with matching cells outlined.
+   ~1,400 adjectives + ~4,400 nouns (`scripts/build_lookup.ps1`); extra noun tables fetched live from
+   Wiktionary; accent-free typing suggests the right form; recent lookups; deep links `#hladaj/<form>`.
+   Not covered yet: verbs, pronouns, numerals (falls back to a Wiktionary link).
 
 ## Known gaps
 - Possessives from first names (*Karlova izba*) aren't in Wiktionary; would need a small rule-based

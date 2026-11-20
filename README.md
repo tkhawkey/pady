@@ -3,12 +3,15 @@
 A small, loud, personal web app for learning Slovak noun declension and verb–case government.
 *Pád* means a grammatical case — and also a fall.
 
-Open `app/index.html` in a browser. No build step, no server, works offline (fonts load when online).
+**▶ Play it: [tkhawkey.github.io/pady](https://tkhawkey.github.io/pady/)**
+
+Or open `app/index.html` locally. No build step, no server, works offline (fonts load when online).
 
 ## What's inside
 
 | Mode | What you do |
 |---|---|
+| **Hľadaj** (look up) | Type any form you see (*čerstvých*, *ulici*, *ľuďom*): which word it is, what it means, every case it could be (colour-coded, with what each case is for), and the full table with your form's cells outlined. Link straight to a word: `index.html#hladaj/čerstvých`. |
 | **Ťahák** (crib sheet) | Learn: the 12 model words with endings highlighted, a "which pattern is my word?" finder, one case across all patterns, case cards with prepositions and real verbs, your weak spots. |
 | **Rozbi to!** | A word shatters into its forms — drag each back to its case. |
 | **Tabuľka** | The classic grid: type all the forms. Accent slips get half points. |
@@ -51,7 +54,11 @@ Invoke-WebRequest https://raw.githubusercontent.com/hermitdave/FrequencyWords/ma
 ./scripts/build_data.ps1       # validate nouns + adjectives
 ./scripts/check_homographs.ps1 # frequency ownership / re-ranking
 ./scripts/build_bundle.ps1     # -> app/data.js
+./scripts/build_lookup.ps1     # -> app/lookup-data.js (~1,400 adjectives, ~4,400 nouns for Hľadaj)
 ```
+
+Hľadaj loads `app/lookup-data.js` only when opened. Nouns outside the game data get their full
+case table live from the Wiktionary REST API (needs a connection; known forms are shown offline).
 
 `scripts/serve.ps1` runs a tiny local web server if you want one (`http://localhost:8765`).
 

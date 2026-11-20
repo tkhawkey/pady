@@ -166,6 +166,8 @@
     window.scrollTo(0, 0);
     if (id === 'home') { stopTimer(); renderHome(); }
     if (id === 'learn') { stopTimer(); renderTop(); window.PADYLearn?.render(); }
+    if (id === 'lookup') { stopTimer(); renderTop(); window.PADYLookup?.render(); }
+    else if (location.hash.startsWith('#hladaj')) history.replaceState(null, '', location.pathname + location.search);
   }
   document.addEventListener('click', (e) => {
     const go = e.target.closest('[data-go]');

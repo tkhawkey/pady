@@ -444,5 +444,8 @@
   // ---------- public ----------
   window.PADYLearn = {
     render() { renderWeak(); setTab(S.tab); },
+    // shared with the Hľadaj (lookup) page
+    fmt, stemOf, PREPS, models,
+    openPattern(p) { S.pat = p; S.word = null; S.tab = 'vzory'; P.show('learn'); },
   };
 })();

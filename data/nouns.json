@@ -1,0 +1,6137 @@
+[
+  {
+    "word": "mama",
+    "gloss": "mama",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 1,
+    "sg": {
+      "nom": "mama",
+      "gen": "mamy",
+      "dat": "mame",
+      "acc": "mamu",
+      "loc": "mame",
+      "ins": "mamou"
+    },
+    "pl": {
+      "nom": "mamy",
+      "gen": "mám",
+      "dat": "mamám",
+      "acc": "mamy",
+      "loc": "mamách",
+      "ins": "mamami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "človek",
+    "gloss": "person, man (i.e., a human being regardless of gender)",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 2,
+    "sg": {
+      "nom": "človek",
+      "gen": "človeka",
+      "dat": "človekovi",
+      "acc": "človeka",
+      "loc": "človekovi",
+      "ins": "človekom"
+    },
+    "pl": {
+      "nom": "ľudia",
+      "gen": "ľudí",
+      "dat": "ľuďom",
+      "acc": "ľudí",
+      "loc": "ľuďoch",
+      "ins": "ľuďmi"
+    },
+    "alt": {
+      "dat_s": [
+        "človeku"
+      ],
+      "loc_s": [
+        "človeku"
+      ]
+    }
+  },
+  {
+    "word": "pán",
+    "gloss": "lord; mister; sir",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 3,
+    "sg": {
+      "nom": "pán",
+      "gen": "pána",
+      "dat": "pánovi",
+      "acc": "pána",
+      "loc": "pánovi",
+      "ins": "pánom"
+    },
+    "pl": {
+      "nom": "páni",
+      "gen": "pánov",
+      "dat": "pánom",
+      "acc": "pánov",
+      "loc": "pánoch",
+      "ins": "pánmi"
+    },
+    "alt": {
+      "dat_s": [
+        "pánu"
+      ],
+      "loc_s": [
+        "pánu"
+      ]
+    }
+  },
+  {
+    "word": "vec",
+    "gloss": "thing; business (something involving one personally)",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 4,
+    "sg": {
+      "nom": "vec",
+      "gen": "veci",
+      "dat": "veci",
+      "acc": "vec",
+      "loc": "veci",
+      "ins": "vecou"
+    },
+    "pl": {
+      "nom": "veci",
+      "gen": "vecí",
+      "dat": "veciam",
+      "acc": "veci",
+      "loc": "veciach",
+      "ins": "vecami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "poriadok",
+    "gloss": "order; procedure",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 5,
+    "sg": {
+      "nom": "poriadok",
+      "gen": "poriadku",
+      "dat": "poriadku",
+      "acc": "poriadok",
+      "loc": "poriadku",
+      "ins": "poriadkom"
+    },
+    "pl": {
+      "nom": "poriadky",
+      "gen": "poriadkov",
+      "dat": "poriadkom",
+      "acc": "poriadky",
+      "loc": "poriadkoch",
+      "ins": "poriadkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "rok",
+    "gloss": "year",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 6,
+    "sg": {
+      "nom": "rok",
+      "gen": "roka",
+      "dat": "roku",
+      "acc": "rok",
+      "loc": "roku",
+      "ins": "rokom"
+    },
+    "pl": {
+      "nom": "roky",
+      "gen": "rokov",
+      "dat": "rokom",
+      "acc": "roky",
+      "loc": "rokoch",
+      "ins": "rokmi"
+    },
+    "alt": {
+      "gen_s": [
+        "roku"
+      ]
+    }
+  },
+  {
+    "word": "otec",
+    "gloss": "father",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 7,
+    "sg": {
+      "nom": "otec",
+      "gen": "otca",
+      "dat": "otcovi",
+      "acc": "otca",
+      "loc": "otcovi",
+      "ins": "otcom"
+    },
+    "pl": {
+      "nom": "otcovia",
+      "gen": "otcov",
+      "dat": "otcom",
+      "acc": "otcov",
+      "loc": "otcoch",
+      "ins": "otcami"
+    },
+    "alt": {
+      "dat_s": [
+        "otcu"
+      ],
+      "loc_s": [
+        "otcu"
+      ]
+    }
+  },
+  {
+    "word": "dom",
+    "gloss": "house",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 8,
+    "sg": {
+      "nom": "dom",
+      "gen": "domu",
+      "dat": "domu",
+      "acc": "dom",
+      "loc": "dome",
+      "ins": "domom"
+    },
+    "pl": {
+      "nom": "domy",
+      "gen": "domov",
+      "dat": "domom",
+      "acc": "domy",
+      "loc": "domoch",
+      "ins": "domami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "život",
+    "gloss": "life",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 9,
+    "sg": {
+      "nom": "život",
+      "gen": "života",
+      "dat": "životu",
+      "acc": "život",
+      "loc": "živote",
+      "ins": "životom"
+    },
+    "pl": {
+      "nom": "životy",
+      "gen": "životov",
+      "dat": "životom",
+      "acc": "životy",
+      "loc": "životoch",
+      "ins": "životmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "boh",
+    "gloss": "god",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 10,
+    "sg": {
+      "nom": "boh",
+      "gen": "boha",
+      "dat": "bohovi",
+      "acc": "boha",
+      "loc": "bohovi",
+      "ins": "bohom"
+    },
+    "pl": {
+      "nom": "bohovia",
+      "gen": "bohov",
+      "dat": "bohom",
+      "acc": "bohov",
+      "loc": "bohoch",
+      "ins": "bohmi"
+    },
+    "alt": {
+      "dat_s": [
+        "bohu"
+      ],
+      "loc_s": [
+        "bohu"
+      ]
+    }
+  },
+  {
+    "word": "pravda",
+    "gloss": "truth",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 11,
+    "sg": {
+      "nom": "pravda",
+      "gen": "pravdy",
+      "dat": "pravde",
+      "acc": "pravdu",
+      "loc": "pravde",
+      "ins": "pravdou"
+    },
+    "pl": {
+      "nom": "pravdy",
+      "gen": "právd",
+      "dat": "pravdám",
+      "acc": "pravdy",
+      "loc": "pravdách",
+      "ins": "pravdami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "dieťa",
+    "gloss": "child",
+    "gender": "n",
+    "pattern": "dievča",
+    "freqRank": 12,
+    "sg": {
+      "nom": "dieťa",
+      "gen": "dieťaťa",
+      "dat": "dieťaťu",
+      "acc": "dieťa",
+      "loc": "dieťati",
+      "ins": "dieťaťom"
+    },
+    "pl": {
+      "nom": "deti",
+      "gen": "detí",
+      "dat": "deťom",
+      "acc": "deti",
+      "loc": "deťoch",
+      "ins": "deťmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "práca",
+    "gloss": "work",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 13,
+    "sg": {
+      "nom": "práca",
+      "gen": "práce",
+      "dat": "práci",
+      "acc": "prácu",
+      "loc": "práci",
+      "ins": "prácou"
+    },
+    "pl": {
+      "nom": "práce",
+      "gen": "prác",
+      "dat": "prácam",
+      "acc": "práce",
+      "loc": "prácach",
+      "ins": "prácami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "žena",
+    "gloss": "woman; wife",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 14,
+    "sg": {
+      "nom": "žena",
+      "gen": "ženy",
+      "dat": "žene",
+      "acc": "ženu",
+      "loc": "žene",
+      "ins": "ženou"
+    },
+    "pl": {
+      "nom": "ženy",
+      "gen": "žien",
+      "dat": "ženám",
+      "acc": "ženy",
+      "loc": "ženách",
+      "ins": "ženami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "miesto",
+    "gloss": "location; place",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 15,
+    "sg": {
+      "nom": "miesto",
+      "gen": "miesta",
+      "dat": "miestu",
+      "acc": "miesto",
+      "loc": "mieste",
+      "ins": "miestom"
+    },
+    "pl": {
+      "nom": "miesta",
+      "gen": "miest",
+      "dat": "miestam",
+      "acc": "miesta",
+      "loc": "miestach",
+      "ins": "miestami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "muž",
+    "gloss": "man (an adult male human); husband",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 16,
+    "sg": {
+      "nom": "muž",
+      "gen": "muža",
+      "dat": "mužovi",
+      "acc": "muža",
+      "loc": "mužovi",
+      "ins": "mužom"
+    },
+    "pl": {
+      "nom": "muži",
+      "gen": "mužov",
+      "dat": "mužom",
+      "acc": "mužov",
+      "loc": "mužoch",
+      "ins": "mužmi"
+    },
+    "alt": {
+      "nom_p": [
+        "mužovia"
+      ]
+    }
+  },
+  {
+    "word": "mať",
+    "gloss": "mother",
+    "gender": "f",
+    "pattern": null,
+    "freqRank": 17,
+    "sg": {
+      "nom": "mať",
+      "gen": "matere",
+      "dat": "materi",
+      "acc": "mať",
+      "loc": "materi",
+      "ins": "materou"
+    },
+    "pl": {
+      "nom": "matere",
+      "gen": "materí",
+      "dat": "materiam",
+      "acc": "matere",
+      "loc": "materiach",
+      "ins": "materami"
+    },
+    "alt": {
+      "acc_s": [
+        "mater"
+      ]
+    }
+  },
+  {
+    "word": "problém",
+    "gloss": "problem",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 18,
+    "sg": {
+      "nom": "problém",
+      "gen": "problému",
+      "dat": "problému",
+      "acc": "problém",
+      "loc": "probléme",
+      "ins": "problémom"
+    },
+    "pl": {
+      "nom": "problémy",
+      "gen": "problémov",
+      "dat": "problémom",
+      "acc": "problémy",
+      "loc": "problémoch",
+      "ins": "problémami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "cesta",
+    "gloss": "road; way",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 19,
+    "sg": {
+      "nom": "cesta",
+      "gen": "cesty",
+      "dat": "ceste",
+      "acc": "cestu",
+      "loc": "ceste",
+      "ins": "cestou"
+    },
+    "pl": {
+      "nom": "cesty",
+      "gen": "ciest",
+      "dat": "cestám",
+      "acc": "cesty",
+      "loc": "cestách",
+      "ins": "cestami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "noc",
+    "gloss": "night, nighttime",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 20,
+    "sg": {
+      "nom": "noc",
+      "gen": "noci",
+      "dat": "noci",
+      "acc": "noc",
+      "loc": "noci",
+      "ins": "nocou"
+    },
+    "pl": {
+      "nom": "noci",
+      "gen": "nocí",
+      "dat": "nociam",
+      "acc": "noci",
+      "loc": "nociach",
+      "ins": "nocami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "chlap",
+    "gloss": "man (male human)",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 21,
+    "sg": {
+      "nom": "chlap",
+      "gen": "chlapa",
+      "dat": "chlapovi",
+      "acc": "chlapa",
+      "loc": "chlapovi",
+      "ins": "chlapom"
+    },
+    "pl": {
+      "nom": "chlapi",
+      "gen": "chlapov",
+      "dat": "chlapom",
+      "acc": "chlapov",
+      "loc": "chlapoch",
+      "ins": "chlapmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "chlapec",
+    "gloss": "boy",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 22,
+    "sg": {
+      "nom": "chlapec",
+      "gen": "chlapca",
+      "dat": "chlapcovi",
+      "acc": "chlapca",
+      "loc": "chlapcovi",
+      "ins": "chlapcom"
+    },
+    "pl": {
+      "nom": "chlapci",
+      "gen": "chlapcov",
+      "dat": "chlapcom",
+      "acc": "chlapcov",
+      "loc": "chlapcoch",
+      "ins": "chlapcami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "priateľ",
+    "gloss": "friend; supporter; boyfriend",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 23,
+    "sg": {
+      "nom": "priateľ",
+      "gen": "priateľa",
+      "dat": "priateľovi",
+      "acc": "priateľa",
+      "loc": "priateľovi",
+      "ins": "priateľom"
+    },
+    "pl": {
+      "nom": "priatelia",
+      "gen": "priateľov",
+      "dat": "priateľom",
+      "acc": "priateľov",
+      "loc": "priateľoch",
+      "ins": "priateľmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "svet",
+    "gloss": "the world; the cosmos, the universe, all there is; our own planet, the Earth, the globe",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 24,
+    "sg": {
+      "nom": "svet",
+      "gen": "sveta",
+      "dat": "svetu",
+      "acc": "svet",
+      "loc": "svete",
+      "ins": "svetom"
+    },
+    "pl": {
+      "nom": "svety",
+      "gen": "svetov",
+      "dat": "svetom",
+      "acc": "svety",
+      "loc": "svetoch",
+      "ins": "svetmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "auto",
+    "gloss": "car",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 25,
+    "sg": {
+      "nom": "auto",
+      "gen": "auta",
+      "dat": "autu",
+      "acc": "auto",
+      "loc": "aute",
+      "ins": "autom"
+    },
+    "pl": {
+      "nom": "autá",
+      "gen": "áut",
+      "dat": "autám",
+      "acc": "autá",
+      "loc": "autách",
+      "ins": "autami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "domov",
+    "gloss": "home",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 26,
+    "sg": {
+      "nom": "domov",
+      "gen": "domova",
+      "dat": "domovu",
+      "acc": "domov",
+      "loc": "domove",
+      "ins": "domovom"
+    },
+    "pl": {
+      "nom": "domovy",
+      "gen": "domovov",
+      "dat": "domovom",
+      "acc": "domovy",
+      "loc": "domovoch",
+      "ins": "domovmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "ruka",
+    "gloss": "hand, arm (the upper limb of a human, or specifically the part from the wrist down); handwriting, hand (the characteristic features of someone's writing style); person, hand, agent (symbolizes a person who performs an action or provides labor)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 27,
+    "sg": {
+      "nom": "ruka",
+      "gen": "ruky",
+      "dat": "ruke",
+      "acc": "ruku",
+      "loc": "ruke",
+      "ins": "rukou"
+    },
+    "pl": {
+      "nom": "ruky",
+      "gen": "rúk",
+      "dat": "rukám",
+      "acc": "ruky",
+      "loc": "rukách",
+      "ins": "rukami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "dievča",
+    "gloss": "girl (female child)",
+    "gender": "n",
+    "pattern": "dievča",
+    "freqRank": 28,
+    "sg": {
+      "nom": "dievča",
+      "gen": "dievčaťa",
+      "dat": "dievčaťu",
+      "acc": "dievča",
+      "loc": "dievčati",
+      "ins": "dievčaťom"
+    },
+    "pl": {
+      "nom": "dievčatá",
+      "gen": "dievčat",
+      "dat": "dievčatám",
+      "acc": "dievčatá",
+      "loc": "dievčatách",
+      "ins": "dievčatami"
+    },
+    "alt": {
+      "nom_p": [
+        "dievčence"
+      ],
+      "gen_p": [
+        "dievčeniec"
+      ],
+      "dat_p": [
+        "dievčencom"
+      ],
+      "acc_p": [
+        "dievčence"
+      ],
+      "loc_p": [
+        "dievčencoch"
+      ],
+      "ins_p": [
+        "dievčencami"
+      ]
+    }
+  },
+  {
+    "word": "dej",
+    "gloss": "plot, storyline; process",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 29,
+    "sg": {
+      "nom": "dej",
+      "gen": "deja",
+      "dat": "deju",
+      "acc": "dej",
+      "loc": "deji",
+      "ins": "dejom"
+    },
+    "pl": {
+      "nom": "deje",
+      "gen": "dejov",
+      "dat": "dejom",
+      "acc": "deje",
+      "loc": "dejoch",
+      "ins": "dejmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vďaka",
+    "gloss": "gratefulness",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 30,
+    "sg": {
+      "nom": "vďaka",
+      "gen": "vďaky",
+      "dat": "vďake",
+      "acc": "vďaku",
+      "loc": "vďake",
+      "ins": "vďakou"
+    },
+    "pl": {
+      "nom": "vďaky",
+      "gen": "vdiak",
+      "dat": "vďakám",
+      "acc": "vďaky",
+      "loc": "vďakách",
+      "ins": "vďakami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "večer",
+    "gloss": "evening",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 31,
+    "sg": {
+      "nom": "večer",
+      "gen": "večera",
+      "dat": "večeru",
+      "acc": "večer",
+      "loc": "večere",
+      "ins": "večerom"
+    },
+    "pl": {
+      "nom": "večery",
+      "gen": "večerov",
+      "dat": "večerom",
+      "acc": "večery",
+      "loc": "večeroch",
+      "ins": "večermi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "meno",
+    "gloss": "name; noun (broad sense)",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 32,
+    "sg": {
+      "nom": "meno",
+      "gen": "mena",
+      "dat": "menu",
+      "acc": "meno",
+      "loc": "mene",
+      "ins": "menom"
+    },
+    "pl": {
+      "nom": "mená",
+      "gen": "mien",
+      "dat": "menám",
+      "acc": "mená",
+      "loc": "menách",
+      "ins": "menami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hodina",
+    "gloss": "hour",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 33,
+    "sg": {
+      "nom": "hodina",
+      "gen": "hodiny",
+      "dat": "hodine",
+      "acc": "hodinu",
+      "loc": "hodine",
+      "ins": "hodinou"
+    },
+    "pl": {
+      "nom": "hodiny",
+      "gen": "hodín",
+      "dat": "hodinám",
+      "acc": "hodiny",
+      "loc": "hodinách",
+      "ins": "hodinami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "rodina",
+    "gloss": "family",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 34,
+    "sg": {
+      "nom": "rodina",
+      "gen": "rodiny",
+      "dat": "rodine",
+      "acc": "rodinu",
+      "loc": "rodine",
+      "ins": "rodinou"
+    },
+    "pl": {
+      "nom": "rodiny",
+      "gen": "rodín",
+      "dat": "rodinám",
+      "acc": "rodiny",
+      "loc": "rodinách",
+      "ins": "rodinami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hlava",
+    "gloss": "head; chapter",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 35,
+    "sg": {
+      "nom": "hlava",
+      "gen": "hlavy",
+      "dat": "hlave",
+      "acc": "hlavu",
+      "loc": "hlave",
+      "ins": "hlavou"
+    },
+    "pl": {
+      "nom": "hlavy",
+      "gen": "hláv",
+      "dat": "hlavám",
+      "acc": "hlavy",
+      "loc": "hlavách",
+      "ins": "hlavami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "prípad",
+    "gloss": "case",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 36,
+    "sg": {
+      "nom": "prípad",
+      "gen": "prípadu",
+      "dat": "prípadu",
+      "acc": "prípad",
+      "loc": "prípade",
+      "ins": "prípadom"
+    },
+    "pl": {
+      "nom": "prípady",
+      "gen": "prípadov",
+      "dat": "prípadom",
+      "acc": "prípady",
+      "loc": "prípadoch",
+      "ins": "prípadmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "dáma",
+    "gloss": "lady; queen; queen",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 37,
+    "sg": {
+      "nom": "dáma",
+      "gen": "dámy",
+      "dat": "dáme",
+      "acc": "dámu",
+      "loc": "dáme",
+      "ins": "dámou"
+    },
+    "pl": {
+      "nom": "dámy",
+      "gen": "dám",
+      "dat": "dámam",
+      "acc": "dámy",
+      "loc": "dámach",
+      "ins": "dámami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "mesto",
+    "gloss": "city; town",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 38,
+    "sg": {
+      "nom": "mesto",
+      "gen": "mesta",
+      "dat": "mestu",
+      "acc": "mesto",
+      "loc": "meste",
+      "ins": "mestom"
+    },
+    "pl": {
+      "nom": "mestá",
+      "gen": "miest",
+      "dat": "mestám",
+      "acc": "mestá",
+      "loc": "mestách",
+      "ins": "mestami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "matka",
+    "gloss": "mother",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 39,
+    "sg": {
+      "nom": "matka",
+      "gen": "matky",
+      "dat": "matke",
+      "acc": "matku",
+      "loc": "matke",
+      "ins": "matkou"
+    },
+    "pl": {
+      "nom": "matky",
+      "gen": "matiek",
+      "dat": "matkám",
+      "acc": "matky",
+      "loc": "matkách",
+      "ins": "matkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "chvíľa",
+    "gloss": "while",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 40,
+    "sg": {
+      "nom": "chvíľa",
+      "gen": "chvíle",
+      "dat": "chvíli",
+      "acc": "chvíľu",
+      "loc": "chvíli",
+      "ins": "chvíľou"
+    },
+    "pl": {
+      "nom": "chvíle",
+      "gen": "chvíľ",
+      "dat": "chvíľam",
+      "acc": "chvíle",
+      "loc": "chvíľach",
+      "ins": "chvíľami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "syn",
+    "gloss": "son (male offspring)",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 41,
+    "sg": {
+      "nom": "syn",
+      "gen": "syna",
+      "dat": "synovi",
+      "acc": "syna",
+      "loc": "synovi",
+      "ins": "synom"
+    },
+    "pl": {
+      "nom": "synovia",
+      "gen": "synov",
+      "dat": "synom",
+      "acc": "synov",
+      "loc": "synoch",
+      "ins": "synmi"
+    },
+    "alt": {
+      "dat_s": [
+        "synu"
+      ],
+      "loc_s": [
+        "synu"
+      ]
+    }
+  },
+  {
+    "word": "týždeň",
+    "gloss": "week",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 42,
+    "sg": {
+      "nom": "týždeň",
+      "gen": "týždňa",
+      "dat": "týždňu",
+      "acc": "týždeň",
+      "loc": "týždni",
+      "ins": "týždňom"
+    },
+    "pl": {
+      "nom": "týždne",
+      "gen": "týždňov",
+      "dat": "týždňom",
+      "acc": "týždne",
+      "loc": "týždňoch",
+      "ins": "týždňami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "doktor",
+    "gloss": "doctor, physician; doctor, PhD",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 43,
+    "sg": {
+      "nom": "doktor",
+      "gen": "doktora",
+      "dat": "doktorovi",
+      "acc": "doktora",
+      "loc": "doktorovi",
+      "ins": "doktorom"
+    },
+    "pl": {
+      "nom": "doktori",
+      "gen": "doktorov",
+      "dat": "doktorom",
+      "acc": "doktorov",
+      "loc": "doktoroch",
+      "ins": "doktormi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "brat",
+    "gloss": "brother (son of the same parents as another person)",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 44,
+    "sg": {
+      "nom": "brat",
+      "gen": "brata",
+      "dat": "bratovi",
+      "acc": "brata",
+      "loc": "bratovi",
+      "ins": "bratom"
+    },
+    "pl": {
+      "nom": "bratia",
+      "gen": "bratov",
+      "dat": "bratom",
+      "acc": "bratov",
+      "loc": "bratoch",
+      "ins": "bratmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "oko",
+    "gloss": "eye; sprout on a potato",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 45,
+    "sg": {
+      "nom": "oko",
+      "gen": "oka",
+      "dat": "oku",
+      "acc": "oko",
+      "loc": "oku",
+      "ins": "okom"
+    },
+    "pl": {
+      "nom": "oči",
+      "gen": "očí",
+      "dat": "očiam",
+      "acc": "oči",
+      "loc": "očiach",
+      "ins": "očami"
+    },
+    "alt": {
+      "nom_p": [
+        "oká"
+      ],
+      "gen_p": [
+        "očú",
+        "ôk"
+      ],
+      "dat_p": [
+        "okám"
+      ],
+      "acc_p": [
+        "oká"
+      ],
+      "loc_p": [
+        "okách"
+      ],
+      "ins_p": [
+        "okami"
+      ]
+    }
+  },
+  {
+    "word": "hora",
+    "gloss": "mountain",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 46,
+    "sg": {
+      "nom": "hora",
+      "gen": "hory",
+      "dat": "hore",
+      "acc": "horu",
+      "loc": "hore",
+      "ins": "horou"
+    },
+    "pl": {
+      "nom": "hory",
+      "gen": "hôr",
+      "dat": "horám",
+      "acc": "hory",
+      "loc": "horách",
+      "ins": "horami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "správa",
+    "gloss": "message; administration",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 47,
+    "sg": {
+      "nom": "správa",
+      "gen": "správy",
+      "dat": "správe",
+      "acc": "správu",
+      "loc": "správe",
+      "ins": "správou"
+    },
+    "pl": {
+      "nom": "správy",
+      "gen": "správ",
+      "dat": "správam",
+      "acc": "správy",
+      "loc": "správach",
+      "ins": "správami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "koniec",
+    "gloss": "end; death",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 48,
+    "sg": {
+      "nom": "koniec",
+      "gen": "konca",
+      "dat": "koncu",
+      "acc": "koniec",
+      "loc": "konci",
+      "ins": "koncom"
+    },
+    "pl": {
+      "nom": "konce",
+      "gen": "koncov",
+      "dat": "koncom",
+      "acc": "konce",
+      "loc": "koncoch",
+      "ins": "koncami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "minúta",
+    "gloss": "minute",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 49,
+    "sg": {
+      "nom": "minúta",
+      "gen": "minúty",
+      "dat": "minúte",
+      "acc": "minútu",
+      "loc": "minúte",
+      "ins": "minútou"
+    },
+    "pl": {
+      "nom": "minúty",
+      "gen": "minút",
+      "dat": "minútam",
+      "acc": "minúty",
+      "loc": "minútach",
+      "ins": "minútami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "pomoc",
+    "gloss": "help, aid, assistance",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 50,
+    "sg": {
+      "nom": "pomoc",
+      "gen": "pomoci",
+      "dat": "pomoci",
+      "acc": "pomoc",
+      "loc": "pomoci",
+      "ins": "pomocou"
+    },
+    "pl": {
+      "nom": "pomoci",
+      "gen": "pomocí",
+      "dat": "pomociam",
+      "acc": "pomoci",
+      "loc": "pomociach",
+      "ins": "pomocami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "mesiac",
+    "gloss": "moon, a satellite of a planet; month",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 51,
+    "sg": {
+      "nom": "mesiac",
+      "gen": "mesiaca",
+      "dat": "mesiacu",
+      "acc": "mesiac",
+      "loc": "mesiaci",
+      "ins": "mesiacom"
+    },
+    "pl": {
+      "nom": "mesiace",
+      "gen": "mesiacov",
+      "dat": "mesiacom",
+      "acc": "mesiace",
+      "loc": "mesiacoch",
+      "ins": "mesiacmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "smrť",
+    "gloss": "death",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 52,
+    "sg": {
+      "nom": "smrť",
+      "gen": "smrti",
+      "dat": "smrti",
+      "acc": "smrť",
+      "loc": "smrti",
+      "ins": "smrťou"
+    },
+    "pl": {
+      "nom": "smrti",
+      "gen": "smrtí",
+      "dat": "smrtiam",
+      "acc": "smrti",
+      "loc": "smrtiach",
+      "ins": "smrťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "slovo",
+    "gloss": "word; speech; promise",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 53,
+    "sg": {
+      "nom": "slovo",
+      "gen": "slova",
+      "dat": "slovu",
+      "acc": "slovo",
+      "loc": "slove",
+      "ins": "slovom"
+    },
+    "pl": {
+      "nom": "slová",
+      "gen": "slov",
+      "dat": "slovám",
+      "acc": "slová",
+      "loc": "slovách",
+      "ins": "slovami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "škola",
+    "gloss": "school",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 54,
+    "sg": {
+      "nom": "škola",
+      "gen": "školy",
+      "dat": "škole",
+      "acc": "školu",
+      "loc": "škole",
+      "ins": "školou"
+    },
+    "pl": {
+      "nom": "školy",
+      "gen": "škôl",
+      "dat": "školám",
+      "acc": "školy",
+      "loc": "školách",
+      "ins": "školami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "myseľ",
+    "gloss": "mind",
+    "gender": "f",
+    "pattern": "dlaň",
+    "freqRank": 55,
+    "sg": {
+      "nom": "myseľ",
+      "gen": "mysle",
+      "dat": "mysli",
+      "acc": "myseľ",
+      "loc": "mysli",
+      "ins": "mysľou"
+    },
+    "pl": {
+      "nom": "mysle",
+      "gen": "myslí",
+      "dat": "mysliam",
+      "acc": "mysle",
+      "loc": "mysliach",
+      "ins": "mysľami"
+    },
+    "alt": {
+      "gen_s": [
+        "mysli"
+      ]
+    }
+  },
+  {
+    "word": "otázka",
+    "gloss": "question",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 56,
+    "sg": {
+      "nom": "otázka",
+      "gen": "otázky",
+      "dat": "otázke",
+      "acc": "otázku",
+      "loc": "otázke",
+      "ins": "otázkou"
+    },
+    "pl": {
+      "nom": "otázky",
+      "gen": "otázok",
+      "dat": "otázkam",
+      "acc": "otázky",
+      "loc": "otázkach",
+      "ins": "otázkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "telo",
+    "gloss": "body",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 57,
+    "sg": {
+      "nom": "telo",
+      "gen": "tela",
+      "dat": "telu",
+      "acc": "telo",
+      "loc": "tele",
+      "ins": "telom"
+    },
+    "pl": {
+      "nom": "telá",
+      "gen": "tiel",
+      "dat": "telám",
+      "acc": "telá",
+      "loc": "telách",
+      "ins": "telami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "zem",
+    "gloss": "earth",
+    "gender": "f",
+    "pattern": "dlaň",
+    "freqRank": 58,
+    "sg": {
+      "nom": "zem",
+      "gen": "zeme",
+      "dat": "zemi",
+      "acc": "zem",
+      "loc": "zemi",
+      "ins": "zemou"
+    },
+    "pl": {
+      "nom": "zeme",
+      "gen": "zemí",
+      "dat": "zemiam",
+      "acc": "zeme",
+      "loc": "zemiach",
+      "ins": "zemami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "loď",
+    "gloss": "ship",
+    "gender": "f",
+    "pattern": "dlaň",
+    "freqRank": 59,
+    "sg": {
+      "nom": "loď",
+      "gen": "lode",
+      "dat": "lodi",
+      "acc": "loď",
+      "loc": "lodi",
+      "ins": "loďou"
+    },
+    "pl": {
+      "nom": "lode",
+      "gen": "lodí",
+      "dat": "lodiam",
+      "acc": "lode",
+      "loc": "lodiach",
+      "ins": "loďami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "spôsob",
+    "gloss": "way, manner; mood, grammatical mood",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 60,
+    "sg": {
+      "nom": "spôsob",
+      "gen": "spôsobu",
+      "dat": "spôsobu",
+      "acc": "spôsob",
+      "loc": "spôsobe",
+      "ins": "spôsobom"
+    },
+    "pl": {
+      "nom": "spôsoby",
+      "gen": "spôsobov",
+      "dat": "spôsobom",
+      "acc": "spôsoby",
+      "loc": "spôsoboch",
+      "ins": "spôsobmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "dôvod",
+    "gloss": "reason, cause, motive; legal basis",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 61,
+    "sg": {
+      "nom": "dôvod",
+      "gen": "dôvodu",
+      "dat": "dôvodu",
+      "acc": "dôvod",
+      "loc": "dôvode",
+      "ins": "dôvodom"
+    },
+    "pl": {
+      "nom": "dôvody",
+      "gen": "dôvodov",
+      "dat": "dôvodom",
+      "acc": "dôvody",
+      "loc": "dôvodoch",
+      "ins": "dôvodmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "zlo",
+    "gloss": "evil",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 62,
+    "sg": {
+      "nom": "zlo",
+      "gen": "zla",
+      "dat": "zlu",
+      "acc": "zlo",
+      "loc": "zle",
+      "ins": "zlom"
+    },
+    "pl": {
+      "nom": "zlá",
+      "gen": "ziel",
+      "dat": "zlám",
+      "acc": "zlá",
+      "loc": "zlách",
+      "ins": "zlami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "strana",
+    "gloss": "side; page; party (participant in contract)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 63,
+    "sg": {
+      "nom": "strana",
+      "gen": "strany",
+      "dat": "strane",
+      "acc": "stranu",
+      "loc": "strane",
+      "ins": "stranou"
+    },
+    "pl": {
+      "nom": "strany",
+      "gen": "strán",
+      "dat": "stranám",
+      "acc": "strany",
+      "loc": "stranách",
+      "ins": "stranami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "srdce",
+    "gloss": "heart",
+    "gender": "n",
+    "pattern": "srdce",
+    "freqRank": 64,
+    "sg": {
+      "nom": "srdce",
+      "gen": "srdca",
+      "dat": "srdcu",
+      "acc": "srdce",
+      "loc": "srdci",
+      "ins": "srdcom"
+    },
+    "pl": {
+      "nom": "srdcia",
+      "gen": "sŕdc",
+      "dat": "srdciam",
+      "acc": "srdcia",
+      "loc": "srdciach",
+      "ins": "srdcami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "peklo",
+    "gloss": "hell",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 65,
+    "sg": {
+      "nom": "peklo",
+      "gen": "pekla",
+      "dat": "peklu",
+      "acc": "peklo",
+      "loc": "pekle",
+      "ins": "peklom"
+    },
+    "pl": {
+      "nom": "peklá",
+      "gen": "pekiel",
+      "dat": "peklám",
+      "acc": "peklá",
+      "loc": "peklách",
+      "ins": "peklami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "sestra",
+    "gloss": "sister (a female sibling); sister (a female member of a religious institute); nurse",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 66,
+    "sg": {
+      "nom": "sestra",
+      "gen": "sestry",
+      "dat": "sestre",
+      "acc": "sestru",
+      "loc": "sestre",
+      "ins": "sestrou"
+    },
+    "pl": {
+      "nom": "sestry",
+      "gen": "sestier",
+      "dat": "sestrám",
+      "acc": "sestry",
+      "loc": "sestrách",
+      "ins": "sestrami"
+    },
+    "alt": {
+      "gen_p": [
+        "sestár"
+      ]
+    }
+  },
+  {
+    "word": "láska",
+    "gloss": "love (intense feeling of affection and care toward another person); love (object of one’s romantic feelings)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 67,
+    "sg": {
+      "nom": "láska",
+      "gen": "lásky",
+      "dat": "láske",
+      "acc": "lásku",
+      "loc": "láske",
+      "ins": "láskou"
+    },
+    "pl": {
+      "nom": "lásky",
+      "gen": "lások",
+      "dat": "láskam",
+      "acc": "lásky",
+      "loc": "láskach",
+      "ins": "láskami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "voda",
+    "gloss": "water",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 68,
+    "sg": {
+      "nom": "voda",
+      "gen": "vody",
+      "dat": "vode",
+      "acc": "vodu",
+      "loc": "vode",
+      "ins": "vodou"
+    },
+    "pl": {
+      "nom": "vody",
+      "gen": "vôd",
+      "dat": "vodám",
+      "acc": "vody",
+      "loc": "vodách",
+      "ins": "vodami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "fakt",
+    "gloss": "fact",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 69,
+    "sg": {
+      "nom": "fakt",
+      "gen": "faktu",
+      "dat": "faktu",
+      "acc": "fakt",
+      "loc": "fakte",
+      "ins": "faktom"
+    },
+    "pl": {
+      "nom": "fakty",
+      "gen": "faktov",
+      "dat": "faktom",
+      "acc": "fakty",
+      "loc": "faktoch",
+      "ins": "faktmi"
+    },
+    "alt": {
+      "ins_p": [
+        "faktami"
+      ]
+    }
+  },
+  {
+    "word": "riť",
+    "gloss": "anus",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 70,
+    "sg": {
+      "nom": "riť",
+      "gen": "riti",
+      "dat": "riti",
+      "acc": "riť",
+      "loc": "riti",
+      "ins": "riťou"
+    },
+    "pl": {
+      "nom": "riti",
+      "gen": "rití",
+      "dat": "ritiam",
+      "acc": "riti",
+      "loc": "ritiach",
+      "ins": "riťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hra",
+    "gloss": "play, game; game; play (theatrical play)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 71,
+    "sg": {
+      "nom": "hra",
+      "gen": "hry",
+      "dat": "hre",
+      "acc": "hru",
+      "loc": "hre",
+      "ins": "hrou"
+    },
+    "pl": {
+      "nom": "hry",
+      "gen": "hier",
+      "dat": "hrám",
+      "acc": "hry",
+      "loc": "hrách",
+      "ins": "hrami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "dcéra",
+    "gloss": "daughter (female offspring)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 72,
+    "sg": {
+      "nom": "dcéra",
+      "gen": "dcéry",
+      "dat": "dcére",
+      "acc": "dcéru",
+      "loc": "dcére",
+      "ins": "dcérou"
+    },
+    "pl": {
+      "nom": "dcéry",
+      "gen": "dcér",
+      "dat": "dcéram",
+      "acc": "dcéry",
+      "loc": "dcérach",
+      "ins": "dcérami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "izba",
+    "gloss": "chamber, room",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 73,
+    "sg": {
+      "nom": "izba",
+      "gen": "izby",
+      "dat": "izbe",
+      "acc": "izbu",
+      "loc": "izbe",
+      "ins": "izbou"
+    },
+    "pl": {
+      "nom": "izby",
+      "gen": "izieb",
+      "dat": "izbám",
+      "acc": "izby",
+      "loc": "izbách",
+      "ins": "izbami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "šťastie",
+    "gloss": "happiness; luck",
+    "gender": "n",
+    "pattern": "vysvedčenie",
+    "freqRank": 74,
+    "sg": {
+      "nom": "šťastie",
+      "gen": "šťastia",
+      "dat": "šťastiu",
+      "acc": "šťastie",
+      "loc": "šťastí",
+      "ins": "šťastím"
+    },
+    "pl": {
+      "nom": "šťastia",
+      "gen": "šťastí",
+      "dat": "šťastiam",
+      "acc": "šťastia",
+      "loc": "šťastiach",
+      "ins": "šťastiami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "moc",
+    "gloss": "effect, force, potency, power (a natural ability to act, efficacy, or the process of influencing); ability, capacity, power, strength (physical or mental capability to do, achieve, or accomplish something); control, influence, sway (the possibility or capability to affect, influence, or control someone or something)",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 75,
+    "sg": {
+      "nom": "moc",
+      "gen": "moci",
+      "dat": "moci",
+      "acc": "moc",
+      "loc": "moci",
+      "ins": "mocou"
+    },
+    "pl": {
+      "nom": "moci",
+      "gen": "mocí",
+      "dat": "mociam",
+      "acc": "moci",
+      "loc": "mociach",
+      "ins": "mocami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "zlato",
+    "gloss": "gold (element); darling",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 76,
+    "sg": {
+      "nom": "zlato",
+      "gen": "zlata",
+      "dat": "zlatu",
+      "acc": "zlato",
+      "loc": "zlate",
+      "ins": "zlatom"
+    },
+    "pl": {
+      "nom": "zlatá",
+      "gen": "zlát",
+      "dat": "zlatám",
+      "acc": "zlatá",
+      "loc": "zlatách",
+      "ins": "zlatami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "noha",
+    "gloss": "leg (limb used for walking and standing); foot (the end part of such a limb); leg (a support of a table)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 77,
+    "sg": {
+      "nom": "noha",
+      "gen": "nohy",
+      "dat": "nohe",
+      "acc": "nohu",
+      "loc": "nohe",
+      "ins": "nohou"
+    },
+    "pl": {
+      "nom": "nohy",
+      "gen": "nôh",
+      "dat": "nohám",
+      "acc": "nohy",
+      "loc": "nohách",
+      "ins": "nohami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "príbeh",
+    "gloss": "event, incident, story",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 78,
+    "sg": {
+      "nom": "príbeh",
+      "gen": "príbehu",
+      "dat": "príbehu",
+      "acc": "príbeh",
+      "loc": "príbehu",
+      "ins": "príbehom"
+    },
+    "pl": {
+      "nom": "príbehy",
+      "gen": "príbehov",
+      "dat": "príbehom",
+      "acc": "príbehy",
+      "loc": "príbehoch",
+      "ins": "príbehmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "stan",
+    "gloss": "tent; erection, hard-on",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 79,
+    "sg": {
+      "nom": "stan",
+      "gen": "stanu",
+      "dat": "stanu",
+      "acc": "stan",
+      "loc": "stane",
+      "ins": "stanom"
+    },
+    "pl": {
+      "nom": "stany",
+      "gen": "stanov",
+      "dat": "stanom",
+      "acc": "stany",
+      "loc": "stanoch",
+      "ins": "stanmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "zdravie",
+    "gloss": "health (the state of being free of disease)",
+    "gender": "n",
+    "pattern": "vysvedčenie",
+    "freqRank": 80,
+    "sg": {
+      "nom": "zdravie",
+      "gen": "zdravia",
+      "dat": "zdraviu",
+      "acc": "zdravie",
+      "loc": "zdraví",
+      "ins": "zdravím"
+    },
+    "pl": {
+      "nom": "zdravia",
+      "gen": "zdraví",
+      "dat": "zdraviam",
+      "acc": "zdravia",
+      "loc": "zdraviach",
+      "ins": "zdraviami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "časť",
+    "gloss": "part",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 81,
+    "sg": {
+      "nom": "časť",
+      "gen": "časti",
+      "dat": "časti",
+      "acc": "časť",
+      "loc": "časti",
+      "ins": "časťou"
+    },
+    "pl": {
+      "nom": "časti",
+      "gen": "častí",
+      "dat": "častiam",
+      "acc": "časti",
+      "loc": "častiach",
+      "ins": "časťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "krv",
+    "gloss": "blood",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 82,
+    "sg": {
+      "nom": "krv",
+      "gen": "krvi",
+      "dat": "krvi",
+      "acc": "krv",
+      "loc": "krvi",
+      "ins": "krvou"
+    },
+    "pl": {
+      "nom": "krvi",
+      "gen": "krví",
+      "dat": "krviam",
+      "acc": "krvi",
+      "loc": "krviach",
+      "ins": "krvami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vojna",
+    "gloss": "war",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 83,
+    "sg": {
+      "nom": "vojna",
+      "gen": "vojny",
+      "dat": "vojne",
+      "acc": "vojnu",
+      "loc": "vojne",
+      "ins": "vojnou"
+    },
+    "pl": {
+      "nom": "vojny",
+      "gen": "vojen",
+      "dat": "vojnám",
+      "acc": "vojny",
+      "loc": "vojnách",
+      "ins": "vojnami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "jedlo",
+    "gloss": "food",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 84,
+    "sg": {
+      "nom": "jedlo",
+      "gen": "jedla",
+      "dat": "jedlu",
+      "acc": "jedlo",
+      "loc": "jedle",
+      "ins": "jedlom"
+    },
+    "pl": {
+      "nom": "jedlá",
+      "gen": "jedál",
+      "dat": "jedlám",
+      "acc": "jedlá",
+      "loc": "jedlách",
+      "ins": "jedlami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "kniha",
+    "gloss": "book; omasum (the third portion in the stomach of a ruminant)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 85,
+    "sg": {
+      "nom": "kniha",
+      "gen": "knihy",
+      "dat": "knihe",
+      "acc": "knihu",
+      "loc": "knihe",
+      "ins": "knihou"
+    },
+    "pl": {
+      "nom": "knihy",
+      "gen": "kníh",
+      "dat": "knihám",
+      "acc": "knihy",
+      "loc": "knihách",
+      "ins": "knihami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vražda",
+    "gloss": "murder (act of deliberate killing)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 86,
+    "sg": {
+      "nom": "vražda",
+      "gen": "vraždy",
+      "dat": "vražde",
+      "acc": "vraždu",
+      "loc": "vražde",
+      "ins": "vraždou"
+    },
+    "pl": {
+      "nom": "vraždy",
+      "gen": "vrážd",
+      "dat": "vraždám",
+      "acc": "vraždy",
+      "loc": "vraždách",
+      "ins": "vraždami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "telefón",
+    "gloss": "telephone",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 87,
+    "sg": {
+      "nom": "telefón",
+      "gen": "telefónu",
+      "dat": "telefónu",
+      "acc": "telefón",
+      "loc": "telefóne",
+      "ins": "telefónom"
+    },
+    "pl": {
+      "nom": "telefóny",
+      "gen": "telefónov",
+      "dat": "telefónom",
+      "acc": "telefóny",
+      "loc": "telefónoch",
+      "ins": "telefónmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "manžel",
+    "gloss": "husband",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 88,
+    "sg": {
+      "nom": "manžel",
+      "gen": "manžela",
+      "dat": "manželovi",
+      "acc": "manžela",
+      "loc": "manželovi",
+      "ins": "manželom"
+    },
+    "pl": {
+      "nom": "manželia",
+      "gen": "manželov",
+      "dat": "manželom",
+      "acc": "manželov",
+      "loc": "manželoch",
+      "ins": "manželmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "spoločnosť",
+    "gloss": "society",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 89,
+    "sg": {
+      "nom": "spoločnosť",
+      "gen": "spoločnosti",
+      "dat": "spoločnosti",
+      "acc": "spoločnosť",
+      "loc": "spoločnosti",
+      "ins": "spoločnosťou"
+    },
+    "pl": {
+      "nom": "spoločnosti",
+      "gen": "spoločností",
+      "dat": "spoločnostiam",
+      "acc": "spoločnosti",
+      "loc": "spoločnostiach",
+      "ins": "spoločnosťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "film",
+    "gloss": "photographic film; movie, motion picture",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 90,
+    "sg": {
+      "nom": "film",
+      "gen": "filmu",
+      "dat": "filmu",
+      "acc": "film",
+      "loc": "filme",
+      "ins": "filmom"
+    },
+    "pl": {
+      "nom": "filmy",
+      "gen": "filmov",
+      "dat": "filmom",
+      "acc": "filmy",
+      "loc": "filmoch",
+      "ins": "filmami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "večera",
+    "gloss": "dinner",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 91,
+    "sg": {
+      "nom": "večera",
+      "gen": "večere",
+      "dat": "večeri",
+      "acc": "večeru",
+      "loc": "večeri",
+      "ins": "večerou"
+    },
+    "pl": {
+      "nom": "večere",
+      "gen": "večerí",
+      "dat": "večeriam",
+      "acc": "večere",
+      "loc": "večeriach",
+      "ins": "večerami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "rad",
+    "gloss": "row; rank",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 92,
+    "sg": {
+      "nom": "rad",
+      "gen": "radu",
+      "dat": "radu",
+      "acc": "rad",
+      "loc": "rade",
+      "ins": "radom"
+    },
+    "pl": {
+      "nom": "rady",
+      "gen": "radov",
+      "dat": "radom",
+      "acc": "rady",
+      "loc": "radoch",
+      "ins": "radmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "obchod",
+    "gloss": "trade (commercial exchange of goods and services); deal (instance of buying or selling); shop",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 93,
+    "sg": {
+      "nom": "obchod",
+      "gen": "obchodu",
+      "dat": "obchodu",
+      "acc": "obchod",
+      "loc": "obchode",
+      "ins": "obchodom"
+    },
+    "pl": {
+      "nom": "obchody",
+      "gen": "obchodov",
+      "dat": "obchodom",
+      "acc": "obchody",
+      "loc": "obchodoch",
+      "ins": "obchodmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "pes",
+    "gloss": "dog",
+    "gender": "m-anim",
+    "pattern": "chlap",
+    "freqRank": 94,
+    "sg": {
+      "nom": "pes",
+      "gen": "psa",
+      "dat": "psovi",
+      "acc": "psa",
+      "loc": "psovi",
+      "ins": "psom"
+    },
+    "pl": {
+      "nom": "psovia",
+      "gen": "psov",
+      "dat": "psom",
+      "acc": "psov",
+      "loc": "psoch",
+      "ins": "psami"
+    },
+    "alt": {
+      "nom_p": [
+        "psy"
+      ],
+      "dat_s": [
+        "psu"
+      ],
+      "acc_p": [
+        "psy"
+      ],
+      "loc_s": [
+        "psu"
+      ]
+    }
+  },
+  {
+    "word": "krajina",
+    "gloss": "landscape; county, region",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 95,
+    "sg": {
+      "nom": "krajina",
+      "gen": "krajiny",
+      "dat": "krajine",
+      "acc": "krajinu",
+      "loc": "krajine",
+      "ins": "krajinou"
+    },
+    "pl": {
+      "nom": "krajiny",
+      "gen": "krajín",
+      "dat": "krajinám",
+      "acc": "krajiny",
+      "loc": "krajinách",
+      "ins": "krajinami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "kamoš",
+    "gloss": "buddy",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 96,
+    "sg": {
+      "nom": "kamoš",
+      "gen": "kamoša",
+      "dat": "kamošovi",
+      "acc": "kamoša",
+      "loc": "kamošovi",
+      "ins": "kamošom"
+    },
+    "pl": {
+      "nom": "kamoši",
+      "gen": "kamošov",
+      "dat": "kamošom",
+      "acc": "kamošov",
+      "loc": "kamošoch",
+      "ins": "kamošmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "sen",
+    "gloss": "dream",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 97,
+    "sg": {
+      "nom": "sen",
+      "gen": "sna",
+      "dat": "snu",
+      "acc": "sen",
+      "loc": "sne",
+      "ins": "snom"
+    },
+    "pl": {
+      "nom": "sny",
+      "gen": "snov",
+      "dat": "snom",
+      "acc": "sny",
+      "loc": "snoch",
+      "ins": "snami"
+    },
+    "alt": {
+      "loc_p": [
+        "snách"
+      ]
+    }
+  },
+  {
+    "word": "byt",
+    "gloss": "apartment, flat (UK)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 98,
+    "sg": {
+      "nom": "byt",
+      "gen": "bytu",
+      "dat": "bytu",
+      "acc": "byt",
+      "loc": "byte",
+      "ins": "bytom"
+    },
+    "pl": {
+      "nom": "byty",
+      "gen": "bytov",
+      "dat": "bytom",
+      "acc": "byty",
+      "loc": "bytoch",
+      "ins": "bytmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "sex",
+    "gloss": "sex (intercourse, sexual activity)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 99,
+    "sg": {
+      "nom": "sex",
+      "gen": "sexu",
+      "dat": "sexu",
+      "acc": "sex",
+      "loc": "sexe",
+      "ins": "sexom"
+    },
+    "pl": {
+      "nom": "sexy",
+      "gen": "sexov",
+      "dat": "sexom",
+      "acc": "sexy",
+      "loc": "sexoch",
+      "ins": "sexmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "svetlo",
+    "gloss": "light (electromagnetic wave)",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 100,
+    "sg": {
+      "nom": "svetlo",
+      "gen": "svetla",
+      "dat": "svetlu",
+      "acc": "svetlo",
+      "loc": "svetle",
+      "ins": "svetlom"
+    },
+    "pl": {
+      "nom": "svetlá",
+      "gen": "svetiel",
+      "dat": "svetlám",
+      "acc": "svetlá",
+      "loc": "svetlách",
+      "ins": "svetlami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "posteľ",
+    "gloss": "bed",
+    "gender": "f",
+    "pattern": "dlaň",
+    "freqRank": 101,
+    "sg": {
+      "nom": "posteľ",
+      "gen": "postele",
+      "dat": "posteli",
+      "acc": "posteľ",
+      "loc": "posteli",
+      "ins": "posteľou"
+    },
+    "pl": {
+      "nom": "postele",
+      "gen": "postelí",
+      "dat": "posteliam",
+      "acc": "postele",
+      "loc": "posteliach",
+      "ins": "posteľami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "možnosť",
+    "gloss": "possibility (property of being possible); option, possibility, choice, alternative",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 102,
+    "sg": {
+      "nom": "možnosť",
+      "gen": "možnosti",
+      "dat": "možnosti",
+      "acc": "možnosť",
+      "loc": "možnosti",
+      "ins": "možnosťou"
+    },
+    "pl": {
+      "nom": "možnosti",
+      "gen": "možností",
+      "dat": "možnostiam",
+      "acc": "možnosti",
+      "loc": "možnostiach",
+      "ins": "možnosťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "nemocnica",
+    "gloss": "hospital",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 103,
+    "sg": {
+      "nom": "nemocnica",
+      "gen": "nemocnice",
+      "dat": "nemocnici",
+      "acc": "nemocnicu",
+      "loc": "nemocnici",
+      "ins": "nemocnicou"
+    },
+    "pl": {
+      "nom": "nemocnice",
+      "gen": "nemocníc",
+      "dat": "nemocniciam",
+      "acc": "nemocnice",
+      "loc": "nemocniciach",
+      "ins": "nemocnicami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "strach",
+    "gloss": "fear",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 104,
+    "sg": {
+      "nom": "strach",
+      "gen": "strachu",
+      "dat": "strachu",
+      "acc": "strach",
+      "loc": "strachu",
+      "ins": "strachom"
+    },
+    "pl": {
+      "nom": "strachy",
+      "gen": "strachov",
+      "dat": "strachom",
+      "acc": "strachy",
+      "loc": "strachoch",
+      "ins": "strachmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "informácia",
+    "gloss": "information",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 105,
+    "sg": {
+      "nom": "informácia",
+      "gen": "informácie",
+      "dat": "informácii",
+      "acc": "informáciu",
+      "loc": "informácii",
+      "ins": "informáciou"
+    },
+    "pl": {
+      "nom": "informácie",
+      "gen": "informácií",
+      "dat": "informáciám",
+      "acc": "informácie",
+      "loc": "informáciách",
+      "ins": "informáciami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "sekunda",
+    "gloss": "second (unit of time); second (interval between two notes)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 106,
+    "sg": {
+      "nom": "sekunda",
+      "gen": "sekundy",
+      "dat": "sekunde",
+      "acc": "sekundu",
+      "loc": "sekunde",
+      "ins": "sekundou"
+    },
+    "pl": {
+      "nom": "sekundy",
+      "gen": "sekúnd",
+      "dat": "sekundám",
+      "acc": "sekundy",
+      "loc": "sekundách",
+      "ins": "sekundami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "policajt",
+    "gloss": "cop (police officer or prison guard)",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 107,
+    "sg": {
+      "nom": "policajt",
+      "gen": "policajta",
+      "dat": "policajtovi",
+      "acc": "policajta",
+      "loc": "policajtovi",
+      "ins": "policajtom"
+    },
+    "pl": {
+      "nom": "policajti",
+      "gen": "policajtov",
+      "dat": "policajtom",
+      "acc": "policajtov",
+      "loc": "policajtoch",
+      "ins": "policajtmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "fotka",
+    "gloss": "photo",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 108,
+    "sg": {
+      "nom": "fotka",
+      "gen": "fotky",
+      "dat": "fotke",
+      "acc": "fotku",
+      "loc": "fotke",
+      "ins": "fotkou"
+    },
+    "pl": {
+      "nom": "fotky",
+      "gen": "fotiek",
+      "dat": "fotkám",
+      "acc": "fotky",
+      "loc": "fotkách",
+      "ins": "fotkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "kráľ",
+    "gloss": "king; king",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 109,
+    "sg": {
+      "nom": "kráľ",
+      "gen": "kráľa",
+      "dat": "kráľovi",
+      "acc": "kráľa",
+      "loc": "kráľovi",
+      "ins": "kráľom"
+    },
+    "pl": {
+      "nom": "králi",
+      "gen": "kráľov",
+      "dat": "kráľom",
+      "acc": "kráľov",
+      "loc": "kráľoch",
+      "ins": "kráľmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vrah",
+    "gloss": "murderer",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 110,
+    "sg": {
+      "nom": "vrah",
+      "gen": "vraha",
+      "dat": "vrahovi",
+      "acc": "vraha",
+      "loc": "vrahovi",
+      "ins": "vrahom"
+    },
+    "pl": {
+      "nom": "vrahovia",
+      "gen": "vrahov",
+      "dat": "vrahom",
+      "acc": "vrahov",
+      "loc": "vrahoch",
+      "ins": "vrahmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "milión",
+    "gloss": "million",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 111,
+    "sg": {
+      "nom": "milión",
+      "gen": "milióna",
+      "dat": "miliónu",
+      "acc": "milión",
+      "loc": "milióne",
+      "ins": "miliónom"
+    },
+    "pl": {
+      "nom": "milióny",
+      "gen": "miliónov",
+      "dat": "miliónom",
+      "acc": "milióny",
+      "loc": "miliónoch",
+      "ins": "miliónmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "stop",
+    "gloss": "hitchhiking",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 112,
+    "sg": {
+      "nom": "stop",
+      "gen": "stopa",
+      "dat": "stopu",
+      "acc": "stop",
+      "loc": "stope",
+      "ins": "stopom"
+    },
+    "pl": {
+      "nom": "stopy",
+      "gen": "stopov",
+      "dat": "stopom",
+      "acc": "stopy",
+      "loc": "stopoch",
+      "ins": "stopmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "pokoj",
+    "gloss": "the state without movement or activity, rest; the state of peace and quiet; the state without emotional disturbance",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 113,
+    "sg": {
+      "nom": "pokoj",
+      "gen": "pokoja",
+      "dat": "pokoju",
+      "acc": "pokoj",
+      "loc": "pokoji",
+      "ins": "pokojom"
+    },
+    "pl": {
+      "nom": "pokoje",
+      "gen": "pokojov",
+      "dat": "pokojom",
+      "acc": "pokoje",
+      "loc": "pokojoch",
+      "ins": "pokojmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "osoba",
+    "gloss": "person; person",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 114,
+    "sg": {
+      "nom": "osoba",
+      "gen": "osoby",
+      "dat": "osobe",
+      "acc": "osobu",
+      "loc": "osobe",
+      "ins": "osobou"
+    },
+    "pl": {
+      "nom": "osoby",
+      "gen": "osôb",
+      "dat": "osobám",
+      "acc": "osoby",
+      "loc": "osobách",
+      "ins": "osobami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "priateľka",
+    "gloss": "friend; girlfriend",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 115,
+    "sg": {
+      "nom": "priateľka",
+      "gen": "priateľky",
+      "dat": "priateľke",
+      "acc": "priateľku",
+      "loc": "priateľke",
+      "ins": "priateľkou"
+    },
+    "pl": {
+      "nom": "priateľky",
+      "gen": "priateliek",
+      "dat": "priateľkám",
+      "acc": "priateľky",
+      "loc": "priateľkách",
+      "ins": "priateľkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "ulica",
+    "gloss": "street",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 116,
+    "sg": {
+      "nom": "ulica",
+      "gen": "ulice",
+      "dat": "ulici",
+      "acc": "ulicu",
+      "loc": "ulici",
+      "ins": "ulicou"
+    },
+    "pl": {
+      "nom": "ulice",
+      "gen": "ulíc",
+      "dat": "uliciam",
+      "acc": "ulice",
+      "loc": "uliciach",
+      "ins": "ulicami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "väčšina",
+    "gloss": "majority",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 117,
+    "sg": {
+      "nom": "väčšina",
+      "gen": "väčšiny",
+      "dat": "väčšine",
+      "acc": "väčšinu",
+      "loc": "väčšine",
+      "ins": "väčšinou"
+    },
+    "pl": {
+      "nom": "väčšiny",
+      "gen": "väčšín",
+      "dat": "väčšinám",
+      "acc": "väčšiny",
+      "loc": "väčšinách",
+      "ins": "väčšinami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "odpoveď",
+    "gloss": "answer; reply",
+    "gender": "f",
+    "pattern": "dlaň",
+    "freqRank": 118,
+    "sg": {
+      "nom": "odpoveď",
+      "gen": "odpovede",
+      "dat": "odpovedi",
+      "acc": "odpoveď",
+      "loc": "odpovedi",
+      "ins": "odpoveďou"
+    },
+    "pl": {
+      "nom": "odpovede",
+      "gen": "odpovedí",
+      "dat": "odpovediam",
+      "acc": "odpovede",
+      "loc": "odpovediach",
+      "ins": "odpoveďami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "skutočnosť",
+    "gloss": "fact; reality",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 119,
+    "sg": {
+      "nom": "skutočnosť",
+      "gen": "skutočnosti",
+      "dat": "skutočnosti",
+      "acc": "skutočnosť",
+      "loc": "skutočnosti",
+      "ins": "skutočnosťou"
+    },
+    "pl": {
+      "nom": "skutočnosti",
+      "gen": "skutočností",
+      "dat": "skutočnostiam",
+      "acc": "skutočnosti",
+      "loc": "skutočnostiach",
+      "ins": "skutočnosťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "chalan",
+    "gloss": "boy; lad; boyfriend",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 120,
+    "sg": {
+      "nom": "chalan",
+      "gen": "chalana",
+      "dat": "chalanovi",
+      "acc": "chalana",
+      "loc": "chalanovi",
+      "ins": "chalanom"
+    },
+    "pl": {
+      "nom": "chalani",
+      "gen": "chalanov",
+      "dat": "chalanom",
+      "acc": "chalanov",
+      "loc": "chalanoch",
+      "ins": "chalanmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "stretnutie",
+    "gloss": "meeting; match (sporting event)",
+    "gender": "n",
+    "pattern": "vysvedčenie",
+    "freqRank": 121,
+    "sg": {
+      "nom": "stretnutie",
+      "gen": "stretnutia",
+      "dat": "stretnutiu",
+      "acc": "stretnutie",
+      "loc": "stretnutí",
+      "ins": "stretnutím"
+    },
+    "pl": {
+      "nom": "stretnutia",
+      "gen": "stretnutí",
+      "dat": "stretnutiam",
+      "acc": "stretnutia",
+      "loc": "stretnutiach",
+      "ins": "stretnutiami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "kľúč",
+    "gloss": "key",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 122,
+    "sg": {
+      "nom": "kľúč",
+      "gen": "kľúča",
+      "dat": "kľúču",
+      "acc": "kľúč",
+      "loc": "kľúči",
+      "ins": "kľúčom"
+    },
+    "pl": {
+      "nom": "kľúče",
+      "gen": "kľúčov",
+      "dat": "kľúčom",
+      "acc": "kľúče",
+      "loc": "kľúčoch",
+      "ins": "kľúčmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vzťah",
+    "gloss": "relation (way in which two things may be associated)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 123,
+    "sg": {
+      "nom": "vzťah",
+      "gen": "vzťahu",
+      "dat": "vzťahu",
+      "acc": "vzťah",
+      "loc": "vzťahu",
+      "ins": "vzťahom"
+    },
+    "pl": {
+      "nom": "vzťahy",
+      "gen": "vzťahov",
+      "dat": "vzťahom",
+      "acc": "vzťahy",
+      "loc": "vzťahoch",
+      "ins": "vzťahmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "stôl",
+    "gloss": "table",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 124,
+    "sg": {
+      "nom": "stôl",
+      "gen": "stola",
+      "dat": "stolu",
+      "acc": "stôl",
+      "loc": "stole",
+      "ins": "stolom"
+    },
+    "pl": {
+      "nom": "stoly",
+      "gen": "stolov",
+      "dat": "stolom",
+      "acc": "stoly",
+      "loc": "stoloch",
+      "ins": "stolmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "situácia",
+    "gloss": "situation",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 125,
+    "sg": {
+      "nom": "situácia",
+      "gen": "situácie",
+      "dat": "situácii",
+      "acc": "situáciu",
+      "loc": "situácii",
+      "ins": "situáciou"
+    },
+    "pl": {
+      "nom": "situácie",
+      "gen": "situácií",
+      "dat": "situáciám",
+      "acc": "situácie",
+      "loc": "situáciách",
+      "ins": "situáciami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vlas",
+    "gloss": "a hair; thread",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 126,
+    "sg": {
+      "nom": "vlas",
+      "gen": "vlasu",
+      "dat": "vlasu",
+      "acc": "vlas",
+      "loc": "vlase",
+      "ins": "vlasom"
+    },
+    "pl": {
+      "nom": "vlasy",
+      "gen": "vlasov",
+      "dat": "vlasom",
+      "acc": "vlasy",
+      "loc": "vlasoch",
+      "ins": "vlasmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "lietadlo",
+    "gloss": "aeroplane, airplane, plane",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 127,
+    "sg": {
+      "nom": "lietadlo",
+      "gen": "lietadla",
+      "dat": "lietadlu",
+      "acc": "lietadlo",
+      "loc": "lietadle",
+      "ins": "lietadlom"
+    },
+    "pl": {
+      "nom": "lietadlá",
+      "gen": "lietadiel",
+      "dat": "lietadlám",
+      "acc": "lietadlá",
+      "loc": "lietadlách",
+      "ins": "lietadlami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "káva",
+    "gloss": "coffee",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 128,
+    "sg": {
+      "nom": "káva",
+      "gen": "kávy",
+      "dat": "káve",
+      "acc": "kávu",
+      "loc": "káve",
+      "ins": "kávou"
+    },
+    "pl": {
+      "nom": "kávy",
+      "gen": "káv",
+      "dat": "kávam",
+      "acc": "kávy",
+      "loc": "kávach",
+      "ins": "kávami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "mozog",
+    "gloss": "brain",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 129,
+    "sg": {
+      "nom": "mozog",
+      "gen": "mozgu",
+      "dat": "mozgu",
+      "acc": "mozog",
+      "loc": "mozgu",
+      "ins": "mozgom"
+    },
+    "pl": {
+      "nom": "mozgy",
+      "gen": "mozgov",
+      "dat": "mozgom",
+      "acc": "mozgy",
+      "loc": "mozgoch",
+      "ins": "mozgami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "bolesť",
+    "gloss": "pain",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 130,
+    "sg": {
+      "nom": "bolesť",
+      "gen": "bolesti",
+      "dat": "bolesti",
+      "acc": "bolesť",
+      "loc": "bolesti",
+      "ins": "bolesťou"
+    },
+    "pl": {
+      "nom": "bolesti",
+      "gen": "bolestí",
+      "dat": "bolestiam",
+      "acc": "bolesti",
+      "loc": "bolestiach",
+      "ins": "bolesťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "cena",
+    "gloss": "price; value (meaning of something); reward, prize",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 131,
+    "sg": {
+      "nom": "cena",
+      "gen": "ceny",
+      "dat": "cene",
+      "acc": "cenu",
+      "loc": "cene",
+      "ins": "cenou"
+    },
+    "pl": {
+      "nom": "ceny",
+      "gen": "cien",
+      "dat": "cenám",
+      "acc": "ceny",
+      "loc": "cenách",
+      "ins": "cenami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "začiatok",
+    "gloss": "beginning, start",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 132,
+    "sg": {
+      "nom": "začiatok",
+      "gen": "začiatku",
+      "dat": "začiatku",
+      "acc": "začiatok",
+      "loc": "začiatku",
+      "ins": "začiatkom"
+    },
+    "pl": {
+      "nom": "začiatky",
+      "gen": "začiatkov",
+      "dat": "začiatkom",
+      "acc": "začiatky",
+      "loc": "začiatkoch",
+      "ins": "začiatkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "blázon",
+    "gloss": "fool",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 133,
+    "sg": {
+      "nom": "blázon",
+      "gen": "blázna",
+      "dat": "bláznovi",
+      "acc": "blázna",
+      "loc": "bláznovi",
+      "ins": "bláznom"
+    },
+    "pl": {
+      "nom": "blázni",
+      "gen": "bláznov",
+      "dat": "bláznom",
+      "acc": "bláznov",
+      "loc": "bláznoch",
+      "ins": "bláznami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "budova",
+    "gloss": "building",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 134,
+    "sg": {
+      "nom": "budova",
+      "gen": "budovy",
+      "dat": "budove",
+      "acc": "budovu",
+      "loc": "budove",
+      "ins": "budovou"
+    },
+    "pl": {
+      "nom": "budovy",
+      "gen": "budov",
+      "dat": "budovám",
+      "acc": "budovy",
+      "loc": "budovách",
+      "ins": "budovami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "boj",
+    "gloss": "fight, battle, conflict; struggle, a great effort to achieve something",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 135,
+    "sg": {
+      "nom": "boj",
+      "gen": "boja",
+      "dat": "boju",
+      "acc": "boj",
+      "loc": "boji",
+      "ins": "bojom"
+    },
+    "pl": {
+      "nom": "boje",
+      "gen": "bojov",
+      "dat": "bojom",
+      "acc": "boje",
+      "loc": "bojoch",
+      "ins": "bojmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vojak",
+    "gloss": "soldier (member of an army)",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 136,
+    "sg": {
+      "nom": "vojak",
+      "gen": "vojaka",
+      "dat": "vojakovi",
+      "acc": "vojaka",
+      "loc": "vojakovi",
+      "ins": "vojakom"
+    },
+    "pl": {
+      "nom": "vojaci",
+      "gen": "vojakov",
+      "dat": "vojakom",
+      "acc": "vojakov",
+      "loc": "vojakoch",
+      "ins": "vojakmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "duša",
+    "gloss": "soul; spirit; inner tube of a tire/tyre",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 137,
+    "sg": {
+      "nom": "duša",
+      "gen": "duše",
+      "dat": "duši",
+      "acc": "dušu",
+      "loc": "duši",
+      "ins": "dušou"
+    },
+    "pl": {
+      "nom": "duše",
+      "gen": "duší",
+      "dat": "dušiam",
+      "acc": "duše",
+      "loc": "dušiach",
+      "ins": "dušami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "zviera",
+    "gloss": "animal, beast",
+    "gender": "n",
+    "pattern": "dievča",
+    "freqRank": 138,
+    "sg": {
+      "nom": "zviera",
+      "gen": "zvieraťa",
+      "dat": "zvieraťu",
+      "acc": "zviera",
+      "loc": "zvierati",
+      "ins": "zvieraťom"
+    },
+    "pl": {
+      "nom": "zvieratá",
+      "gen": "zvierat",
+      "dat": "zvieratám",
+      "acc": "zvieratá",
+      "loc": "zvieratách",
+      "ins": "zvieratami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "list",
+    "gloss": "letter (a written message); leaf (a part of a tree); sheet (a piece of paper)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 139,
+    "sg": {
+      "nom": "list",
+      "gen": "listu",
+      "dat": "listu",
+      "acc": "list",
+      "loc": "liste",
+      "ins": "listom"
+    },
+    "pl": {
+      "nom": "listy",
+      "gen": "listov",
+      "dat": "listom",
+      "acc": "listy",
+      "loc": "listoch",
+      "ins": "listmi"
+    },
+    "alt": {
+      "gen_s": [
+        "lista"
+      ]
+    }
+  },
+  {
+    "word": "kamera",
+    "gloss": "camera",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 140,
+    "sg": {
+      "nom": "kamera",
+      "gen": "kamery",
+      "dat": "kamere",
+      "acc": "kameru",
+      "loc": "kamere",
+      "ins": "kamerou"
+    },
+    "pl": {
+      "nom": "kamery",
+      "gen": "kamier",
+      "dat": "kamerám",
+      "acc": "kamery",
+      "loc": "kamerách",
+      "ins": "kamerami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hlas",
+    "gloss": "voice; vote",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 141,
+    "sg": {
+      "nom": "hlas",
+      "gen": "hlasu",
+      "dat": "hlasu",
+      "acc": "hlas",
+      "loc": "hlase",
+      "ins": "hlasom"
+    },
+    "pl": {
+      "nom": "hlasy",
+      "gen": "hlasov",
+      "dat": "hlasom",
+      "acc": "hlasy",
+      "loc": "hlasoch",
+      "ins": "hlasmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "huba",
+    "gloss": "mushroom",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 142,
+    "sg": {
+      "nom": "huba",
+      "gen": "huby",
+      "dat": "hube",
+      "acc": "hubu",
+      "loc": "hube",
+      "ins": "hubou"
+    },
+    "pl": {
+      "nom": "huby",
+      "gen": "húb",
+      "dat": "hubám",
+      "acc": "huby",
+      "loc": "hubách",
+      "ins": "hubami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "cieľ",
+    "gloss": "goal",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 143,
+    "sg": {
+      "nom": "cieľ",
+      "gen": "cieľa",
+      "dat": "cieľu",
+      "acc": "cieľ",
+      "loc": "cieli",
+      "ins": "cieľom"
+    },
+    "pl": {
+      "nom": "ciele",
+      "gen": "cieľov",
+      "dat": "cieľom",
+      "acc": "ciele",
+      "loc": "cieľoch",
+      "ins": "cieľmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "tajomstvo",
+    "gloss": "secret",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 144,
+    "sg": {
+      "nom": "tajomstvo",
+      "gen": "tajomstva",
+      "dat": "tajomstvu",
+      "acc": "tajomstvo",
+      "loc": "tajomstve",
+      "ins": "tajomstvom"
+    },
+    "pl": {
+      "nom": "tajomstvá",
+      "gen": "tajomstiev",
+      "dat": "tajomstvám",
+      "acc": "tajomstvá",
+      "loc": "tajomstvách",
+      "ins": "tajomstvami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "služba",
+    "gloss": "service",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 145,
+    "sg": {
+      "nom": "služba",
+      "gen": "služby",
+      "dat": "službe",
+      "acc": "službu",
+      "loc": "službe",
+      "ins": "službou"
+    },
+    "pl": {
+      "nom": "služby",
+      "gen": "služieb",
+      "dat": "službám",
+      "acc": "služby",
+      "loc": "službách",
+      "ins": "službami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "prezident",
+    "gloss": "president",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 146,
+    "sg": {
+      "nom": "prezident",
+      "gen": "prezidenta",
+      "dat": "prezidentovi",
+      "acc": "prezidenta",
+      "loc": "prezidentovi",
+      "ins": "prezidentom"
+    },
+    "pl": {
+      "nom": "prezidenti",
+      "gen": "prezidentov",
+      "dat": "prezidentom",
+      "acc": "prezidentov",
+      "loc": "prezidentoch",
+      "ins": "prezidentmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "zoznam",
+    "gloss": "list (register of items, also in computing)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 147,
+    "sg": {
+      "nom": "zoznam",
+      "gen": "zoznamu",
+      "dat": "zoznamu",
+      "acc": "zoznam",
+      "loc": "zozname",
+      "ins": "zoznamom"
+    },
+    "pl": {
+      "nom": "zoznamy",
+      "gen": "zoznamov",
+      "dat": "zoznamom",
+      "acc": "zoznamy",
+      "loc": "zoznamoch",
+      "ins": "zoznamami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "miestnosť",
+    "gloss": "room",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 148,
+    "sg": {
+      "nom": "miestnosť",
+      "gen": "miestnosti",
+      "dat": "miestnosti",
+      "acc": "miestnosť",
+      "loc": "miestnosti",
+      "ins": "miestnosťou"
+    },
+    "pl": {
+      "nom": "miestnosti",
+      "gen": "miestností",
+      "dat": "miestnostiam",
+      "acc": "miestnosti",
+      "loc": "miestnostiach",
+      "ins": "miestnosťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "idiot",
+    "gloss": "idiot",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 149,
+    "sg": {
+      "nom": "idiot",
+      "gen": "idiota",
+      "dat": "idiotovi",
+      "acc": "idiota",
+      "loc": "idiotovi",
+      "ins": "idiotom"
+    },
+    "pl": {
+      "nom": "idioti",
+      "gen": "idiotov",
+      "dat": "idiotom",
+      "acc": "idiotov",
+      "loc": "idiotoch",
+      "ins": "idiotmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "um",
+    "gloss": "mind; intellect; wit",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 150,
+    "sg": {
+      "nom": "um",
+      "gen": "umu",
+      "dat": "umu",
+      "acc": "um",
+      "loc": "ume",
+      "ins": "umom"
+    },
+    "pl": {
+      "nom": "umy",
+      "gen": "umov",
+      "dat": "umom",
+      "acc": "umy",
+      "loc": "umoch",
+      "ins": "umami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "baba",
+    "gloss": "old woman; girl; midwife",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 151,
+    "sg": {
+      "nom": "baba",
+      "gen": "baby",
+      "dat": "babe",
+      "acc": "babu",
+      "loc": "babe",
+      "ins": "babou"
+    },
+    "pl": {
+      "nom": "baby",
+      "gen": "báb",
+      "dat": "babám",
+      "acc": "baby",
+      "loc": "babách",
+      "ins": "babami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "pôjd",
+    "gloss": "attic, loft, garret",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 152,
+    "sg": {
+      "nom": "pôjd",
+      "gen": "pôjda",
+      "dat": "pôjdu",
+      "acc": "pôjd",
+      "loc": "pôjde",
+      "ins": "pôjdom"
+    },
+    "pl": {
+      "nom": "pôjdy",
+      "gen": "pôjdov",
+      "dat": "pôjdom",
+      "acc": "pôjdy",
+      "loc": "pôjdoch",
+      "ins": "pôjdmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "kôň",
+    "gloss": "horse",
+    "gender": "m-anim",
+    "pattern": "chlap",
+    "freqRank": 153,
+    "sg": {
+      "nom": "kôň",
+      "gen": "koňa",
+      "dat": "koňovi",
+      "acc": "koňa",
+      "loc": "koňovi",
+      "ins": "koňom"
+    },
+    "pl": {
+      "nom": "kone",
+      "gen": "koní",
+      "dat": "koňom",
+      "acc": "kone",
+      "loc": "koňoch",
+      "ins": "koňmi"
+    },
+    "alt": {
+      "loc_s": [
+        "koni"
+      ]
+    }
+  },
+  {
+    "word": "hviezda",
+    "gloss": "star",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 154,
+    "sg": {
+      "nom": "hviezda",
+      "gen": "hviezdy",
+      "dat": "hviezde",
+      "acc": "hviezdu",
+      "loc": "hviezde",
+      "ins": "hviezdou"
+    },
+    "pl": {
+      "nom": "hviezdy",
+      "gen": "hviezd",
+      "dat": "hviezdam",
+      "acc": "hviezdy",
+      "loc": "hviezdach",
+      "ins": "hviezdami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "planéta",
+    "gloss": "planet",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 155,
+    "sg": {
+      "nom": "planéta",
+      "gen": "planéty",
+      "dat": "planéte",
+      "acc": "planétu",
+      "loc": "planéte",
+      "ins": "planétou"
+    },
+    "pl": {
+      "nom": "planéty",
+      "gen": "planét",
+      "dat": "planétam",
+      "acc": "planéty",
+      "loc": "planétach",
+      "ins": "planétami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "súd",
+    "gloss": "court (of law); judgment",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 156,
+    "sg": {
+      "nom": "súd",
+      "gen": "súdu",
+      "dat": "súdu",
+      "acc": "súd",
+      "loc": "súde",
+      "ins": "súdom"
+    },
+    "pl": {
+      "nom": "súdy",
+      "gen": "súdov",
+      "dat": "súdom",
+      "acc": "súdy",
+      "loc": "súdoch",
+      "ins": "súdmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "bezpečie",
+    "gloss": "shelter (a safe place); safety (state of being safe)",
+    "gender": "n",
+    "pattern": "vysvedčenie",
+    "freqRank": 157,
+    "sg": {
+      "nom": "bezpečie",
+      "gen": "bezpečia",
+      "dat": "bezpečiu",
+      "acc": "bezpečie",
+      "loc": "bezpečí",
+      "ins": "bezpečím"
+    },
+    "pl": {
+      "nom": "bezpečia",
+      "gen": "bezpečí",
+      "dat": "bezpečiam",
+      "acc": "bezpečia",
+      "loc": "bezpečiach",
+      "ins": "bezpečiami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "okno",
+    "gloss": "window (opening, usually covered by one or more panes of clear glass, to allow light and air from outside to enter a building)",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 158,
+    "sg": {
+      "nom": "okno",
+      "gen": "okna",
+      "dat": "oknu",
+      "acc": "okno",
+      "loc": "okne",
+      "ins": "oknom"
+    },
+    "pl": {
+      "nom": "okná",
+      "gen": "okien",
+      "dat": "oknám",
+      "acc": "okná",
+      "loc": "oknách",
+      "ins": "oknami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "krok",
+    "gloss": "step, pace (motion taken while walking); step, pace (distance covered by such an action); step; deed, action",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 159,
+    "sg": {
+      "nom": "krok",
+      "gen": "kroka",
+      "dat": "kroku",
+      "acc": "krok",
+      "loc": "kroku",
+      "ins": "krokom"
+    },
+    "pl": {
+      "nom": "kroky",
+      "gen": "krokov",
+      "dat": "krokom",
+      "acc": "kroky",
+      "loc": "krokoch",
+      "ins": "krokmi"
+    },
+    "alt": {
+      "gen_s": [
+        "kroku"
+      ]
+    }
+  },
+  {
+    "word": "svadba",
+    "gloss": "wedding; marriage",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 160,
+    "sg": {
+      "nom": "svadba",
+      "gen": "svadby",
+      "dat": "svadbe",
+      "acc": "svadbu",
+      "loc": "svadbe",
+      "ins": "svadbou"
+    },
+    "pl": {
+      "nom": "svadby",
+      "gen": "svadieb",
+      "dat": "svadbám",
+      "acc": "svadby",
+      "loc": "svadbách",
+      "ins": "svadbami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "rozhodnutie",
+    "gloss": "decision",
+    "gender": "n",
+    "pattern": "vysvedčenie",
+    "freqRank": 161,
+    "sg": {
+      "nom": "rozhodnutie",
+      "gen": "rozhodnutia",
+      "dat": "rozhodnutiu",
+      "acc": "rozhodnutie",
+      "loc": "rozhodnutí",
+      "ins": "rozhodnutím"
+    },
+    "pl": {
+      "nom": "rozhodnutia",
+      "gen": "rozhodnutí",
+      "dat": "rozhodnutiam",
+      "acc": "rozhodnutia",
+      "loc": "rozhodnutiach",
+      "ins": "rozhodnutiami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hudba",
+    "gloss": "music",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 162,
+    "sg": {
+      "nom": "hudba",
+      "gen": "hudby",
+      "dat": "hudbe",
+      "acc": "hudbu",
+      "loc": "hudbe",
+      "ins": "hudbou"
+    },
+    "pl": {
+      "nom": "hudby",
+      "gen": "hudieb",
+      "dat": "hudbám",
+      "acc": "hudby",
+      "loc": "hudbách",
+      "ins": "hudbami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "stav",
+    "gloss": "state, condition, status (the set of characteristics or circumstances defining someone or something at a specific time); marital status, status (the legal standing of a man or woman regarding marriage); level, count, amount, figure (data regarding the quantity or quality of something at a given time)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 163,
+    "sg": {
+      "nom": "stav",
+      "gen": "stavu",
+      "dat": "stavu",
+      "acc": "stav",
+      "loc": "stave",
+      "ins": "stavom"
+    },
+    "pl": {
+      "nom": "stavy",
+      "gen": "stavov",
+      "dat": "stavom",
+      "acc": "stavy",
+      "loc": "stavoch",
+      "ins": "stavmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hotel",
+    "gloss": "hotel",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 164,
+    "sg": {
+      "nom": "hotel",
+      "gen": "hotela",
+      "dat": "hotelu",
+      "acc": "hotel",
+      "loc": "hoteli",
+      "ins": "hotelom"
+    },
+    "pl": {
+      "nom": "hotely",
+      "gen": "hotelov",
+      "dat": "hotelom",
+      "acc": "hotely",
+      "loc": "hoteloch",
+      "ins": "hotelmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "názor",
+    "gloss": "opinion, view",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 165,
+    "sg": {
+      "nom": "názor",
+      "gen": "názoru",
+      "dat": "názoru",
+      "acc": "názor",
+      "loc": "názore",
+      "ins": "názorom"
+    },
+    "pl": {
+      "nom": "názory",
+      "gen": "názorov",
+      "dat": "názorom",
+      "acc": "názory",
+      "loc": "názoroch",
+      "ins": "názormi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "prst",
+    "gloss": "finger; toe",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 166,
+    "sg": {
+      "nom": "prst",
+      "gen": "prsta",
+      "dat": "prstu",
+      "acc": "prst",
+      "loc": "prste",
+      "ins": "prstom"
+    },
+    "pl": {
+      "nom": "prsty",
+      "gen": "prstov",
+      "dat": "prstom",
+      "acc": "prsty",
+      "loc": "prstoch",
+      "ins": "prstami"
+    },
+    "alt": {
+      "ins_p": [
+        "prstmi"
+      ]
+    }
+  },
+  {
+    "word": "zmena",
+    "gloss": "change; shift",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 167,
+    "sg": {
+      "nom": "zmena",
+      "gen": "zmeny",
+      "dat": "zmene",
+      "acc": "zmenu",
+      "loc": "zmene",
+      "ins": "zmenou"
+    },
+    "pl": {
+      "nom": "zmeny",
+      "gen": "zmien",
+      "dat": "zmenám",
+      "acc": "zmeny",
+      "loc": "zmenách",
+      "ins": "zmenami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "záujem",
+    "gloss": "interest",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 168,
+    "sg": {
+      "nom": "záujem",
+      "gen": "záujmu",
+      "dat": "záujmu",
+      "acc": "záujem",
+      "loc": "záujme",
+      "ins": "záujmom"
+    },
+    "pl": {
+      "nom": "záujmy",
+      "gen": "záujmov",
+      "dat": "záujmom",
+      "acc": "záujmy",
+      "loc": "záujmoch",
+      "ins": "záujmami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "zvyšok",
+    "gloss": "rest, remainder",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 169,
+    "sg": {
+      "nom": "zvyšok",
+      "gen": "zvyšku",
+      "dat": "zvyšku",
+      "acc": "zvyšok",
+      "loc": "zvyšku",
+      "ins": "zvyškom"
+    },
+    "pl": {
+      "nom": "zvyšky",
+      "gen": "zvyškov",
+      "dat": "zvyškom",
+      "acc": "zvyšky",
+      "loc": "zvyškoch",
+      "ins": "zvyškami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vláda",
+    "gloss": "government (political body); rule, reign (political authority exercised by a governing body); rule, control (dominant influence or supremacy over others)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 170,
+    "sg": {
+      "nom": "vláda",
+      "gen": "vlády",
+      "dat": "vláde",
+      "acc": "vládu",
+      "loc": "vláde",
+      "ins": "vládou"
+    },
+    "pl": {
+      "nom": "vlády",
+      "gen": "vlád",
+      "dat": "vládam",
+      "acc": "vlády",
+      "loc": "vládach",
+      "ins": "vládami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "nehoda",
+    "gloss": "accident, mishap",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 171,
+    "sg": {
+      "nom": "nehoda",
+      "gen": "nehody",
+      "dat": "nehode",
+      "acc": "nehodu",
+      "loc": "nehode",
+      "ins": "nehodou"
+    },
+    "pl": {
+      "nom": "nehody",
+      "gen": "nehôd",
+      "dat": "nehodám",
+      "acc": "nehody",
+      "loc": "nehodách",
+      "ins": "nehodami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "tisíc",
+    "gloss": "thousand",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 172,
+    "sg": {
+      "nom": "tisíc",
+      "gen": "tisíca",
+      "dat": "tisícu",
+      "acc": "tisíc",
+      "loc": "tisíci",
+      "ins": "tisícom"
+    },
+    "pl": {
+      "nom": "tisíce",
+      "gen": "tisícov",
+      "dat": "tisícom",
+      "acc": "tisíce",
+      "loc": "tisícoch",
+      "ins": "tisícmi"
+    },
+    "alt": {
+      "ins_p": [
+        "tisícami"
+      ]
+    }
+  },
+  {
+    "word": "obed",
+    "gloss": "lunch",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 173,
+    "sg": {
+      "nom": "obed",
+      "gen": "obeda",
+      "dat": "obedu",
+      "acc": "obed",
+      "loc": "obede",
+      "ins": "obedom"
+    },
+    "pl": {
+      "nom": "obedy",
+      "gen": "obedov",
+      "dat": "obedom",
+      "acc": "obedy",
+      "loc": "obedoch",
+      "ins": "obedmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "manželka",
+    "gloss": "wife",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 174,
+    "sg": {
+      "nom": "manželka",
+      "gen": "manželky",
+      "dat": "manželke",
+      "acc": "manželku",
+      "loc": "manželke",
+      "ins": "manželkou"
+    },
+    "pl": {
+      "nom": "manželky",
+      "gen": "manželiek",
+      "dat": "manželkám",
+      "acc": "manželky",
+      "loc": "manželkách",
+      "ins": "manželkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "chrbát",
+    "gloss": "back (the back part of the human body from the shoulder blades to the pelvis); back (the upper part of an animal's body); ridge (elongated convex terrain with a rounded top part)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 175,
+    "sg": {
+      "nom": "chrbát",
+      "gen": "chrbta",
+      "dat": "chrbtu",
+      "acc": "chrbát",
+      "loc": "chrbte",
+      "ins": "chrbtom"
+    },
+    "pl": {
+      "nom": "chrbty",
+      "gen": "chrbtov",
+      "dat": "chrbtom",
+      "acc": "chrbty",
+      "loc": "chrbtoch",
+      "ins": "chrbtami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "myšlienka",
+    "gloss": "thought; idea",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 176,
+    "sg": {
+      "nom": "myšlienka",
+      "gen": "myšlienky",
+      "dat": "myšlienke",
+      "acc": "myšlienku",
+      "loc": "myšlienke",
+      "ins": "myšlienkou"
+    },
+    "pl": {
+      "nom": "myšlienky",
+      "gen": "myšlienok",
+      "dat": "myšlienkam",
+      "acc": "myšlienky",
+      "loc": "myšlienkach",
+      "ins": "myšlienkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "strýko",
+    "gloss": "paternal uncle; uncle of any familial relation",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 177,
+    "sg": {
+      "nom": "strýko",
+      "gen": "strýka",
+      "dat": "strýkovi",
+      "acc": "strýka",
+      "loc": "strýkovi",
+      "ins": "strýkom"
+    },
+    "pl": {
+      "nom": "strýkovia",
+      "gen": "strýkov",
+      "dat": "strýkom",
+      "acc": "strýkov",
+      "loc": "strýkoch",
+      "ins": "strýkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "schopnosť",
+    "gloss": "skill, ability",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 178,
+    "sg": {
+      "nom": "schopnosť",
+      "gen": "schopnosti",
+      "dat": "schopnosti",
+      "acc": "schopnosť",
+      "loc": "schopnosti",
+      "ins": "schopnosťou"
+    },
+    "pl": {
+      "nom": "schopnosti",
+      "gen": "schopností",
+      "dat": "schopnostiam",
+      "acc": "schopnosti",
+      "loc": "schopnostiach",
+      "ins": "schopnosťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "nepriateľ",
+    "gloss": "enemy (one who does not harbor and show friendship toward someone); military adversary (one who behaves offensively in order to gain superiority over someone, to subdue someone, or one who takes military or armed action against someone)",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 179,
+    "sg": {
+      "nom": "nepriateľ",
+      "gen": "nepriateľa",
+      "dat": "nepriateľovi",
+      "acc": "nepriateľa",
+      "loc": "nepriateľovi",
+      "ins": "nepriateľom"
+    },
+    "pl": {
+      "nom": "nepriatelia",
+      "gen": "nepriateľov",
+      "dat": "nepriateľom",
+      "acc": "nepriateľov",
+      "loc": "nepriateľoch",
+      "ins": "nepriateľmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "more",
+    "gloss": "a body of salt water, sea; a huge amount, plenty (+genitive)",
+    "gender": "n",
+    "pattern": "srdce",
+    "freqRank": 180,
+    "sg": {
+      "nom": "more",
+      "gen": "mora",
+      "dat": "moru",
+      "acc": "more",
+      "loc": "mori",
+      "ins": "morom"
+    },
+    "pl": {
+      "nom": "moria",
+      "gen": "morí",
+      "dat": "moriam",
+      "acc": "moria",
+      "loc": "moriach",
+      "ins": "morami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "chvíľka",
+    "gloss": "diminutive of chvíľa",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 181,
+    "sg": {
+      "nom": "chvíľka",
+      "gen": "chvíľky",
+      "dat": "chvíľke",
+      "acc": "chvíľku",
+      "loc": "chvíľke",
+      "ins": "chvíľkou"
+    },
+    "pl": {
+      "nom": "chvíľky",
+      "gen": "chvíľok",
+      "dat": "chvíľkam",
+      "acc": "chvíľky",
+      "loc": "chvíľkach",
+      "ins": "chvíľkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "dátum",
+    "gloss": "date",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 182,
+    "sg": {
+      "nom": "dátum",
+      "gen": "dátumu",
+      "dat": "dátumu",
+      "acc": "dátum",
+      "loc": "dátume",
+      "ins": "dátumom"
+    },
+    "pl": {
+      "nom": "dátumy",
+      "gen": "dátumov",
+      "dat": "dátumom",
+      "acc": "dátumy",
+      "loc": "dátumoch",
+      "ins": "dátumami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "nebo",
+    "gloss": "sky; heaven",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 183,
+    "sg": {
+      "nom": "nebo",
+      "gen": "neba",
+      "dat": "nebu",
+      "acc": "nebo",
+      "loc": "nebi",
+      "ins": "nebom"
+    },
+    "pl": {
+      "nom": "nebesá",
+      "gen": "nebies",
+      "dat": "nebesám",
+      "acc": "nebesá",
+      "loc": "nebesách",
+      "ins": "nebesami"
+    },
+    "alt": {
+      "nom_p": [
+        "nebesia"
+      ],
+      "dat_p": [
+        "nebesiam"
+      ],
+      "acc_p": [
+        "nebesia"
+      ],
+      "loc_p": [
+        "nebesiach"
+      ]
+    }
+  },
+  {
+    "word": "stena",
+    "gloss": "wall",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 184,
+    "sg": {
+      "nom": "stena",
+      "gen": "steny",
+      "dat": "stene",
+      "acc": "stenu",
+      "loc": "stene",
+      "ins": "stenou"
+    },
+    "pl": {
+      "nom": "steny",
+      "gen": "stien",
+      "dat": "stenám",
+      "acc": "steny",
+      "loc": "stenách",
+      "ins": "stenami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "štát",
+    "gloss": "state (sovereign polity)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 185,
+    "sg": {
+      "nom": "štát",
+      "gen": "štátu",
+      "dat": "štátu",
+      "acc": "štát",
+      "loc": "štáte",
+      "ins": "štátom"
+    },
+    "pl": {
+      "nom": "štáty",
+      "gen": "štátov",
+      "dat": "štátom",
+      "acc": "štáty",
+      "loc": "štátoch",
+      "ins": "štátmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "smer",
+    "gloss": "direction (the intended line of movement toward a place or object); orientation, focus (the intended aim, focus, or trajectory of something developing); trend, school (a set of principles, views, or style prevailing at a certain time)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 186,
+    "sg": {
+      "nom": "smer",
+      "gen": "smeru",
+      "dat": "smeru",
+      "acc": "smer",
+      "loc": "smere",
+      "ins": "smerom"
+    },
+    "pl": {
+      "nom": "smery",
+      "gen": "smerov",
+      "dat": "smerom",
+      "acc": "smery",
+      "loc": "smeroch",
+      "ins": "smermi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "slnko",
+    "gloss": "sun",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 187,
+    "sg": {
+      "nom": "slnko",
+      "gen": "slnka",
+      "dat": "slnku",
+      "acc": "slnko",
+      "loc": "slnku",
+      "ins": "slnkom"
+    },
+    "pl": {
+      "nom": "slnká",
+      "gen": "sĺnk",
+      "dat": "slnkám",
+      "acc": "slnká",
+      "loc": "slnkách",
+      "ins": "slnkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "pivo",
+    "gloss": "beer",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 188,
+    "sg": {
+      "nom": "pivo",
+      "gen": "piva",
+      "dat": "pivu",
+      "acc": "pivo",
+      "loc": "pive",
+      "ins": "pivom"
+    },
+    "pl": {
+      "nom": "pivá",
+      "gen": "pív",
+      "dat": "pivám",
+      "acc": "pivá",
+      "loc": "pivách",
+      "ins": "pivami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "sračka",
+    "gloss": "diarrhea",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 189,
+    "sg": {
+      "nom": "sračka",
+      "gen": "sračky",
+      "dat": "sračke",
+      "acc": "sračku",
+      "loc": "sračke",
+      "ins": "sračkou"
+    },
+    "pl": {
+      "nom": "sračky",
+      "gen": "sračiek",
+      "dat": "sračkám",
+      "acc": "sračky",
+      "loc": "sračkách",
+      "ins": "sračkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "strom",
+    "gloss": "tree",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 190,
+    "sg": {
+      "nom": "strom",
+      "gen": "stromu",
+      "dat": "stromu",
+      "acc": "strom",
+      "loc": "strome",
+      "ins": "stromom"
+    },
+    "pl": {
+      "nom": "stromy",
+      "gen": "stromov",
+      "dat": "stromom",
+      "acc": "stromy",
+      "loc": "stromoch",
+      "ins": "stromami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hovno",
+    "gloss": "shit, turd (solid excretory product)",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 191,
+    "sg": {
+      "nom": "hovno",
+      "gen": "hovna",
+      "dat": "hovnu",
+      "acc": "hovno",
+      "loc": "hovne",
+      "ins": "hovnom"
+    },
+    "pl": {
+      "nom": "hovná",
+      "gen": "hovien",
+      "dat": "hovnám",
+      "acc": "hovná",
+      "loc": "hovnách",
+      "ins": "hovnami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vek",
+    "gloss": "ages, eternity (a very long period of time); age, lifetime (a specific period or duration of human, animal, or plant life calculated in years); life, lifetime",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 192,
+    "sg": {
+      "nom": "vek",
+      "gen": "veku",
+      "dat": "veku",
+      "acc": "vek",
+      "loc": "veku",
+      "ins": "vekom"
+    },
+    "pl": {
+      "nom": "veky",
+      "gen": "vekov",
+      "dat": "vekom",
+      "acc": "veky",
+      "loc": "vekoch",
+      "ins": "vekmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "výber",
+    "gloss": "selection (process or act); choice; withdrawal (taking out money from an account)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 193,
+    "sg": {
+      "nom": "výber",
+      "gen": "výberu",
+      "dat": "výberu",
+      "acc": "výber",
+      "loc": "výbere",
+      "ins": "výberom"
+    },
+    "pl": {
+      "nom": "výbery",
+      "gen": "výberov",
+      "dat": "výberom",
+      "acc": "výbery",
+      "loc": "výberoch",
+      "ins": "výbermi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "pohľad",
+    "gloss": "look",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 194,
+    "sg": {
+      "nom": "pohľad",
+      "gen": "pohľadu",
+      "dat": "pohľadu",
+      "acc": "pohľad",
+      "loc": "pohľade",
+      "ins": "pohľadom"
+    },
+    "pl": {
+      "nom": "pohľady",
+      "gen": "pohľadov",
+      "dat": "pohľadom",
+      "acc": "pohľady",
+      "loc": "pohľadoch",
+      "ins": "pohľadmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "bomba",
+    "gloss": "bomb (explosive)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 195,
+    "sg": {
+      "nom": "bomba",
+      "gen": "bomby",
+      "dat": "bombe",
+      "acc": "bombu",
+      "loc": "bombe",
+      "ins": "bombou"
+    },
+    "pl": {
+      "nom": "bomby",
+      "gen": "bômb",
+      "dat": "bombám",
+      "acc": "bomby",
+      "loc": "bombách",
+      "ins": "bombami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "topánka",
+    "gloss": "shoe (an item of footwear intended to protect and comfort the human foot, typically covering it up to the ankle)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 196,
+    "sg": {
+      "nom": "topánka",
+      "gen": "topánky",
+      "dat": "topánke",
+      "acc": "topánku",
+      "loc": "topánke",
+      "ins": "topánkou"
+    },
+    "pl": {
+      "nom": "topánky",
+      "gen": "topánok",
+      "dat": "topánkam",
+      "acc": "topánky",
+      "loc": "topánkach",
+      "ins": "topánkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "oheň",
+    "gloss": "fire; conflagration",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 197,
+    "sg": {
+      "nom": "oheň",
+      "gen": "ohňa",
+      "dat": "ohňu",
+      "acc": "oheň",
+      "loc": "ohni",
+      "ins": "ohňom"
+    },
+    "pl": {
+      "nom": "ohne",
+      "gen": "ohňov",
+      "dat": "ohňom",
+      "acc": "ohne",
+      "loc": "ohňoch",
+      "ins": "ohňami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "čin",
+    "gloss": "action, act, deed",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 198,
+    "sg": {
+      "nom": "čin",
+      "gen": "činu",
+      "dat": "činu",
+      "acc": "čin",
+      "loc": "čine",
+      "ins": "činom"
+    },
+    "pl": {
+      "nom": "činy",
+      "gen": "činov",
+      "dat": "činom",
+      "acc": "činy",
+      "loc": "činoch",
+      "ins": "činmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "oblasť",
+    "gloss": "area",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 199,
+    "sg": {
+      "nom": "oblasť",
+      "gen": "oblasti",
+      "dat": "oblasti",
+      "acc": "oblasť",
+      "loc": "oblasti",
+      "ins": "oblasťou"
+    },
+    "pl": {
+      "nom": "oblasti",
+      "gen": "oblastí",
+      "dat": "oblastiam",
+      "acc": "oblasti",
+      "loc": "oblastiach",
+      "ins": "oblasťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hrdina",
+    "gloss": "hero",
+    "gender": "m-pers",
+    "pattern": "hrdina",
+    "freqRank": 200,
+    "sg": {
+      "nom": "hrdina",
+      "gen": "hrdinu",
+      "dat": "hrdinovi",
+      "acc": "hrdinu",
+      "loc": "hrdinovi",
+      "ins": "hrdinom"
+    },
+    "pl": {
+      "nom": "hrdinovia",
+      "gen": "hrdinov",
+      "dat": "hrdinom",
+      "acc": "hrdinov",
+      "loc": "hrdinoch",
+      "ins": "hrdinami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "súčasť",
+    "gloss": "part, component, constituent",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 201,
+    "sg": {
+      "nom": "súčasť",
+      "gen": "súčasti",
+      "dat": "súčasti",
+      "acc": "súčasť",
+      "loc": "súčasti",
+      "ins": "súčasťou"
+    },
+    "pl": {
+      "nom": "súčasti",
+      "gen": "súčastí",
+      "dat": "súčastiam",
+      "acc": "súčasti",
+      "loc": "súčastiach",
+      "ins": "súčasťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vták",
+    "gloss": "bird",
+    "gender": "m-anim",
+    "pattern": "chlap",
+    "freqRank": 202,
+    "sg": {
+      "nom": "vták",
+      "gen": "vtáka",
+      "dat": "vtákovi",
+      "acc": "vtáka",
+      "loc": "vtákovi",
+      "ins": "vtákom"
+    },
+    "pl": {
+      "nom": "vtáci",
+      "gen": "vtákov",
+      "dat": "vtákom",
+      "acc": "vtákov",
+      "loc": "vtákoch",
+      "ins": "vtákmi"
+    },
+    "alt": {
+      "nom_p": [
+        "vtáky"
+      ],
+      "acc_p": [
+        "vtáky"
+      ]
+    }
+  },
+  {
+    "word": "program",
+    "gloss": "program (set of structured activities); program (computer program)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 203,
+    "sg": {
+      "nom": "program",
+      "gen": "programu",
+      "dat": "programu",
+      "acc": "program",
+      "loc": "programe",
+      "ins": "programom"
+    },
+    "pl": {
+      "nom": "programy",
+      "gen": "programov",
+      "dat": "programom",
+      "acc": "programy",
+      "loc": "programoch",
+      "ins": "programami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "veliteľ",
+    "gloss": "commander",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 204,
+    "sg": {
+      "nom": "veliteľ",
+      "gen": "veliteľa",
+      "dat": "veliteľovi",
+      "acc": "veliteľa",
+      "loc": "veliteľovi",
+      "ins": "veliteľom"
+    },
+    "pl": {
+      "nom": "velitelia",
+      "gen": "veliteľov",
+      "dat": "veliteľom",
+      "acc": "veliteľov",
+      "loc": "veliteľoch",
+      "ins": "veliteľmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "tona",
+    "gloss": "ton",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 205,
+    "sg": {
+      "nom": "tona",
+      "gen": "tony",
+      "dat": "tone",
+      "acc": "tonu",
+      "loc": "tone",
+      "ins": "tonou"
+    },
+    "pl": {
+      "nom": "tony",
+      "gen": "ton",
+      "dat": "tonám",
+      "acc": "tony",
+      "loc": "tonách",
+      "ins": "tonami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "škoda",
+    "gloss": "pity, shame; waste",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 206,
+    "sg": {
+      "nom": "škoda",
+      "gen": "škody",
+      "dat": "škode",
+      "acc": "škodu",
+      "loc": "škode",
+      "ins": "škodou"
+    },
+    "pl": {
+      "nom": "škody",
+      "gen": "škôd",
+      "dat": "škodám",
+      "acc": "škody",
+      "loc": "škodách",
+      "ins": "škodami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "les",
+    "gloss": "forest, woods",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 207,
+    "sg": {
+      "nom": "les",
+      "gen": "lesa",
+      "dat": "lesu",
+      "acc": "les",
+      "loc": "lese",
+      "ins": "lesom"
+    },
+    "pl": {
+      "nom": "lesy",
+      "gen": "lesov",
+      "dat": "lesom",
+      "acc": "lesy",
+      "loc": "lesoch",
+      "ins": "lesmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "kus",
+    "gloss": "piece",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 208,
+    "sg": {
+      "nom": "kus",
+      "gen": "kusa",
+      "dat": "kusu",
+      "acc": "kus",
+      "loc": "kuse",
+      "ins": "kusom"
+    },
+    "pl": {
+      "nom": "kusy",
+      "gen": "kusov",
+      "dat": "kusom",
+      "acc": "kusy",
+      "loc": "kusoch",
+      "ins": "kusmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "počítač",
+    "gloss": "computer",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 209,
+    "sg": {
+      "nom": "počítač",
+      "gen": "počítača",
+      "dat": "počítaču",
+      "acc": "počítač",
+      "loc": "počítači",
+      "ins": "počítačom"
+    },
+    "pl": {
+      "nom": "počítače",
+      "gen": "počítačov",
+      "dat": "počítačom",
+      "acc": "počítače",
+      "loc": "počítačoch",
+      "ins": "počítačmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "krk",
+    "gloss": "neck",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 210,
+    "sg": {
+      "nom": "krk",
+      "gen": "krku",
+      "dat": "krku",
+      "acc": "krk",
+      "loc": "krku",
+      "ins": "krkom"
+    },
+    "pl": {
+      "nom": "krky",
+      "gen": "krkov",
+      "dat": "krkom",
+      "acc": "krky",
+      "loc": "krkoch",
+      "ins": "krkmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "rozdiel",
+    "gloss": "difference (a set of characteristics that distinguish two or more objects, phenomena or persons from each other); contradiction, disagreement, discrepancy",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 211,
+    "sg": {
+      "nom": "rozdiel",
+      "gen": "rozdielu",
+      "dat": "rozdielu",
+      "acc": "rozdiel",
+      "loc": "rozdiele",
+      "ins": "rozdielom"
+    },
+    "pl": {
+      "nom": "rozdiely",
+      "gen": "rozdielov",
+      "dat": "rozdielom",
+      "acc": "rozdiely",
+      "loc": "rozdieloch",
+      "ins": "rozdielmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "darček",
+    "gloss": "gift, present",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 212,
+    "sg": {
+      "nom": "darček",
+      "gen": "darčeka",
+      "dat": "darčeku",
+      "acc": "darček",
+      "loc": "darčeku",
+      "ins": "darčekom"
+    },
+    "pl": {
+      "nom": "darčeky",
+      "gen": "darčekov",
+      "dat": "darčekom",
+      "acc": "darčeky",
+      "loc": "darčekoch",
+      "ins": "darčekmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "výsledok",
+    "gloss": "result, outcome",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 213,
+    "sg": {
+      "nom": "výsledok",
+      "gen": "výsledku",
+      "dat": "výsledku",
+      "acc": "výsledok",
+      "loc": "výsledku",
+      "ins": "výsledkom"
+    },
+    "pl": {
+      "nom": "výsledky",
+      "gen": "výsledkov",
+      "dat": "výsledkom",
+      "acc": "výsledky",
+      "loc": "výsledkoch",
+      "ins": "výsledkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "zub",
+    "gloss": "tooth",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 214,
+    "sg": {
+      "nom": "zub",
+      "gen": "zuba",
+      "dat": "zubu",
+      "acc": "zub",
+      "loc": "zube",
+      "ins": "zubom"
+    },
+    "pl": {
+      "nom": "zuby",
+      "gen": "zubov",
+      "dat": "zubom",
+      "acc": "zuby",
+      "loc": "zuboch",
+      "ins": "zubami"
+    },
+    "alt": {
+      "ins_p": [
+        "zubmi"
+      ]
+    }
+  },
+  {
+    "word": "chuť",
+    "gloss": "taste; craving",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 215,
+    "sg": {
+      "nom": "chuť",
+      "gen": "chuti",
+      "dat": "chuti",
+      "acc": "chuť",
+      "loc": "chuti",
+      "ins": "chuťou"
+    },
+    "pl": {
+      "nom": "chuti",
+      "gen": "chutí",
+      "dat": "chutiam",
+      "acc": "chuti",
+      "loc": "chutiach",
+      "ins": "chuťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "akcia",
+    "gloss": "action; share, stock",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 216,
+    "sg": {
+      "nom": "akcia",
+      "gen": "akcie",
+      "dat": "akcii",
+      "acc": "akciu",
+      "loc": "akcii",
+      "ins": "akciou"
+    },
+    "pl": {
+      "nom": "akcie",
+      "gen": "akcií",
+      "dat": "akciám",
+      "acc": "akcie",
+      "loc": "akciách",
+      "ins": "akciami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "diera",
+    "gloss": "hole",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 217,
+    "sg": {
+      "nom": "diera",
+      "gen": "diery",
+      "dat": "diere",
+      "acc": "dieru",
+      "loc": "diere",
+      "ins": "dierou"
+    },
+    "pl": {
+      "nom": "diery",
+      "gen": "dier",
+      "dat": "dieram",
+      "acc": "diery",
+      "loc": "dierach",
+      "ins": "dierami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "adresa",
+    "gloss": "address (destination for mail); address",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 218,
+    "sg": {
+      "nom": "adresa",
+      "gen": "adresy",
+      "dat": "adrese",
+      "acc": "adresu",
+      "loc": "adrese",
+      "ins": "adresou"
+    },
+    "pl": {
+      "nom": "adresy",
+      "gen": "adries",
+      "dat": "adresám",
+      "acc": "adresy",
+      "loc": "adresách",
+      "ins": "adresami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "reč",
+    "gloss": "speech; language; discourse",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 219,
+    "sg": {
+      "nom": "reč",
+      "gen": "reči",
+      "dat": "reči",
+      "acc": "reč",
+      "loc": "reči",
+      "ins": "rečou"
+    },
+    "pl": {
+      "nom": "reči",
+      "gen": "rečí",
+      "dat": "rečiam",
+      "acc": "reči",
+      "loc": "rečiach",
+      "ins": "rečami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "príležitosť",
+    "gloss": "occasion, opportunity",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 220,
+    "sg": {
+      "nom": "príležitosť",
+      "gen": "príležitosti",
+      "dat": "príležitosti",
+      "acc": "príležitosť",
+      "loc": "príležitosti",
+      "ins": "príležitosťou"
+    },
+    "pl": {
+      "nom": "príležitosti",
+      "gen": "príležitostí",
+      "dat": "príležitostiam",
+      "acc": "príležitosti",
+      "loc": "príležitostiach",
+      "ins": "príležitosťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "kameň",
+    "gloss": "stone",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 221,
+    "sg": {
+      "nom": "kameň",
+      "gen": "kameňa",
+      "dat": "kameňu",
+      "acc": "kameň",
+      "loc": "kameni",
+      "ins": "kameňom"
+    },
+    "pl": {
+      "nom": "kamene",
+      "gen": "kameňov",
+      "dat": "kameňom",
+      "acc": "kamene",
+      "loc": "kameňoch",
+      "ins": "kameňmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hranica",
+    "gloss": "border (a line separating certain administrative units, territories)",
+    "gender": "f",
+    "pattern": "ulica",
+    "freqRank": 222,
+    "sg": {
+      "nom": "hranica",
+      "gen": "hranice",
+      "dat": "hranici",
+      "acc": "hranicu",
+      "loc": "hranici",
+      "ins": "hranicou"
+    },
+    "pl": {
+      "nom": "hranice",
+      "gen": "hraníc",
+      "dat": "hraniciam",
+      "acc": "hranice",
+      "loc": "hraniciach",
+      "ins": "hranicami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "banka",
+    "gloss": "bank (financial institution)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 223,
+    "sg": {
+      "nom": "banka",
+      "gen": "banky",
+      "dat": "banke",
+      "acc": "banku",
+      "loc": "banke",
+      "ins": "bankou"
+    },
+    "pl": {
+      "nom": "banky",
+      "gen": "bánk",
+      "dat": "bankám",
+      "acc": "banky",
+      "loc": "bankách",
+      "ins": "bankami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "pieseň",
+    "gloss": "song",
+    "gender": "f",
+    "pattern": "dlaň",
+    "freqRank": 224,
+    "sg": {
+      "nom": "pieseň",
+      "gen": "piesne",
+      "dat": "piesni",
+      "acc": "pieseň",
+      "loc": "piesni",
+      "ins": "piesňou"
+    },
+    "pl": {
+      "nom": "piesne",
+      "gen": "piesní",
+      "dat": "piesňam",
+      "acc": "piesne",
+      "loc": "piesňach",
+      "ins": "piesňami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "ryba",
+    "gloss": "fish (cold-blooded vertebrate animal that lives in water, moving with the help of fins and breathing with gills)",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 225,
+    "sg": {
+      "nom": "ryba",
+      "gen": "ryby",
+      "dat": "rybe",
+      "acc": "rybu",
+      "loc": "rybe",
+      "ins": "rybou"
+    },
+    "pl": {
+      "nom": "ryby",
+      "gen": "rýb",
+      "dat": "rybám",
+      "acc": "ryby",
+      "loc": "rybách",
+      "ins": "rybami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "hrozno",
+    "gloss": "grape",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 226,
+    "sg": {
+      "nom": "hrozno",
+      "gen": "hrozna",
+      "dat": "hroznu",
+      "acc": "hrozno",
+      "loc": "hrozne",
+      "ins": "hroznom"
+    },
+    "pl": {
+      "nom": "hrozná",
+      "gen": "hrozien",
+      "dat": "hroznám",
+      "acc": "hrozná",
+      "loc": "hroznách",
+      "ins": "hroznami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "video",
+    "gloss": "video",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 227,
+    "sg": {
+      "nom": "video",
+      "gen": "videa",
+      "dat": "videu",
+      "acc": "video",
+      "loc": "videu",
+      "ins": "videom"
+    },
+    "pl": {
+      "nom": "videá",
+      "gen": "videí",
+      "dat": "videám",
+      "acc": "videá",
+      "loc": "videách",
+      "ins": "videami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "farba",
+    "gloss": "color, colour; dye",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 228,
+    "sg": {
+      "nom": "farba",
+      "gen": "farby",
+      "dat": "farbe",
+      "acc": "farbu",
+      "loc": "farbe",
+      "ins": "farbou"
+    },
+    "pl": {
+      "nom": "farby",
+      "gen": "farieb",
+      "dat": "farbám",
+      "acc": "farby",
+      "loc": "farbách",
+      "ins": "farbami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "kráľovná",
+    "gloss": "queen; queen; queen",
+    "gender": "f",
+    "pattern": "gazdiná",
+    "freqRank": 229,
+    "sg": {
+      "nom": "kráľovná",
+      "gen": "kráľovnej",
+      "dat": "kráľovnej",
+      "acc": "kráľovnú",
+      "loc": "kráľovnej",
+      "ins": "kráľovnou"
+    },
+    "pl": {
+      "nom": "kráľovné",
+      "gen": "kráľovien",
+      "dat": "kráľovnám",
+      "acc": "kráľovné",
+      "loc": "kráľovnách",
+      "ins": "kráľovnami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "pozornosť",
+    "gloss": "attention (mental focus)",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 230,
+    "sg": {
+      "nom": "pozornosť",
+      "gen": "pozornosti",
+      "dat": "pozornosti",
+      "acc": "pozornosť",
+      "loc": "pozornosti",
+      "ins": "pozornosťou"
+    },
+    "pl": {
+      "nom": "pozornosti",
+      "gen": "pozorností",
+      "dat": "pozornostiam",
+      "acc": "pozornosti",
+      "loc": "pozornostiach",
+      "ins": "pozornosťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "plukovník",
+    "gloss": "colonel",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 231,
+    "sg": {
+      "nom": "plukovník",
+      "gen": "plukovníka",
+      "dat": "plukovníkovi",
+      "acc": "plukovníka",
+      "loc": "plukovníkovi",
+      "ins": "plukovníkom"
+    },
+    "pl": {
+      "nom": "plukovníci",
+      "gen": "plukovníkov",
+      "dat": "plukovníkom",
+      "acc": "plukovníkov",
+      "loc": "plukovníkoch",
+      "ins": "plukovníkmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "obraz",
+    "gloss": "image, picture, painting; image (something mapped to by a function)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 232,
+    "sg": {
+      "nom": "obraz",
+      "gen": "obrazu",
+      "dat": "obrazu",
+      "acc": "obraz",
+      "loc": "obraze",
+      "ins": "obrazom"
+    },
+    "pl": {
+      "nom": "obrazy",
+      "gen": "obrazov",
+      "dat": "obrazom",
+      "acc": "obrazy",
+      "loc": "obrazoch",
+      "ins": "obrazmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "záležitosť",
+    "gloss": "business (something involving one personally)",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 233,
+    "sg": {
+      "nom": "záležitosť",
+      "gen": "záležitosti",
+      "dat": "záležitosti",
+      "acc": "záležitosť",
+      "loc": "záležitosti",
+      "ins": "záležitosťou"
+    },
+    "pl": {
+      "nom": "záležitosti",
+      "gen": "záležitostí",
+      "dat": "záležitostiam",
+      "acc": "záležitosti",
+      "loc": "záležitostiach",
+      "ins": "záležitosťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "jazyk",
+    "gloss": "tongue (the fleshy muscular organ in the mouth of a mammal); a thing resembling a tongue; language (a method of interhuman communication)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 234,
+    "sg": {
+      "nom": "jazyk",
+      "gen": "jazyka",
+      "dat": "jazyku",
+      "acc": "jazyk",
+      "loc": "jazyku",
+      "ins": "jazykom"
+    },
+    "pl": {
+      "nom": "jazyky",
+      "gen": "jazykov",
+      "dat": "jazykom",
+      "acc": "jazyky",
+      "loc": "jazykoch",
+      "ins": "jazykmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vtip",
+    "gloss": "joke (amusing story); wit",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 235,
+    "sg": {
+      "nom": "vtip",
+      "gen": "vtipu",
+      "dat": "vtipu",
+      "acc": "vtip",
+      "loc": "vtipe",
+      "ins": "vtipom"
+    },
+    "pl": {
+      "nom": "vtipy",
+      "gen": "vtipov",
+      "dat": "vtipom",
+      "acc": "vtipy",
+      "loc": "vtipoch",
+      "ins": "vtipmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "centrum",
+    "gloss": "center (of a city)",
+    "gender": "n",
+    "pattern": "mesto",
+    "freqRank": 236,
+    "sg": {
+      "nom": "centrum",
+      "gen": "centra",
+      "dat": "centru",
+      "acc": "centrum",
+      "loc": "centre",
+      "ins": "centrom"
+    },
+    "pl": {
+      "nom": "centrá",
+      "gen": "centier",
+      "dat": "centrám",
+      "acc": "centrá",
+      "loc": "centrách",
+      "ins": "centrami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "dôstojník",
+    "gloss": "officer (commissioned officer)",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 237,
+    "sg": {
+      "nom": "dôstojník",
+      "gen": "dôstojníka",
+      "dat": "dôstojníkovi",
+      "acc": "dôstojníka",
+      "loc": "dôstojníkovi",
+      "ins": "dôstojníkom"
+    },
+    "pl": {
+      "nom": "dôstojníci",
+      "gen": "dôstojníkov",
+      "dat": "dôstojníkom",
+      "acc": "dôstojníkov",
+      "loc": "dôstojníkoch",
+      "ins": "dôstojníkmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "ostrov",
+    "gloss": "island",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 238,
+    "sg": {
+      "nom": "ostrov",
+      "gen": "ostrova",
+      "dat": "ostrovu",
+      "acc": "ostrov",
+      "loc": "ostrove",
+      "ins": "ostrovom"
+    },
+    "pl": {
+      "nom": "ostrovy",
+      "gen": "ostrovov",
+      "dat": "ostrovom",
+      "acc": "ostrovy",
+      "loc": "ostrovoch",
+      "ins": "ostrovmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "vlak",
+    "gloss": "train (line of connected cars or carriages)",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 239,
+    "sg": {
+      "nom": "vlak",
+      "gen": "vlaku",
+      "dat": "vlaku",
+      "acc": "vlak",
+      "loc": "vlaku",
+      "ins": "vlakom"
+    },
+    "pl": {
+      "nom": "vlaky",
+      "gen": "vlakov",
+      "dat": "vlakom",
+      "acc": "vlaky",
+      "loc": "vlakoch",
+      "ins": "vlakmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "radosť",
+    "gloss": "joy, delight",
+    "gender": "f",
+    "pattern": "kosť",
+    "freqRank": 240,
+    "sg": {
+      "nom": "radosť",
+      "gen": "radosti",
+      "dat": "radosti",
+      "acc": "radosť",
+      "loc": "radosti",
+      "ins": "radosťou"
+    },
+    "pl": {
+      "nom": "radosti",
+      "gen": "radostí",
+      "dat": "radostiam",
+      "acc": "radosti",
+      "loc": "radostiach",
+      "ins": "radosťami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "sloboda",
+    "gloss": "freedom",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 241,
+    "sg": {
+      "nom": "sloboda",
+      "gen": "slobody",
+      "dat": "slobode",
+      "acc": "slobodu",
+      "loc": "slobode",
+      "ins": "slobodou"
+    },
+    "pl": {
+      "nom": "slobody",
+      "gen": "slobôd",
+      "dat": "slobodám",
+      "acc": "slobody",
+      "loc": "slobodách",
+      "ins": "slobodami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "riaditeľ",
+    "gloss": "director",
+    "gender": "m-pers",
+    "pattern": "chlap",
+    "freqRank": 242,
+    "sg": {
+      "nom": "riaditeľ",
+      "gen": "riaditeľa",
+      "dat": "riaditeľovi",
+      "acc": "riaditeľa",
+      "loc": "riaditeľovi",
+      "ins": "riaditeľom"
+    },
+    "pl": {
+      "nom": "riaditelia",
+      "gen": "riaditeľov",
+      "dat": "riaditeľom",
+      "acc": "riaditeľov",
+      "loc": "riaditeľoch",
+      "ins": "riaditeľmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "spomienka",
+    "gloss": "memory, recollection; memorial, commemoration; mention, reference",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 243,
+    "sg": {
+      "nom": "spomienka",
+      "gen": "spomienky",
+      "dat": "spomienke",
+      "acc": "spomienku",
+      "loc": "spomienke",
+      "ins": "spomienkou"
+    },
+    "pl": {
+      "nom": "spomienky",
+      "gen": "spomienok",
+      "dat": "spomienkam",
+      "acc": "spomienky",
+      "loc": "spomienkach",
+      "ins": "spomienkami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "nos",
+    "gloss": "nose",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 244,
+    "sg": {
+      "nom": "nos",
+      "gen": "nosa",
+      "dat": "nosu",
+      "acc": "nos",
+      "loc": "nose",
+      "ins": "nosom"
+    },
+    "pl": {
+      "nom": "nosy",
+      "gen": "nosov",
+      "dat": "nosom",
+      "acc": "nosy",
+      "loc": "nosoch",
+      "ins": "nosmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "nôž",
+    "gloss": "knife",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 245,
+    "sg": {
+      "nom": "nôž",
+      "gen": "noža",
+      "dat": "nožu",
+      "acc": "nôž",
+      "loc": "noži",
+      "ins": "nožom"
+    },
+    "pl": {
+      "nom": "nože",
+      "gen": "nožov",
+      "dat": "nožom",
+      "acc": "nože",
+      "loc": "nožoch",
+      "ins": "nožmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "teta",
+    "gloss": "aunt (a parent's sister); A woman of an older generation than oneself, especially a friend of one's parents, by means of fictive kin.",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 246,
+    "sg": {
+      "nom": "teta",
+      "gen": "tety",
+      "dat": "tete",
+      "acc": "tetu",
+      "loc": "tete",
+      "ins": "tetou"
+    },
+    "pl": {
+      "nom": "tety",
+      "gen": "tiet",
+      "dat": "tetám",
+      "acc": "tety",
+      "loc": "tetách",
+      "ins": "tetami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "ponuka",
+    "gloss": "offer",
+    "gender": "f",
+    "pattern": "žena",
+    "freqRank": 247,
+    "sg": {
+      "nom": "ponuka",
+      "gen": "ponuky",
+      "dat": "ponuke",
+      "acc": "ponuku",
+      "loc": "ponuke",
+      "ins": "ponukou"
+    },
+    "pl": {
+      "nom": "ponuky",
+      "gen": "ponúk",
+      "dat": "ponukám",
+      "acc": "ponuky",
+      "loc": "ponukách",
+      "ins": "ponukami"
+    },
+    "alt": {}
+  },
+  {
+    "word": "čaj",
+    "gloss": "tea",
+    "gender": "m-inan",
+    "pattern": "stroj",
+    "freqRank": 248,
+    "sg": {
+      "nom": "čaj",
+      "gen": "čaju",
+      "dat": "čaju",
+      "acc": "čaj",
+      "loc": "čaji",
+      "ins": "čajom"
+    },
+    "pl": {
+      "nom": "čaje",
+      "gen": "čajov",
+      "dat": "čajom",
+      "acc": "čaje",
+      "loc": "čajoch",
+      "ins": "čajmi"
+    },
+    "alt": {}
+  },
+  {
+    "word": "zvuk",
+    "gloss": "sound",
+    "gender": "m-inan",
+    "pattern": "dub",
+    "freqRank": 249,
+    "sg": {
+      "nom": "zvuk",
+      "gen": "zvuku",
+      "dat": "zvuku",
+      "acc": "zvuk",
+      "loc": "zvuku",
+      "ins": "zvukom"
+    },
+    "pl": {
+      "nom": "zvuky",
+      "gen": "zvukov",
+      "dat": "zvukom",
+      "acc": "zvuky",
+      "loc": "zvukoch",
+      "ins": "zvukmi"
+    },
+    "alt": {}
+  }
+]

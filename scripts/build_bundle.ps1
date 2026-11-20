@@ -1,0 +1,74 @@
+# Stage 6: pack data/*.json into app/data.js (a plain script, so the app opens straight from disk).
+#   nouns: { w, g, gen, pat, s:[6 forms], p:[6 forms], alt:{ "gen_p":[...] } }   case order: nom gen dat acc loc ins
+#   adjs:  { w, g, k, f:{ slot: form } }
+#   verbs: { v, g, fr:[{ p, c, n, ex:[...] }] }   core frames only
+param([string]$Root = (Split-Path $PSScriptRoot -Parent))
+$ErrorActionPreference = 'Stop'
+$cases = 'nom', 'gen', 'dat', 'acc', 'loc', 'ins'
+
+function Get-Short($gloss) {
+  $g = ($gloss -split ';')[0] -replace '\([^)]*\)?', '' -replace '\s+', ' '
+  ((($g -split ',') | ForEach-Object { $_.Trim() } | Where-Object { $_ } | Select-Object -First 2) -join ', ')
+}
+
+# drop blocklisted nouns; order the rest by "own" frequency from check_homographs.ps1 (if it has been run)
+$block = @(Get-Content "$Root/scripts/noun_blocklist.txt" | ForEach-Object { ($_ -replace '#.*$', '').Trim() } | Where-Object { $_ })
+$ownRank = @{}
+if (Test-Path "$Root/work/noun_ownership.json") {
+  foreach ($r in (Get-Content "$Root/work/noun_ownership.json" -Raw | ConvertFrom-Json)) { $ownRank[$r.word] = $r.ownRank }
+}
+$srcNouns = Get-Content "$Root/data/nouns.json" -Raw | ConvertFrom-Json |
+  Where-Object { $_.word -notin $block } |
+  Sort-Object { $ownRank[$_.word] ?? 9999 }
+$nouns = foreach ($n in $srcNouns) {
+  $alt = [ordered]@{}
+  foreach ($p in $n.alt.PSObject.Properties) { $alt[$p.Name] = @($p.Value) }
+  [ordered]@{
+    w = $n.word; g = (Get-Short $n.gloss).Trim(); gen = $n.gender
+    pat = $(if ($n.pattern) { $n.pattern } else { 'other' })
+    s = @($cases | ForEach-Object { $n.sg.$_ }); p = @($cases | ForEach-Object { $n.pl.$_ }); alt = $alt
+  }
+}
+
+$adjs = foreach ($a in (Get-Content "$Root/data/adjectives.json" -Raw | ConvertFrom-Json)) {
+  $f = [ordered]@{}
+  foreach ($p in $a.forms.PSObject.Properties) { $f[$p.Name] = $p.Value }
+  [ordered]@{ w = $a.word; g = (Get-Short $a.gloss).Trim(); k = $a.kind; f = $f }
+}
+
+$nounLemmas = @{}
+foreach ($n in $nouns) { $nounLemmas[$n.w] = 1 }
+foreach ($m in (Get-Content "$Root/data/models.json" -Raw | ConvertFrom-Json)) { $nounLemmas[$m.w] = 1 }
+$verbs = foreach ($v in (Get-Content "$Root/data/verbs.json" -Raw | ConvertFrom-Json)) {
+  $fr = @($v.frames | Where-Object core | ForEach-Object {
+    $exs = @($_.examples)
+    # ex: sentences to show; cz: fill-the-blank items (the governed word is a noun we have a table for)
+    $cz = @($exs | Where-Object { $_.u -eq 'NOUN' -and $nounLemmas[$_.l] -and $_.t -match "(?<![\p{L}])$([regex]::Escape($_.f))(?![\p{L}])" } |
+      Select-Object -First 4 | ForEach-Object { [ordered]@{ t = $_.t; f = $_.f; l = $_.l; num = $_.num } })
+    [ordered]@{ p = $_.prep; c = $_.case; n = $_.corpusCount; ex = @($exs | Select-Object -First 3 | ForEach-Object { $_.t }); cz = $cz }
+  })
+  if ($fr.Count) { [ordered]@{ v = $v.verb; g = $v.gloss; gs = $v.glossSource; fr = $fr } }
+}
+
+$models = @(Get-Content "$Root/data/models.json" -Raw | ConvertFrom-Json | ForEach-Object {
+  $alt = [ordered]@{}; foreach ($p in $_.alt.PSObject.Properties) { $alt[$p.Name] = @($p.Value) }
+  [ordered]@{ w = $_.w; gen = $_.gen; s = @($_.s); p = @($_.p); alt = $alt }
+})
+
+# real adjective+noun pairs (treebank), only where both words made it into the bundle
+$pairs = [ordered]@{}
+if (Test-Path "$Root/work/adj_pairs.json") {
+  $haveA = @{}; foreach ($a in $adjs) { $haveA[$a.w] = 1 }
+  $haveN = @{}; foreach ($n in $nouns) { $haveN[$n.w] = 1 }
+  foreach ($p in (Get-Content "$Root/work/adj_pairs.json" -Raw | ConvertFrom-Json).PSObject.Properties) {
+    if (-not $haveN[$p.Name]) { continue }
+    $list = @($p.Value | Where-Object { $haveA[$_.a] } | ForEach-Object { $_.a })
+    if ($list.Count) { $pairs[$p.Name] = $list }
+  }
+}
+
+$bundle = [ordered]@{ nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; built = (Get-Date -Format 'yyyy-MM-dd') }
+New-Item -ItemType Directory -Force "$Root/app" | Out-Null
+$json = $bundle | ConvertTo-Json -Depth 8 -Compress
+Set-Content "$Root/app/data.js" -Value "window.PADY_DATA = $json;" -Encoding utf8
+"data.js: $([math]::Round((Get-Item "$Root/app/data.js").Length / 1KB)) KB  nouns $($nouns.Count)  adjs $($adjs.Count)  verbs $(@($verbs).Count)"

@@ -1,0 +1,10 @@
+# Nouns removed from the game after scripts/check_homographs.ps1 (one per line, # = comment)
+# frequency mostly belonged to another word, or the word is a poor drill target
+stop      # "stopy" is really stopa (footprint); "stop" mostly the interjection / English
+mať       # archaic "mother"; the form is overwhelmingly the verb "to have"
+domov     # mostly the adverb "home"; also clashes with the genitive plural of dom
+vďaka     # in practice the preposition "thanks to"
+tisíc     # numeral, declines differently
+milión    # numeral, declines differently
+pôjd      # Wiktionary artefact (forms belong to ísť)
+riť       # vulgar

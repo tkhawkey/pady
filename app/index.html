@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PÁDY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--
+    Translation tooltips: any element with data-en="…" shows English on hover, keyboard focus,
+    or long-press (touch). Answer tiles and grid cells deliberately have none.
+  -->
+  <header class="topbar">
+    <button class="logo" data-go="home" aria-label="Domov" data-en="<b>pády</b> = cases (also: falls, crashes). Click to go home.">P<span class="logo-fall">Á</span>DY</button>
+    <div class="topstats">
+      <button class="pill learn-pill" data-go="learn" data-en="<b>ťahák</b> = crib sheet. Learn and look up the patterns.">📖 <span class="lp-text">Ťahák</span></button>
+      <span class="pill" id="streakPill" data-en="Daily streak: days in a row you've played">🔥 <b id="streakVal">0</b></span>
+      <span class="pill level" data-en="Your level. The bar fills with XP.">Lv <b id="levelVal">1</b>
+        <span class="xpbar"><span id="xpFill"></span></span>
+      </span>
+      <button class="pill icon" id="muteBtn" aria-label="Zvuk" data-en="Sound on / off">🔊</button>
+    </div>
+  </header>
+
+  <!-- HOME -->
+  <main id="home" class="screen active">
+    <section class="hero">
+      <h1>Slovak cases, <span class="hl">at speed.</span></h1>
+      <p class="sub">Six cases, two numbers, one colour each. Learn the colours and the endings will follow.</p>
+      <div class="legend" id="legend"></div>
+      <p class="tip-hint"><span class="tip-key">EN</span> <span class="tip-mouse">Hover over</span><span class="tip-touch">Press and hold</span> anything in Slovak to see it in English.</p>
+    </section>
+
+    <section class="modes">
+      <article class="mode big learn-card" id="modeLearn">
+        <div class="learn-card-text">
+          <div class="mode-tag" data-en="<b>uč sa</b> = learn">Uč sa</div>
+          <h2 data-en="<b>ťahák</b> = crib sheet">Ťahák</h2>
+          <p>Learn it first: the 12 model words with their endings lit up, a "which pattern is my word?" finder, every case side by side, and your weak spots.</p>
+        </div>
+        <button class="btn go yellow" data-go="learn" data-en="Open the crib sheet">Otvor ťahák →</button>
+      </article>
+
+      <article class="mode big settings" id="settings">
+        <div class="mode-tag" data-en="<b>nastavenie</b> = settings (shared by every game)">Nastavenie</div>
+        <div class="opt">
+          <span class="opt-label" data-en="<b>Čo?</b> = What? (what to practise)">Čo?</span>
+          <div class="seg" id="kindSeg">
+            <button data-kind="noun" class="on" data-en="<b>podstatné meno</b> = noun. Just the noun: <i>izba</i>">Podst. meno</button>
+            <button data-kind="phrase" data-en="<b>prídavné + podstatné meno</b> = adjective + noun. Real pairs from Slovak texts where possible (<i>hlavné mesto, čierna diera</i>), otherwise everyday adjectives (<i>nový, veľký, starý</i>).">Príd. + podst. meno</button>
+            <button data-kind="crazy" data-en="<b>bláznivé</b> = crazy. Any adjective with any noun: grammatically perfect nonsense (<i>absolútna ulica</i>).">Bláznivé 🤪</button>
+          </div>
+        </div>
+        <div class="opt">
+          <span class="opt-label" data-en="<b>vzor</b> = declension pattern (model word). Every noun follows one of 12 model words.">Vzor</span>
+          <div class="chips" id="patternChips"></div>
+        </div>
+        <div class="opt">
+          <span class="opt-label" data-en="<b>kolo</b> = round (how many words)">Kolo</span>
+          <div class="seg" id="lenSeg">
+            <button data-len="3" data-en="3 words">3 slová</button>
+            <button data-len="5" class="on" data-en="5 words">5 slov</button>
+            <button data-len="10" data-en="10 words">10 slov</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="mode play" id="modeSmash">
+        <div class="mode-tag" data-en="<b>hraj</b> = play (drag)">Hraj · ťahaj</div>
+        <h2 data-en="<b>Rozbi to!</b> = Smash it!">Rozbi to!</h2>
+        <p>A word shatters into its forms. Drag every piece back to its case before the clock embarrasses you.</p>
+        <button class="btn go" id="startSmash" data-en="Smash it! (start the round)">Rozbi to! →</button>
+        <p class="best" id="bestSmash"></p>
+      </article>
+
+      <article class="mode play" id="modeGrid">
+        <div class="mode-tag alt" data-en="<b>píš</b> = write (type)">Hraj · píš</div>
+        <h2 data-en="<b>tabuľka</b> = table, grid">Tabuľka</h2>
+        <p>The classic grid, but fast. Type every form yourself. Missed accent? Half points. Missed twice? We show you.</p>
+        <button class="btn go blue" id="startGrid" data-en="Start the grid">Tabuľka →</button>
+        <p class="best" id="bestGrid"></p>
+      </article>
+      <article class="mode play" id="modePad">
+        <div class="mode-tag pad-tag" data-en="<b>arkáda</b> = arcade">Hraj · arkáda</div>
+        <h2 data-en="<b>pád</b> = a fall (and also: a grammatical case)">Pád!</h2>
+        <p>Forms fall from the sky. Tap the right case lane before they land. Three lives, and it keeps getting faster. Uses the settings above.</p>
+        <button class="btn go green" id="startPad" data-en="Start the arcade">Pád! →</button>
+        <p class="best" id="bestPad"></p>
+      </article>
+      <article class="mode play" id="modeMagnet">
+        <div class="mode-tag magnet-tag" data-en="<b>slovesá</b> = verbs">Hraj · slovesá</div>
+        <h2>Magnet</h2>
+        <p>Which case does the verb pull? <i data-en="to be afraid (of)">báť sa</i>, <i data-en="to wait (for)">čakať na</i>, <i data-en="to meet (with)">stretnúť sa s</i>… Real verbs, real sentences.</p>
+        <div class="opt">
+          <span class="opt-label" data-en="<b>úroveň</b> = level">Úroveň</span>
+          <div class="seg" id="mlevelSeg">
+            <button data-mlevel="case" class="on" data-en="<b>pád</b> = case. See the verb (and preposition), pick the case.">Pád</button>
+            <button data-mlevel="form" data-en="<b>tvar</b> = form. A real sentence with a gap: pick the right form of the noun.">Tvar</button>
+          </div>
+        </div>
+        <button class="btn go purple" id="startMagnet" data-en="Start Magnet">Magnet →</button>
+        <p class="best" id="bestMagnet"></p>
+      </article>
+    </section>
+    <footer class="credit">Forms: Wiktionary (CC BY-SA). Verb cases: Slovak UD treebank (SNK).</footer>
+  </main>
+
+  <!-- GAME -->
+  <main id="game" class="screen">
+    <div class="hud">
+      <button class="hud-quit" id="quitBtn" aria-label="Koniec" data-en="Quit this round">✕</button>
+      <div class="hud-item" id="hudCardWrap" data-en="<b>slovo</b> = word (which word you're on)"><span id="hudCardLabel">Slovo</span><b id="hudCard">1/5</b></div>
+      <div class="hud-item" data-en="<b>body</b> = points"><span>Body</span><b id="hudScore">0</b></div>
+      <div class="hud-item combo" id="hudComboWrap" data-en="Points multiplier. Goes up every 3 correct in a row (max ×3). A mistake resets it."><span>Combo</span><b id="hudCombo">×1</b></div>
+      <div class="hud-item" data-en="<b>čas</b> = time"><span>Čas</span><b id="hudTime">0:00</b></div>
+    </div>
+
+    <div class="card" id="wordCard">
+      <div class="word" id="cardWord">izba</div>
+      <div class="meta">
+        <span class="gloss" id="cardGloss">room</span>
+        <span class="chip real" id="cardReal" hidden>✓ reálne spojenie</span>
+        <span class="chip" id="cardGender">ž.</span>
+        <span class="chip ghost" id="cardPattern">vzor žena</span>
+      </div>
+    </div>
+
+    <div class="board" id="board" aria-label="Tabuľka pádov"></div>
+
+    <div class="pad-area">
+      <div class="pad-field" id="padField">
+        <div class="pad-level" id="padLevel"></div>
+      </div>
+      <div class="pad-lanes" id="padLanes"></div>
+      <p class="kbd-hint pad" data-en="Keys 1–6 or N G D A L I pick a case for the lowest falling form">1–6 alebo N G D A L I</p>
+    </div>
+
+    <div class="magnet-area">
+      <div class="mcard" id="mCard">
+        <div class="mverb" id="mVerb"></div>
+        <div class="mgloss" id="mGloss"></div>
+        <div class="mprompt" id="mPrompt"></div>
+      </div>
+      <div id="mOpts" class="magnets"></div>
+      <div id="mFeed" class="mfeed" aria-live="polite"></div>
+      <p class="kbd-hint mag" data-en="Number keys pick an answer; Enter goes to the next one">1–5 = odpoveď · Enter = ďalej</p>
+    </div>
+
+    <div class="tray-wrap">
+      <div class="tray" id="tray"></div>
+      <div class="keys" id="diaBar"></div>
+      <p class="kbd-hint" data-en="Enter = check the cell and jump to the next one (down the singular column, then the plural)">Enter = skontroluj a ďalej</p>
+      <div class="tray-actions">
+        <button class="btn small ghost" id="hintBtn" data-en="<b>nápoveda</b> = hint. Fills one cell for you, costs 15 points and earns nothing.">💡 Nápoveda <span>−15</span></button>
+      </div>
+    </div>
+  </main>
+
+  <!-- LEARN (Ťahák) -->
+  <main id="learn" class="screen">
+    <div class="learn-head">
+      <button class="hud-quit" data-go="home" aria-label="Domov" data-en="<b>domov</b> = home">←</button>
+      <div>
+        <h1 data-en="<b>ťahák</b> = crib sheet">Ťahák</h1>
+        <p class="sub small">Learn it here, then drill it in the games.</p>
+      </div>
+    </div>
+    <div class="weak" id="weakSpots"></div>
+    <nav class="ltabs" id="learnTabs">
+      <button data-tab="vzory" class="on" data-en="<b>vzory</b> = patterns (model words)">Vzory</button>
+      <button data-tab="ktory" data-en="<b>Ktorý vzor?</b> = Which pattern? Find the pattern for any noun.">Ktorý vzor?</button>
+      <button data-tab="stlpec" data-en="<b>stĺpec</b> = column. One case across all 12 patterns.">Stĺpec</button>
+      <button data-tab="pady" data-en="<b>pády</b> = cases. What each case is for, its prepositions and verbs.">Pády</button>
+    </nav>
+    <section class="ltab" id="tab-vzory"></section>
+    <section class="ltab" id="tab-ktory" hidden></section>
+    <section class="ltab" id="tab-stlpec" hidden></section>
+    <section class="ltab" id="tab-pady" hidden></section>
+  </main>
+
+  <!-- RESULTS -->
+  <main id="results" class="screen">
+    <div class="results-card">
+      <div class="stars" id="resStars"></div>
+      <h2 id="resTitle">Hotovo!</h2>
+      <div class="res-grid">
+        <div data-en="<b>body</b> = points"><span>Body</span><b id="resScore">0</b></div>
+        <div data-en="<b>presnosť</b> = accuracy (correct drops ÷ all drops; hints don't count)"><span>Presnosť</span><b id="resAcc">0%</b></div>
+        <div data-en="Longest run of correct drops"><span>Max combo</span><b id="resCombo">0</b></div>
+        <div data-en="<b>čas</b> = time"><span>Čas</span><b id="resTime">0:00</b></div>
+      </div>
+      <p class="xp-gain" id="resXp">+0 XP</p>
+      <div class="res-cases" id="resCases"></div>
+      <p class="res-note" id="resNote"></p>
+      <div class="res-actions">
+        <button class="btn go" id="againBtn" data-en="<b>Ešte raz</b> = Once more! (same settings)">Ešte raz</button>
+        <button class="btn ghost" data-go="home" data-en="<b>domov</b> = home">Domov</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="fx" aria-hidden="true"></div>
+  <div id="tip" class="tip" role="tooltip" aria-hidden="true"></div>
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="learn.js"></script>
+</body>
+</html>

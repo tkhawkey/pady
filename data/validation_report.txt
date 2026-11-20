@@ -1,0 +1,31 @@
+nouns kept: 249   adjectives kept: 251   rejected: 14
+treebank check - noun tokens: 5906 match / 8 mismatch;  adj tokens: 2543 match / 8 mismatch
+
+--- rejected
+noun stať: missing ins_p
+adj vydatá: nom sg != lemma
+adj červí: missing pl_ins
+adj rybí: missing pl_ins
+adj jastrabí: missing pl_ins
+adj capí: missing pl_ins
+adj páví: missing pl_ins
+adj žirafí: missing pl_ins
+adj leví: missing pl_ins
+adj sobí: missing pl_ins
+adj soví: missing pl_ins
+adj supí: missing pl_ins
+adj lamí: missing pl_ins
+adj holubí: missing pl_ins
+
+--- treebank mismatches
+adj americký gen_s: americké
+adj bezpečný nom_s: nebezpečné (absent)
+adj bieloruský gen_s: bielorusk0ho (absent)
+adj celý acc_s: celých
+adj dnešný gen_p: dnešních (absent)
+adj skúsený nom_s: neskúsená (absent)
+adj známy acc_p: neznáme (absent)
+noun list ins_p: listami (ours: listmi/)
+noun oblasť loc_p: oblastich (ours: oblastiach/)
+noun pes nom_p: psi (ours: psovia/psy)
+noun sekunda gen_p: sekúd (ours: sekúnd/)

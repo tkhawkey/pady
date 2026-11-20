@@ -1,0 +1,273 @@
+[
+  {
+    "w": "chlap",
+    "gen": "m-pers",
+    "s": [
+      "chlap",
+      "chlapa",
+      "chlapovi",
+      "chlapa",
+      "chlapovi",
+      "chlapom"
+    ],
+    "p": [
+      "chlapi",
+      "chlapov",
+      "chlapom",
+      "chlapov",
+      "chlapoch",
+      "chlapmi"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "hrdina",
+    "gen": "m-pers",
+    "s": [
+      "hrdina",
+      "hrdinu",
+      "hrdinovi",
+      "hrdinu",
+      "hrdinovi",
+      "hrdinom"
+    ],
+    "p": [
+      "hrdinovia",
+      "hrdinov",
+      "hrdinom",
+      "hrdinov",
+      "hrdinoch",
+      "hrdinami"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "dub",
+    "gen": "m-inan",
+    "s": [
+      "dub",
+      "duba",
+      "dubu",
+      "dub",
+      "dube",
+      "dubom"
+    ],
+    "p": [
+      "duby",
+      "dubov",
+      "dubom",
+      "duby",
+      "duboch",
+      "dubmi"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "stroj",
+    "gen": "m-inan",
+    "s": [
+      "stroj",
+      "stroja",
+      "stroju",
+      "stroj",
+      "stroji",
+      "strojom"
+    ],
+    "p": [
+      "stroje",
+      "strojov",
+      "strojom",
+      "stroje",
+      "strojoch",
+      "strojmi"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "žena",
+    "gen": "f",
+    "s": [
+      "žena",
+      "ženy",
+      "žene",
+      "ženu",
+      "žene",
+      "ženou"
+    ],
+    "p": [
+      "ženy",
+      "žien",
+      "ženám",
+      "ženy",
+      "ženách",
+      "ženami"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "ulica",
+    "gen": "f",
+    "s": [
+      "ulica",
+      "ulice",
+      "ulici",
+      "ulicu",
+      "ulici",
+      "ulicou"
+    ],
+    "p": [
+      "ulice",
+      "ulíc",
+      "uliciam",
+      "ulice",
+      "uliciach",
+      "ulicami"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "dlaň",
+    "gen": "f",
+    "s": [
+      "dlaň",
+      "dlane",
+      "dlani",
+      "dlaň",
+      "dlani",
+      "dlaňou"
+    ],
+    "p": [
+      "dlane",
+      "dlaní",
+      "dlaniam",
+      "dlane",
+      "dlaniach",
+      "dlaňami"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "kosť",
+    "gen": "f",
+    "s": [
+      "kosť",
+      "kosti",
+      "kosti",
+      "kosť",
+      "kosti",
+      "kosťou"
+    ],
+    "p": [
+      "kosti",
+      "kostí",
+      "kostiam",
+      "kosti",
+      "kostiach",
+      "kosťami"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "mesto",
+    "gen": "n",
+    "s": [
+      "mesto",
+      "mesta",
+      "mestu",
+      "mesto",
+      "meste",
+      "mestom"
+    ],
+    "p": [
+      "mestá",
+      "miest",
+      "mestám",
+      "mestá",
+      "mestách",
+      "mestami"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "srdce",
+    "gen": "n",
+    "s": [
+      "srdce",
+      "srdca",
+      "srdcu",
+      "srdce",
+      "srdci",
+      "srdcom"
+    ],
+    "p": [
+      "srdcia",
+      "sŕdc",
+      "srdciam",
+      "srdcia",
+      "srdciach",
+      "srdcami"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "vysvedčenie",
+    "gen": "n",
+    "s": [
+      "vysvedčenie",
+      "vysvedčenia",
+      "vysvedčeniu",
+      "vysvedčenie",
+      "vysvedčení",
+      "vysvedčením"
+    ],
+    "p": [
+      "vysvedčenia",
+      "vysvedčení",
+      "vysvedčeniam",
+      "vysvedčenia",
+      "vysvedčeniach",
+      "vysvedčeniami"
+    ],
+    "alt": {}
+  },
+  {
+    "w": "dievča",
+    "gen": "n",
+    "s": [
+      "dievča",
+      "dievčaťa",
+      "dievčaťu",
+      "dievča",
+      "dievčati",
+      "dievčaťom"
+    ],
+    "p": [
+      "dievčatá",
+      "dievčat",
+      "dievčatám",
+      "dievčatá",
+      "dievčatách",
+      "dievčatami"
+    ],
+    "alt": {
+      "acc_p": [
+        "dievčence"
+      ],
+      "loc_p": [
+        "dievčencoch"
+      ],
+      "ins_p": [
+        "dievčencami"
+      ],
+      "dat_p": [
+        "dievčencom"
+      ],
+      "nom_p": [
+        "dievčence"
+      ],
+      "gen_p": [
+        "dievčeniec"
+      ]
+    }
+  }
+]

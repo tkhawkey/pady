@@ -144,7 +144,9 @@ if (Test-Path "$Root/work/tatoeba_ex.json") {
 # Pasca (traps) items from the treebank (scripts/build_traps.ps1)
 $traps = if (Test-Path "$Root/work/traps.json") { @(Get-Content "$Root/work/traps.json" -Raw | ConvertFrom-Json) } else { @() }
 
-$bundle = [ordered]@{ traps = $traps; ex = $ex; conj = $conj; vsents = @($vsents); vglosses = $vgloss; nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
+$prons = if (Test-Path "$Root/work/pron_sents.json") { @(Get-Content "$Root/work/pron_sents.json" -Raw | ConvertFrom-Json) } else { @() }
+
+$bundle = [ordered]@{ prons = $prons; traps = $traps; ex = $ex; conj = $conj; vsents = @($vsents); vglosses = $vgloss; nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
 New-Item -ItemType Directory -Force "$Root/app" | Out-Null
 $json = $bundle | ConvertTo-Json -Depth 8 -Compress
 Set-Content "$Root/app/data.js" -Value "window.PADY_DATA = $json;" -Encoding utf8

@@ -65,6 +65,17 @@ foreach ($line in [IO.File]::ReadLines("$Root/raw/sk.jsonl")) {
   }
 }
 
+# checked noun tables (scripts/build_lookup_tables.ps1): [s(6), p(6), alt] as a 5th field, so Hľadaj needs no live fetch
+if (Test-Path "$Root/work/lookup_tables.json") {
+  $tabs = Get-Content "$Root/work/lookup_tables.json" -Raw | ConvertFrom-Json; $nT = 0
+  foreach ($w in @($nouns.Keys)) {
+    $t = $tabs.$w; if (-not $t) { continue }
+    $alt = [ordered]@{}; foreach ($p in $t.alt.PSObject.Properties) { $alt[$p.Name] = @($p.Value) }
+    $nouns[$w] = @($nouns[$w][0], $nouns[$w][1], $nouns[$w][2], $nouns[$w][3], @(@($t.s), @($t.p), $alt)); $nT++
+  }
+  "checked noun tables embedded: $nT"
+}
+
 # verbs (scripts/build_conj.ps1 -> work/conj_all.json): every decodable verb, for looking up verb forms
 $verbsL = @()
 if (Test-Path "$Root/work/conj_all.json") {
@@ -89,4 +100,3 @@ $bundle = [ordered]@{ slots = $slots; adjs = @($adjs.Values); nouns = @($nouns.V
 $json = $bundle | ConvertTo-Json -Depth 5 -Compress
 Set-Content "$Root/app/lookup-data.js" -Value "window.PADY_LOOKUP = $json;" -Encoding utf8
 "lookup-data.js: $([math]::Round((Get-Item "$Root/app/lookup-data.js").Length / 1KB)) KB  adjectives $($adjs.Count)  nouns $($nouns.Count)"
-$c = $adjs['čerstvý']; if ($c) { "čerstvý: $($c[1]) | " + ($c[2] -join ' ') }

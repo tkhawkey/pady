@@ -27,6 +27,7 @@ The verb side has its own Začni tu, path (9 units), daily dose, mastery map and
 | **Tabuľka** | The classic grid: type all the forms. Accent slips get half points. |
 | **Magnet** | Which case does the verb take? Level 2: fill a real sentence with the right form. |
 | **Pád!** | Arcade: forms fall, tap the right case lane before they land. |
+| **Zámená a čísla** | Pronouns in real treebank sentences (*mne / mi / mňa*, *jeho / ho / neho*, *ňom*, *nimi*): pick the right form; the short and long form of one case are never set against each other. Numbers + nouns: *jedna žena, dve ženy, päť žien, dvaja muži / piati muži*. Both have a Ťahák page; Hľadaj looks up pronoun forms. |
 | **Pasca** (trap) | The spots where even Slovaks slip, in real treebank sentences: *s* or *z* (+ instrumental / + genitive)? *v* or *vo*? *dobrí* or *dobré*? One underlined word is the clue; weak categories come up more. |
 
 Every Slovak label shows English on hover (or long-press on a phone). Answers are never translated.
@@ -59,6 +60,8 @@ All word forms come from existing sources, not from an AI:
   `data/stur_check.txt`): 6,483 of 6,518 cells agree. Where both forms are in real use (*garážam / garážiam*,
   *dažďmi / dažďami*, *študentmi / študentami*) both are accepted (`data/stur_alts.json`); where Wiktionary was
   wrong (*hosť*, *upír*, *psy*) the table is fixed by hand in `scripts/noun_overrides.json`.
+- **Hľadaj nouns:** 3,861 of 4,406 ship with a table that two sources agree on (Wiktionary + Štúr,
+  `data/lookup_check.txt`), so they work offline. The rest are fetched live from Wiktionary and marked "not double-checked".
 - English glosses for ~200 verbs that have no Wiktionary entry, the pattern tips and the preposition lists
   were written by hand (marked `glossSource: manual` in `data/verbs.json`).
 
@@ -87,6 +90,9 @@ Invoke-WebRequest https://raw.githubusercontent.com/hermitdave/FrequencyWords/ma
 ./scripts/build_tatoeba.ps1    # needs the Tatoeba Slovak-English pairs TSV (local) -> work/tatoeba_ex.json
 ./scripts/check_stur.ps1       # needs groups-nouns.yaml (local) -> data/stur_check.txt, data/stur_alts.json
 ./scripts/build_traps.ps1      # Pasca items from the treebank -> work/traps.json
+./scripts/build_pronouns.ps1   # pronoun sentences from the treebank -> work/pron_sents.json
+./scripts/build_lookup_tables.ps1  # checked tables for Hľadaj nouns (Wiktionary x Štúr) -> work/lookup_tables.json
+                                   # (run build_lookup.ps1 once before and once after it)
 ./scripts/build_bundle.ps1     # -> app/data.js
 ./scripts/build_lookup.ps1     # -> app/lookup-data.js (~1,400 adjectives, ~4,400 nouns for Hľadaj)
 ```

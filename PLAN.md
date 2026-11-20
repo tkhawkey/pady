@@ -122,10 +122,15 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    forms only before a vowel or consonant + vowel, so optional cases like *vo sne* never appear); male-person
    plural -í vs everything else -é incl. ktorí/ktoré, tí/tie, dvaja/dve (158, only where a clue noun is in the
    sentence). Mixed or one category; per-category stats weight the mix.
+13. ✅ **Zámená a čísla**: pronoun forms in 399 treebank sentences (needs a clue: a preposition, or the verb/adjective
+   it hangs on; same-case short/long never set against each other; n-forms after prepositions as the trap);
+   numbers 1–10 + noun (agreement, 2–4 + nom. pl., 5+ + gen. pl., male persons dvaja/piati); Ťahák tab; pronouns in Hľadaj.
+14. ✅ **Hľadaj tables checked**: 3,861 / 4,406 nouns ship with a table confirmed by Wiktionary + Štúr (offline);
+   the remaining ~550 load live and say "not double-checked".
 
 ## Next (needs your extra content / data)
 - Tatoeba for Vyfarbi vetu (needs every noun in a sentence to be unambiguous) and for Magnet frames.
-- Pronouns (ja/mňa/mne…) and numbers + case (dve ženy / päť žien).
+- Numbers in other cases (s dvoma ženami, o piatich mužoch), possessives (môj, tvoj, svoj).
 - Verb conjugation in Hľadaj.
 
 ## Known gaps

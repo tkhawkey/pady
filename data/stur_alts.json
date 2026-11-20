@@ -45,6 +45,11 @@
       "chute"
     ]
   },
+  "banka": {
+    "gen_p": [
+      "baniek"
+    ]
+  },
   "študent": {
     "ins_p": [
       "študentami"
@@ -113,6 +118,23 @@
       "kokotovi"
     ]
   },
+  "vodič": {
+    "nom_p": [
+      "vodiče"
+    ],
+    "dat_s": [
+      "vodiču"
+    ],
+    "acc_s": [
+      "vodič"
+    ],
+    "acc_p": [
+      "vodiče"
+    ],
+    "loc_s": [
+      "vodiči"
+    ]
+  },
   "vďaka": {
     "gen_p": [
       "vďak"
@@ -132,9 +154,6 @@
     ]
   },
   "medveď": {
-    "nom_p": [
-      "medvedi"
-    ],
     "acc_p": [
       "medveďov"
     ]

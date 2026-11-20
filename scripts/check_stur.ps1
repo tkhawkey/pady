@@ -8,46 +8,8 @@ $ErrorActionPreference = 'Stop'
 $CASEDIG = @{ nom = '1'; gen = '2'; dat = '3'; acc = '4'; loc = '6'; ins = '7' }
 $cases = 'nom', 'gen', 'dat', 'acc', 'loc', 'ins'
 
-# ---- parse the YAML (simple, line based: the file has a fixed shape) ----
-$groups = [System.Collections.Generic.List[object]]::new(); $g = $null; $mode = ''; $tag = ''
-foreach ($line in [IO.File]::ReadLines("$Src/groups-nouns.yaml")) {
-  if ($line -eq '- lemmata:') { $g = @{ lemmata = [System.Collections.Generic.List[string]]::new(); forms = @{}; rep = ''; flags = @() }; $groups.Add($g); $mode = 'lem'; continue }
-  if ($line -match '^  lexeme:') { $mode = 'lex'; continue }
-  if ($line -match '^  representant: (.+)$') { $g.rep = $Matches[1].Trim(); $mode = ''; continue }
-  if ($line -match '^  representant_flags:') { $mode = 'flags'; continue }
-  if ($mode -eq 'lem' -and $line -match '^  - (.+)$') { $g.lemmata.Add($Matches[1].Trim()); continue }
-  if ($mode -eq 'lex' -and $line -match '^    (\S+):\s*$') { $tag = $Matches[1]; $g.forms[$tag] = [System.Collections.Generic.List[string]]::new(); continue }
-  if ($mode -eq 'lex' -and $line -match '^    - (.+)$') { $g.forms[$tag].Add($Matches[1].Trim()); continue }
-  if ($mode -eq 'flags' -and $line -match '^  - (.+)$') { $g.flags += $Matches[1].Trim() }
-}
-"groups: $($groups.Count)"
-
-function Get-LCP([string[]]$xs) { $p = $xs[0]; foreach ($x in $xs) { while (-not $x.StartsWith($p)) { $p = $p.Substring(0, $p.Length - 1) } }; $p }
-
-# ---- derive a table for every lemma ----
-# Each form is derived on its own: form = rep[0..k] + tail, where k = common prefix of rep and that form,
-# so a stem change in one cell (žena -> žien) doesn't block the others. Lemmas match with exact case
-# (Sloboda the surname is not sloboda), and a lemma in several groups (homonyms) keeps all of them.
-$stur = @{}   # lemma -> list of @{ gen; cells = @{ 'gen_s' = @(forms) } }
-foreach ($g in $groups) {
-  if (-not $g.rep -or -not $g.forms.Count) { continue }
-  foreach ($lem in $g.lemmata) {
-    if ($lem -cne $lem.ToLowerInvariant()) { continue }   # proper names are not our nouns
-    $cells = @{}; $gen = ''
-    foreach ($t in $g.forms.Keys) {
-      if ($t -notmatch '^SS(\w)([sp])(\d)$') { continue }
-      $gen = $Matches[1]; $num = $Matches[2]; $ck = $cases | Where-Object { $CASEDIG[$_] -eq $Matches[3] }
-      if (-not $ck) { continue }
-      $fs = @(foreach ($f in $g.forms[$t]) {
-        $k = (Get-LCP @($g.rep, $f)).Length; $repTail = $g.rep.Substring($k)
-        if ($lem.EndsWith($repTail)) { $lem.Substring(0, $lem.Length - $repTail.Length) + $f.Substring($k) }
-      })
-      if ($fs.Count) { $cells["$($ck)_$num"] = $fs }
-    }
-    if (-not $stur.ContainsKey($lem)) { $stur[$lem] = [System.Collections.Generic.List[object]]::new() }
-    $stur[$lem].Add(@{ gen = $gen; cells = $cells })
-  }
-}
+. "$PSScriptRoot/stur_lib.ps1"
+$stur = Get-SturTables "$Src/groups-nouns.yaml"
 "lemmas with a derived table: $($stur.Count)"
 
 # ---- compare with the game nouns, cell by cell ----

@@ -55,15 +55,23 @@
       }));
     }
     // other nouns: lemma + forms (the table is fetched when opened)
-    for (const [w, g, gen, forms] of LK.nouns) {
+    for (const [w, g, gen, forms, tb] of LK.nouns) {
       if (mainNouns.has(w)) continue;
-      const t = { w, g, gen, extra: true, forms };
-      for (const f of new Set([w, ...forms])) add(f, { type: 'noun', noun: t });
+      // tb: a table checked against two sources (Wiktionary + Ľ. Štúr Institute); otherwise fetched live when opened
+      const t = tb ? { w, g, gen, s: tb[0], p: tb[1], alt: tb[2] || {}, checked: true, forms } : { w, g, gen, extra: true, forms };
+      const all = new Set([w, ...forms]);
+      if (tb) for (const f of [...tb[0], ...tb[1], ...Object.values(tb[2] || {}).flat()]) all.add(f);
+      for (const f of all) add(f, { type: 'noun', noun: t });
     }
     // adjectives: complete tables
     for (const [w, g, forms] of LK.adjs) {
       const a = { w, g, f: Object.fromEntries(SLOTS.map((s, i) => [s, forms[i]])) };
       for (const f of new Set(forms)) add(f, { type: 'adj', adj: a });
+    }
+    // personal pronouns (mňa, mi, jeho, neho, ňom…)
+    for (const p of window.PADYEngine?.PRONS || []) {
+      const seen = new Set();
+      for (const fs of Object.values(p.c)) for (const [f] of fs) if (!seen.has(f)) { seen.add(f); add(f, { type: 'pron', pron: p }); }
     }
     // verbs: infinitive, present/future, past (-l forms), imperative
     for (const [w, refl, g, asp, partner, pres, past, imp] of LK.verbs || []) {
@@ -339,7 +347,29 @@
     el.innerHTML = cardHead(f, t.w, 'podst. meno', '<b>podstatné meno</b> = noun', genChip + patChip, t.g, myBtn('noun', t.w)) +
       `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar môže byť</b> = this form can be">Tento tvar môže byť</span>${matchChips(m, false)}</div>` +
       useBlock(m) + nounTable(t, f) +
-      (t.extra ? '<p class="legend-note">Table loaded live from Wiktionary.</p>' : '') + exBlock(t.w, t);
+      (t.extra ? '<p class="legend-note">⚠ Table loaded live from Wiktionary and <b>not double-checked</b>: our second source (the Ľ. Štúr Institute) doesn\'t confirm it. Usually right, but trust it a little less.</p>'
+        : t.checked ? '<p class="legend-note">✓ Checked: Wiktionary and the Ľ. Štúr Institute agree on this table.</p>' : '') + exBlock(t.w, t);
+  }
+
+  const PVAR = { S: ['krátky', 'short, unstressed: never first in the sentence, never after a preposition'], N: ['po predložke', 'after a preposition: k nemu, pre neho, s ňou'] };
+  function renderPronCard(p, f, el) {
+    const ms = [];
+    CASES.forEach((c) => (p.c[c.k] || []).forEach(([form, v]) => { if (form === f) ms.push({ ck: c.k, v }); }));
+    const chips = ms.map((m) => {
+      const c = caseOf(m.ck), vv = PVAR[m.v];
+      return `<span class="kchip c-${m.ck}" data-en="${attr(`<b>${c.name}</b> = ${c.en}${vv ? `<span class="tip-q">${vv[1]}</span>` : ''}<span class="tip-q"><i>${c.q}</i> = ${c.qEn}</span>`)}">${c.name}${vv ? ` · ${vv[0]}` : ''}</span>`;
+    }).join('');
+    const hit = new Set(ms.map((m) => m.ck));
+    let t = '<div class="ltable ktable ponly">';
+    CASES.forEach((c) => {
+      t += `<div class="rl c-${c.k}" data-en="${attr(P.caseTip(c))}"><span class="full">${c.name}</span><span class="abbr">${c.abbr}</span><small>${c.q}</small></div>`;
+      t += `<div class="lcell c-${c.k}${hit.has(c.k) ? ' hit' : ''}">${(p.c[c.k] || []).map(([form, v]) => `<span class="pf v-${v}"${PVAR[v] ? ` data-en="${attr(PVAR[v][1])}"` : ''}>${form === f ? `<b>${esc(form)}</b>` : esc(form)}</span>`).join('')}</div>`;
+    });
+    t += '</div>';
+    el.innerHTML = cardHead(f, p.k, 'zámeno', '<b>osobné zámeno</b> = personal pronoun', '', p.en) +
+      `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar môže byť</b> = this form can be">Tento tvar môže byť</span>${chips}</div>` +
+      useBlock(ms.map((m) => ({ ck: m.ck, num: 's' }))) + t +
+      '<p class="legend-note"><i>Italic</i> = short form (unstressed), <u>underlined</u> = after a preposition. All pronouns side by side: Ťahák → Zámená a čísla.</p>';
   }
 
   function renderAdjCard(a, f, el) {
@@ -419,7 +449,7 @@
       if (hits.length) pushRecent(form);
     }
     if (!hits.length) {
-      out.innerHTML = `<div class="kmiss"><p><b>${esc(f)}</b> isn't in the dictionary. It may be a pronoun or number, or a word we don't have.</p>
+      out.innerHTML = `<div class="kmiss"><p><b>${esc(f)}</b> isn't in the dictionary. It may be a number, or a word we don't have.</p>
            <a class="btn small ghost" href="https://en.wiktionary.org/wiki/${encodeURIComponent(f)}#Slovak" target="_blank" rel="noopener">Wiktionary ↗</a></div>`;
       renderRecent();
       return;
@@ -427,7 +457,7 @@
     // one card per word (a form can belong to several words: noun + adjective, two nouns…)
     const seen = new Set(); const cards = [];
     for (const h of hits) {
-      const key = h.type + '|' + (h.noun?.w || h.adj?.w || h.verb?.w);
+      const key = h.type + '|' + (h.noun?.w || h.adj?.w || h.verb?.w || h.pron?.k);
       if (seen.has(key)) continue; seen.add(key); cards.push(h);
     }
     out.innerHTML = accentNote + (cards.length > 1 ? `<p class="kmany">This form fits <b>${cards.length}</b> words:</p>` : '') +
@@ -436,6 +466,7 @@
       const el = $(`#kc${i}`);
       if (h.type === 'adj') renderAdjCard(h.adj, form, el);
       else if (h.type === 'verb') renderVerbCard(h.verb, form, el);
+      else if (h.type === 'pron') renderPronCard(h.pron, form, el);
       else renderNounCard(h.noun, form, el);
     });
     renderRecent();

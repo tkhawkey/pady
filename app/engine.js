@@ -539,6 +539,43 @@
   }
   const canSpeak = () => !!(skVoice || findVoice());
 
+  // ---------- personal pronouns ----------
+  // forms: Wiktionary (kaikki dump). Labels: L = long/stressed (also the only form), S = short (unstressed: never first,
+  // never after a preposition), N = after a preposition (on/ona/ono/oni/ony only).
+  const PRONS = [
+    { k: 'ja', en: 'I, me', c: { nom: [['ja', 'L']], gen: [['mňa', 'L'], ['ma', 'S']], dat: [['mne', 'L'], ['mi', 'S']], acc: [['mňa', 'L'], ['ma', 'S']], loc: [['mne', 'L']], ins: [['mnou', 'L']] } },
+    { k: 'ty', en: 'you (one person, informal)', c: { nom: [['ty', 'L']], gen: [['teba', 'L'], ['ťa', 'S']], dat: [['tebe', 'L'], ['ti', 'S']], acc: [['teba', 'L'], ['ťa', 'S']], loc: [['tebe', 'L']], ins: [['tebou', 'L']] } },
+    { k: 'on', en: 'he; it (masculine)', c: { nom: [['on', 'L']], gen: [['jeho', 'L'], ['ho', 'S'], ['neho', 'N']], dat: [['jemu', 'L'], ['mu', 'S'], ['nemu', 'N']], acc: [['jeho', 'L'], ['ho', 'S'], ['neho', 'N']], loc: [['ňom', 'L']], ins: [['ním', 'L']] } },
+    { k: 'ona', en: 'she; it (feminine)', c: { nom: [['ona', 'L']], gen: [['jej', 'L'], ['nej', 'N']], dat: [['jej', 'L'], ['nej', 'N']], acc: [['ju', 'L'], ['ňu', 'N']], loc: [['nej', 'L']], ins: [['ňou', 'L']] } },
+    { k: 'ono', en: 'it (neuter)', c: { nom: [['ono', 'L']], gen: [['jeho', 'L'], ['ho', 'S'], ['neho', 'N']], dat: [['jemu', 'L'], ['mu', 'S'], ['nemu', 'N']], acc: [['ho', 'S'], ['neho', 'N']], loc: [['ňom', 'L']], ins: [['ním', 'L']] } },
+    { k: 'my', en: 'we, us', c: { nom: [['my', 'L']], gen: [['nás', 'L']], dat: [['nám', 'L']], acc: [['nás', 'L']], loc: [['nás', 'L']], ins: [['nami', 'L']] } },
+    { k: 'vy', en: 'you (plural, or polite)', c: { nom: [['vy', 'L']], gen: [['vás', 'L']], dat: [['vám', 'L']], acc: [['vás', 'L']], loc: [['vás', 'L']], ins: [['vami', 'L']] } },
+    { k: 'oni', en: 'they (with a man in the group)', c: { nom: [['oni', 'L']], gen: [['ich', 'L'], ['nich', 'N']], dat: [['im', 'L'], ['nim', 'N']], acc: [['ich', 'L'], ['nich', 'N']], loc: [['nich', 'L']], ins: [['nimi', 'L']] } },
+    { k: 'ony', en: 'they (women, things, animals)', c: { nom: [['ony', 'L']], gen: [['ich', 'L'], ['nich', 'N']], dat: [['im', 'L'], ['nim', 'N']], acc: [['ich', 'L'], ['ne', 'N']], loc: [['nich', 'L']], ins: [['nimi', 'L']] } },
+  ];
+  const PRON = Object.fromEntries(PRONS.map((p) => [p.k, p]));
+
+  // ---------- numbers + case ----------
+  // 1 agrees (jeden muž, jedna žena, jedno mesto); 2–4 + nominative plural; 5+ + genitive plural.
+  // Male persons: dvaja, traja, štyria (+ nom. pl.); from 5: päť mužov or piati muži.
+  const NUMS = [
+    { n: 1, m: 'jeden', f: 'jedna', nt: 'jedno', mp: 'jeden' },
+    { n: 2, m: 'dva', f: 'dve', nt: 'dve', mp: 'dvaja' },
+    { n: 3, m: 'tri', f: 'tri', nt: 'tri', mp: 'traja' },
+    { n: 4, m: 'štyri', f: 'štyri', nt: 'štyri', mp: 'štyria' },
+    { n: 5, m: 'päť', mp: 'piati' }, { n: 6, m: 'šesť', mp: 'šiesti' }, { n: 7, m: 'sedem', mp: 'siedmi' },
+    { n: 8, m: 'osem', mp: 'ôsmi' }, { n: 9, m: 'deväť', mp: 'deviati' }, { n: 10, m: 'desať', mp: 'desiati' },
+  ];
+  // all correct phrases for number n + noun (first = the one we show); noun: { gen, s:[6], p:[6] }
+  function numPhrases(n, noun) {
+    const N = NUMS.find((x) => x.n === n), g = noun.gen, pers = g === 'm-pers';
+    if (n === 1) return [{ num: g === 'f' ? N.f : g === 'n' ? N.nt : N.m, w: noun.s[0], ck: 'nom', nb: 's' }];
+    if (n <= 4) return [{ num: pers ? N.mp : g === 'f' || g === 'n' ? N.f : N.m, w: noun.p[0], ck: 'nom', nb: 'p' }];
+    const out = [{ num: N.m, w: noun.p[1], ck: 'gen', nb: 'p' }];
+    if (pers) out.push({ num: N.mp, w: noun.p[0], ck: 'nom', nb: 'p' });
+    return out;
+  }
+
   // ---------- real example sentences with English (Tatoeba, CC BY 2.0 FR) ----------
   // ex entries: [slovak, english, form as written, tatoeba id]
   const exList = (w) => D.ex?.[w] || window.PADY_LOOKUP?.ex?.[w] || [];
@@ -570,7 +607,7 @@
     review, seed, boxOf, masteryOf, dueKeys, today, UNITS, TIERS, VERBS, TOP_VERBS, MODELS,
     unitMastery, unitDone, currentUnit, buildDose, buildUnitSession, itemForKey, tierItems, applyPlacement,
     explain, cellNeeds, frame, addMyWord, removeMyWord, myWords, hasMyWord, speak, canSpeak, parseKey, CI,
-    example, exList, exHtml,
+    example, exList, exHtml, PRONS, PRON, NUMS, numPhrases,
     setUnitDone(id) { store().units[id] = true; P.persist(); },
     // verbs
     VUNITS, VTIERS, VGROUPS, VPOOL, CONJ, APAIRS, TENSE_SK, TENSE_CLS, PK, unitsFor, vform, vname, vgroup, vByW, isVerbKey, vcolorItem,

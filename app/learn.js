@@ -165,17 +165,58 @@
     S.tab = t;
     $$('#learnTabs button').forEach((b) => b.classList.toggle('on', b.dataset.tab === t));
     $$('.ltab').forEach((s) => { s.hidden = s.id !== `tab-${t}`; });
+    if (verbSide() && t === 'male') return setTab('vzory');
     if (verbSide()) ({ vzory: renderVGroups, ktory: renderVFinder, stlpec: renderVTenses, pady: renderVAspect })[t]();
-    else ({ vzory: renderVzory, ktory: renderFinder, stlpec: renderColumn, pady: renderCases })[t]();
+    else ({ vzory: renderVzory, ktory: renderFinder, stlpec: renderColumn, pady: renderCases, male: renderLittle })[t]();
+  }
+
+  // ---------- Zámená a čísla (pronouns + numbers) ----------
+  function renderLittle() {
+    const E = window.PADYEngine, ORDER = ['nom', 'gen', 'dat', 'acc', 'loc', 'ins'];
+    const VAR = { S: ['short', 'short, unstressed: never first, never after a preposition'], N: ['po predl.', 'after a preposition'] };
+    const cell = (fs) => fs.map(([f, v]) => `<span class="pf v-${v}"${VAR[v] ? ` data-en="${attr(VAR[v][1])}"` : ''}>${f}</span>`).join(' ');
+    let pt = `<div class="ptable"><div></div>${E.PRONS.map((p) => `<div class="bh" data-en="${attr(p.en)}">${p.k}</div>`).join('')}`;
+    for (const ck of ORDER) {
+      const c = CASES.find((x) => x.k === ck);
+      pt += `<div class="rl c-${ck}" data-en="${attr(P.caseTip(c))}"><span class="abbr">${c.abbr}</span></div>`;
+      pt += E.PRONS.map((p) => `<div class="lcell c-${ck}">${cell(p.c[ck])}</div>`).join('');
+    }
+    pt += '</div>';
+    // numbers with real nouns from the game data
+    // clear, regular example words (fallback: the most frequent noun of that gender)
+    const pick = (ws, g) => ws.map((w) => D.nouns.find((n) => n.w === w && n.gen === g)).find(Boolean) || D.nouns.find((n) => n.gen === g);
+    const ex = [[['chlap', 'muž', 'študent'], 'm-pers', 'muži (osoby)'], [['stôl', 'dom', 'rok'], 'm-inan', 'mužský rod'], [['žena', 'kniha'], 'f', 'ženský rod'], [['mesto', 'auto'], 'n', 'stredný rod']]
+      .map(([ws, g, lbl]) => [pick(ws, g), lbl]).filter(([n]) => n);
+    const row = (n) => ex.map(([noun]) => `<div class="lcell">${E.numPhrases(n, noun).map((x) => `${x.num} <span class="ncase c-${x.ck}">${x.w}</span>`).join('<small>alebo</small>')}</div>`).join('');
+    let nt = `<div class="ntable" style="--cols:${ex.length}"><div></div>${ex.map(([n, lbl]) => `<div class="bh">${lbl}</div>`).join('')}`;
+    for (const n of [1, 2, 3, 5]) nt += `<div class="rl"><b>${n}</b></div>${row(n)}`;
+    nt += '</div>';
+    $('#tab-male').innerHTML = `
+      <h3 class="lhead" data-en="<b>osobné zámená</b> = personal pronouns">Osobné zámená</h3>
+      <p class="legend-note">Each case is coloured as everywhere else. <span class="pf v-S">short</span> forms are unstressed: never first in the sentence, never after a preposition (<i>Vidím ho</i>, but <i>Jeho vidím, nie ju</i>).
+        <span class="pf v-N">n-forms</span> come after a preposition: <i>k nemu, pre neho, s ňou, o ňom, na nich</i>.</p>
+      ${pt}
+      <div class="res-actions left"><button class="btn go small" onclick="window.PADYTrainer.startPron()">Drill: Zámená →</button></div>
+      <h3 class="lhead" data-en="<b>čísla</b> = numbers">Čísla + podstatné meno</h3>
+      <div class="cards3">
+        <article class="rulecard"><b>1</b> agrees like an adjective + nominative singular: <i>jeden stôl, jedna žena, jedno mesto</i>.</article>
+        <article class="rulecard c-nom"><b>2, 3, 4</b> + <b>nominative plural</b>: <i>dva stoly, dve ženy, dve mestá</i>. Male persons: <i>dvaja, traja, štyria muži</i>.</article>
+        <article class="rulecard c-gen"><b>5 and up</b> + <b>genitive plural</b>: <i>päť stolov, päť žien, päť miest</i>. Male persons: <i>päť mužov</i> or <i>piati muži</i>. The verb goes neuter singular: <i>Prišlo päť žien.</i></article>
+      </div>
+      ${nt}
+      <div class="res-actions left"><button class="btn go blue small" onclick="window.PADYTrainer.startNums()">Drill: Čísla →</button></div>`;
   }
   // tab names follow the side: Vzory / Ktorý vzor? / Stĺpec / Pády  or  Skupiny / Ktorá skupina? / Časy / Vid
   const TAB_LABELS = {
-    nouns: { vzory: ['Vzory', '<b>vzory</b> = patterns (model words)'], ktory: ['Ktorý vzor?', '<b>Ktorý vzor?</b> = Which pattern? Find the pattern for any noun.'], stlpec: ['Stĺpec', '<b>stĺpec</b> = column. One case across all 12 patterns.'], pady: ['Pády', '<b>pády</b> = cases. What each case is for, its prepositions and verbs.'] },
+    nouns: { vzory: ['Vzory', '<b>vzory</b> = patterns (model words)'], ktory: ['Ktorý vzor?', '<b>Ktorý vzor?</b> = Which pattern? Find the pattern for any noun.'], stlpec: ['Stĺpec', '<b>stĺpec</b> = column. One case across all 12 patterns.'], pady: ['Pády', '<b>pády</b> = cases. What each case is for, its prepositions and verbs.'], male: ['Zámená a čísla', '<b>zámená a čísla</b> = pronouns and numbers'] },
     verbs: { vzory: ['Skupiny', '<b>skupiny</b> = groups: verbs conjugate by their ja ending (-ám, -ím, -em, -ujem)'], ktory: ['Ktorá skupina?', '<b>Ktorá skupina?</b> = Which group? Find the group of any verb.'], stlpec: ['Časy', '<b>časy</b> = tenses: how each one is formed'], pady: ['Vid', '<b>vid</b> = aspect: imperfective vs. perfective (robiť ↔ urobiť)'] },
   };
   function labelTabs() {
     const L = TAB_LABELS[verbSide() ? 'verbs' : 'nouns'];
-    $$('#learnTabs button').forEach((b) => { const [sk, en] = L[b.dataset.tab]; b.textContent = sk; b.dataset.en = en; });
+    $$('#learnTabs button').forEach((b) => {
+      const lab = L[b.dataset.tab]; b.hidden = !lab; if (!lab) return;
+      const [sk, en] = lab; b.textContent = sk; b.dataset.en = en;
+    });
   }
   $('#learnTabs').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setTab(b.dataset.tab); });
 

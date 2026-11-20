@@ -123,6 +123,59 @@
     }).join('');
   }
 
+  // ---------- Zámená: put the pronoun into the right form, in a real sentence ----------
+  const cap = (s, like) => (/^\p{Lu}/u.test(like) ? s.charAt(0).toUpperCase() + s.slice(1) : s);
+  const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  function pronOptions(ps) {
+    const P0 = E.PRON[ps.p], a = ps.a.toLowerCase(), here = P0.c[ps.k];
+    // ono shares on's forms; grammars differ on neuter "jeho", so never count on's same-case forms as wrong
+    const sameCase = new Set([...here, ...(ps.p === 'ono' ? E.PRON.on.c[ps.k] : [])].map(([f]) => f));
+    const third = here.some(([, v]) => v === 'N');
+    const traps = [];
+    // the n-form rule is the one hard either/or inside one case: after a preposition only the n-form, otherwise never
+    if (third) {
+      const ansVar = here.find(([f]) => f === a)?.[1];
+      if (ps.pr && ansVar === 'N') traps.push(here.find(([, v]) => v === 'L')?.[0]);
+      if (!ps.pr && ansVar !== 'N') traps.push(here.find(([, v]) => v === 'N')?.[0]);
+    }
+    const others = shuffle(Object.entries(P0.c).filter(([ck]) => ck !== ps.k && ck !== 'nom')
+      .flatMap(([, fs]) => fs.map(([f]) => f)).filter((f) => !sameCase.has(f)));
+    const opts = [a];
+    for (const f of [...traps, ...others]) { if (f && !opts.includes(f) && opts.length < 4) opts.push(f); }
+    return shuffle(opts).map((f) => cap(f, ps.a));
+  }
+  function startPron(only) {
+    const all = (D.prons || []).filter((x) => !only || x.p === only); if (!all.length) return;
+    const items = shuffle([...all]).slice(0, 10).map((ps) => ({ kind: 'pron', key: null, ps, options: pronOptions(ps) }));
+    runSession({ title: 'Zámená', titleEn: 'Pronouns: mňa, mne, ho, jemu, nemu, ňom…', items, mode: 'trap', again: () => startPron(only) });
+  }
+  // ---------- Čísla: number + noun ----------
+  function startNums() {
+    const nouns = D.nouns.slice(0, 250).filter((n) => n.s?.[0] && n.p?.[0] && n.p?.[1]);
+    const items = [];
+    const pickN = () => { const r = Math.random(); return r < 0.15 ? 1 : r < 0.55 ? 2 + Math.floor(Math.random() * 3) : 5 + Math.floor(Math.random() * 6); };
+    let guard = 0;
+    while (items.length < 10 && guard++ < 200) {
+      const noun = nouns[Math.floor(Math.random() * nouns.length)], n = pickN();
+      // male persons every so often: that's where dvaja / piati live
+      if (noun.gen !== 'm-pers' && Math.random() < 0.25) continue;
+      const ok = E.numPhrases(n, noun), show = ok[Math.floor(Math.random() * ok.length)];
+      const okSet = new Set(ok.map((x) => `${x.num} ${x.w}`));
+      const N = E.NUMS.find((x) => x.n === n);
+      const nums = [...new Set([N.m, N.f, N.nt, N.mp].filter(Boolean))];
+      const ws = [...new Set([noun.s[0], noun.p[0], noun.p[1]])];
+      const right = `${show.num} ${show.w}`;
+      // wrong ones: change one part (the number word or the noun form), never another correct phrase
+      const cands = shuffle([...nums.map((x) => `${x} ${show.w}`), ...ws.map((w) => `${show.num} ${w}`), ...nums.flatMap((x) => ws.map((w) => `${x} ${w}`))])
+        .filter((c) => !okSet.has(c));
+      const options = [right];
+      for (const c of cands) { if (!options.includes(c) && options.length < 4) options.push(c); }
+      if (options.length < 3) continue;
+      items.push({ kind: 'num', key: null, n, noun, ok, show, answer: right, okSet, options: shuffle(options) });
+    }
+    runSession({ title: 'Čísla', titleEn: 'Numbers: dve ženy, päť žien, dvaja muži', items, mode: 'trap', again: startNums });
+  }
+
   function renderTrain() {
     if (!T) { P.show('home'); return; }
     $('#trTitle').textContent = T.title;
@@ -177,6 +230,16 @@
       return tag(it.type === 'type' ? 'Napíš správny tvar' : 'Vyber správny tvar', it.type === 'type' ? 'Type the right form (the pronoun is optional)' : 'Pick the right form') +
         verbHead(v) + verbSub(v, ` ${tenseChip(it.tense)}${gChip}`) + `<div class="trframe">${frame}</div>` +
         (it.type === 'type' ? typeBox() : optionButtons(it.options));
+    }
+    if (it.kind === 'pron') {
+      const ps = it.ps, P0 = E.PRON[ps.p];
+      const sent = ps.t.map(([f, ns], i) => (i === ps.i ? '<span class="mblank">?</span>' : esc(f)) + (ns ? '' : ' ')).join('');
+      return tag('Daj zámeno do správneho tvaru', 'Put the pronoun into the right form') +
+        `<div class="trsent">${sent}</div><div class="trsub"><span class="chip ghost">${esc(P0.k)}</span> <span class="gl">${esc(P0.en)}</span></div>` + optionButtons(it.options);
+    }
+    if (it.kind === 'num') {
+      return tag('Koľko?', 'How many? Pick the right number word and noun form') +
+        `<div class="trbig">${it.n} × ${esc(it.noun.w)}</div><div class="trsub">${lemmaChip(it.noun)}</div>` + optionButtons(it.options);
     }
     if (it.kind === 'trap') {
       const cat = TRAP_CATS[it.tr.c];
@@ -266,6 +329,8 @@
     }
     if (it.kind === 'aspect') return { good: ans === it.answer };
     if (it.kind === 'trap') return { good: ans === it.tr.a };
+    if (it.kind === 'pron') return { good: ans.toLowerCase() === it.ps.a.toLowerCase() };
+    if (it.kind === 'num') return { good: it.okSet.has(ans) };
     if (it.kind === 'verb') return { good: it.vx.cases.map((l) => LETTER_CK[l]).includes(ans) };
     if (it.kind === 'vform') return { good: ans === it.z.f };
     return { good: false };
@@ -325,6 +390,29 @@
         const was = other.length ? `<b>${esc(a)}</b> is ${other.map((x) => `${personChip(x.pk)} ${tenseChip(x.t)}`).join(' / ')}. ` : '';
         body = `${almost ? 'Check the accents: ' : was}${esc(PRON(it.pi, it.g))} → <b>${esc(it.answer)}</b>.${rule ? ` <span class="why-rule">Remember: ${rule}.</span>` : ''}`;
       }
+    } else if (it.kind === 'pron') {
+      const ps = it.ps, P0 = E.PRON[ps.p], a = ps.a.toLowerCase();
+      const v = P0.c[ps.k].find(([f]) => f === a)?.[1];
+      const siblings = P0.c[ps.k].map(([f]) => f).filter((f) => f !== a);
+      say = ps.t.map(([f, ns]) => f + (ns ? '' : ' ')).join('').trim();
+      const blank = $('#trCard .mblank'); if (blank) blank.outerHTML = `<span class="mfilled c-${ps.k}">${esc(ps.a)}</span>`;
+      const why = ps.pr ? ` (after <b>${esc(ps.pr)}</b>)` : '';
+      let note = '';
+      if (v === 'N') note = 'After a preposition, on / ona / ono / oni use the <b>n-form</b>: k nemu, pre neho, s ňou, na nich.';
+      else if (v === 'S') {
+        const longs = siblings.filter((f) => !/^[nň]/.test(f));
+        note = `<b>${esc(a)}</b> is the short, unstressed form: never first in the sentence, never after a preposition.${longs.length ? ` The long one (${longs.map(esc).join(', ')}) is for emphasis.` : ''}`;
+      }
+      else if (siblings.length && !ps.pr) note = `Also: ${siblings.map(esc).join(', ')} (${siblings.some((f) => /^[nň]/.test(f)) ? 'the n-form only after a preposition' : 'short form, unstressed'}).`;
+      body = `${esc(P0.k)} → ${caseChip(ps.k)} <b>${esc(ps.a)}</b>${why}. ${note ? `<span class="why-rule">${note}</span>` : ''}`;
+    } else if (it.kind === 'num') {
+      say = it.answer;
+      const n = it.n;
+      const ph = it.ok.map((x) => `${esc(x.num)} <span class="mfilled c-${x.ck}">${esc(x.w)}</span>`).join(' <span class="or">alebo</span> ');
+      const rule = n === 1 ? '1 agrees like an adjective (<i>jeden muž, jedna žena, jedno mesto</i>) + nominative singular.'
+        : n <= 4 ? '2, 3, 4 + <b>nominative plural</b>: <i>dva stoly, dve ženy, dve mestá</i>; male persons: <i>dvaja, traja, štyria muži</i>.'
+          : '5 and up + <b>genitive plural</b>: <i>päť žien, päť stolov</i>. Male persons: <i>päť mužov</i> or <i>piati muži</i>.';
+      body = `${ph} ${caseChip(it.ok[0].ck, it.ok[0].nb)} <span class="why-rule">${rule}</span>`;
     } else if (it.kind === 'trap') {
       const tr = it.tr, a = tr.a.toLowerCase(), clue = tr.h >= 0 ? tr.t[tr.h][0] : '';
       say = tr.t.map(([f, ns]) => f + (ns ? '' : ' ')).join('').trim();
@@ -716,6 +804,8 @@
     startColor,
     startPairs,
     startTraps,
+    startPron,
+    startNums,
     render(id) {
       if (id === 'train') renderTrain();
       if (id === 'path') renderPath();

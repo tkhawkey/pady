@@ -372,6 +372,38 @@ input.cell.given { opacity: .85; }
 .path-card .mode-tag { background: var(--acc); color: #fff; }
 .mode-tag.color-tag { background: var(--nom); color: #1b1035; }
 .mode-tag.trap-tag { background: var(--gen); color: #1b1035; }
+.mode-tag.little-tag { background: var(--dat); color: #1b1035; }
+.res-actions.left { justify-content: flex-start; }
+
+/* Ťahák: Zámená a čísla */
+.lhead { font-family: var(--font-display); font-size: 22px; margin: 18px 0 6px; }
+.ptable { display: grid; grid-template-columns: 44px repeat(9, minmax(0, 1fr)); gap: 5px; margin: 10px 0; overflow-x: auto; }
+.ptable .bh { text-align: center; font-family: var(--font-display); font-weight: 800; }
+.ptable .lcell { font-size: 14px; line-height: 1.5; padding: 6px 4px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.ptable .rl .abbr { display: inline; font-size: 18px; font-weight: 800; }
+.pf { font-weight: 700; }
+.pf.v-S { font-weight: 500; font-style: italic; opacity: .8; }
+.pf.v-N { text-decoration: underline 2px; text-underline-offset: 3px; }
+.legend-note .pf { padding: 0 4px; }
+.cards3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 8px 0 12px; }
+.rulecard { background: var(--card); border: var(--bw) solid var(--line); border-left: 10px solid var(--c, var(--line)); border-radius: var(--r); padding: 10px 12px; font-size: 15px; box-shadow: var(--sh-sm); }
+.ntable { display: grid; grid-template-columns: 44px repeat(var(--cols), minmax(0, 1fr)); gap: 6px; margin: 8px 0; }
+.ntable .bh { text-align: center; font-weight: 700; font-size: 14px; }
+.ntable .rl { display: flex; align-items: center; justify-content: center; font-size: 22px; font-family: var(--font-display); }
+.ntable .lcell { display: block; text-align: center; font-weight: 600; padding: 8px 4px; line-height: 1.9; min-width: 0; }
+.ntable .ncase { white-space: nowrap; }
+.ltable.ponly { grid-template-columns: minmax(110px, 190px) minmax(0, 1fr); }
+.ltable.ponly .lcell { gap: 6px 14px; flex-wrap: wrap; }
+.ntable .lcell small { display: block; line-height: 1.2; font-weight: 400; color: var(--ink-soft); }
+.ncase { background: var(--c); color: var(--ci); border-radius: 6px; padding: 0 4px; border: 2px solid var(--line); }
+@media (max-width: 720px) {
+  .ptable { grid-template-columns: 34px repeat(9, minmax(52px, 1fr)); }
+  .ntable { grid-template-columns: 26px repeat(var(--cols), minmax(0, 1fr)); gap: 4px; }
+  .ntable .lcell { font-size: 12.5px; padding: 6px 2px; }
+  .ntable .ncase { padding: 0 2px; }
+  .ntable .bh { font-size: 12px; }
+  .ltable.ponly { grid-template-columns: 40px minmax(0, 1fr); }
+}
 .trap-cats { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
 .trap-cats .chip { cursor: pointer; font-weight: 700; }
 .tclue { text-decoration: underline 3px dotted; text-underline-offset: 5px; }
@@ -1027,7 +1059,7 @@ input.cell.given { opacity: .85; }
 
 /* ============ responsive ============ */
 @media (max-width: 720px) {
-  .ltabs { gap: 6px; flex-wrap: nowrap; }
+  .ltabs { gap: 6px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
   .ltabs button { font-size: 14px; padding: 5px 9px 3px; white-space: nowrap; }
   .ltable { grid-template-columns: 40px minmax(0, 1fr) minmax(0, 1fr); gap: 6px; }
   .ltable .rl .full, .ltable .rl small { display: none; }

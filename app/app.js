@@ -396,10 +396,27 @@
       setTimeout(() => cellEl.classList.remove('bad'), 420);
       sfx.bad();
       renderHud();
-      // explain: what is this tile really?
+      // graded hints: say what the tried cell needs, then narrow it down, and only reveal on the 3rd miss
+      tile.misses = (tile.misses || 0) + 1;
       const slotName = (c) => `${CASES[c.ci].name} ${c.num === 's' ? 'sg' : 'pl'}`;
-      const where = tile.cells.map((j) => `<span class="lg c-${C.cells[j].ck}">${slotName(C.cells[j])}</span>`).join(' ');
-      showWhy(`<b>${tile.text}</b> = ${where} <span class="why-not">· nie ${slotName(cell)}</span>`);
+      const chipOf = (c) => `<span class="lg c-${c.ck}">${slotName(c)}</span>`;
+      const homes = tile.cells.map((j) => C.cells[j]).filter((c) => !c.filled);
+      if (tile.misses === 1) {
+        const needs = window.PADYEngine?.cellNeeds(C.noun, cell.ck, cell.num) || '';
+        showWhy(`<b>${tile.text}</b> doesn't go in ${chipOf(cell)}. ${needs} <span class="why-try">Try another cell.</span>`);
+      } else if (tile.misses === 2) {
+        const nums = new Set(homes.map((c) => c.num));
+        const narrow = nums.size === 1
+          ? `<b>${tile.text}</b> is <b>${[...nums][0] === 's' ? 'singular' : 'plural'}</b>.`
+          : `<b>${tile.text}</b> fits ${homes.length} cells, in both columns.`;
+        showWhy(`${narrow} <span class="why-try">One more try.</span>`);
+      } else {
+        showWhy(`<b>${tile.text}</b> = ${homes.map(chipOf).join(' ')} <span class="why-not">· nie ${slotName(cell)}</span>`);
+        for (const c of homes) {
+          const el = $(`.cell[data-i="${C.cells.indexOf(c)}"]`);
+          el?.classList.add('reveal'); setTimeout(() => el?.classList.remove('reveal'), 1600);
+        }
+      }
     }
   }
 
@@ -518,7 +535,8 @@
     el.classList.remove('bad'); void el.offsetWidth; el.classList.add('bad');
     setTimeout(() => el.classList.remove('bad'), 420);
     renderHud();
-    showWhy(window.PADYEngine?.explain({ noun: C.noun, adj: C.adj, ck: cell.ck, num: cell.num, answer: v }) || '');
+    // 1st miss: a hint without the answer (so the second try is real); 2nd miss: the full explanation
+    showWhy(window.PADYEngine?.explain({ noun: C.noun, adj: C.adj, ck: cell.ck, num: cell.num, answer: v, reveal: cell.tries >= 2 }) || '');
     if (cell.tries >= 2) { setTimeout(() => resolveCell(i, 'revealed'), 380); }
     else { setTag(i, 't-try', 'ešte 1×'); inputAt(i).parentElement.querySelector('.tag').dataset.en = 'one more try'; el.select(); }
   }
@@ -1059,8 +1077,14 @@
   });
   document.addEventListener('focusin', (e) => {
     const el = e.target.closest?.('[data-en]');
-    if (el && el.matches(':focus-visible')) showTip(el);
+    if (el && el.matches(':focus-visible')) {
+      showTip(el);
+      clearTimeout(tipHideT); tipHideT = setTimeout(() => { if (tipFor === el && !el.matches(':hover')) hideTip(); }, 2500);
+    }
   });
+  // never leave a tooltip hanging: any click or key press (other than Tab) clears it
+  document.addEventListener('keydown', (e) => { if (e.key !== 'Tab' && e.key !== 'Shift' && tipFor) hideTip(); }, true);
+  document.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse' && tipFor) hideTip(); }, true);
   document.addEventListener('focusout', hideTip);
 
   // touch: press and hold

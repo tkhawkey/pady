@@ -221,8 +221,10 @@
     if (h) { const s2 = stem.slice(0, -1) + h; if (form.startsWith(s2) && /^[eiíé]/.test(form.slice(s2.length))) return form.slice(s2.length); }
     return null;
   }
-  function explain({ noun, adj, ck, num, answer }) {
+  // reveal = false gives a hint: why the answer is wrong and a nudge, but never the answer itself
+  function explain({ noun, adj, ck, num, answer, reveal = true }) {
     if (!noun || !answer) return '';
+    if (!reveal) return hintFor({ noun, adj, ck, num, answer });
     const n = noun.s ? noun : norm(noun);
     const correct = n[num][CI[ck]];
     const ans = answer.trim().toLowerCase().split(/\s+/).pop();   // phrase mode: judge the noun
@@ -275,6 +277,60 @@
       }
     }
     return `${chip(ck, num)} of <i>${esc(n.w)}</i> is <b>${esc(correct)}</b>.${like || (note ? ' ' + note : '')} ${parts.join(' ')}`;
+  }
+
+  // the same diagnosis as explain(), worded without the correct form
+  function hintFor({ noun, adj, ck, num, answer }) {
+    const n = noun.s ? noun : norm(noun);
+    const correct = n[num][CI[ck]];
+    const ans = answer.trim().toLowerCase().split(/\s+/).pop();
+    const pat = n.pat || noun.pat;
+    const model = MODELS[pat];
+    const modelForm = model?.[num][CI[ck]];
+    const modelEnd = model ? endingOf(modelForm, model.w) : null;
+    const correctEnd = endingOf(correct, n.w);
+    const sameAsModel = model && model.w !== n.w && modelEnd != null && modelEnd === correctEnd;
+    const like = sameAsModel ? ` Think of <i>${model.w}</i> → <i>${modelForm}</i>.` : '';
+    const note = variantNote(pat, ck, num, modelEnd, correctEnd);
+    const adjBad = adj && answer.trim().toLowerCase().split(/\s+/)[0] !== P.adjForm(adj, n.gen, ck, num);
+    const adjPart = adjBad ? ' The adjective needs to change too.' : '';
+    const tail = ' <span class="why-try">Try once more.</span>';
+    if (ans === correct) return adjBad ? `The noun is right.${adjPart}${tail}` : '';
+    if (bare(ans) === bare(correct)) return `So close: right ending, check the accents.${adjPart}${tail}`;
+    const other = formsOf(n).filter((x) => x.f === ans);
+    if (other.length) return `<b>${esc(ans)}</b> is ${other.map((x) => chip(x.ck, x.num)).join(' / ')}, not ${chip(ck, num)}.${like}${adjPart}${tail}`;
+    const end = endingOf(ans, n.w);
+    if (correctEnd == null) {
+      if (end && correct.endsWith(end)) return `Right ending <b>-${esc(end)}</b>, but the stem changes in this word (a vowel drops out or changes).${adjPart}${tail}`;
+      return `This word's stem changes in this form. ${note}${adjPart}${tail}`;
+    }
+    if (end && correct.endsWith(end) && correctEnd !== end) {
+      const newStem = correct.slice(0, correct.length - end.length);
+      const stem = window.PADYLearn?.stemOf(n.w) ?? n.w;
+      if (newStem.startsWith(stem) && /[^aeiouyáéíóúýäô]/.test(newStem.slice(stem.length))) return `Right ending <b>-${esc(end)}</b>, but the stem grows in this word.${adjPart}${tail}`;
+    }
+    if (end != null && model && model.w !== n.w && end === modelEnd && modelEnd !== correctEnd) {
+      return `<b>-${esc(end || '∅')}</b> works for <i>${model.w}</i>, but <i>${esc(n.w)}</i> takes a different ending here. ${note}${adjPart}${tail}`;
+    }
+    if (end != null) {
+      const fromPats = PATTERNS.filter((p) => p !== pat && MODELS[p] && endingOf(MODELS[p][num][CI[ck]], p) === end);
+      if (fromPats.length) return `<b>-${esc(end || '∅')}</b> is the ${chip(ck, num)} ending of <i>${fromPats.slice(0, 2).join(', ')}</i>, but <i>${esc(n.w)}</i> follows <i>${pat}</i>.${like || (note ? ' ' + note : '')}${adjPart}${tail}`;
+    }
+    return `Not quite.${like || (note ? ' ' + note : ` Check ${chip(ck, num)} of the <i>${pat}</i> pattern.`)}${adjPart}${tail}`;
+  }
+
+  // Rozbi to!: what does this cell need? (said about the cell, so it doesn't reveal where the tile goes)
+  function cellNeeds(noun, ck, num) {
+    const n = noun.s ? noun : norm(noun);
+    const pat = n.pat;
+    const model = MODELS[pat];
+    if (!model) return '';
+    const modelForm = model[num][CI[ck]];
+    const modelEnd = endingOf(modelForm, model.w);
+    const correctEnd = endingOf(n[num][CI[ck]], n.w);
+    if (modelEnd == null) return '';
+    if (correctEnd === modelEnd) return `<i>${pat}</i>-type nouns take ${modelEnd ? `<b>-${esc(modelEnd)}</b>` : '<b>no ending</b>'} there (<i>${modelForm}</i>).`;
+    return variantNote(pat, ck, num, modelEnd, correctEnd) || '';
   }
 
   // "poriadok" vs "poriadk": which vowel (or ie) dropped out?
@@ -360,7 +416,7 @@
   window.PADYEngine = {
     review, seed, boxOf, masteryOf, dueKeys, today, UNITS, TIERS, VERBS, TOP_VERBS, MODELS,
     unitMastery, unitDone, currentUnit, buildDose, buildUnitSession, itemForKey, tierItems, applyPlacement,
-    explain, frame, addMyWord, removeMyWord, myWords, hasMyWord, speak, canSpeak, parseKey, CI,
+    explain, cellNeeds, frame, addMyWord, removeMyWord, myWords, hasMyWord, speak, canSpeak, parseKey, CI,
     setUnitDone(id) { store().units[id] = true; P.persist(); },
   };
 })();

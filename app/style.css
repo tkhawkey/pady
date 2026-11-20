@@ -347,6 +347,8 @@ input.cell.given { opacity: .85; }
 .why.show { display: block; animation: screenIn .3s cubic-bezier(.2,1.4,.4,1); }
 .why .lg { padding: 0 8px; border-radius: 99px; border: 2px solid var(--line); font-family: var(--font-display); font-weight: 700; font-size: 14px; }
 .why-not { color: var(--ink-soft); font-weight: 700; }
+.why-try { color: var(--acc); font-weight: 800; }
+.cell.reveal { outline: 4px dashed var(--good); outline-offset: 2px; animation: pulse .4s 4 alternate; }
 #game.mode-magnet .why, #game.mode-pad .why { display: none; }
 
 /* session runner */

@@ -85,12 +85,28 @@ foreach ($f in 'nouns_candidates.json', 'adj_candidates.json') {
 # verb conjugations for the Slovesá side (scripts/build_conj.ps1)
 $conj = @()
 if (Test-Path "$Root/data/conj.json") {
-  $conj = @(Get-Content "$Root/data/conj.json" -Raw | ConvertFrom-Json | Where-Object { $_.asp -in 'impf', 'pf' } | ForEach-Object {
-    [ordered]@{ w = $_.w; r = $_.refl; g = (Get-Short $_.g).Trim(); a = $_.asp; c = $_.cls; pr = $_.partner; s = @($_.pres); l = @($_.past); i = @($_.imp) }
+  # aspect pairs are only trusted when BOTH verbs name each other as partner (checked across all ~800 decoded verbs)
+  $partnerOf = @{}
+  if (Test-Path "$Root/work/conj_all.json") { foreach ($v in (Get-Content "$Root/work/conj_all.json" -Raw | ConvertFrom-Json)) { if ($v.partner) { $partnerOf[$v.w] = $v.partner } } }
+  $crude = @('prdieť', 'srať', 'jebať', 'chcať', 'drbať', 'šukať', 'mrdať', 'naštvať', 'močiť')
+  $conj = @(Get-Content "$Root/data/conj.json" -Raw | ConvertFrom-Json | Where-Object { $_.asp -in 'impf', 'pf' -and $_.w -notin $crude } | ForEach-Object {
+    $pr = $_.partner
+    # trusted: mutual, or the perfective = a standard prefix + the imperfective (vidieť → uvidieť, čítať → prečítať)
+    $prefixed = $pr -and $_.asp -eq 'impf' -and $pr -match "^(u|na|z|s|zo|so|po|pre|vy|za|o|ob|pri|do|od|roz|pod|nad|v)$([regex]::Escape($_.w))$"
+    $mutual = $pr -and ($partnerOf[$pr] -eq $_.w -or $prefixed)
+    [ordered]@{ w = $_.w; r = $_.refl; g = (Get-Short $_.g).Trim(); a = $_.asp; c = $_.cls; pr = $(if ($mutual) { $pr } else { $null }); s = @($_.pres); l = @($_.past); i = @($_.imp) }
   })
+  "aspect pairs (mutual): $(@($conj | Where-Object { $_.pr -and $_.a -eq 'impf' }).Count)"
 }
 
-$bundle = [ordered]@{ conj = $conj; nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
+# verb sentences for "Vyfarbi vetu" on the verb side (scripts/build_vsentences.ps1)
+$vsents = if (Test-Path "$Root/work/vsentences.json") { Get-Content "$Root/work/vsentences.json" -Raw | ConvertFrom-Json } else { @() }
+$vgloss = [ordered]@{}
+if (Test-Path "$Root/work/vsentence_glosses.json") {
+  foreach ($p in (Get-Content "$Root/work/vsentence_glosses.json" -Raw | ConvertFrom-Json).PSObject.Properties) { $vgloss[$p.Name] = (Get-Short $p.Value).Trim() }
+}
+
+$bundle = [ordered]@{ conj = $conj; vsents = @($vsents); vglosses = $vgloss; nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
 New-Item -ItemType Directory -Force "$Root/app" | Out-Null
 $json = $bundle | ConvertTo-Json -Depth 8 -Compress
 Set-Content "$Root/app/data.js" -Value "window.PADY_DATA = $json;" -Encoding utf8

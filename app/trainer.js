@@ -19,23 +19,27 @@
   // ====================================================================
   // HOME cards
   // ====================================================================
+  const sideNow = () => (P.save().side === 'verbs' ? 'verbs' : 'nouns');
+  const tiersNow = () => (sideNow() === 'verbs' ? E.VTIERS : E.TIERS);
   function renderHome() {
     const el = $('#journey'); if (!el) return;
     const s = P.save();
-    const fresh = !s.placement && !Object.keys(s.srs || {}).length;
+    const side = sideNow(), verbs = side === 'verbs';
+    const started = Object.keys(s.srs || {}).some((k) => verbs === E.isVerbKey(k));
+    const fresh = !(verbs ? s.vplacement : s.placement) && !started;
     if (fresh) {
       el.innerHTML = `<article class="mode big start-card">
         <div><div class="mode-tag" data-en="<b>začni tu</b> = start here">Začni tu</div>
-        <h2 data-en="Let's work out what you know">Čo už vieš?</h2>
-        <p>Answer a few quick examples (about 3 minutes). PÁDY works out your level and starts your path in the right place.</p></div>
+        <h2 data-en="Let's work out what you know">${verbs ? 'Čo už vieš o slovesách?' : 'Čo už vieš?'}</h2>
+        <p>Answer a few quick examples (about 3 minutes). PÁDY works out your level ${verbs ? 'with verbs ' : ''}and starts your path in the right place.</p></div>
         <button class="btn go" data-go="start" data-en="Start the quick check">Poďme na to →</button>
       </article>`;
       return;
     }
-    const due = E.dueKeys().length;
-    const u = E.currentUnit();
+    const due = E.dueKeys().filter((k) => verbs === E.isVerbKey(k)).length;
+    const u = E.currentUnit(side);
     const m = Math.round(E.unitMastery(u) * 100);
-    const n = E.UNITS.indexOf(u) + 1;
+    const n = E.unitsFor(side).indexOf(u) + 1;
     el.innerHTML = `<article class="mode dose-card">
         <div class="mode-tag" data-en="<b>dnešná dávka</b> = today's dose: a 5-minute mixed review chosen for you">Dnešná dávka</div>
         <h2 data-en="today's dose">Dnes</h2>
@@ -61,15 +65,25 @@
     P.show('train');
   }
   function startDose() {
-    runSession({ title: 'Dnešná dávka', titleEn: "Today's dose", items: E.buildDose(12), mode: 'dose' });
+    runSession({ title: 'Dnešná dávka', titleEn: "Today's dose", items: E.buildDose(12, sideNow()), mode: 'dose' });
   }
   function startUnit(u, step) {
     const names = { practice: ['Precvič', 'Practise'], write: ['Napíš', 'Write'], test: ['Test', 'Test: 80% to complete the unit'] };
-    runSession({ title: `${E.UNITS.indexOf(u) + 1}. ${names[step][0]}`, titleEn: names[step][1], items: E.buildUnitSession(u, step), mode: 'unit', unit: u, step });
+    const no = E.unitsFor(u.side || 'nouns').indexOf(u) + 1;
+    runSession({ title: `${no}. ${names[step][0]}`, titleEn: names[step][1], items: E.buildUnitSession(u, step), mode: 'unit', unit: u, step });
   }
   function startColor() {
-    const items = []; for (let i = 0; i < 6; i++) items.push({ kind: 'color', key: null, sent: D.sents[Math.floor(Math.random() * D.sents.length)] });
-    runSession({ title: 'Vyfarbi vetu', titleEn: 'Colour the sentence', items, mode: 'color' });
+    const verbs = sideNow() === 'verbs';
+    const src = verbs ? D.vsents : D.sents;
+    const items = []; for (let i = 0; i < 6; i++) items.push({ kind: verbs ? 'vcolor' : 'color', key: null, sent: src[Math.floor(Math.random() * src.length)] });
+    runSession({ title: 'Vyfarbi vetu', titleEn: verbs ? 'Colour the sentence: who is doing it?' : 'Colour the sentence', items, mode: 'color' });
+  }
+  // Páry: aspect pairs (robiť ↔ urobiť)
+  function startPairs() {
+    const keys = E.APAIRS.map((v) => `va|${v.w}`);
+    const items = []; const used = new Set();
+    while (items.length < 10 && used.size < keys.length) { const k = keys[Math.floor(Math.random() * Math.min(keys.length, 30))]; if (used.has(k)) continue; used.add(k); const it = E.itemForKey(k); if (it) items.push(it); }
+    runSession({ title: 'Páry', titleEn: 'Aspect pairs: ongoing ↔ completed', items, mode: 'color' });
   }
 
   function renderTrain() {
@@ -87,7 +101,7 @@
     card.innerHTML = renderItem(it);
     card.classList.remove('enter'); void card.offsetWidth; card.classList.add('enter');
     const inp = $('#trInput'); if (inp) setTimeout(() => inp.focus(), 50);
-    if (it.kind === 'color') colorSelect(firstOpenTarget());
+    if (it.kind === 'color' || it.kind === 'vcolor') colorSelect(firstOpenTarget());
   }
 
   // the word you're working with always shows its meaning inline (hover is for interface labels only)
@@ -104,8 +118,46 @@
     <div class="keys trdia">${DIA.map((ch, i) => `<button type="button" tabindex="-1" data-ch="${ch}">${ch}<small class="kk">${P.diaKey(i)}</small></button>`).join('')}</div>`;
   const blankFrame = (fr, extra = '') => `<div class="trframe" data-en="${attr(fr.en)}">${esc(fr.sk).replace('___', `<span class="mblank">?</span>`)}</div>${extra}`;
 
+  // ---------- verb helpers ----------
+  const PRON = (pi, g) => ['ja', 'ty', g === 'f' ? 'ona' : 'on', 'my', 'vy', 'oni'][pi];
+  const personChip = (pk) => { const p = P.PERSONS.find((x) => x.k === pk); return `<span class="lg vp" data-en="${attr(`<b>${p.sk}</b> = ${p.en}`)}">${p.icon} ${p.sk}</span>`; };
+  const tenseChip = (t) => `<span class="lg ${E.TENSE_CLS[t]}" data-en="${attr(E.TENSE_SK[t][1])}">${E.TENSE_SK[t][0]}</span>`;
+  const personButtons = () => `<div class="trcases">${P.PERSONS.map((p, i) => `<button class="trcase vp" data-ck="${p.k}"><span class="mk">${i + 1}</span><b>${p.icon} ${p.sk}</b><small>${p.en.split(' (')[0]}</small></button>`).join('')}</div>`;
+  const verbHead = (v) => `<div class="trbig">${esc(E.vname(v))}</div>`;
+  const verbSub = (v, extra = '') => `<div class="trsub"><span class="gl">${esc(v.g)}</span> <span class="chip ghost" data-en="${attr(P.ASPECT[v.a]?.[1] || '')}">${P.ASPECT[v.a]?.[0] || ''}</span>${extra}</div>`;
+  const stripPron = (s) => norm(s).replace(/^(ja|ty|on|ona|ono|my|vy|oni|ony)\s+/, '');
+
   function renderItem(it) {
     const tag = (sk, en) => `<div class="trtask" data-en="${attr(en)}">${sk}</div>`;
+    if (it.kind === 'vconj') {
+      const v = it.v;
+      const gChip = it.tense === 'past' && it.pi < 3 ? ` <span class="chip ghost" data-en="${attr(it.g === 'f' ? 'feminine subject' : 'masculine subject')}">${it.g === 'f' ? 'žen.' : 'muž.'}</span>` : '';
+      if (it.type === 'pickPerson') {
+        return tag('Kto to robí?', 'Who is doing it? (any person this form fits counts)') +
+          `<div class="trbig">${esc(it.answer)}</div>` + verbSub(v, ` · ${esc(E.vname(v))} ${tenseChip(it.tense)}`) + personButtons();
+      }
+      const frame = it.tense === 'imp' ? `(${PRON(it.pi, it.g)}) <span class="mblank">?</span>!` : `${PRON(it.pi, it.g)} <span class="mblank">?</span>`;
+      return tag(it.type === 'type' ? 'Napíš správny tvar' : 'Vyber správny tvar', it.type === 'type' ? 'Type the right form (the pronoun is optional)' : 'Pick the right form') +
+        verbHead(v) + verbSub(v, ` ${tenseChip(it.tense)}${gChip}`) + `<div class="trframe">${frame}</div>` +
+        (it.type === 'type' ? typeBox() : optionButtons(it.options));
+    }
+    if (it.kind === 'aspect') {
+      return tag(it.toPf ? 'Nájdi dokonavý pár' : 'Nájdi nedokonavý pár', it.toPf ? 'Find the perfective partner (one-off, completed)' : 'Find the imperfective partner (ongoing, repeated)') +
+        `<div class="trbig">${esc(it.q)}</div><div class="trframe">↔ <span class="mblank">?</span></div>
+         <div class="trsub"><span class="gl">${esc(it.v.g)}</span></div>` + optionButtons(it.options);
+    }
+    if (it.kind === 'vcolor') {
+      it.marks = it.marks || {};
+      const toks = it.sent.map((t, i) => {
+        const [form, pk, kind, lemma, tense, ns] = t;
+        const sp = ns ? '' : ' ';
+        if (kind === 'v') return `<button class="ctok" data-i="${i}">${esc(form)}</button>${sp}`;
+        if (kind === 'c') return `<b class="cprep" data-en="subject pronoun: a clue to the person">${esc(form)}</b>${sp}`;
+        return `<span class="cword">${esc(form)}</span>${sp}`;
+      }).join('');
+      return tag('Kto to robí?', 'Who is doing it? Mark the person of every verb. Pronouns (pink) are clues; so are the endings.') +
+        `<div class="csent">${toks}</div>` + personButtons();
+    }
     if (it.kind === 'noun' || it.kind === 'adj') {
       if (it.kind === 'adj') {
         const head = `<div class="trbig">${esc(it.adj.w)}</div><div class="trsub">${caseChip(it.ck, it.num)} <span class="chip ghost">${esc(it.label.split(' · ')[1] || '')}</span> <span class="gl">${esc(it.adj.g || '')}</span></div>`;
@@ -163,13 +215,21 @@
       if (it.type === 'type' && bare(a) === bare(it.answer)) return { good: true, almost: true };
       return { good: false };
     }
+    if (it.kind === 'vconj') {
+      if (it.type === 'pickPerson') return { good: it.valid.has(ans) };
+      const a = stripPron(ans);
+      if (a === it.answer) return { good: true };
+      if (it.type === 'type' && bare(a) === bare(it.answer)) return { good: true, almost: true };
+      return { good: false };
+    }
+    if (it.kind === 'aspect') return { good: ans === it.answer };
     if (it.kind === 'verb') return { good: it.vx.cases.map((l) => LETTER_CK[l]).includes(ans) };
     if (it.kind === 'vform') return { good: ans === it.z.f };
     return { good: false };
   }
 
   function answer(ans, btn) {
-    const it = T.cur; if (!it || T.answered || it.kind === 'color') return;
+    const it = T.cur; if (!it || T.answered || it.kind === 'color' || it.kind === 'vcolor') return;
     if (it.type === 'type' && !norm(ans)) return;
     T.answered = true;
     const { good, almost } = judge(it, ans);
@@ -206,7 +266,26 @@
     }
     let body = '';
     let say = '';
-    if (it.kind === 'noun') {
+    if (it.kind === 'vconj') {
+      const v = it.v;
+      say = it.tense === 'imp' ? it.answer : `${PRON(it.pi, it.g)} ${it.answer}`;
+      const rule = it.tense === 'past' ? P.PAST_RULE[it.pi] : it.tense === 'imp' ? '' : P.PRES_RULE[it.pi];
+      if (it.type === 'pickPerson') {
+        body = `<b>${esc(it.answer)}</b> = ${[...it.valid].map(personChip).join(' ')} ${tenseChip(it.tense)}`;
+      } else if (good && !almost) {
+        body = `${esc(PRON(it.pi, it.g))} <b>${esc(it.answer)}</b> ${tenseChip(it.tense)}`;
+      } else {
+        // what did they give? another person / tense of the same verb?
+        const a = stripPron(ans);
+        const other = it.all.filter((x) => x.f === a);
+        const was = other.length ? `<b>${esc(a)}</b> is ${other.map((x) => `${personChip(x.pk)} ${tenseChip(x.t)}`).join(' / ')}. ` : '';
+        body = `${almost ? 'Check the accents: ' : was}${esc(PRON(it.pi, it.g))} → <b>${esc(it.answer)}</b>.${rule ? ` <span class="why-rule">Remember: ${rule}.</span>` : ''}`;
+      }
+    } else if (it.kind === 'aspect') {
+      const pfW = it.toPf ? it.answer : it.q, ipfW = it.toPf ? it.q : it.answer;
+      body = `<b>${esc(ipfW)}</b> ↔ <b>${esc(pfW)}</b> <span class="why-rule">${esc(ipfW)} = ongoing / repeated (I was doing, I do); ${esc(pfW)} = one-off, completed (I did it; its present means the future).</span>`;
+      say = `${ipfW}, ${pfW}`;
+    } else if (it.kind === 'noun') {
       say = it.answer;
       if (it.type === 'pickCase') {
         body = `<b>${esc(it.answer)}</b> = ${[...it.valid].map((k) => caseChip(k)).join(' ')}`;
@@ -250,20 +329,30 @@
     $$('#trCard .ctok').forEach((b) => b.classList.toggle('sel', +b.dataset.i === i));
     T.cur.sel = i;
   }
+  // nouns: the answer is a case; verbs ("vcolor"): the answer is a person
+  const rightOf = (it, j) => (it.kind === 'vcolor' ? it.sent[j][1] : LETTER_CK[it.sent[j][1]]);
+  const personAbbr = (pk) => P.PERSONS.find((p) => p.k === pk)?.abbr || pk;
   function colorAnswer(ck) {
-    const it = T.cur; if (!it || it.kind !== 'color' || T.answered) return;
+    const it = T.cur; if (!it || (it.kind !== 'color' && it.kind !== 'vcolor') || T.answered) return;
     const i = it.sel ?? firstOpenTarget(); if (i == null) return;
-    const right = LETTER_CK[it.sent[i][1]];
+    const right = rightOf(it, i);
     const good = ck === right;
     it.marks[i] = ck;
     const b = $(`#trCard .ctok[data-i="${i}"]`);
-    b.classList.remove('sel'); b.classList.add(`c-${good ? ck : right}`, good ? 'cok' : 'cbad');
-    if (!good) b.dataset.was = CASES[CI[ck]].abbr;
+    b.classList.remove('sel');
+    if (it.kind === 'vcolor') {
+      b.classList.add('vp', good ? 'cok' : 'cbad', 'vmark'); b.dataset.who = personAbbr(right);
+      if (!good) b.dataset.was = personAbbr(ck);
+    } else {
+      b.classList.add(`c-${good ? ck : right}`, good ? 'cok' : 'cbad');
+      if (!good) b.dataset.was = CASES[CI[ck]].abbr;
+    }
     if (good) { T.right++; P.sfx.good(T.right); } else { T.wrong++; P.sfx.bad(); }
     const nxt = firstOpenTarget();
     if (nxt != null) { colorSelect(nxt); return; }
     // done: summary
     T.answered = true;
+    if (it.kind === 'vcolor') return vcolorSummary(it);
     const bad = targets().filter((j) => it.marks[j] !== LETTER_CK[it.sent[j][1]]);
     const text = it.sent.map((t) => t[0] + (t[5] ? '' : ' ')).join('').trim();
     $('#trFeed').className = `trfeed show ${bad.length ? 'no' : 'ok'}`;
@@ -281,11 +370,28 @@
       <div class="trfeed-actions">${sayBtn(text)}<button class="btn small go" id="trNext">Ďalej →</button></div>`;
   }
 
+  function vcolorSummary(it) {
+    const bad = targets().filter((j) => it.marks[j] !== it.sent[j][1]);
+    const text = it.sent.map((t) => t[0] + (t[5] ? '' : ' ')).join('').trim();
+    const rows = targets().map((j) => {
+      const [form, pk, , lemma, tense] = it.sent[j];
+      const ok = it.marks[j] === pk;
+      const g = D.vglosses?.[lemma] || E.vByW(lemma)?.g || '';
+      return `<li class="${ok ? 'ok' : 'no'}"><b>${esc(form)}</b> <span class="lem">← ${esc(lemma)}</span>${g ? ` <span class="gl">${esc(g)}</span>` : ''}
+        ${personChip(pk)} ${tenseChip(tense === 'fut' ? 'fut' : 'pres')}${ok ? '' : ' <span class="xmark">✗</span>'}</li>`;
+    }).join('');
+    $('#trFeed').className = `trfeed show ${bad.length ? 'no' : 'ok'}`;
+    $('#trFeed').innerHTML = `<div class="mrule"><span class="mres">${bad.length ? 'Skoro!' : 'Výborne!'}</span>
+      ${bad.length ? `${bad.length} of ${targets().length} with the wrong person.` : 'Every verb with the right person.'}
+      <ul class="cwords">${rows}</ul></div>
+      <div class="trfeed-actions">${sayBtn(text)}<button class="btn small go" id="trNext">Ďalej →</button></div>`;
+  }
+
   // ---------- events ----------
   $('#trCard').addEventListener('click', (e) => {
     const o = e.target.closest('.tropt'); if (o) return answer(o.dataset.ans, o);
     const c = e.target.closest('.trcase');
-    if (c) { if (T.cur.kind === 'color') return colorAnswer(c.dataset.ck); return answer(c.dataset.ck, c); }
+    if (c) { if (T.cur.kind === 'color' || T.cur.kind === 'vcolor') return colorAnswer(c.dataset.ck); return answer(c.dataset.ck, c); }
     const t = e.target.closest('.ctok'); if (t && !(+t.dataset.i in T.cur.marks)) return colorSelect(+t.dataset.i);
     if (e.target.closest('#trCheck')) answer($('#trInput').value, null);
   });
@@ -308,6 +414,7 @@
     if (inInput || T.answered) return;
     const n = parseInt(e.key, 10);
     if (T.cur?.kind === 'color') { if (n >= 1 && n <= 6) colorAnswer(CASES[n - 1].k); return; }
+    if (T.cur?.kind === 'vcolor') { if (n >= 1 && n <= 6) colorAnswer(P.PERSONS[n - 1].k); return; }
     const btns = $$('#trCard .tropt, #trCard .trcase');
     if (n >= 1 && n <= btns.length) btns[n - 1].click();
   });
@@ -323,7 +430,7 @@
     let passed = false;
     if (T.mode === 'unit' && T.step === 'test') {
       passed = acc >= 0.8;
-      if (passed) { E.setUnitDone(T.unit.id); xp += 30; headline = 'Lekcia hotová!'; note = `Unit ${E.UNITS.indexOf(T.unit) + 1} complete. The next one is open on your path.`; }
+      if (passed) { E.setUnitDone(T.unit.id); xp += 30; headline = 'Lekcia hotová!'; note = `Unit ${E.unitsFor(T.unit.side || 'nouns').indexOf(T.unit) + 1} complete. The next one is open on your path.`; }
       else note = `${Math.round(acc * 100)}%: you need 80% to complete the unit. Practise a bit more and try again.`;
     }
     if (T.mode === 'dose') {
@@ -373,7 +480,7 @@
   $('#startBody').addEventListener('click', (e) => {
     const b = e.target.closest('[data-lvl]');
     if (b) {
-      if (b.dataset.lvl === '0') { showPlacementResult(E.applyPlacement([]), true); return; }
+      if (b.dataset.lvl === '0') { showPlacementResult(E.applyPlacement([], sideNow()), true); return; }
       PL = { tier: 0, results: [] };
       runPlacementTier();
       return;
@@ -382,7 +489,7 @@
     if (e.target.closest('#plGo')) P.show('path');
   });
   function runPlacementTier() {
-    const items = E.tierItems(E.TIERS[PL.tier], 4).map((it) => ({ ...it, tier: PL.tier }));
+    const items = E.tierItems(tiersNow()[PL.tier], 4).map((it) => ({ ...it, tier: PL.tier }));
     if (!T || T.mode !== 'place') runSession({ title: 'Začni tu', titleEn: 'Start here: quick level check', items, mode: 'place', back: 'home' });
     else { T.items.push(...items); renderTrain(); }
   }
@@ -392,14 +499,22 @@
     const right = tierLog.filter((l) => l.good).length;
     PL.results.push({ tier: PL.tier, right, total: tierLog.length, items: tierLog });
     const pass = right / tierLog.length >= 0.75;
-    if (pass && PL.tier < E.TIERS.length - 1) { PL.tier++; runPlacementTier(); return; }
-    const passed = E.applyPlacement(PL.results);
+    if (pass && PL.tier < tiersNow().length - 1) { PL.tier++; runPlacementTier(); return; }
+    const passed = E.applyPlacement(PL.results, sideNow());
     P.award(10 + T.right * 2);
     T = null;
     PL.finished = true;
     P.show('start');
     showPlacementResult(passed, false);
   }
+  const VLEVELS = [
+    ['Začiatočník', 'Beginner: we start with the -ám verbs (volám, voláš…).'],
+    ['Základy máš', 'You have the basics: the present tense of -ám and -ím verbs.'],
+    ['Mierne pokročilý', 'Every present-tense group, irregular verbs too.'],
+    ['Pokročilý', 'The past tense is there as well.'],
+    ['Výborne!', 'Future and aspect too. Only commands (the imperative) left.'],
+    ['Majster slovies', 'Master of verbs. The daily dose will keep it sharp.'],
+  ];
   const LEVELS = [
     ['Začiatočník', 'Beginner: we start from the very first case.'],
     ['Základy máš', 'You have the basics: nominative, accusative and locative singular.'],
@@ -409,23 +524,24 @@
     ['Majster pádov', 'Master of cases. The daily dose will keep it sharp.'],
   ];
   function showPlacementResult(passed, skipped) {
-    const u = E.currentUnit();
-    const [lvl, lvlEn] = LEVELS[Math.min(passed, LEVELS.length - 1)];
+    const u = E.currentUnit(sideNow());
+    const LV = sideNow() === 'verbs' ? VLEVELS : LEVELS;
+    const [lvl, lvlEn] = LV[Math.min(passed, LV.length - 1)];
     $('#startBody').innerHTML = `
       <div class="start-result">
         <div class="mode-tag" data-en="your level">Tvoja úroveň</div>
         <h2 data-en="${attr(lvlEn)}">${lvl}</h2>
         <p>${lvlEn}</p>
-        ${skipped ? '' : `<div class="tierbars">${E.TIERS.map((t, i) => {
+        ${skipped ? '' : `<div class="tierbars">${tiersNow().map((t, i) => {
           const r = PL?.results.find((x) => x.tier === i);
           return `<div class="tierbar ${r ? (r.right / r.total >= 0.75 ? 'pass' : 'fail') : 'na'}" data-en="${attr(r ? `${r.right}/${r.total} right` : 'not tested')}"><span>${i + 1}</span></div>`;
         }).join('')}</div>`}
         <div class="start-next">
           <span data-en="your path starts here">Tvoja cesta začína tu:</span>
-          <b><span class="unit-no">${E.UNITS.indexOf(u) + 1}</span> ${esc(u.sk)}</b>
+          <b><span class="unit-no">${E.unitsFor(sideNow()).indexOf(u) + 1}</span> ${esc(u.sk)}</b>
           <small>${esc(u.en)}</small>
         </div>
-        ${mapHtml(true)}
+        ${sideNow() === 'verbs' ? vmapHtml(true) : mapHtml(true)}
         <div class="res-actions">
           <button class="btn go" id="plGo" data-en="Let's go!">Poďme! →</button>
           ${skipped ? '<button class="btn ghost" id="plTest" data-en="Test me anyway">Aj tak ma otestuj</button>' : ''}
@@ -453,12 +569,30 @@
     </div>`;
   }
 
+  // verbs: one small grid per tense, groups × persons
+  function vmapHtml(compact) {
+    const blocks = ['pres', 'past', 'fut', 'imp'].map((t) => {
+      const pks = t === 'imp' ? ['p2s', 'p1p', 'p2p'] : E.PK;
+      const head = `<div></div>${pks.map((pk) => `<div class="mh vp" data-en="${attr(P.PERSONS.find((p) => p.k === pk).en)}">${P.PERSONS.find((p) => p.k === pk).abbr}</div>`).join('')}`;
+      const rows = E.VGROUPS.map((g) => `<div class="mp" data-en="${attr(g.en)}">${g.sk}</div>` +
+        pks.map((pk) => { const key = `vb:${g.k}|${t}_${pk}`; return `<div class="mc ${boxClass(key)}" title="${g.sk} · ${E.TENSE_SK[t][0]} · ${pk}"></div>`; }).join('')).join('');
+      return `<div class="vmap-block"><div class="vmap-title ${E.TENSE_CLS[t]}">${E.TENSE_SK[t][0]}</div>
+        <div class="mmap-grid vgrid" style="grid-template-columns: 92px repeat(${pks.length}, minmax(14px, 1fr))">${head}${rows}</div></div>`;
+    }).join('');
+    const asp = E.APAIRS.slice(0, 20).map((v) => `<div class="mc ${boxClass(`va|${v.w}`)}" title="${v.w} ↔ ${v.pr}"></div>`).join('');
+    return `<div class="mmap vmap${compact ? ' compact' : ''}">${blocks}
+      <div class="vmap-block"><div class="vmap-title vp" data-en="aspect pairs: robiť ↔ urobiť">Vid (páry)</div><div class="vmap-pairs">${asp}</div></div>
+      <div class="mmap-legend"><span class="mc m-none"></span> nové <span class="mc m-low"></span> slabé <span class="mc m-mid"></span> učím sa <span class="mc m-high"></span> viem</div></div>`;
+  }
+
   let openUnit = null;
   function renderPath() {
-    const cur = E.currentUnit();
-    if (openUnit == null) openUnit = cur.id;
-    const due = E.dueKeys().length;
-    const units = E.UNITS.map((u, i) => {
+    const verbs = sideNow() === 'verbs';
+    const cur = E.currentUnit(sideNow());
+    if (openUnit == null || (openUnit && !E.unitsFor(sideNow()).some((u) => u.id === openUnit))) openUnit = cur.id;
+    const due = E.dueKeys().filter((k) => verbs === E.isVerbKey(k)).length;
+    $('#path .learn-head h1').textContent = verbs ? 'Tvoja cesta: slovesá' : 'Tvoja cesta';
+    const units = E.unitsFor(sideNow()).map((u, i) => {
       const done = E.unitDone(u), isCur = u === cur, open = u.id === openUnit;
       const m = Math.round(E.unitMastery(u) * 100);
       return `<li class="unit ${done ? 'done' : ''} ${isCur ? 'cur' : ''} ${open ? 'open' : ''}" data-unit="${u.id}">
@@ -483,10 +617,10 @@
         <span>Dnešná dávka</span><b>${due} na zopakovanie · ~5 min</b><i>→</i></button>
       <ol class="units">${units}</ol>
       <h3 class="sec" data-en="<b>mapa</b> = map: every pattern × case × number. Colours fill in as you learn.">Mapa pokroku</h3>
-      ${mapHtml(false)}
-      <h3 class="sec" data-en="<b>moje slová</b> = my words: words you added from Hľadaj. They come up in your daily dose.">Moje slová</h3>
+      ${verbs ? vmapHtml(false) : mapHtml(false)}
+      ${verbs ? '' : `<h3 class="sec" data-en="<b>moje slová</b> = my words: words you added from Hľadaj. They come up in your daily dose.">Moje slová</h3>
       <div class="mywords">${mine.length ? mine.map((w) => `<span class="myw"><b>${esc(w.w)}</b> <small>${esc(w.g || '')}</small><button data-rm="${attr(w.id)}" aria-label="remove" data-en="remove">×</button></span>`).join('')
-        : '<p class="weak-empty">Nothing yet. Look a word up in 🔍 Hľadaj and tap <b>＋ Moje slová</b>: it will come up in your daily dose.</p>'}</div>
+        : '<p class="weak-empty">Nothing yet. Look a word up in 🔍 Hľadaj and tap <b>＋ Moje slová</b>: it will come up in your daily dose.</p>'}</div>`}
       <p class="legend-note"><button class="link" data-go="start" data-en="Take the level check again">Znova otestovať úroveň</button></p>`;
   }
   $('#pathBody').addEventListener('click', (e) => {
@@ -495,8 +629,9 @@
     if (t) { openUnit = openUnit === t.dataset.toggle ? '' : t.dataset.toggle; return renderPath(); }
     const st = e.target.closest('[data-step]');
     if (st) {
-      const u = E.UNITS.find((x) => x.id === st.closest('[data-unit]').dataset.unit);
+      const u = E.unitsFor(sideNow()).find((x) => x.id === st.closest('[data-unit]').dataset.unit);
       if (st.dataset.step === 'learn') {
+        if (u.side === 'verbs') return window.PADYLearn.openVerb(u.learn || {});
         if (u.verbs) { window.PADYLearn.openTab('pady'); return; }
         if (u.learn?.col) return window.PADYLearn.openColumn(...u.learn.col);
         return window.PADYLearn.openPattern(u.learn?.pat || u.pats[0]);
@@ -511,6 +646,7 @@
   window.PADYTrainer = {
     renderHome,
     startColor,
+    startPairs,
     render(id) {
       if (id === 'train') renderTrain();
       if (id === 'path') renderPath();

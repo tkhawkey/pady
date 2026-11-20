@@ -103,8 +103,13 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    imperative, aspect partners) decoded from the kaikki dump — no web fetch; 7,943 treebank forms match,
    one usage override (vziať → vzal). Rozbi to!, Tabuľka (hints by person/tense rules; "ja robím" accepted)
    and Pád! (person lanes) on the verb side; Hľadaj looks up any of 798 verbs' forms.
-   **Phase 2 (next):** verb units in Cesta + placement + daily dose, verb Ťahák (groups, tense cards),
-   aspect game (Magnet: robiť ↔ urobiť), Vyfarbi vetu for verbs (person/tense from the treebank).
+9. ✅ **Slovesá, phase 2**: verbs grouped by the ja ending (-ám 98, -ím 120, -em 87, -ujem 54, irregular 40);
+   9 verb units (present per group, irregulars, past, future, aspect, imperative) with spaced repetition on
+   group × tense × person; verb placement test; the daily dose follows the side you're on and mixes in due
+   items from the other side; verb mastery map (one grid per tense + aspect pairs); verb Ťahák (Skupiny with
+   endings highlighted + tips + group drills, Ktorá skupina? finder, Časy incl. conditional, Vid + pairs);
+   Páry game (44 aspect pairs, kept only if mutual or prefix-formed); Vyfarbi vetu for verbs (600 treebank
+   sentences: who is doing it?).
 
 ## Next (needs your extra content / data)
 - Tatoeba sentence pairs → English translations for every example; sentence-level chunks.

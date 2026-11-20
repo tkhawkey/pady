@@ -160,11 +160,22 @@
   });
 
   // ---------- tabs ----------
+  const verbSide = () => P.save().side === 'verbs';
   function setTab(t) {
     S.tab = t;
     $$('#learnTabs button').forEach((b) => b.classList.toggle('on', b.dataset.tab === t));
     $$('.ltab').forEach((s) => { s.hidden = s.id !== `tab-${t}`; });
-    ({ vzory: renderVzory, ktory: renderFinder, stlpec: renderColumn, pady: renderCases })[t]();
+    if (verbSide()) ({ vzory: renderVGroups, ktory: renderVFinder, stlpec: renderVTenses, pady: renderVAspect })[t]();
+    else ({ vzory: renderVzory, ktory: renderFinder, stlpec: renderColumn, pady: renderCases })[t]();
+  }
+  // tab names follow the side: Vzory / Ktorý vzor? / Stĺpec / Pády  or  Skupiny / Ktorá skupina? / Časy / Vid
+  const TAB_LABELS = {
+    nouns: { vzory: ['Vzory', '<b>vzory</b> = patterns (model words)'], ktory: ['Ktorý vzor?', '<b>Ktorý vzor?</b> = Which pattern? Find the pattern for any noun.'], stlpec: ['Stĺpec', '<b>stĺpec</b> = column. One case across all 12 patterns.'], pady: ['Pády', '<b>pády</b> = cases. What each case is for, its prepositions and verbs.'] },
+    verbs: { vzory: ['Skupiny', '<b>skupiny</b> = groups: verbs conjugate by their ja ending (-ám, -ím, -em, -ujem)'], ktory: ['Ktorá skupina?', '<b>Ktorá skupina?</b> = Which group? Find the group of any verb.'], stlpec: ['Časy', '<b>časy</b> = tenses: how each one is formed'], pady: ['Vid', '<b>vid</b> = aspect: imperfective vs. perfective (robiť ↔ urobiť)'] },
+  };
+  function labelTabs() {
+    const L = TAB_LABELS[verbSide() ? 'verbs' : 'nouns'];
+    $$('#learnTabs button').forEach((b) => { const [sk, en] = L[b.dataset.tab]; b.textContent = sk; b.dataset.en = en; });
   }
   $('#learnTabs').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setTab(b.dataset.tab); });
 
@@ -457,8 +468,173 @@
   }
 
   // ---------- public ----------
+  // ====================================================================
+  // VERB SIDE: Skupiny / Ktorá skupina? / Časy / Vid
+  // ====================================================================
+  const E = () => window.PADYEngine;
+  const esc = (x) => String(x ?? '').replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+  const lcp = (arr) => arr.reduce((a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return a.slice(0, i); });
+  const hl = (form, stem) => (form && form.startsWith(stem) && stem
+    ? `<span class="stem">${stem}</span>${form.length > stem.length ? `<span class="end">${form.slice(stem.length)}</span>` : ''}`
+    : `<span class="end chg">${form || '–'}</span>`);
+  const aux = (a) => (a ? ` <span class="vaux">${a}</span>` : '');
+  const AUX = ['som', 'si', '', 'sme', 'ste', ''];
+  const VTIPS = {
+    am: ['<b>-ám, -áš, -á, -áme, -áte, -ajú</b>: the most regular group.', 'After a long syllable the <b>á</b> shortens (rhythmic law): <i>čítať → čítam, čítaš</i>.', 'Past: just swap <b>-ť</b> for <b>-l</b>: <i>volať → volal</i>.'],
+    im: ['<b>-ím, -íš, -í, -íme, -íte</b>, and <b>-ia</b> (or <b>-a</b>) for <i>oni</i>: <i>robia, vidia, kričia</i>.', 'After a long syllable: <b>-im, -iš</b> (<i>vrátim, vrátiš</i>).', 'Most <b>-iť</b> and <b>-ieť</b> verbs live here.'],
+    em: ['<b>-em, -eš, -e, -eme, -ete, -ú / -u</b>: <i>píšem… píšu, žijem… žijú, začnem… začnú</i>.', 'The stem often changes in the present: <i>písať → píšem, brať → beriem, česať → češem</i>. Learn the <i>ja</i> form with the verb.', '<b>-núť</b> verbs: <i>začať → začnem, zabudnúť → zabudnem</i>.'],
+    ujem: ['<b>-ovať → -ujem</b>: <i>pracovať → pracujem, ďakovať → ďakujem</i>. Hundreds of verbs, very regular.', 'Endings: <b>-ujem, -uješ, -uje, -ujeme, -ujete, -ujú</b>.', 'Past keeps <b>-oval</b>: <i>pracoval, pracovala</i>.'],
+    irr: ['Learn these by heart: they are the most frequent verbs of all.', '<b>byť</b>: som, si, je, sme, ste, sú · <b>mať</b>: mám… majú · <b>ísť</b>: idem… idú (past <i>išiel</i>)', '<b>chcieť</b>: chcem · <b>vedieť</b>: viem… vedia · <b>jesť</b>: jem… jedia · <b>môcť</b>: môžem… môžu'],
+  };
+  if (!S.vgrp) S.vgrp = 'am';
+
+  function verbTable(v) {
+    const e = E();
+    const simple = v.a === 'pf' ? ['Budúci', 't-fut', 'future (perfective verb: its "present" forms mean the future)'] : ['Prítomný', 't-pres', 'present tense'];
+    const stemS = lcp(v.s.filter(Boolean));
+    const stemL = (v.l[0] || '').replace(/l$/, '');
+    let h = `<div class="vtable"><div></div>
+      <div class="bh th ${simple[1]}" data-en="${attr(simple[2])}">${simple[0]}</div>
+      <div class="bh th t-past" data-en="past tense, masculine subject">Minulý · muž.</div>
+      <div class="bh th t-past" data-en="past tense, feminine subject">Minulý · žen.</div>`;
+    e.PK.forEach((pk, pi) => {
+      const p = P.PERSONS[pi], pl = pi >= 3;
+      h += `<div class="rl vp" data-en="${attr(`<b>${p.sk}</b> = ${p.en}`)}"><small>${p.icon}</small><span class="full">${p.sk}</span><span class="abbr">${p.abbr}</span></div>`;
+      h += `<div class="lcell ${simple[1]}">${hl(v.s[pi], stemS)}${v.r ? aux(v.r) : ''}</div>`;
+      h += `<div class="lcell t-past">${hl(pl ? v.l[3] : v.l[0], stemL)}${aux(AUX[pi])}${v.r ? aux(v.r) : ''}</div>`;
+      h += `<div class="lcell t-past">${hl(pl ? v.l[3] : v.l[1], stemL)}${aux(AUX[pi])}${v.r ? aux(v.r) : ''}</div>`;
+    });
+    return h + '</div>';
+  }
+
+  function renderVGroups() {
+    const e = E();
+    const g = e.VGROUPS.find((x) => x.k === S.vgrp) || e.VGROUPS[0];
+    const pool = e.VPOOL[g.k] || [];
+    const model = e.vByW(g.model) || pool[0];
+    const word = (S.vword && pool.find((v) => v.w === S.vword)) || model;
+    const examples = [model, ...pool.filter((v) => v !== model).slice(0, 7)];
+    $('#tab-vzory').innerHTML = `
+      <div class="ppicker"><div class="pgroup"><span class="pgroup-label" data-en="the ja form ending decides the group">Skupina</span>
+        ${e.VGROUPS.map((x) => `<button class="pchip${x.k === g.k ? ' on' : ''}" data-vgrp="${x.k}" data-en="${attr(x.en)}">${x.sk} <small>${(e.VPOOL[x.k] || []).length}</small></button>`).join('')}</div></div>
+      <article class="ppage">
+        <header class="phead"><div>
+          <h2><span class="vz" data-en="<b>skupina</b> = group">skupina</span> ${g.sk}</h2>
+          <p class="prule">${esc(g.en)}</p></div>
+          <span class="chip" data-en="${attr(P.ASPECT[word.a]?.[1] || '')}">${P.ASPECT[word.a]?.[0] || ''}</span>
+        </header>
+        <div class="pcontrols"><div class="exrow"><span class="opt-label sm" data-en="<b>príklady</b> = examples. Tap one to see its forms.">Príklady</span>
+          ${examples.map((v) => `<button class="exchip${v === word ? ' on' : ''}" data-vw="${attr(v.w)}">${esc(e.vname(v))}</button>`).join('')}</div></div>
+        <div class="pword"><b>${esc(e.vname(word))}</b> <span class="gl">${esc(word.g)}</span>${word.pr ? ` <span class="pmodel">↔ ${esc(word.pr)}</span>` : ''}</div>
+        ${verbTable(word)}
+        <div class="pfoot">
+          <ul class="tips">${(VTIPS[g.k] || []).map((t) => `<li>${t}</li>`).join('')}</ul>
+          <div class="drill">
+            <span class="opt-label sm" data-en="<b>precvič</b> = practise this group (present tense)">Precvič</span>
+            <button class="btn small go" data-vdrill="smash" data-en="Drag game with only this group">Rozbi to!</button>
+            <button class="btn small go blue" data-vdrill="grid" data-en="Typing game with only this group">Tabuľka</button>
+            <span class="drill-n">${pool.length} slovies</span>
+          </div>
+        </div>
+        <p class="legend-note"><span class="end">koncovka</span> = ending · <span class="vaux">som</span> = auxiliary (past tense) · <span class="end chg">zmena</span> = the stem changes</p>
+      </article>`;
+  }
+  $('#tab-vzory').addEventListener('click', (e) => {
+    if (!verbSide()) return;
+    e.stopPropagation();   // the noun handlers on this tab must not see verb clicks
+    const gb = e.target.closest('[data-vgrp]'); if (gb) { S.vgrp = gb.dataset.vgrp; S.vword = null; return renderVGroups(); }
+    const vw = e.target.closest('[data-vw]'); if (vw) { S.vword = vw.dataset.vw; return renderVGroups(); }
+    const d = e.target.closest('[data-vdrill]'); if (d) P.drillVerbs(d.dataset.vdrill, S.vgrp);
+  }, true);
+
+  function renderVFinder() {
+    $('#tab-ktory').innerHTML = `<div class="fsearch">
+      <label for="vfInput" data-en="<b>napíš sloveso</b> = type a verb (any form, accents optional)">Napíš sloveso</label>
+      <input id="vfInput" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="napr. pracovať, píšem, robila…" value="${attr(S.vfq || '')}">
+      <div id="vfOut"></div></div>
+      <p class="legend-note">The group is decided by the <b>ja</b> form: <i>volám</i> (-ám), <i>robím</i> (-ím), <i>píšem</i> (-em), <i>pracujem</i> (-ujem). Other verbs: try 🔍 Hľadaj.</p>`;
+    runVFinder();
+  }
+  function runVFinder() {
+    const out = $('#vfOut'); if (!out) return;
+    const q = (S.vfq || '').trim().toLowerCase(); if (!q) { out.innerHTML = ''; return; }
+    const e = E(), b = bareS(q);
+    const forms = (v) => [v.w, ...v.s, ...v.l, ...(v.i || [])].filter(Boolean);
+    const v = e.CONJ.find((x) => forms(x).includes(q)) || e.CONJ.find((x) => forms(x).some((f) => bareS(f) === b));
+    if (!v) { out.innerHTML = '<p class="fnone">Not among the 400 most common verbs. 🔍 Hľadaj knows about 800.</p>'; return; }
+    const g = e.VGROUPS.find((x) => x.k === v.grp);
+    out.innerHTML = `<div class="fresult"><p class="fnote"><b>${esc(e.vname(v))}</b> (${esc(v.g)}): <i>ja ${esc(v.s[0])}</i>, <i>oni ${esc(v.s[5])}</i>.</p>
+      <div class="fpats"><button class="fpat" data-open-vgrp="${g.k}"><span class="vz">skupina</span> <b>${g.sk}</b>
+        <span class="fmini">${esc(g.en.split(':')[0])}</span><span class="fgo">otvor →</span></button></div></div>`;
+  }
+  $('#tab-ktory').addEventListener('input', (e) => { if (e.target.id === 'vfInput') { S.vfq = e.target.value; runVFinder(); } });
+  $('#tab-ktory').addEventListener('click', (e) => { const b = e.target.closest('[data-open-vgrp]'); if (b) { S.vgrp = b.dataset.openVgrp; S.vword = null; setTab('vzory'); } });
+
+  const ENDINGS = {
+    am: ['-ám', '-áš', '-á', '-áme', '-áte', '-ajú'], im: ['-ím', '-íš', '-í', '-íme', '-íte', '-ia'],
+    em: ['-em', '-eš', '-e', '-eme', '-ete', '-ú'], ujem: ['-ujem', '-uješ', '-uje', '-ujeme', '-ujete', '-ujú'],
+  };
+  function renderVTenses() {
+    const e = E(), rob = e.vByW('robiť'), uro = e.vByW('urobiť');
+    const card = (cls, sk, en, body) => `<article class="casecard ${cls}"><header><h3 data-en="${attr(en)}">${sk}</h3></header><div class="cbody">${body}</div></article>`;
+    const endTable = `<div class="etable"><div></div>${P.PERSONS.map((p) => `<div class="bh">${p.abbr}</div>`).join('')}
+      ${['am', 'im', 'em', 'ujem'].map((g) => `<div class="mp">${e.VGROUPS.find((x) => x.k === g).sk}</div>${ENDINGS[g].map((x) => `<div class="ecell">${x}</div>`).join('')}`).join('')}</div>`;
+    const rows = (fn) => `<div class="tforms">${P.PERSONS.map((p, pi) => `<span><small>${p.abbr}</small> ${fn(pi)}</span>`).join('')}</div>`;
+    $('#tab-stlpec').innerHTML = `<div class="cases">
+      ${card('t-pres', 'Prítomný čas', 'present tense', `<p class="cuse">What is happening now, or usually. Only <b>imperfective</b> verbs have one.</p>${endTable}`)}
+      ${card('t-past', 'Minulý čas', 'past tense', `<p class="cuse">The <b>-l form</b> agrees with the subject: <b>-l</b> (m.), <b>-la</b> (f.), <b>-lo</b> (n.), <b>-li</b> (pl.). Add <b>som, si, sme, ste</b> for ja, ty, my, vy; nothing for on/ona/ono/oni.</p>
+        ${rob ? rows((pi) => [pi >= 3 ? rob.l[3] : rob.l[0], AUX[pi]].filter(Boolean).join(' ')) : ''}<p class="cex-s">ja (žena): <b>robila som</b> · ona: <b>robila</b></p>`)}
+      ${card('t-fut', 'Budúci čas', 'future tense', `<p class="cuse"><b>Imperfective</b>: <b>budem, budeš, bude, budeme, budete, budú</b> + infinitive. <b>Perfective</b>: the present-looking form already means the future. Never "budem urobiť"!</p>
+        ${rows((pi) => `${['budem', 'budeš', 'bude', 'budeme', 'budete', 'budú'][pi]} robiť`)}${uro ? `<p class="cex-s">perfective: <b>${uro.s.join(', ')}</b> = I/you/… will do (it)</p>` : ''}`)}
+      ${card('vp', 'Rozkazovací spôsob', 'imperative: commands', `<p class="cuse">Commands for <b>ty</b>, <b>my</b> (let's) and <b>vy</b>. Usually the stem of the <i>oni</i> form: <i>robia → rob!</i></p>
+        ${rob ? `<div class="tforms"><span><small>ty</small> ${rob.i[0]}!</span><span><small>my</small> ${rob.i[1]}!</span><span><small>vy</small> ${rob.i[2]}!</span></div>` : ''}`)}
+      ${card('vp', 'Podmieňovací spôsob', 'conditional: would', `<p class="cuse">"Would": the <b>-l form + by</b> + som/si/sme/ste. <i>robil by som</i> = I would do; <i>chcela by som</i> = I (f.) would like.</p>
+        ${rob ? rows((pi) => [pi >= 3 ? rob.l[3] : rob.l[0], 'by', AUX[pi]].filter(Boolean).join(' ')) : ''}`)}
+    </div>`;
+  }
+
+  function renderVAspect() {
+    const e = E();
+    const pairs = e.APAIRS.slice(0, 30);
+    $('#tab-pady').innerHTML = `<div class="cases">
+      <article class="casecard t-pres"><header><h3 data-en="<b>nedokonavé</b> = imperfective">Nedokonavé</h3></header><div class="cbody">
+        <p class="cuse">The action as a process, ongoing or repeated: <i>Robil som úlohu.</i> (I was doing my homework.) <i>Každý deň píšem.</i> (I write every day.)</p>
+        <p class="cuse">Has all three tenses: <i>robím, robil som, budem robiť</i>.</p></div></article>
+      <article class="casecard t-fut"><header><h3 data-en="<b>dokonavé</b> = perfective">Dokonavé</h3></header><div class="cbody">
+        <p class="cuse">One completed action, with a result: <i>Urobil som úlohu.</i> (I did, finished, my homework.)</p>
+        <p class="cuse">No present tense: <i>urobím</i> means "I <b>will</b> do (it)".</p></div></article>
+      <article class="casecard vp"><header><h3 data-en="how pairs are made">Ako vznikajú páry</h3></header><div class="cbody">
+        <p class="cuse">Usually a <b>prefix</b> makes it perfective: <i>robiť → <b>u</b>robiť, písať → <b>na</b>písať, jesť → <b>z</b>jesť</i>.</p>
+        <p class="cuse">Sometimes the <b>suffix</b> changes: <i>dávať ↔ dať, vracať ↔ vrátiť</i>. A few pairs are different words: <i>brať ↔ vziať</i>.</p>
+        <button class="btn small go" id="playPairs" data-en="Play the pairs game">Páry →</button></div></article>
+    </div>
+    <h3 class="sec" data-en="the most common pairs">Najčastejšie páry</h3>
+    <div class="vpairs">${pairs.map((v) => `<div class="vpair"><b>${esc(e.vname(v))}</b> ↔ <b>${esc(v.pr)}</b> <span class="gl">${esc(v.g)}</span></div>`).join('')}</div>`;
+    $('#playPairs').onclick = () => window.PADYTrainer.startPairs();
+  }
+
+  // weak spots on the verb side: verb cells in the review boxes that keep coming back
+  function renderVWeak() {
+    const e = E(), srs = P.save().srs || {};
+    const rows = Object.entries(srs).filter(([k, [b]]) => k.startsWith('vb:') && b <= 1).slice(0, 4);
+    const el = $('#weakSpots');
+    if (!rows.length) { el.innerHTML = `<span class="weak-title">Tvoje slabé miesta</span><span class="weak-empty">Play a few verb rounds and the forms you keep missing will show up here.</span>`; return; }
+    el.innerHTML = `<span class="weak-title" data-en="<b>tvoje slabé miesta</b> = your weak spots">Tvoje slabé miesta</span>` + rows.map(([k]) => {
+      const [gp, cell] = k.split('|'); const g = gp.slice(3); const [t, pk] = cell.split('_');
+      const p = P.PERSONS.find((x) => x.k === pk);
+      return `<button class="weak-chip ${e.TENSE_CLS[t]}" data-open-vgrp="${g}">${e.VGROUPS.find((x) => x.k === g)?.sk} · ${e.TENSE_SK[t][0].split(' ')[0].toLowerCase()} · ${p.abbr}</button>`;
+    }).join('');
+  }
+  $('#weakSpots').addEventListener('click', (e) => { const b = e.target.closest('[data-open-vgrp]'); if (b) { e.stopPropagation(); S.vgrp = b.dataset.openVgrp; S.vword = null; setTab('vzory'); } }, true);
+
   window.PADYLearn = {
-    render() { renderWeak(); setTab(S.tab); },
+    render() { labelTabs(); if (verbSide()) renderVWeak(); else renderWeak(); setTab(S.tab); },
+    openVerb(l) {
+      if (l.vgroup) { S.vgrp = l.vgroup; S.vword = null; S.tab = 'vzory'; }
+      else if (l.vtense) S.tab = 'stlpec';
+      else if (l.vtab === 'vid') S.tab = 'pady';
+      P.show('learn');
+    },
     // shared with the Hľadaj (lookup) page
     fmt, stemOf, PREPS, models,
     openPattern(p) { S.pat = p; S.word = null; S.tab = 'vzory'; P.show('learn'); },

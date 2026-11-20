@@ -49,7 +49,7 @@
     </section>
 
     <section class="modes">
-      <div class="journey only-nouns" id="journey"></div>
+      <div class="journey" id="journey"></div>
 
       <article class="mode big settings only-verbs" id="vsettings">
         <div class="mode-tag" data-en="<b>nastavenie</b> = settings for the verb games">Nastavenie</div>
@@ -80,11 +80,12 @@
         <p class="legend-note">The 400 most common verbs, decoded from Wiktionary and checked against real Slovak text. Look up any verb form in 🔍 Hľadaj.</p>
       </article>
 
-      <article class="mode big learn-card only-nouns" id="modeLearn">
+      <article class="mode big learn-card" id="modeLearn">
         <div class="learn-card-text">
           <div class="mode-tag" data-en="<b>uč sa</b> = learn">Uč sa</div>
           <h2 data-en="<b>ťahák</b> = crib sheet">Ťahák</h2>
-          <p>Learn it first: the 12 model words with their endings lit up, a "which pattern is my word?" finder, every case side by side, and your weak spots.</p>
+          <p class="only-nouns">Learn it first: the 12 model words with their endings lit up, a "which pattern is my word?" finder, every case side by side, and your weak spots.</p>
+          <p class="only-verbs">Learn it first: the verb groups (-ám, -ím, -em, -ujem) with endings lit up, a "which group?" finder, every tense explained, and aspect pairs.</p>
         </div>
         <button class="btn go yellow" data-go="learn" data-en="Open the crib sheet">Otvor ťahák →</button>
       </article>
@@ -130,11 +131,19 @@
         <button class="btn go blue" id="startGrid" data-en="Start the grid">Tabuľka →</button>
         <p class="best" id="bestGrid"></p>
       </article>
-      <article class="mode play only-nouns" id="modeColor">
+      <article class="mode play" id="modeColor">
         <div class="mode-tag color-tag" data-en="<b>čítaj</b> = read">Hraj · čítaj</div>
         <h2 data-en="<b>vyfarbi vetu</b> = colour the sentence">Vyfarbi vetu</h2>
-        <p>Real Slovak sentences. Give every noun and adjective its case colour; prepositions are your clues. This is the "reading a poster" skill.</p>
+        <p class="only-nouns">Real Slovak sentences. Give every noun and adjective its case colour; prepositions are your clues. This is the "reading a poster" skill.</p>
+        <p class="only-verbs">Real Slovak sentences. For every verb, who is doing it? <i>ja, ty, on, my…</i> Pronouns and endings are your clues.</p>
         <button class="btn go yellow" onclick="window.PADYTrainer.startColor()" data-en="Start: 6 real sentences">Vyfarbi →</button>
+      </article>
+
+      <article class="mode play only-verbs" id="modePairs">
+        <div class="mode-tag pad-tag" data-en="<b>vid</b> = aspect">Hraj · vid</div>
+        <h2 data-en="<b>páry</b> = pairs">Páry</h2>
+        <p>Every action comes in a pair: ongoing <i>robiť</i>, completed <i>urobiť</i>. Find the partner: <i>písať ↔ ?</i></p>
+        <button class="btn go green" onclick="window.PADYTrainer.startPairs()" data-en="Start: 10 aspect pairs">Páry →</button>
       </article>
 
       <article class="mode play" id="modePad">

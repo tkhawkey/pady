@@ -177,7 +177,7 @@
   });
 
   // ---------- home ----------
-  const opts = { kind: 'noun', pattern: 'all', len: 5, mlevel: 'case', vtense: 'both', vasp: 'all' };
+  const opts = { kind: 'noun', pattern: 'all', len: 5, mlevel: 'case', vtense: 'both', vasp: 'all', vgrp: 'all' };
   function renderHome() {
     const verbs = save.side === 'verbs';
     document.body.classList.toggle('side-verbs', verbs);
@@ -200,7 +200,7 @@
     renderTop();
     window.PADYTrainer?.renderHome();
   }
-  const bestKey = (mode) => (save.side === 'verbs' && mode !== 'magnet' ? `verb-${mode}:${opts.vtense}:${opts.vasp}:${opts.len}`
+  const bestKey = (mode) => (save.side === 'verbs' && mode !== 'magnet' ? `verb-${mode}:${opts.vtense}:${opts.vasp}:${opts.vgrp}:${opts.len}`
     : mode === 'magnet' ? `magnet:${opts.mlevel}:${opts.len}`
     : mode === 'pad' ? `pad:${opts.kind}:${opts.pattern}`
     : `${mode}:${opts.kind}:${opts.pattern}:${opts.len}`);
@@ -226,7 +226,7 @@
   function startRound(mode) {
     const side = save.side === 'verbs' && mode !== 'magnet' ? 'verbs' : 'nouns';
     let pool = side === 'verbs'
-      ? (D.conj || []).filter((v) => opts.vasp === 'all' || v.a === opts.vasp).slice(0, 150)   // most frequent verbs
+      ? (D.conj || []).filter((v) => (opts.vasp === 'all' || v.a === opts.vasp) && (opts.vgrp === 'all' || v.grp === opts.vgrp)).slice(0, 150)   // most frequent verbs
       : D.nouns.filter((n) => opts.pattern === 'all' || n.pat === opts.pattern).slice(0, Math.max(200, opts.len));
     pool = shuffle(pool);
     G = {
@@ -1297,7 +1297,10 @@
     CASES, PATTERNS, PATTERN_EN, GENDER_LABEL, GENDER_EN, caseTip, patternTip, attr, show,
     stats: () => save.stats,
     save: () => save, persist, award, sfx, confetti, floater, centerOf, renderTop, toast, adjForm, PERSONS, ASPECT, diaKey,
+    PRES_RULE, PAST_RULE,
+    setSide(side) { save.side = side; persist(); renderHome(); },
     startRound: (mode) => startRound(mode),
+    drillVerbs(mode, grp) { opts.vgrp = grp; opts.vtense = 'pres'; opts.vasp = 'impf'; save.side = 'verbs'; renderHome(); startRound(mode); opts.vgrp = 'all'; opts.vasp = 'all'; },
     drill(mode, pattern) {
       opts.pattern = pattern;
       renderHome();

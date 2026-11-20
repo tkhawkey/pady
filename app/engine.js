@@ -69,7 +69,8 @@
   for (const u of UNITS) u.keys = u.verbs ? TOP_VERBS.map((x) => x.key) : u.pats.flatMap((p) => u.cells.map((c) => `${p}|${c}`));
   const unitMastery = (u) => u.keys.reduce((s, k) => s + masteryOf(k), 0) / u.keys.length;
   const unitDone = (u) => !!store().units[u.id];
-  const currentUnit = () => UNITS.find((u) => !unitDone(u)) || UNITS[UNITS.length - 1];
+  const unitsFor = (side) => (side === 'verbs' ? VUNITS : UNITS);
+  const currentUnit = (side = 'nouns') => { const L = unitsFor(side); return L.find((u) => !unitDone(u)) || L[L.length - 1]; };
 
   // ---------- mini-sentence frames ----------
   const FRAME = {
@@ -126,6 +127,8 @@
     : box <= 3 ? pick(['pickForm', 'type', 'type']) : 'type');
 
   function itemForKey(key, forced) {
+    if (key.startsWith('vb:')) return vconjItem(key, forced || vtypeForBox(boxOf(key)));
+    if (key.startsWith('va|')) return aspectItem(key);
     if (key.startsWith('v|')) { const vx = VERBS.find((x) => x.key === key); return vx ? verbItem(vx, forced || (boxOf(key) >= 2 ? 'vform' : 'verb')) : null; }
     if (key.startsWith('w|')) return myWordItem(key, forced);
     const { pat } = parseKey(key);
@@ -170,29 +173,31 @@
   // ---------- sessions ----------
   function colorItem() { const s = pick(D.sents || []); return s ? { kind: 'color', key: null, sent: s } : null; }
 
-  function buildDose(n = 12) {
+  // the daily dose: mostly the side you're on, plus a couple of due items from the other side
+  function buildDose(n = 12, side = 'nouns') {
     const s = store();
     const items = [];
     const used = new Set();
     const push = (it) => { if (it && !used.has(it.key + it.kind)) { used.add(it.key + it.kind); items.push(it); } };
-    // 1. what is due (weakest first)
-    for (const k of dueKeys().slice(0, 7)) push(itemForKey(k));
+    const onSide = (k) => (side === 'verbs') === isVerbKey(k);
+    const due = dueKeys();
+    // 1. what is due on this side (weakest first)
+    for (const k of due.filter(onSide).slice(0, 7)) push(itemForKey(k));
     // 2. new cells from the current unit
-    const cu = currentUnit();
+    const cu = currentUnit(side);
     for (const k of shuffle(cu.keys.filter((k) => boxOf(k) == null)).slice(0, 4)) push(itemForKey(k));
-    // 3. my words
-    for (const w of shuffle(myWords()).slice(0, 3)) push(itemForKey(pick(myWordKeys(w))));
-    // 4. a verb now and then (once units are under way)
-    if (Object.keys(s.units).length >= 2 || cu.verbs) push(itemForKey(pick(TOP_VERBS).key));
-    // 5. fill with review from finished units
-    const doneKeys = UNITS.filter(unitDone).flatMap((u) => u.keys);
+    // 3. my words (nouns/adjectives from Hľadaj)
+    if (side === 'nouns') for (const w of shuffle(myWords()).slice(0, 3)) push(itemForKey(pick(myWordKeys(w))));
+    // 4. the other side: a couple of due items, so neither side gets forgotten
+    for (const k of due.filter((k) => !onSide(k)).slice(0, 2)) push(itemForKey(k));
+    // 5. verb government now and then on the noun side
+    if (side === 'nouns' && (Object.keys(s.units).filter((u) => !u.startsWith('vu')).length >= 2 || cu.verbs)) push(itemForKey(pick(TOP_VERBS).key));
+    // 6. fill with review from finished units on this side
+    const doneKeys = unitsFor(side).filter(unitDone).flatMap((u) => u.keys);
     let guard = 0;
-    while (items.length < n - 1 && guard++ < 50) {
-      const pool = doneKeys.length ? doneKeys : cu.keys;
-      push(itemForKey(pick(pool)));
-    }
+    while (items.length < n - 1 && guard++ < 60) push(itemForKey(pick(doneKeys.length ? doneKeys : cu.keys)));
     const out = shuffle(items).slice(0, n - 1);
-    const c = colorItem(); if (c) out.push(c);   // finish on a real sentence
+    const c = side === 'verbs' ? vcolorItem() : colorItem(); if (c) out.push(c);   // finish on a real sentence
     return out;
   }
 
@@ -201,6 +206,13 @@
     const items = [];
     for (let i = 0; i < N; i++) {
       const key = pick(u.keys);
+      if (u.aspect) { items.push(aspectItem(key)); continue; }
+      if (u.side === 'verbs') {
+        const type = step === 'practice' ? pick(['pickForm', 'pickForm', 'pickPerson'])
+          : step === 'write' ? 'type' : pick(['pickForm', 'type', 'type', 'pickPerson']);
+        items.push(vconjItem(key, type));
+        continue;
+      }
       if (u.verbs) { items.push(itemForKey(key, step === 'practice' ? 'verb' : step === 'write' ? 'vform' : pick(['verb', 'vform']))); continue; }
       const type = step === 'practice' ? pick(['pickForm', 'pickForm', 'pickCase'])
         : step === 'write' ? 'type' : pick(['pickForm', 'type', 'type', 'pickCase']);
@@ -372,28 +384,142 @@
     { units: ['u12'], verbs: true },
   ];
   function tierItems(t, n = 4) {
+    if (t.keys?.[0]?.startsWith('vb:') || t.keys?.[0]?.startsWith('va|')) {
+      return shuffle(t.keys.slice()).map((k) => (k.startsWith('va|') ? aspectItem(k) : vconjItem(k, 'pickForm'))).filter(Boolean).slice(0, n);
+    }
     if (t.verbs) return shuffle(TOP_VERBS.slice(0, 20)).slice(0, n).map((vx) => verbItem(vx, 'verb'));
     return shuffle(t.keys.slice()).slice(0, n).map((k) => nounItem(k, 'pickForm', MODELS[parseKey(k).pat]));
   }
-  function applyPlacement(results) {
+  function applyPlacement(results, side = 'nouns') {
     // results: [{tier, right, total, items:[{key, good}]}]
     const s = store();
+    const tiers = side === 'verbs' ? VTIERS : TIERS, units = unitsFor(side);
     let passed = 0;
     for (const r of results) {
       for (const it of r.items) if (it.key) seed(it.key, it.good ? 3 : 0);
       if (r.right / r.total >= 0.75) {
         passed++;
-        for (const uid of TIERS[r.tier].units) {
+        for (const uid of tiers[r.tier].units) {
           s.units[uid] = true;
-          const u = UNITS.find((x) => x.id === uid);
+          const u = units.find((x) => x.id === uid);
           for (const k of u.keys) seed(k, r.right === r.total ? 3 : 2);
         }
       } else break;
     }
-    s.placement = { passed, at: today() };
+    s[side === 'verbs' ? 'vplacement' : 'placement'] = { passed, at: today() };
     P.persist();
     return passed;
   }
+
+  // ====================================================================
+  // VERBS: groups by the ja ending, units, items, placement
+  // ====================================================================
+  const CONJ = D.conj || [];
+  const PK = P.PERSONS.map((p) => p.k);
+  function vgroup(v) {
+    if ((v.c || '').startsWith('irreg')) return 'irr';
+    const ja = v.s[0], oni = v.s[5];
+    if (/ujem$/.test(ja)) return 'ujem';
+    if (/[aá]m$/.test(ja) && /aj[úu]$/.test(oni)) return 'am';
+    if (/[ií]m$/.test(ja) && /(ia|a)$/.test(oni)) return 'im';
+    if (/(e|ie)m$/.test(ja)) return 'em';
+    return 'irr';
+  }
+  CONJ.forEach((v) => { v.grp = vgroup(v); });
+  const VGROUPS = [
+    { k: 'am', sk: '-ám', en: 'verbs whose ja form ends in -ám: volám, voláš… volajú', model: 'volať' },
+    { k: 'im', sk: '-ím', en: 'verbs whose ja form ends in -ím: robím, robíš… robia', model: 'robiť' },
+    { k: 'em', sk: '-em', en: 'verbs whose ja form ends in -em / -iem: píšem, žijem, začnem… píšu', model: 'písať' },
+    { k: 'ujem', sk: '-ujem', en: '-ovať verbs (and a few others): pracujem, pracuješ… pracujú', model: 'pracovať' },
+    { k: 'irr', sk: 'nepravidelné', en: 'irregular verbs: som, viem, idem, chcem, jem…', model: 'byť' },
+  ];
+  const VPOOL = Object.fromEntries(VGROUPS.map((g) => [g.k, CONJ.filter((v) => v.grp === g.k)]));
+  VGROUPS.forEach((g) => { if (!VPOOL[g.k].some((v) => v.w === g.model)) g.model = VPOOL[g.k][0]?.w; });
+  const vByW = (w) => CONJ.find((v) => v.w === w);
+
+  const BUD = ['budem', 'budeš', 'bude', 'budeme', 'budete', 'budú'];
+  const AUXV = ['som', 'si', '', 'sme', 'ste', ''];
+  const IMP_OF = { p2s: 0, p1p: 1, p2p: 2 };
+  const TENSE_SK = { pres: ['Prítomný čas', 'present tense'], past: ['Minulý čas', 'past tense'], fut: ['Budúci čas', 'future tense'], imp: ['Rozkazovací spôsob', 'imperative (command)'] };
+  const TENSE_CLS = { pres: 't-pres', past: 't-past', fut: 't-fut', imp: 'vp' };
+  const vjoin = (...xs) => xs.filter(Boolean).join(' ');
+  // any form: tense × person (× gender for the singular past)
+  function vform(v, tense, pi, g = 'm') {
+    if (tense === 'pres') return v.a === 'pf' ? null : vjoin(v.s[pi], v.r);
+    if (tense === 'fut') return v.a === 'pf' ? vjoin(v.s[pi], v.r) : vjoin(BUD[pi], v.r, v.w);
+    if (tense === 'past') return vjoin(pi >= 3 ? v.l[3] : v.l[{ m: 0, f: 1, n: 2 }[g]], AUXV[pi], v.r);
+    if (tense === 'imp') { const i = IMP_OF[PK[pi]]; return i == null || !v.i?.[i] ? null : vjoin(v.i[i], v.r); }
+    return null;
+  }
+  const vname = (v) => vjoin(v.w, v.r);
+
+  // aspect pairs: imperfective verbs whose perfective partner we know
+  const APAIRS = CONJ.filter((v) => v.a === 'impf' && v.pr).slice(0, 40);
+
+  const ALLG = ['am', 'im', 'em', 'ujem', 'irr'];
+  const VUNITS = [
+    { id: 'vu1', sk: 'Prítomný čas: -ám', en: 'Present tense of -ám verbs: volám, voláš… volajú', grps: ['am'], tenses: ['pres'], learn: { vgroup: 'am' } },
+    { id: 'vu2', sk: 'Prítomný čas: -ím', en: 'Present tense of -ím verbs: robím, robíš… robia', grps: ['im'], tenses: ['pres'], learn: { vgroup: 'im' } },
+    { id: 'vu3', sk: 'Prítomný čas: -em', en: 'Present tense of -em verbs: píšem, píšeš… píšu', grps: ['em'], tenses: ['pres'], learn: { vgroup: 'em' } },
+    { id: 'vu4', sk: 'Prítomný čas: -ujem', en: '-ovať verbs: pracujem, pracuješ… pracujú', grps: ['ujem'], tenses: ['pres'], learn: { vgroup: 'ujem' } },
+    { id: 'vu5', sk: 'Nepravidelné slovesá', en: 'The irregular core: som, mám, viem, idem, chcem, môžem…', grps: ['irr'], tenses: ['pres'], learn: { vgroup: 'irr' } },
+    { id: 'vu6', sk: 'Minulý čas', en: 'Past tense: -l / -la / -lo / -li + som, si, sme, ste', grps: ALLG, tenses: ['past'], learn: { vtense: 'past' } },
+    { id: 'vu7', sk: 'Budúci čas', en: 'Future: budem + infinitive, or a perfective verb on its own (urobím)', grps: ALLG, tenses: ['fut'], learn: { vtense: 'fut' } },
+    { id: 'vu8', sk: 'Vid: robiť ↔ urobiť', en: 'Aspect pairs: ongoing / repeated vs. one-off / completed', aspect: true, learn: { vtab: 'vid' } },
+    { id: 'vu9', sk: 'Rozkazovací spôsob', en: 'Commands: rob! robme! robte!', grps: ALLG, tenses: ['imp'], learn: { vtense: 'imp' } },
+  ];
+  for (const u of VUNITS) {
+    u.side = 'verbs';
+    u.keys = u.aspect ? APAIRS.map((x) => `va|${x.w}`)
+      : u.grps.flatMap((g) => u.tenses.flatMap((t) => (t === 'imp' ? ['p2s', 'p1p', 'p2p'] : PK).map((pk) => `vb:${g}|${t}_${pk}`)));
+  }
+  const isVerbKey = (k) => k.startsWith('vb:') || k.startsWith('va|');
+
+  function pickVerb(grp, tense) {
+    let pool = VPOOL[grp] || [];
+    if (tense === 'pres') pool = pool.filter((v) => v.a === 'impf');
+    if (tense === 'imp') pool = pool.filter((v) => v.i?.some(Boolean));
+    pool = pool.slice(0, 15);   // the most frequent verbs of the group
+    return pool.length ? pick(pool) : null;
+  }
+  function vconjItem(key, type, verb) {
+    const [gp, cell] = key.split('|');
+    const grp = gp.slice(3), [tense, pk] = cell.split('_');
+    const v = verb || pickVerb(grp, tense); if (!v) return null;
+    const pi = PK.indexOf(pk);
+    const g = pi < 3 ? pick(['m', 'f']) : 'm';
+    const answer = vform(v, tense, pi, g); if (!answer) return null;
+    const all = [];
+    for (const t of ['pres', 'past', 'fut']) PK.forEach((p, i) => { const f = vform(v, t, i, g); if (f) all.push({ t, pk: p, f }); });
+    const it = { kind: 'vconj', type, key, v, grp, tense, pk, pi, g, answer, all };
+    if (type === 'pickForm') {
+      const others = [...new Set(all.map((x) => x.f))].filter((f) => f !== answer);
+      const same = shuffle(others.filter((f) => all.some((x) => x.f === f && x.t === tense)));
+      const rest = shuffle(others.filter((f) => !same.includes(f)));
+      it.options = shuffle([answer, ...[...same.slice(0, 2), ...rest].slice(0, 3)]);
+    }
+    if (type === 'pickPerson') it.valid = tense === 'imp' ? new Set([pk]) : new Set(all.filter((x) => x.f === answer).map((x) => x.pk));
+    return it;
+  }
+  function aspectItem(key) {
+    const v = vByW(key.slice(3)); if (!v || !v.pr) return null;
+    const flip = Math.random() < 0.5;   // ask for the perfective (robiť → ?) or the imperfective (urobiť → ?)
+    const q = flip ? v.pr : vname(v), answer = flip ? v.w : v.pr;
+    const pool = APAIRS.filter((x) => x.w !== v.w).map((x) => (flip ? x.w : x.pr));
+    return { kind: 'aspect', key, v, q, answer, toPf: !flip, options: shuffle([answer, ...shuffle([...new Set(pool)]).slice(0, 3)]) };
+  }
+  const vtypeForBox = (box) => (box == null || box <= 1 ? pick(['pickForm', 'pickForm', 'pickPerson'])
+    : box <= 3 ? pick(['pickForm', 'type', 'type']) : 'type');
+  function vcolorItem() { const s = pick(D.vsents || []); return s ? { kind: 'vcolor', key: null, sent: s } : null; }
+
+  // placement tiers for the verb side
+  const VTIERS = [
+    { units: ['vu1', 'vu2'], keys: ['vb:am|pres_p1s', 'vb:am|pres_p3p', 'vb:im|pres_p1s', 'vb:im|pres_p2s', 'vb:im|pres_p3p', 'vb:am|pres_p1p'] },
+    { units: ['vu3', 'vu4', 'vu5'], keys: ['vb:em|pres_p1s', 'vb:em|pres_p3p', 'vb:ujem|pres_p1s', 'vb:ujem|pres_p2p', 'vb:irr|pres_p1s', 'vb:irr|pres_p3p'] },
+    { units: ['vu6'], keys: ['vb:am|past_p1s', 'vb:im|past_p2s', 'vb:em|past_p3s', 'vb:im|past_p1p', 'vb:irr|past_p1s', 'vb:ujem|past_p3p'] },
+    { units: ['vu7', 'vu8'], keys: ['vb:im|fut_p1s', 'vb:am|fut_p3p', 'vb:em|fut_p2s', 'vb:irr|fut_p1p', ...APAIRS.slice(0, 4).map((x) => `va|${x.w}`)] },
+    { units: ['vu9'], keys: ['vb:im|imp_p2s', 'vb:am|imp_p2p', 'vb:em|imp_p1p', 'vb:ujem|imp_p2s'] },
+  ];
 
   // ---------- speech ----------
   let skVoice = null;
@@ -418,5 +544,7 @@
     unitMastery, unitDone, currentUnit, buildDose, buildUnitSession, itemForKey, tierItems, applyPlacement,
     explain, cellNeeds, frame, addMyWord, removeMyWord, myWords, hasMyWord, speak, canSpeak, parseKey, CI,
     setUnitDone(id) { store().units[id] = true; P.persist(); },
+    // verbs
+    VUNITS, VTIERS, VGROUPS, VPOOL, CONJ, APAIRS, TENSE_SK, TENSE_CLS, PK, unitsFor, vform, vname, vgroup, vByW, isVerbKey, vcolorItem,
   };
 })();

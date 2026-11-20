@@ -12,6 +12,8 @@ Or open `app/index.html` locally. No build step, no server, works offline (fonts
 The home screen has a **Pády | Slovesá** switch: cases (nouns, adjectives) or verbs (conjugation).
 On the verb side, Rozbi to!, Tabuľka and Pád! work with persons (*ja, ty, on…*) × tenses
 (present / past, or future for perfective verbs), and Hľadaj looks up any verb form (*bojím → báť sa*).
+The verb side has its own Začni tu, path (9 units), daily dose, mastery map and Ťahák (groups -ám / -ím /
+-em / -ujem, tenses, aspect), plus Páry (aspect pairs) and Vyfarbi vetu ("who is doing it?").
 
 | Mode | What you do |
 |---|---|
@@ -69,6 +71,7 @@ Invoke-WebRequest https://raw.githubusercontent.com/hermitdave/FrequencyWords/ma
 ./scripts/check_homographs.ps1 # frequency ownership / re-ranking
 ./scripts/build_sentences.ps1  # real sentences for Vyfarbi vetu
 ./scripts/build_conj.ps1       # verb conjugations, decoded from the dump + checked against the treebank
+./scripts/build_vsentences.ps1 # real sentences for Vyfarbi vetu on the verb side
 ./scripts/build_bundle.ps1     # -> app/data.js
 ./scripts/build_lookup.ps1     # -> app/lookup-data.js (~1,400 adjectives, ~4,400 nouns for Hľadaj)
 ```

@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>PÁDY</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#ff4f9a">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PÁDY">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
@@ -37,6 +43,7 @@
     </section>
 
     <section class="modes">
+      <div class="journey" id="journey"></div>
       <article class="mode big learn-card" id="modeLearn">
         <div class="learn-card-text">
           <div class="mode-tag" data-en="<b>uč sa</b> = learn">Uč sa</div>
@@ -85,6 +92,13 @@
         <button class="btn go blue" id="startGrid" data-en="Start the grid">Tabuľka →</button>
         <p class="best" id="bestGrid"></p>
       </article>
+      <article class="mode play" id="modeColor">
+        <div class="mode-tag color-tag" data-en="<b>čítaj</b> = read">Hraj · čítaj</div>
+        <h2 data-en="<b>vyfarbi vetu</b> = colour the sentence">Vyfarbi vetu</h2>
+        <p>Real Slovak sentences. Give every noun and adjective its case colour; prepositions are your clues. This is the "reading a poster" skill.</p>
+        <button class="btn go yellow" onclick="window.PADYTrainer.startColor()" data-en="Start: 6 real sentences">Vyfarbi →</button>
+      </article>
+
       <article class="mode play" id="modePad">
         <div class="mode-tag pad-tag" data-en="<b>arkáda</b> = arcade">Hraj · arkáda</div>
         <h2 data-en="<b>pád</b> = a fall (and also: a grammatical case)">Pád!</h2>
@@ -131,6 +145,7 @@
     </div>
 
     <div class="board" id="board" aria-label="Tabuľka pádov"></div>
+    <div class="why" id="why" aria-live="polite"></div>
 
     <div class="pad-area">
       <div class="pad-field" id="padField">
@@ -183,6 +198,40 @@
     <section class="ltab" id="tab-pady" hidden></section>
   </main>
 
+  <!-- ZAČNI TU (placement) -->
+  <main id="start" class="screen">
+    <div class="learn-head">
+      <button class="hud-quit" data-go="home" aria-label="Domov" data-en="<b>domov</b> = home">←</button>
+      <div><h1 data-en="<b>začni tu</b> = start here">Začni tu</h1>
+        <p class="sub small">Let's work out what you already know.</p></div>
+    </div>
+    <div class="start-body" id="startBody"></div>
+  </main>
+
+  <!-- CESTA (path) -->
+  <main id="path" class="screen">
+    <div class="learn-head">
+      <button class="hud-quit" data-go="home" aria-label="Domov" data-en="<b>domov</b> = home">←</button>
+      <div><h1 data-en="<b>tvoja cesta</b> = your path">Tvoja cesta</h1>
+        <p class="sub small">Learn → practise → write → test, one unit at a time. The daily dose keeps everything fresh.</p></div>
+    </div>
+    <div id="pathBody"></div>
+  </main>
+
+  <!-- TRAIN (session runner) -->
+  <main id="train" class="screen">
+    <div class="trhead">
+      <button class="hud-quit" id="trQuit" aria-label="Koniec" data-en="Stop this session">✕</button>
+      <div class="trtitle"><b id="trTitle"></b><span id="trCount"></span></div>
+    </div>
+    <div class="trprog"><span id="trBar"></span></div>
+    <div id="trMain">
+      <div class="trcard" id="trCard"></div>
+      <div class="trfeed" id="trFeed" aria-live="polite"></div>
+    </div>
+    <div id="trEnd" hidden></div>
+  </main>
+
   <!-- LOOKUP (Hľadaj) -->
   <main id="lookup" class="screen">
     <div class="learn-head">
@@ -228,7 +277,15 @@
 
   <script src="data.js"></script>
   <script src="app.js"></script>
+  <script src="engine.js"></script>
   <script src="learn.js"></script>
   <script src="lookup.js"></script>
+  <script src="trainer.js"></script>
+  <script>
+    // installable + offline (only when served over http/https, e.g. GitHub Pages)
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+    }
+  </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Minimal static file server for previewing the app: pwsh scripts/serve.ps1 [-Port 8765]
 param([int]$Port = 8765, [string]$Dir = (Join-Path (Split-Path $PSScriptRoot -Parent) 'app'))
-$types = @{ '.html' = 'text/html; charset=utf-8'; '.js' = 'text/javascript; charset=utf-8'; '.css' = 'text/css; charset=utf-8'; '.json' = 'application/json'; '.png' = 'image/png'; '.svg' = 'image/svg+xml' }
+$types = @{ '.html' = 'text/html; charset=utf-8'; '.js' = 'text/javascript; charset=utf-8'; '.css' = 'text/css; charset=utf-8'; '.json' = 'application/json'; '.png' = 'image/png'; '.webmanifest' = 'application/manifest+json'; '.svg' = 'image/svg+xml' }
 $l = [Net.HttpListener]::new()
 $l.Prefixes.Add("http://localhost:$Port/")
 $l.Start()

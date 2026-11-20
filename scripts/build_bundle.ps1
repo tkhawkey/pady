@@ -67,7 +67,9 @@ if (Test-Path "$Root/work/adj_pairs.json") {
   }
 }
 
-$bundle = [ordered]@{ nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; built = (Get-Date -Format 'yyyy-MM-dd') }
+$sents = if (Test-Path "$Root/work/sentences.json") { Get-Content "$Root/work/sentences.json" -Raw | ConvertFrom-Json } else { @() }
+
+$bundle = [ordered]@{ nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); built = (Get-Date -Format 'yyyy-MM-dd') }
 New-Item -ItemType Directory -Force "$Root/app" | Out-Null
 $json = $bundle | ConvertTo-Json -Depth 8 -Compress
 Set-Content "$Root/app/data.js" -Value "window.PADY_DATA = $json;" -Encoding utf8

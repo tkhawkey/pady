@@ -213,9 +213,18 @@
     return sg + '</div>' + pl + '</div>';
   }
 
-  function cardHead(f, lemma, posSk, posEn, chips, gloss) {
+  function myBtn(type, w) {
+    const E = window.PADYEngine; if (!E) return '';
+    const has = E.hasMyWord(type, w);
+    return `<button class="mybtn${has ? ' on' : ''}" data-my="${attr(type + ':' + w)}" data-en="${attr(has ? 'In your words: it comes up in your daily dose' : 'Add to my words: it will come up in your daily dose')}">${has ? '✓ V mojich slovách' : '＋ Moje slová'}</button>`;
+  }
+  const sayBtn = (text) => (window.PADYEngine?.canSpeak() ? `<button class="say" data-say="${attr(text)}" aria-label="Vypočuť" data-en="listen">🔊</button>` : '');
+  const cardWords = new Map();   // "type:word" -> entry to store when added
+
+  function cardHead(f, lemma, posSk, posEn, chips, gloss, actions = '') {
     return `<header class="khead">
-      <div class="kform">${esc(f)}</div>
+      <div class="kform">${esc(f)} ${sayBtn(f)}</div>
+      ${actions ? `<div class="kactions">${actions}</div>` : ''}
       <div class="klemma">${f !== lemma ? `<span class="arrowto">tvar slova</span> ` : ''}<b>${esc(lemma)}</b>
         <span class="chip" data-en="${attr(posEn)}">${posSk}</span>${chips}</div>
       ${gloss ? `<div class="kgloss">${esc(gloss)}</div>` : ''}
@@ -236,7 +245,8 @@
       }
     }
     const m = nounMatches(t, f);
-    el.innerHTML = head +
+    cardWords.set(`noun:${t.w}`, { type: 'noun', w: t.w, g: t.g, gen: t.gen, pat: t.pat, s: t.s, p: t.p, alt: t.alt || {} });
+    el.innerHTML = cardHead(f, t.w, 'podst. meno', '<b>podstatné meno</b> = noun', genChip + patChip, t.g, myBtn('noun', t.w)) +
       `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar môže byť</b> = this form can be">Tento tvar môže byť</span>${matchChips(m, false)}</div>` +
       useBlock(m) + nounTable(t, f) +
       (t.extra ? '<p class="legend-note">Table loaded live from Wiktionary.</p>' : '');
@@ -244,7 +254,8 @@
 
   function renderAdjCard(a, f, el) {
     const m = adjMatches(a, f);
-    el.innerHTML = cardHead(f, a.w, 'príd. meno', '<b>prídavné meno</b> = adjective: it agrees with its noun in gender, number and case', '', a.g) +
+    cardWords.set(`adj:${a.w}`, { type: 'adj', w: a.w, g: a.g, f: a.f });
+    el.innerHTML = cardHead(f, a.w, 'príd. meno', '<b>prídavné meno</b> = adjective: it agrees with its noun in gender, number and case', '', a.g, myBtn('adj', a.w)) +
       `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar môže byť</b> = this form can be">Tento tvar môže byť</span>${matchChips(m, true)}</div>` +
       useBlock(m) + adjTable(a, f) +
       '<p class="legend-note">Look at the noun it goes with: its gender and case decide which of these it is.</p>';
@@ -277,6 +288,12 @@
       if (s) { $('#kInput').value = s.dataset.q; search(s.dataset.q, true); return; }
       const p = e.target.closest('.link-pat');
       if (p) L.openPattern(p.dataset.pat);
+      const my = e.target.closest('[data-my]');
+      if (my) {
+        const E = window.PADYEngine, id = my.dataset.my, [type, w] = [id.slice(0, id.indexOf(':')), id.slice(id.indexOf(':') + 1)];
+        if (E.hasMyWord(type, w)) E.removeMyWord(id); else if (cardWords.has(id)) { E.addMyWord(cardWords.get(id)); P.toast('Pridané do mojich slov ✓'); }
+        my.outerHTML = myBtn(type, w);
+      }
     });
   }
 

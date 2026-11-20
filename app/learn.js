@@ -227,6 +227,12 @@
         <p class="legend-note"><span class="end">koncovka</span> = ending <span class="end chg">zmena</span> = stem changes <span class="zero">∅</span> = no ending</p>
       </article>`;
   }
+  // tap any form in a table to hear it (when a Slovak voice is available)
+  $('#learn').addEventListener('click', (e) => {
+    const c = e.target.closest('.lcell'); if (!c || e.target.closest('.accb, .alt')) return;
+    const form = [...c.childNodes].filter((n) => !n.classList?.contains('accb') && !n.classList?.contains('alt')).map((n) => n.textContent).join('').replace('∅', '').trim();
+    if (form) window.PADYEngine?.speak(form);
+  });
   $('#tab-vzory').addEventListener('click', (e) => {
     const pc = e.target.closest('.pchip');
     if (pc) { S.pat = pc.dataset.pat; S.word = null; return renderVzory(); }
@@ -447,5 +453,7 @@
     // shared with the Hľadaj (lookup) page
     fmt, stemOf, PREPS, models,
     openPattern(p) { S.pat = p; S.word = null; S.tab = 'vzory'; P.show('learn'); },
+    openColumn(ck, num) { S.col = { ck, num }; S.tab = 'stlpec'; P.show('learn'); },
+    openTab(t) { S.tab = t; P.show('learn'); },
   };
 })();

@@ -93,6 +93,16 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    ~1,400 adjectives + ~4,400 nouns (`scripts/build_lookup.ps1`); extra noun tables fetched live from
    Wiktionary; accent-free typing suggests the right form; recent lookups; deep links `#hladaj/<form>`.
    Not covered yet: verbs, pronouns, numerals (falls back to a Wiktionary link).
+7. ✅ **Learning engine** (`app/engine.js`, `app/trainer.js`): Leitner spaced repetition on every
+   pattern × case × number cell (fed by every game), 12-unit path (learn → practise → write → test),
+   mastery map, adaptive placement test ("Začni tu"), daily dose, mistake explanations (also in
+   Tabuľka and Rozbi to!), Moje slová from Hľadaj, Vyfarbi vetu (700 treebank sentences), 🔊 speech,
+   installable/offline PWA (`manifest.webmanifest`, `sw.js`, `icons/`).
+
+## Next (needs your extra content / data)
+- Tatoeba sentence pairs → English translations for every example; sentence-level chunks.
+- Pronouns (ja/mňa/mne…) and numbers + case (dve ženy / päť žien).
+- Verb conjugation in Hľadaj.
 
 ## Known gaps
 - Possessives from first names (*Karlova izba*) aren't in Wiktionary; would need a small rule-based

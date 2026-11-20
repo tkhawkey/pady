@@ -167,6 +167,8 @@
     if (id === 'home') { stopTimer(); renderHome(); }
     if (id === 'learn') { stopTimer(); renderTop(); window.PADYLearn?.render(); }
     if (id === 'lookup') { stopTimer(); renderTop(); window.PADYLookup?.render(); }
+    if (['start', 'path', 'train'].includes(id)) { stopTimer(); renderTop(); window.PADYTrainer?.render(id); }
+    if (id === 'game') showWhy('');
     else if (location.hash.startsWith('#hladaj')) history.replaceState(null, '', location.pathname + location.search);
   }
   document.addEventListener('click', (e) => {
@@ -190,6 +192,7 @@
       best.dataset.en = b ? `Your record for these settings: ${b} points` : 'No record yet. Let\'s go!';
     });
     renderTop();
+    window.PADYTrainer?.renderHome();
   }
   const bestKey = (mode) => (mode === 'magnet' ? `magnet:${opts.mlevel}:${opts.len}`
     : mode === 'pad' ? `pad:${opts.kind}:${opts.pattern}`
@@ -257,6 +260,7 @@
   function nextCard() {
     if (G.mode === 'magnet') return renderMagnet();
     if (G.mode === 'pad') return startPad();
+    showWhy('');
     const noun = G.words[G.idx];
     G.card = buildCard(noun);
     G.sel = null;
@@ -308,6 +312,23 @@
     const k = `${noun.pat}|${ck}_${num}`;
     const s = save.stats[k] || [0, 0];
     s[good ? 0 : 1]++; save.stats[k] = s;
+    window.PADYEngine?.review(k, good);   // spaced repetition: every game feeds it
+  }
+
+  // XP + streak for any finished activity (games, sessions, placement)
+  function award(xp) {
+    const lvBefore = lvlOf(save.xp);
+    save.xp += xp;
+    const today = dayStr(), yest = dayStr(new Date(Date.now() - 864e5));
+    if (save.lastDay !== today) { save.streak = save.lastDay === yest ? save.streak + 1 : 1; save.lastDay = today; }
+    persist(); renderTop();
+    return lvlOf(save.xp) > lvBefore ? lvlOf(save.xp) : 0;
+  }
+
+  // "why" line under the board: explains a wrong answer
+  function showWhy(html) {
+    const w = $('#why'); if (!w) return;
+    w.innerHTML = html || ''; w.classList.toggle('show', !!html);
   }
 
   // ---------- placing ----------
@@ -351,6 +372,10 @@
       setTimeout(() => cellEl.classList.remove('bad'), 420);
       sfx.bad();
       renderHud();
+      // explain: what is this tile really?
+      const slotName = (c) => `${CASES[c.ci].name} ${c.num === 's' ? 'sg' : 'pl'}`;
+      const where = tile.cells.map((j) => `<span class="lg c-${C.cells[j].ck}">${slotName(C.cells[j])}</span>`).join(' ');
+      showWhy(`<b>${tile.text}</b> = ${where} <span class="why-not">· nie ${slotName(cell)}</span>`);
     }
   }
 
@@ -442,6 +467,7 @@
     el.classList.remove('bad'); void el.offsetWidth; el.classList.add('bad');
     setTimeout(() => el.classList.remove('bad'), 420);
     renderHud();
+    showWhy(window.PADYEngine?.explain({ noun: C.noun, adj: C.adj, ck: cell.ck, num: cell.num, answer: v }) || '');
     if (cell.tries >= 2) { setTimeout(() => resolveCell(i, 'revealed'), 380); }
     else { setTag(i, 't-try', 'ešte 1×'); inputAt(i).parentElement.querySelector('.tag').dataset.en = 'one more try'; el.select(); }
   }
@@ -985,6 +1011,8 @@
   window.PADY = {
     CASES, PATTERNS, PATTERN_EN, GENDER_LABEL, GENDER_EN, caseTip, patternTip, attr, show,
     stats: () => save.stats,
+    save: () => save, persist, award, sfx, confetti, floater, centerOf, renderTop, toast, adjForm,
+    startRound: (mode) => startRound(mode),
     drill(mode, pattern) {
       opts.pattern = pattern;
       renderHome();

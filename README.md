@@ -11,6 +11,10 @@ Or open `app/index.html` locally. No build step, no server, works offline (fonts
 
 | Mode | What you do |
 |---|---|
+| **Začni tu** (start here) | A 3-minute adaptive level check. It places you on your path and seeds the review engine with what you already know. |
+| **Tvoja cesta** (your path) | 12 units, from *Kto? Čo?* to the genitive plural and verbs. Each: learn → practise → write → test (80% to pass). Plus a mastery map of all 144 pattern × case × number cells. |
+| **Dnešná dávka** (today's dose) | 5 minutes, chosen for you: spaced repetition of what's due, new items from your unit, your own words, and one real sentence to colour. |
+| **Vyfarbi vetu** (colour the sentence) | Real treebank sentences: give every noun and adjective its case colour; prepositions are the clues. |
 | **Hľadaj** (look up) | Type any form you see (*čerstvých*, *ulici*, *ľuďom*): which word it is, what it means, every case it could be (colour-coded, with what each case is for), and the full table with your form's cells outlined. Link straight to a word: `index.html#hladaj/čerstvých`. |
 | **Ťahák** (crib sheet) | Learn: the 12 model words with endings highlighted, a "which pattern is my word?" finder, one case across all patterns, case cards with prepositions and real verbs, your weak spots. |
 | **Rozbi to!** | A word shatters into its forms — drag each back to its case. |
@@ -19,7 +23,13 @@ Or open `app/index.html` locally. No build step, no server, works offline (fonts
 | **Pád!** | Arcade: forms fall, tap the right case lane before they land. |
 
 Every Slovak label shows English on hover (or long-press on a phone). Answers are never translated.
-Progress (XP, streak, records, per-cell accuracy) is stored in the browser's localStorage.
+Wrong answers are explained ("*-y* is the *žena* ending; *ulica* follows *ulica*: *ulice*").
+Words you look up in Hľadaj can be added to **Moje slová** and come back in the daily dose.
+🔊 buttons use the browser's Slovak voice when one is installed.
+Progress (XP, streak, records, spaced-repetition boxes) is stored in the browser's localStorage.
+
+**Install it on a phone:** open the GitHub Pages link, then "Add to Home Screen" / "Install app". After the
+first visit it works offline. (When you upload a new version, bump `CACHE` in `app/sw.js` so phones pick it up.)
 
 ## Data
 
@@ -53,6 +63,7 @@ Invoke-WebRequest https://raw.githubusercontent.com/hermitdave/FrequencyWords/ma
 ./scripts/adj_pairs.ps1        # real adjective + noun pairs
 ./scripts/build_data.ps1       # validate nouns + adjectives
 ./scripts/check_homographs.ps1 # frequency ownership / re-ranking
+./scripts/build_sentences.ps1  # real sentences for Vyfarbi vetu
 ./scripts/build_bundle.ps1     # -> app/data.js
 ./scripts/build_lookup.ps1     # -> app/lookup-data.js (~1,400 adjectives, ~4,400 nouns for Hľadaj)
 ```

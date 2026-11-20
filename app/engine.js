@@ -228,7 +228,13 @@
     const ans = answer.trim().toLowerCase().split(/\s+/).pop();   // phrase mode: judge the noun
     const pat = n.pat || noun.pat;
     const model = MODELS[pat];
-    const like = model && model.w !== n.w ? ` Like <i>${model.w}</i> → <i>${model[num][CI[ck]]}</i>.` : '';
+    const modelForm = model?.[num][CI[ck]];
+    const modelEnd = model ? endingOf(modelForm, model.w) : null;
+    const correctEnd = endingOf(correct, n.w);
+    // only point at the model word when it really has the same ending as this word
+    const sameAsModel = model && model.w !== n.w && modelEnd != null && modelEnd === correctEnd;
+    const like = sameAsModel ? ` Like <i>${model.w}</i> → <i>${modelForm}</i>.` : '';
+    const note = variantNote(pat, ck, num, modelEnd, correctEnd);
     const parts = [];
     if (adj) {
       const af = P.adjForm(adj, n.gen, ck, num);
@@ -241,13 +247,64 @@
       return `<b>${esc(ans)}</b> is ${other.map((x) => chip(x.ck, x.num)).join(' / ')}. Here you need ${chip(ck, num)}: <b>${esc(correct)}</b>.${like} ${parts.join(' ')}`;
     }
     const end = endingOf(ans, n.w);
+    // the stem itself changes (poriadok → poriadky: the o drops out; človek → ľudia)
+    if (correctEnd == null) {
+      if (end && correct.endsWith(end)) {
+        const newStem = correct.slice(0, correct.length - end.length);
+        const drop = droppedVowel(window.PADYLearn?.stemOf(n.w) ?? n.w, newStem);
+        return `Right ending <b>-${esc(end)}</b>, but the stem changes: ${drop ? `the <b>${drop}</b> drops out, ` : ''}<i>${esc(n.w)}</i> → <i>${esc(newStem)}-</i>: <b>${esc(correct)}</b>. ${parts.join(' ')}`;
+      }
+      return `The stem changes here: <i>${esc(n.w)}</i> → <b>${esc(correct)}</b> (${chip(ck, num)}). ${note} ${parts.join(' ')}`;
+    }
+    // the stem grows (nebo → nebesá): right ending, extra consonant(s) before it
+    if (end && correct.endsWith(end) && correctEnd !== end) {
+      const newStem = correct.slice(0, correct.length - end.length);
+      const stem = window.PADYLearn?.stemOf(n.w) ?? n.w;
+      if (newStem.startsWith(stem) && /[^aeiouyáéíóúýäô]/.test(newStem.slice(stem.length))) {
+        return `Right ending <b>-${esc(end)}</b>, but the stem grows: <i>${esc(n.w)}</i> → <i>${esc(newStem)}-</i>: <b>${esc(correct)}</b>. ${parts.join(' ')}`;
+      }
+    }
+    // right pattern, but this word takes a different variant (chlap → chlapi, vrah → vrahovia)
+    if (end != null && model && model.w !== n.w && end === modelEnd && modelEnd !== correctEnd) {
+      return `<b>-${esc(end || '∅')}</b> works for <i>${model.w}</i> (<i>${modelForm}</i>), but this ending varies from word to word: <i>${esc(n.w)}</i> takes <b>${esc(correct)}</b>. ${note} ${parts.join(' ')}`;
+    }
     if (end != null) {
       const fromPats = PATTERNS.filter((p) => p !== pat && MODELS[p] && endingOf(MODELS[p][num][CI[ck]], p) === end);
       if (fromPats.length) {
-        return `<b>-${esc(end || '∅')}</b> is the ${chip(ck, num)} ending of <i>${fromPats.slice(0, 2).join(', ')}</i>. But <i>${esc(n.w)}</i> follows <i>${pat}</i>: <b>${esc(correct)}</b>.${like} ${parts.join(' ')}`;
+        return `<b>-${esc(end || '∅')}</b> is the ${chip(ck, num)} ending of <i>${fromPats.slice(0, 2).join(', ')}</i>. But <i>${esc(n.w)}</i> follows <i>${pat}</i>: <b>${esc(correct)}</b>.${like || (note ? ' ' + note : '')} ${parts.join(' ')}`;
       }
     }
-    return `${chip(ck, num)} of <i>${esc(n.w)}</i> is <b>${esc(correct)}</b>.${like} ${parts.join(' ')}`;
+    return `${chip(ck, num)} of <i>${esc(n.w)}</i> is <b>${esc(correct)}</b>.${like || (note ? ' ' + note : '')} ${parts.join(' ')}`;
+  }
+
+  // "poriadok" vs "poriadk": which vowel (or ie) dropped out?
+  function droppedVowel(stem, newStem) {
+    for (let i = 0; i < stem.length; i++) {
+      for (const len of [2, 1]) {
+        const v = stem.slice(i, i + len);
+        if ((len === 2 ? /^(ie|ô)$/ : /^[aeiouyáéíóúýô]$/).test(v) && stem.slice(0, i) + stem.slice(i + len) === newStem) return v;
+      }
+    }
+    return null;
+  }
+
+  // cells where words of the same pattern genuinely differ; shown instead of a misleading "like <model>"
+  const VARIANTS = {
+    'chlap|nom_p': 'Masculine people take <b>-i</b>, <b>-ia</b> or <b>-ovia</b> in the nominative plural (<i>chlapi, priatelia, otcovia</i>): learn it with each word.',
+    'hrdina|nom_p': 'Masculine people take <b>-i</b>, <b>-ia</b> or <b>-ovia</b> in the nominative plural: learn it with each word.',
+    'dub|gen_s': 'Masculine things take <b>-a</b> or <b>-u</b> in the genitive singular (<i>duba, stola</i> but <i>domu, hradu</i>). No rule: learn it with the word.',
+    'dub|loc_s': 'The locative singular is usually <b>-e</b>, sometimes <b>-u</b> (<i>v dome</i> but <i>v rohu, v parku</i>).',
+    'dub|ins_p': 'The instrumental plural is <b>-mi</b> or <b>-ami</b> (<i>dubmi</i> but <i>stromami</i>), depending on the word.',
+    'chlap|ins_p': 'The instrumental plural is <b>-mi</b> or <b>-ami</b> (<i>chlapmi</i> but <i>otcami</i>), depending on the word.',
+  };
+  const GEN_PL = 'The genitive plural has no ending, and the stem often changes (a vowel is inserted or lengthened): learn the form with the word.';
+  function variantNote(pat, ck, num, modelEnd, correctEnd) {
+    if (VARIANTS[`${pat}|${ck}_${num}`]) return VARIANTS[`${pat}|${ck}_${num}`];
+    if (ck === 'gen' && num === 'p' && ['žena', 'mesto', 'ulica', 'srdce'].includes(pat)) return GEN_PL;
+    if (modelEnd != null && correctEnd != null && modelEnd !== correctEnd && bare(modelEnd) === bare(correctEnd)) {
+      return 'Rhythmic law: after a long syllable, a long ending becomes short (<i>mestá</i> but <i>miesta</i>, <i>ženám</i> but <i>dieram</i>).';
+    }
+    return '';
   }
 
   // ---------- placement test tiers ----------

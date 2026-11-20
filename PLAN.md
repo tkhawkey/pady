@@ -99,6 +99,13 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    Tabuľka and Rozbi to!), Moje slová from Hľadaj, Vyfarbi vetu (700 treebank sentences), 🔊 speech,
    installable/offline PWA (`manifest.webmanifest`, `sw.js`, `icons/`).
 
+8. ✅ **Slovesá (verbs), phase 1**: Pády | Slovesá switch; 400 verbs (present/future, past by gender,
+   imperative, aspect partners) decoded from the kaikki dump — no web fetch; 7,943 treebank forms match,
+   one usage override (vziať → vzal). Rozbi to!, Tabuľka (hints by person/tense rules; "ja robím" accepted)
+   and Pád! (person lanes) on the verb side; Hľadaj looks up any of 798 verbs' forms.
+   **Phase 2 (next):** verb units in Cesta + placement + daily dose, verb Ťahák (groups, tense cards),
+   aspect game (Magnet: robiť ↔ urobiť), Vyfarbi vetu for verbs (person/tense from the treebank).
+
 ## Next (needs your extra content / data)
 - Tatoeba sentence pairs → English translations for every example; sentence-level chunks.
 - Pronouns (ja/mňa/mne…) and numbers + case (dve ženy / päť žien).

@@ -177,9 +177,15 @@
   });
 
   // ---------- home ----------
-  const opts = { kind: 'noun', pattern: 'all', len: 5, mlevel: 'case' };
+  const opts = { kind: 'noun', pattern: 'all', len: 5, mlevel: 'case', vtense: 'both', vasp: 'all' };
   function renderHome() {
-    $('#legend').innerHTML = CASES.map((c) => `<span class="lg c-${c.k}" tabindex="0" data-en="${attr(caseTip(c))}">${c.name}<small>${c.q}</small></span>`).join('');
+    const verbs = save.side === 'verbs';
+    document.body.classList.toggle('side-verbs', verbs);
+    $$('#sideSwitch button').forEach((b) => b.classList.toggle('on', b.dataset.side === (verbs ? 'verbs' : 'nouns')));
+    $('#legend').innerHTML = verbs
+      ? PERSONS.map((p) => `<span class="lg vp" tabindex="0" data-en="${attr(`<b>${p.sk}</b> = ${p.en}`)}">${p.icon} ${p.sk}</span>`).join('') +
+        `<span class="lg t-pres" data-en="<b>prítomný čas</b> = present tense">Prítomný</span><span class="lg t-past" data-en="<b>minulý čas</b> = past tense">Minulý</span><span class="lg t-fut" data-en="<b>budúci čas</b> = future tense">Budúci</span>`
+      : CASES.map((c) => `<span class="lg c-${c.k}" tabindex="0" data-en="${attr(caseTip(c))}">${c.name}<small>${c.q}</small></span>`).join('');
     const counts = {};
     D.nouns.forEach((n) => { counts[n.pat] = (counts[n.pat] || 0) + 1; });
     $('#patternChips').innerHTML =
@@ -194,7 +200,8 @@
     renderTop();
     window.PADYTrainer?.renderHome();
   }
-  const bestKey = (mode) => (mode === 'magnet' ? `magnet:${opts.mlevel}:${opts.len}`
+  const bestKey = (mode) => (save.side === 'verbs' && mode !== 'magnet' ? `verb-${mode}:${opts.vtense}:${opts.vasp}:${opts.len}`
+    : mode === 'magnet' ? `magnet:${opts.mlevel}:${opts.len}`
     : mode === 'pad' ? `pad:${opts.kind}:${opts.pattern}`
     : `${mode}:${opts.kind}:${opts.pattern}:${opts.len}`);
   $('#kindSeg').addEventListener('click', (e) => segPick(e, 'kind', '#kindSeg'));
@@ -217,11 +224,13 @@
   function stopTimer() { clearInterval(timerId); timerId = null; }
 
   function startRound(mode) {
-    let pool = D.nouns.filter((n) => opts.pattern === 'all' || n.pat === opts.pattern);
-    // favour frequent words: shuffle the top 200 (or whole pool if smaller)
-    pool = shuffle(pool.slice(0, Math.max(200, opts.len)));
+    const side = save.side === 'verbs' && mode !== 'magnet' ? 'verbs' : 'nouns';
+    let pool = side === 'verbs'
+      ? (D.conj || []).filter((v) => opts.vasp === 'all' || v.a === opts.vasp).slice(0, 150)   // most frequent verbs
+      : D.nouns.filter((n) => opts.pattern === 'all' || n.pat === opts.pattern).slice(0, Math.max(200, opts.len));
+    pool = shuffle(pool);
     G = {
-      mode, words: mode === 'magnet' ? buildMagnetItems() : mode === 'pad' ? pool : pool.slice(0, opts.len), idx: 0, score: 0, combo: 0, maxCombo: 0,
+      side, mode, words: mode === 'magnet' ? buildMagnetItems() : mode === 'pad' ? pool : pool.slice(0, opts.len), idx: 0, score: 0, combo: 0, maxCombo: 0,
       right: 0, wrong: 0, hints: 0, caseMiss: {}, start: Date.now(), card: null, sel: null,
       pausedMs: 0, pausedAt: null, awaitNext: false,
     };
@@ -259,7 +268,98 @@
     else if (G.hiddenPause) { G.hiddenPause = false; if (!G.awaitNext && !G.pad?.paused) resumeClock(); }
   });
 
-  function buildCard(noun) {
+  // ====================================================================
+  // VERBS (Slovesá side): persons × tenses instead of cases × number
+  // ====================================================================
+  const PERSONS = [
+    { k: 'p1s', sk: 'ja', abbr: 'ja', en: 'I', icon: '🙋' },
+    { k: 'p2s', sk: 'ty', abbr: 'ty', en: 'you (one person, informal)', icon: '👉' },
+    { k: 'p3s', sk: 'on / ona / ono', abbr: 'on', en: 'he / she / it', icon: '👤' },
+    { k: 'p1p', sk: 'my', abbr: 'my', en: 'we', icon: '👥' },
+    { k: 'p2p', sk: 'vy', abbr: 'vy', en: 'you (several people, or polite)', icon: '🫵' },
+    { k: 'p3p', sk: 'oni / ony', abbr: 'oni', en: 'they', icon: '👥' },
+  ];
+  const PERS_IDX = Object.fromEntries(PERSONS.map((p, i) => [p.k, i]));
+  const ASPECT = {
+    impf: ['nedokonavé', '<b>nedokonavé</b> = imperfective: an ongoing or repeated action. Has a present tense; future = <i>budem</i> + infinitive.'],
+    pf: ['dokonavé', '<b>dokonavé</b> = perfective: a completed, one-off action. It has no present tense: its "present" forms mean the future.'],
+  };
+  const PRES_RULE = [
+    'the <b>ja</b> form ends in <b>-m</b> (<i>robím, volám, pracujem</i>)',
+    'the <b>ty</b> form ends in <b>-š</b> (<i>robíš, voláš, pracuješ</i>)',
+    'the <b>on/ona/ono</b> form has no -m/-š (<i>robí, volá, pracuje</i>)',
+    'the <b>my</b> form ends in <b>-me</b> (<i>robíme, voláme</i>)',
+    'the <b>vy</b> form ends in <b>-te</b> (<i>robíte, voláte</i>)',
+    'the <b>oni</b> form ends in <b>-ú, -jú, -ia</b> or <b>-a</b> (<i>pracujú, volajú, robia</i>)',
+  ];
+  const PAST_RULE = [
+    'past tense <b>ja</b>: the -l form + <b>som</b> (<i>robil som / robila som</i>)',
+    'past tense <b>ty</b>: the -l form + <b>si</b> (<i>robil si / robila si</i>)',
+    'past tense <b>on/ona/ono</b>: just the -l form, no auxiliary (<i>robil / robila / robilo</i>)',
+    'past tense <b>my</b>: <b>-li</b> + <b>sme</b> (<i>robili sme</i>)',
+    'past tense <b>vy</b>: <b>-li</b> + <b>ste</b> (<i>robili ste</i>)',
+    'past tense <b>oni</b>: just <b>-li</b>, no auxiliary (<i>robili</i>)',
+  ];
+  const AUX = ['som', 'si', '', 'sme', 'ste', ''];
+  const vname = (v) => (v.r ? `${v.w} ${v.r}` : v.w);
+  // past form for a person: l-participle (by gender/number) + auxiliary + reflexive pronoun
+  function pastForm(v, pi, g) {
+    const part = pi >= 3 ? v.l[3] : v.l[{ m: 0, f: 1, n: 2 }[g]];
+    return [part, AUX[pi], v.r].filter(Boolean).join(' ');
+  }
+  const simpleForm = (v, pi) => [v.s[pi], v.r].filter(Boolean).join(' ');
+  function tenseCols(v) {
+    const simple = v.a === 'pf'
+      ? { key: 'fut', cls: 't-fut', name: 'Budúci čas', tip: '<b>budúci čas</b> = future. This verb is perfective, so its "present" forms mean the future.' }
+      : { key: 'pres', cls: 't-pres', name: 'Prítomný čas', tip: '<b>prítomný čas</b> = present tense' };
+    const past = { key: 'past', cls: 't-past', name: 'Minulý čas', tip: '<b>minulý čas</b> = past tense: the -l form agrees with gender; <i>som/si/sme/ste</i> mark ja/ty/my/vy' };
+    if (opts.vtense === 'pres') return [simple];
+    if (opts.vtense === 'past') return [past];
+    return [simple, past];
+  }
+  function buildVerbCard(v) {
+    const g = Math.random() < 0.5 ? 'm' : 'f';   // gender for the singular past forms on this card
+    const cols = tenseCols(v);
+    const pastCol = cols.find((c) => c.key === 'past');
+    if (pastCol) {
+      pastCol.name = `Minulý čas · ${g === 'm' ? 'muž.' : 'žen.'}`;
+      pastCol.tip = `<b>minulý čas</b> = past tense, here with a <b>${g === 'm' ? 'masculine' : 'feminine'}</b> subject (ja/ty/${g === 'm' ? 'on' : 'ona'}). ` + pastCol.tip.split(': ')[1];
+    }
+    const rows = PERSONS.map((p, i) => ({ k: p.k, cls: 'vp', name: i === 2 && pastCol && cols.length === 1 ? (g === 'm' ? 'on' : 'ona') : p.sk, abbr: p.abbr, q: p.icon, tip: `<b>${p.sk}</b> = ${p.en}` }));
+    const cells = [];
+    PERSONS.forEach((p, pi) => cols.forEach((col, j) => {
+      const main = col.key === 'past' ? pastForm(v, pi, g) : simpleForm(v, pi);
+      cells.push({ ci: pi, ck: p.k, num: col.key, col: j, cls: col.cls, main, ok: new Set([main]), filled: false, tries: 0 });
+    }));
+    const tiles = new Map();
+    cells.forEach((cell, i) => {
+      if (!tiles.has(cell.main)) tiles.set(cell.main, { text: cell.main, cells: [], left: 0 });
+      const t = tiles.get(cell.main); t.cells.push(i); t.left++;
+    });
+    const order = cols.length === 2 ? [0, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9, 11] : [0, 1, 2, 3, 4, 5];
+    return { verb: v, g, rows, cols, cells, order, tiles: shuffle([...tiles.values()]), mistakes: 0, title: vname(v) };
+  }
+  const cellLabel = (C, c) => (C.verb
+    ? `${PERSONS[c.ci].sk.split(' / ')[0]} · ${C.cols[c.col].name.split(' · ')[0].toLowerCase()}`
+    : `${CASES[c.ci].name} ${c.num === 's' ? 'sg' : 'pl'}`);
+  const ruleFor = (C, c) => (c.num === 'past' ? PAST_RULE[c.ci] : `${c.num === 'fut' ? 'future (same endings as the present): ' : ''}${PRES_RULE[c.ci]}`);
+  const vbare = (s) => s.normalize('NFD').replace(/\p{M}/gu, '');
+  // verb mistakes: hint first (no answer), full explanation on reveal
+  function explainVerb(C, cell, answer, reveal) {
+    const ans = answer.trim().toLowerCase().replace(/\s+/g, ' ').replace(/^(ja|ty|on|ona|ono|my|vy|oni|ony)\s+/, '');
+    const correct = cell.main;
+    const chipOf = (c) => `<span class="lg ${c.cls}">${cellLabel(C, c)}</span>`;
+    const tail = reveal ? '' : ' <span class="why-try">Try once more.</span>';
+    if (ans === correct) return '';
+    if (vbare(ans) === vbare(correct)) return reveal ? `So close: check the accents: <b>${correct}</b>.` : `So close: right form, check the accents.${tail}`;
+    const other = C.cells.filter((c) => c.main === ans);
+    if (other.length) return `<b>${ans}</b> is ${other.map(chipOf).join(' / ')}, not ${chipOf(cell)}.${reveal ? ` Here: <b>${correct}</b>.` : ''} ${reveal ? '' : 'Remember: ' + ruleFor(C, cell) + '.'}${tail}`;
+    return reveal ? `${chipOf(cell)} of <i>${vname(C.verb)}</i> is <b>${correct}</b>: ${ruleFor(C, cell)}.` : `Not quite: ${ruleFor(C, cell)}.${tail}`;
+  }
+
+  function buildCard(word) {
+    if (G?.side === 'verbs') return buildVerbCard(word);
+    const noun = word;
     const pick = opts.kind === 'noun' ? null : pickAdj(noun);
     const adj = pick ? pick.adj : null;
     const cells = [];
@@ -269,16 +369,18 @@
         const nAlts = [nf, ...((noun.alt && noun.alt[`${c.k}_${num}`]) || [])];
         const af = adj ? adjForm(adj, noun.gen, c.k, num) : null;
         const ok = new Set(nAlts.map((x) => (af ? `${af} ${x}` : x)));
-        cells.push({ ci, ck: c.k, num, main: af ? `${af} ${nf}` : nf, ok, filled: false, tries: 0 });
+        cells.push({ ci, ck: c.k, num, col: num === 's' ? 0 : 1, cls: `c-${c.k}`, main: af ? `${af} ${nf}` : nf, ok, filled: false, tries: 0 });
       });
     });
+    const rows = CASES.map((c) => ({ k: c.k, cls: `c-${c.k}`, name: c.name, abbr: c.abbr, q: c.q, tip: caseTip(c) }));
+    const cols = [{ name: 'Singulár', tip: '<b>singulár</b> = singular (one)' }, { name: 'Plurál', tip: '<b>plurál</b> = plural (more than one)' }];
     const tiles = new Map();
     cells.forEach((cell, i) => {
       if (!tiles.has(cell.main)) tiles.set(cell.main, { text: cell.main, cells: [], left: 0 });
       const t = tiles.get(cell.main); t.cells.push(i); t.left++;
     });
     const title = adj ? `${adjForm(adj, noun.gen, 'nom', 's')} ${noun.w}` : noun.w;
-    return { noun, adj, real: !!pick?.real, cells, tiles: shuffle([...tiles.values()]), mistakes: 0, title };
+    return { noun, adj, real: !!pick?.real, rows, cols, cells, order: [0, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9, 11], tiles: shuffle([...tiles.values()]), mistakes: 0, title };
   }
 
   function nextCard() {
@@ -291,27 +393,45 @@
     const C = G.card;
     $('#hudCard').textContent = `${G.idx + 1}/${G.words.length}`;
     $('#cardWord').textContent = C.title;
-    $('#cardGloss').textContent = C.adj ? `${C.adj.g} ${noun.g}` : noun.g;
     const rc = $('#cardReal');
     rc.hidden = !C.real;
     rc.dataset.en = 'A real word pair: it appears in real Slovak text (the annotated treebank), so it\'s worth remembering as a phrase.';
-    $('#cardGender').textContent = GENDER_LABEL[noun.gen] || noun.gen;
-    $('#cardGender').dataset.en = GENDER_EN[noun.gen] || noun.gen;
-    $('#cardPattern').textContent = noun.pat === 'other' ? 'nepravidelné' : `vzor ${noun.pat}`;
-    $('#cardPattern').dataset.en = patternTip(noun.pat);
+    if (C.verb) {
+      const v = C.verb;
+      $('#cardGloss').textContent = v.g;
+      $('#cardGender').textContent = ASPECT[v.a][0];
+      $('#cardGender').dataset.en = ASPECT[v.a][1];
+      $('#cardPattern').hidden = !v.pr;
+      $('#cardPattern').textContent = v.pr ? `↔ ${v.pr}` : '';
+      $('#cardPattern').dataset.en = v.pr ? `aspect partner: <b>${v.pr}</b> is the ${v.a === 'impf' ? 'perfective (one-off, completed)' : 'imperfective (ongoing, repeated)'} verb of the pair` : '';
+    } else {
+      $('#cardGloss').textContent = C.adj ? `${C.adj.g} ${noun.g}` : noun.g;
+      $('#cardGender').textContent = GENDER_LABEL[noun.gen] || noun.gen;
+      $('#cardGender').dataset.en = GENDER_EN[noun.gen] || noun.gen;
+      $('#cardPattern').hidden = false;
+      $('#cardPattern').textContent = noun.pat === 'other' ? 'nepravidelné' : `vzor ${noun.pat}`;
+      $('#cardPattern').dataset.en = patternTip(noun.pat);
+    }
     const wc = $('#wordCard'); wc.classList.remove('enter'); void wc.offsetWidth; wc.classList.add('enter');
     if (G.mode === 'grid') { renderGrid(); } else { renderBoard(); renderTray(); }
     renderHud();
   }
 
+  // rows/columns come from the card: cases × number (nouns) or persons × tenses (verbs)
+  function boardHead(C) {
+    $('#board').classList.toggle('one-col', C.cols.length === 1);
+    $('#board').classList.toggle('verbs', !!C.verb);
+    return '<div></div>' + C.cols.map((c) => `<div class="bh${c.cls ? ' ' + c.cls + ' th' : ''}" data-en="${attr(c.tip)}">${c.name}</div>`).join('');
+  }
+  const rowLabel = (r) => `<div class="rl ${r.cls}" data-en="${attr(r.tip)}"><span class="full">${r.name}</span><span class="abbr">${r.abbr}</span><small>${r.q}</small></div>`;
   function renderBoard() {
     const C = G.card;
-    let h = '<div></div><div class="bh" data-en="<b>singulár</b> = singular (one)">Singulár</div><div class="bh" data-en="<b>plurál</b> = plural (more than one)">Plurál</div>';
-    CASES.forEach((c, ci) => {
-      h += `<div class="rl c-${c.k}" data-en="${attr(caseTip(c))}"><span class="full">${c.name}</span><span class="abbr">${c.abbr}</span><small>${c.q}</small></div>`;
-      ['s', 'p'].forEach((num, j) => {
-        const i = ci * 2 + j, cell = C.cells[i];
-        h += `<button class="cell c-${c.k}${cell.filled ? ' filled' : ''}" data-i="${i}" aria-label="${c.name} ${num === 's' ? 'singulár' : 'plurál'}">${cell.filled ? cell.main : ''}</button>`;
+    let h = boardHead(C);
+    C.rows.forEach((r, ri) => {
+      h += rowLabel(r);
+      C.cols.forEach((col, j) => {
+        const i = ri * C.cols.length + j, cell = C.cells[i];
+        h += `<button class="cell ${cell.cls}${cell.filled ? ' filled' : ''}" data-i="${i}" aria-label="${attr(cellLabel(C, cell))}">${cell.filled ? cell.main : ''}</button>`;
       });
     });
     $('#board').innerHTML = h;
@@ -337,6 +457,13 @@
     const s = save.stats[k] || [0, 0];
     s[good ? 0 : 1]++; save.stats[k] = s;
     window.PADYEngine?.review(k, good);   // spaced repetition: every game feeds it
+  }
+  // verbs keep their own stats (per verb × person × tense) until the verb side gets its own path
+  function bumpCell(C, cell, good) {
+    if (!C.verb) return statBump(C.noun, cell.ck, cell.num, good);
+    save.vconj ||= {};
+    const k = `${C.verb.w}|${cell.ck}_${cell.num}`;
+    const s = save.vconj[k] || [0, 0]; s[good ? 0 : 1]++; save.vconj[k] = s;
   }
 
   // XP + streak for any finished activity (games, sessions, placement)
@@ -370,7 +497,7 @@
         G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo); G.right++;
         const pts = Math.round(10 * mult());
         G.score += pts;
-        statBump(C.noun, cell.ck, cell.num, true);
+        bumpCell(C, cell, true);
         floater(`+${pts}`, x, y);
         sfx.good(G.combo);
       }
@@ -391,24 +518,33 @@
       // the learner's weak spot is where the tile really belongs
       const home = C.cells[tile.cells.find((j) => !C.cells[j].filled) ?? tile.cells[0]];
       G.caseMiss[home.ck] = (G.caseMiss[home.ck] || 0) + 1;
-      statBump(C.noun, home.ck, home.num, false);
+      bumpCell(C, home, false);
       cellEl.classList.remove('bad'); void cellEl.offsetWidth; cellEl.classList.add('bad');
       setTimeout(() => cellEl.classList.remove('bad'), 420);
       sfx.bad();
       renderHud();
       // graded hints: say what the tried cell needs, then narrow it down, and only reveal on the 3rd miss
       tile.misses = (tile.misses || 0) + 1;
-      const slotName = (c) => `${CASES[c.ci].name} ${c.num === 's' ? 'sg' : 'pl'}`;
-      const chipOf = (c) => `<span class="lg c-${c.ck}">${slotName(c)}</span>`;
+      const slotName = (c) => cellLabel(C, c);
+      const chipOf = (c) => `<span class="lg ${c.cls}">${slotName(c)}</span>`;
       const homes = tile.cells.map((j) => C.cells[j]).filter((c) => !c.filled);
       if (tile.misses === 1) {
-        const needs = window.PADYEngine?.cellNeeds(C.noun, cell.ck, cell.num) || '';
+        const needs = C.verb ? `In this cell, ${ruleFor(C, cell)}.` : window.PADYEngine?.cellNeeds(C.noun, cell.ck, cell.num) || '';
         showWhy(`<b>${tile.text}</b> doesn't go in ${chipOf(cell)}. ${needs} <span class="why-try">Try another cell.</span>`);
       } else if (tile.misses === 2) {
-        const nums = new Set(homes.map((c) => c.num));
-        const narrow = nums.size === 1
-          ? `<b>${tile.text}</b> is <b>${[...nums][0] === 's' ? 'singular' : 'plural'}</b>.`
-          : `<b>${tile.text}</b> fits ${homes.length} cells, in both columns.`;
+        let narrow;
+        if (C.verb) {
+          // verbs: which tense column, or (one column) singular vs plural person
+          const cols = new Set(homes.map((c) => c.col)), sing = new Set(homes.map((c) => c.ci < 3));
+          narrow = cols.size === 1 && C.cols.length > 1 ? `<b>${tile.text}</b> belongs in the <b>${C.cols[[...cols][0]].name.split(' · ')[0].toLowerCase()}</b> column.`
+            : sing.size === 1 ? `<b>${tile.text}</b> is a <b>${[...sing][0] ? 'singular (ja / ty / on)' : 'plural (my / vy / oni)'}</b> form.`
+            : `<b>${tile.text}</b> fits ${homes.length} cells.`;
+        } else {
+          const nums = new Set(homes.map((c) => c.num));
+          narrow = nums.size === 1
+            ? `<b>${tile.text}</b> is <b>${[...nums][0] === 's' ? 'singular' : 'plural'}</b>.`
+            : `<b>${tile.text}</b> fits ${homes.length} cells, in both columns.`;
+        }
         showWhy(`${narrow} <span class="why-try">One more try.</span>`);
       } else {
         showWhy(`<b>${tile.text}</b> = ${homes.map(chipOf).join(' ')} <span class="why-not">· nie ${slotName(cell)}</span>`);
@@ -483,19 +619,38 @@
   const bare = (s) => norm(s).normalize('NFD').replace(/\p{M}/gu, '');
   let lastInput = null;
 
+  // ---------- accent hotkeys: 1–9 = á ä č ď é í ĺ ľ ň, Shift+1–8 = ó ô ŕ š ť ú ý ž ----------
+  // Uses the physical key (e.code), so Shift+1 gives "ó" instead of "!". Only when the key would type a plain
+  // digit/symbol: on a Slovak keyboard layout the number row already types letters, and that is left alone.
+  const diaKey = (i) => (i < 9 ? String(i + 1) : `⇧${i - 8}`);
+  const TYPING = '#board input, #trInput, #kInput, #fInput';
+  document.addEventListener('keydown', (e) => {
+    const el = e.target;
+    if (!el.matches?.(TYPING) || el.readOnly || e.ctrlKey || e.metaKey || e.altKey) return;
+    const m = (e.code || '').match(/^Digit([1-9])$/); if (!m) return;
+    const n = +m[1];
+    let ch = null;
+    if (e.shiftKey) { if (n <= 8 && !/\p{L}/u.test(e.key)) ch = DIA[8 + n]; }
+    else if (/^[0-9]$/.test(e.key)) ch = DIA[n - 1];
+    if (!ch) return;
+    e.preventDefault(); e.stopPropagation();
+    el.setRangeText(ch, el.selectionStart ?? el.value.length, el.selectionEnd ?? el.value.length, 'end');
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  }, true);
+
   function renderGrid() {
     const C = G.card;
-    C.cells[0].filled = true; C.cells[0].given = true;   // nominative singular is the prompt
+    if (!C.verb) { C.cells[0].filled = true; C.cells[0].given = true; }   // nouns: nominative singular is the prompt (verbs: the infinitive)
     C.almosts = 0;
-    let h = '<div></div><div class="bh" data-en="<b>singulár</b> = singular (one)">Singulár</div><div class="bh" data-en="<b>plurál</b> = plural (more than one)">Plurál</div>';
-    CASES.forEach((c, ci) => {
-      h += `<div class="rl c-${c.k}" data-en="${attr(caseTip(c))}"><span class="full">${c.name}</span><span class="abbr">${c.abbr}</span><small>${c.q}</small></div>`;
-      ['s', 'p'].forEach((num, j) => {
-        const i = ci * 2 + j, cell = C.cells[i];
-        h += `<div class="cell-wrap"><input class="cell c-${c.k}${cell.given ? ' filled given' : ''}" data-i="${i}"
+    let h = boardHead(C);
+    C.rows.forEach((r, ri) => {
+      h += rowLabel(r);
+      C.cols.forEach((col, j) => {
+        const i = ri * C.cols.length + j, cell = C.cells[i];
+        h += `<div class="cell-wrap"><input class="cell ${cell.cls}${cell.given ? ' filled given' : ''}" data-i="${i}"
           ${cell.given ? `value="${attr(cell.main)}" readonly tabindex="-1"` : ''}
           autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next"
-          aria-label="${c.name} ${num === 's' ? 'singulár' : 'plurál'}"></div>`;
+          aria-label="${attr(cellLabel(C, cell))}"></div>`;
       });
     });
     $('#board').innerHTML = h;
@@ -511,9 +666,10 @@
 
   function focusNext(from) {
     const C = G.card;
-    const start = ORDER.indexOf(from);
-    for (let k = 1; k <= ORDER.length; k++) {
-      const i = ORDER[(start + k + ORDER.length) % ORDER.length];
+    const ORD = C.order || ORDER;
+    const start = ORD.indexOf(from);
+    for (let k = 1; k <= ORD.length; k++) {
+      const i = ORD[(start + k + ORD.length) % ORD.length];
       if (!C.cells[i].filled) { inputAt(i)?.focus({ preventScroll: false }); return true; }
     }
     return false;
@@ -522,7 +678,8 @@
   function checkCell(i) {
     const C = G.card, cell = C.cells[i], el = inputAt(i);
     if (!cell || cell.filled || !el) return;
-    const v = norm(el.value);
+    let v = norm(el.value);
+    if (C.verb) v = v.replace(/^(ja|ty|on|ona|ono|my|vy|oni|ony)\s+/, '');   // "ja robím" counts as "robím"
     if (!v) return;
     const ok = [...cell.ok].map(norm);
     if (ok.includes(v)) return resolveCell(i, 'right', v);
@@ -530,13 +687,14 @@
     // wrong
     cell.tries++; G.combo = 0; G.wrong++; C.mistakes++;
     G.caseMiss[cell.ck] = (G.caseMiss[cell.ck] || 0) + 1;
-    statBump(C.noun, cell.ck, cell.num, false);
+    bumpCell(C, cell, false);
     sfx.bad();
     el.classList.remove('bad'); void el.offsetWidth; el.classList.add('bad');
     setTimeout(() => el.classList.remove('bad'), 420);
     renderHud();
     // 1st miss: a hint without the answer (so the second try is real); 2nd miss: the full explanation
-    showWhy(window.PADYEngine?.explain({ noun: C.noun, adj: C.adj, ck: cell.ck, num: cell.num, answer: v, reveal: cell.tries >= 2 }) || '');
+    showWhy(C.verb ? explainVerb(C, cell, v, cell.tries >= 2)
+      : window.PADYEngine?.explain({ noun: C.noun, adj: C.adj, ck: cell.ck, num: cell.num, answer: v, reveal: cell.tries >= 2 }) || '');
     if (cell.tries >= 2) { setTimeout(() => resolveCell(i, 'revealed'), 380); }
     else { setTag(i, 't-try', 'ešte 1×'); inputAt(i).parentElement.querySelector('.tag').dataset.en = 'one more try'; el.select(); }
   }
@@ -553,7 +711,7 @@
       G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo); G.right++;
       const pts = Math.round(10 * mult());
       G.score += pts;
-      statBump(C.noun, cell.ck, cell.num, true);
+      bumpCell(C, cell, true);
       floater(`+${pts}`, x, y); sfx.good(G.combo);
       setTag(i, '', '');
     } else if (kind === 'almost') {
@@ -562,7 +720,7 @@
       G.right++; C.almosts++;
       const pts = Math.round(5 * mult());
       G.score += pts;
-      statBump(C.noun, cell.ck, cell.num, true);
+      bumpCell(C, cell, true);
       floater(`+${pts} takmer!`, x, y); sfx.pick();
       setTag(i, 't-almost', 'ˇ´ diakritika');
       el.parentElement.querySelector('.tag').dataset.en = 'Right ending, but an accent was missing or wrong. The correct spelling is shown. Half points.';
@@ -598,7 +756,7 @@
   });
   $('#board').addEventListener('focusin', (e) => { if (e.target.matches('input')) lastInput = e.target; });
 
-  $('#diaBar').innerHTML = DIA.map((ch) => `<button type="button" tabindex="-1" data-ch="${ch}">${ch}</button>`).join('');
+  $('#diaBar').innerHTML = DIA.map((ch, i) => `<button type="button" tabindex="-1" data-ch="${ch}">${ch}<small class="kk">${diaKey(i)}</small></button>`).join('');
   // insert on pointerdown (not click) so the focused cell — and the phone keyboard — stay put
   $('#diaBar').addEventListener('pointerdown', (e) => {
     const b = e.target.closest('button'); if (!b) return;
@@ -786,8 +944,12 @@
 
   function startPad() {
     $$('#padField .drop').forEach((e) => e.remove());
-    $('#padLanes').innerHTML = CASES.map((c, i) => `<button class="lane c-${c.k}" data-ck="${c.k}" aria-label="${c.name}">
-        <span class="mk">${i + 1}</span><b class="full">${c.name}</b><b class="abbr">${c.abbr}</b></button>`).join('');
+    // lanes: the six cases (nouns) or the six persons (verbs)
+    G.padRows = G.side === 'verbs'
+      ? PERSONS.map((p) => ({ k: p.k, cls: 'vp', name: `${p.icon} ${p.sk}`, abbr: p.abbr }))
+      : CASES.map((c) => ({ k: c.k, cls: `c-${c.k}`, name: c.name, abbr: c.abbr }));
+    $('#padLanes').innerHTML = G.padRows.map((r, i) => `<button class="lane ${r.cls}" data-ck="${r.k}" aria-label="${r.name}">
+        <span class="mk">${i + 1}</span><b class="full">${r.name}</b><b class="abbr">${r.abbr}</b></button>`).join('');
     G.pad = { items: [], lives: 3, caught: 0, level: 1, speed: 0.12, spawnEvery: 2.6, sinceSpawn: 2.2, last: performance.now(), running: true, ni: 0, over: false, paused: false, freezing: false };
     $('#padOverlay').hidden = true; $('#padMsg').classList.remove('show'); $('#padPause').textContent = '⏸';
     renderLives(); renderHud(); padBanner('Level 1');
@@ -806,7 +968,7 @@
   function padSpawn() {
     const P = G.pad, field = $('#padField');
     const noun = G.words[P.ni++ % G.words.length];
-    const card = buildCard(noun);
+    const card = buildCard(noun);   // a noun card or a verb card, depending on the side
     const cell = card.cells[rand(card.cells.length)];
     const valid = new Set(card.cells.filter((c) => c.main === cell.main).map((c) => c.ck));
     const el = document.createElement('div');
@@ -814,7 +976,7 @@
     el.innerHTML = `<span class="dform">${cell.main}</span><span class="dlemma">${card.title}</span>`;
     field.appendChild(el);
     const maxX = Math.max(0, field.clientWidth - el.offsetWidth - 8);
-    const item = { el, cell, valid, noun, x: 4 + Math.random() * maxX, y: -el.offsetHeight, h: el.offsetHeight };
+    const item = { el, cell, valid, noun, card, x: 4 + Math.random() * maxX, y: -el.offsetHeight, h: el.offsetHeight };
     el.style.transform = `translate(${item.x}px, ${item.y}px)`;
     P.items.push(item);
   }
@@ -868,7 +1030,7 @@
       G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo); G.right++;
       const pts = Math.round(10 * mult());
       G.score += pts;
-      statBump(it.noun, ck, it.cell.num, true);
+      bumpCell(it.card, it.cell, true);
       floater(`+${pts}`, x, y); sfx.good(G.combo);
       padRemove(it, 'caught');
       P.caught++;
@@ -888,14 +1050,14 @@
     G.combo = 0; G.wrong++;
     const home = it.cell.ck;
     G.caseMiss[home] = (G.caseMiss[home] || 0) + 1;
-    statBump(it.noun, home, it.cell.num, false);
+    bumpCell(it.card, it.cell, false);
     sfx.bad();
     // freeze for a moment and show the answer big, so it can actually be read (clock stops too)
-    const chips = CASES.filter((c) => it.valid.has(c.k)).map((c) => `<span class="lg c-${c.k}">${c.name}</span>`).join(' ');
-    const meaning = `${it.noun.w}${it.noun.g ? ` = ${it.noun.g}` : ''}`;
+    const chips = G.padRows.filter((r) => it.valid.has(r.k)).map((r) => `<span class="lg ${r.cls}">${r.name}</span>`).join(' ');
+    const meaning = `${it.card.title}${(it.card.verb || it.noun).g ? ` = ${(it.card.verb || it.noun).g}` : ''}`;
     $('#padMsg').innerHTML = `<b>${it.cell.main}</b> <span class="eq">=</span> ${chips}
       <span class="pm-word">← ${meaning}</span>
-      ${wrongCk ? `<small>nie ${CASES.find((c) => c.k === wrongCk).name}</small>` : '<small>spadlo! · it landed</small>'}`;
+      ${wrongCk ? `<small>nie ${G.padRows.find((r) => r.k === wrongCk).name}</small>` : '<small>spadlo! · it landed</small>'}`;
     $('#padMsg').classList.add('show');
     P.freezing = true; P.freezeUntil = performance.now() + 1600;
     pauseClock();
@@ -935,7 +1097,7 @@
     if (G?.mode !== 'pad' || !$('#game').classList.contains('active') || e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key === ' ' || e.key.toLowerCase() === 'p' || (e.key === 'Escape' && G.pad?.paused)) { e.preventDefault(); padPause(e.key === 'Escape' ? false : undefined); return; }
     const n = parseInt(e.key, 10);
-    const ck = n >= 1 && n <= 6 ? CASES[n - 1].k : PAD_LETTERS[e.key.toLowerCase()];
+    const ck = n >= 1 && n <= 6 ? G.padRows[n - 1].k : G.side === 'verbs' ? null : PAD_LETTERS[e.key.toLowerCase()];
     if (ck) { e.preventDefault(); padAnswer(ck); }
   });
 
@@ -1020,8 +1182,11 @@
     $('#resCombo').textContent = G.maxCombo;
     $('#resTime').textContent = fmtTime(ms);
     $('#resXp').textContent = `+${xp} XP` + (lvlOf(save.xp) > lvBefore ? `  ·  Level ${lvlOf(save.xp)}! 🎉` : '');
-    const miss = CASES.filter((c) => G.caseMiss[c.k]);
-    $('#resCases').innerHTML = miss.map((c) => `<span class="lg c-${c.k}" data-en="${attr(`${c.en}: ${G.caseMiss[c.k]} mistake${G.caseMiss[c.k] > 1 ? 's' : ''}<span class="tip-q">${c.use}</span>`)}">${c.name} ×${G.caseMiss[c.k]}</span>`).join('');
+    // verbs: which persons tripped you up
+    const miss = G.side === 'verbs'
+      ? PERSONS.filter((p) => G.caseMiss[p.k]).map((p) => ({ k: p.k, name: `${p.icon} ${p.sk}`, en: p.en, use: 'person', vp: true }))
+      : CASES.filter((c) => G.caseMiss[c.k]);
+    $('#resCases').innerHTML = miss.map((c) => c.vp ? `<span class="lg vp" data-en="${attr(`<b>${c.name}</b> = ${c.en}: ${G.caseMiss[c.k]} mistake${G.caseMiss[c.k] > 1 ? 's' : ''}`)}">${c.name} ×${G.caseMiss[c.k]}</span>` : `<span class="lg c-${c.k}" data-en="${attr(`${c.en}: ${G.caseMiss[c.k]} mistake${G.caseMiss[c.k] > 1 ? 's' : ''}<span class="tip-q">${c.use}</span>`)}">${c.name} ×${G.caseMiss[c.k]}</span>`).join('');
     $('#resNote').textContent = miss.length
       ? 'Tieto pády ťa zradili. Nabudúce ich uvidíš viac.'
       : 'Bez jedinej chyby. Si stroj. 🤖';
@@ -1038,6 +1203,21 @@
   $('#startGrid').addEventListener('click', () => startRound('grid'));
   $('#startMagnet').addEventListener('click', () => startRound('magnet'));
   $('#startPad').addEventListener('click', () => startRound('pad'));
+  // ---------- Pády | Slovesá switch + verb settings ----------
+  $('#sideSwitch').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-side]'); if (!b) return;
+    save.side = b.dataset.side; persist(); renderHome(); sfx.pick();
+  });
+  const segWire = (sel, key, parse = (x) => x) => $(sel).addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    opts[key] = parse(b.dataset[key === 'len' ? 'len' : key]);
+    $$(`${sel} button`).forEach((x) => x.classList.toggle('on', x === b));
+    if (key === 'len') $$('#lenSeg button').forEach((x) => x.classList.toggle('on', +x.dataset.len === opts.len));
+    renderHome();
+  });
+  segWire('#vtenseSeg', 'vtense');
+  segWire('#vaspSeg', 'vasp');
+  segWire('#vlenSeg', 'len', Number);
   $('#mlevelSeg').addEventListener('click', (e) => {
     const b = e.target.closest('button'); if (!b) return;
     opts.mlevel = b.dataset.mlevel;
@@ -1116,7 +1296,7 @@
   window.PADY = {
     CASES, PATTERNS, PATTERN_EN, GENDER_LABEL, GENDER_EN, caseTip, patternTip, attr, show,
     stats: () => save.stats,
-    save: () => save, persist, award, sfx, confetti, floater, centerOf, renderTop, toast, adjForm,
+    save: () => save, persist, award, sfx, confetti, floater, centerOf, renderTop, toast, adjForm, PERSONS, ASPECT, diaKey,
     startRound: (mode) => startRound(mode),
     drill(mode, pattern) {
       opts.pattern = pattern;

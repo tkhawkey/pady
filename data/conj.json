@@ -1,0 +1,11602 @@
+[
+  {
+    "w": "byť",
+    "refl": "",
+    "g": "to be",
+    "asp": "impf",
+    "cls": "irreg-byť",
+    "partner": null,
+    "pres": [
+      "som",
+      "si",
+      "je",
+      "sme",
+      "ste",
+      "sú"
+    ],
+    "past": [
+      "bol",
+      "bola",
+      "bolo",
+      "boli"
+    ],
+    "imp": [
+      "buď",
+      "buďme",
+      "buďte"
+    ],
+    "score": 4204005,
+    "tb": 3519
+  },
+  {
+    "w": "jesť",
+    "refl": "",
+    "g": "to eat",
+    "asp": "impf",
+    "cls": "irreg-jesť",
+    "partner": "zjesť",
+    "pres": [
+      "jem",
+      "ješ",
+      "je",
+      "jeme",
+      "jete",
+      "jedia"
+    ],
+    "past": [
+      "jedol",
+      "jedla",
+      "jedlo",
+      "jedli"
+    ],
+    "imp": [
+      "jedz",
+      "jedzme",
+      "jedzte"
+    ],
+    "score": 1201442,
+    "tb": 7
+  },
+  {
+    "w": "mať",
+    "refl": "",
+    "g": "to have, to be supposed to",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "mám",
+      "máš",
+      "má",
+      "máme",
+      "máte",
+      "majú"
+    ],
+    "past": [
+      "mal",
+      "mala",
+      "malo",
+      "mali"
+    ],
+    "imp": [
+      "maj",
+      "majme",
+      "majte"
+    ],
+    "score": 588119,
+    "tb": 447
+  },
+  {
+    "w": "vedieť",
+    "refl": "",
+    "g": "to know, can, be able to",
+    "asp": "impf",
+    "cls": "irreg-vedieť",
+    "partner": null,
+    "pres": [
+      "viem",
+      "vieš",
+      "vie",
+      "vieme",
+      "viete",
+      "vedia"
+    ],
+    "past": [
+      "vedel",
+      "vedela",
+      "vedelo",
+      "vedeli"
+    ],
+    "imp": [
+      "vedz",
+      "vedzme",
+      "vedzte"
+    ],
+    "score": 278675,
+    "tb": 98
+  },
+  {
+    "w": "môcť",
+    "refl": "",
+    "g": "may, be allowed to",
+    "asp": "impf",
+    "cls": "irreg-môcť",
+    "partner": null,
+    "pres": [
+      "môžem",
+      "môžeš",
+      "môže",
+      "môžeme",
+      "môžete",
+      "môžu"
+    ],
+    "past": [
+      "mohol",
+      "mohla",
+      "mohlo",
+      "mohli"
+    ],
+    "imp": [
+      null,
+      null,
+      null
+    ],
+    "score": 255938,
+    "tb": 157
+  },
+  {
+    "w": "chcieť",
+    "refl": "",
+    "g": "to want",
+    "asp": "impf",
+    "cls": "irreg-chcieť",
+    "partner": null,
+    "pres": [
+      "chcem",
+      "chceš",
+      "chce",
+      "chceme",
+      "chcete",
+      "chcú"
+    ],
+    "past": [
+      "chcel",
+      "chcela",
+      "chcelo",
+      "chceli"
+    ],
+    "imp": [
+      "chci",
+      "chcime",
+      "chcite"
+    ],
+    "score": 252502,
+    "tb": 124
+  },
+  {
+    "w": "myslieť",
+    "refl": "",
+    "g": "to think",
+    "asp": "impf",
+    "cls": "5b",
+    "partner": null,
+    "pres": [
+      "myslím",
+      "myslíš",
+      "myslí",
+      "myslíme",
+      "myslíte",
+      "myslia"
+    ],
+    "past": [
+      "myslel",
+      "myslela",
+      "myslelo",
+      "mysleli"
+    ],
+    "imp": [
+      "mysli",
+      "myslime",
+      "myslite"
+    ],
+    "score": 204402,
+    "tb": 35
+  },
+  {
+    "w": "musieť",
+    "refl": "",
+    "g": "must, to have to",
+    "asp": "impf",
+    "cls": "5b",
+    "partner": null,
+    "pres": [
+      "musím",
+      "musíš",
+      "musí",
+      "musíme",
+      "musíte",
+      "musia"
+    ],
+    "past": [
+      "musel",
+      "musela",
+      "muselo",
+      "museli"
+    ],
+    "imp": [
+      null,
+      null,
+      null
+    ],
+    "score": 194553,
+    "tb": 109
+  },
+  {
+    "w": "povedať",
+    "refl": "",
+    "g": "to tell",
+    "asp": "pf",
+    "cls": "irreg-povedať",
+    "partner": null,
+    "pres": [
+      "poviem",
+      "povieš",
+      "povie",
+      "povieme",
+      "poviete",
+      "povedia"
+    ],
+    "past": [
+      "povedal",
+      "povedala",
+      "povedalo",
+      "povedali"
+    ],
+    "imp": [
+      "povedz",
+      "povedzme",
+      "povedzte"
+    ],
+    "score": 192509,
+    "tb": 243
+  },
+  {
+    "w": "ísť",
+    "refl": "",
+    "g": "to walk, to go",
+    "asp": "impf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "idem",
+      "ideš",
+      "ide",
+      "ideme",
+      "idete",
+      "idú"
+    ],
+    "past": [
+      "išiel",
+      "išla",
+      "išlo",
+      "išli"
+    ],
+    "imp": [
+      "iď",
+      "iďme",
+      "iďte"
+    ],
+    "score": 174172,
+    "tb": 113
+  },
+  {
+    "w": "robiť",
+    "refl": "",
+    "g": "to make, to do",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "urobiť",
+    "pres": [
+      "robím",
+      "robíš",
+      "robí",
+      "robíme",
+      "robíte",
+      "robia"
+    ],
+    "past": [
+      "robil",
+      "robila",
+      "robilo",
+      "robili"
+    ],
+    "imp": [
+      "rob",
+      "robme",
+      "robte"
+    ],
+    "score": 128377,
+    "tb": 32
+  },
+  {
+    "w": "vidieť",
+    "refl": "",
+    "g": "to see",
+    "asp": "impf",
+    "cls": "5b",
+    "partner": "uvidieť",
+    "pres": [
+      "vidím",
+      "vidíš",
+      "vidí",
+      "vidíme",
+      "vidíte",
+      "vidia"
+    ],
+    "past": [
+      "videl",
+      "videla",
+      "videlo",
+      "videli"
+    ],
+    "imp": [
+      "viď",
+      "viďme",
+      "viďte"
+    ],
+    "score": 112083,
+    "tb": 58
+  },
+  {
+    "w": "hovoriť",
+    "refl": "",
+    "g": "to talk, to speak",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "hovorím",
+      "hovoríš",
+      "hovorí",
+      "hovoríme",
+      "hovoríte",
+      "hovoria"
+    ],
+    "past": [
+      "hovoril",
+      "hovorila",
+      "hovorilo",
+      "hovorili"
+    ],
+    "imp": [
+      "hovor",
+      "hovorme",
+      "hovorte"
+    ],
+    "score": 106153,
+    "tb": 36
+  },
+  {
+    "w": "urobiť",
+    "refl": "",
+    "g": "to make, to do",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "robiť",
+    "pres": [
+      "urobím",
+      "urobíš",
+      "urobí",
+      "urobíme",
+      "urobíte",
+      "urobia"
+    ],
+    "past": [
+      "urobil",
+      "urobila",
+      "urobilo",
+      "urobili"
+    ],
+    "imp": [
+      "urob",
+      "urobme",
+      "urobte"
+    ],
+    "score": 90685,
+    "tb": 48
+  },
+  {
+    "w": "prísť",
+    "refl": "",
+    "g": "to arrive, to come",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": "prichádzať",
+    "pres": [
+      "prídem",
+      "prídeš",
+      "príde",
+      "prídeme",
+      "prídete",
+      "prídu"
+    ],
+    "past": [
+      "prišiel",
+      "prišla",
+      "prišlo",
+      "prišli"
+    ],
+    "imp": [
+      "príď",
+      "príďme",
+      "príďte"
+    ],
+    "score": 85022,
+    "tb": 94
+  },
+  {
+    "w": "dať",
+    "refl": "",
+    "g": "to give, put, to be possible",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "dávať",
+    "pres": [
+      "dám",
+      "dáš",
+      "dá",
+      "dáme",
+      "dáte",
+      "dajú"
+    ],
+    "past": [
+      "dal",
+      "dala",
+      "dalo",
+      "dali"
+    ],
+    "imp": [
+      "daj",
+      "dajme",
+      "dajte"
+    ],
+    "score": 84956,
+    "tb": 64
+  },
+  {
+    "w": "dostať",
+    "refl": "",
+    "g": "to get, to receive, to acquire",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": "dostávať",
+    "pres": [
+      "dostanem",
+      "dostaneš",
+      "dostane",
+      "dostaneme",
+      "dostanete",
+      "dostanú"
+    ],
+    "past": [
+      "dostal",
+      "dostala",
+      "dostalo",
+      "dostali"
+    ],
+    "imp": [
+      "dostaň",
+      "dostaňme",
+      "dostaňte"
+    ],
+    "score": 79716,
+    "tb": 60
+  },
+  {
+    "w": "potrebovať",
+    "refl": "",
+    "g": "to need",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "potrebujem",
+      "potrebuješ",
+      "potrebuje",
+      "potrebujeme",
+      "potrebujete",
+      "potrebujú"
+    ],
+    "past": [
+      "potreboval",
+      "potrebovala",
+      "potrebovalo",
+      "potrebovali"
+    ],
+    "imp": [
+      "potrebuj",
+      "potrebujme",
+      "potrebujte"
+    ],
+    "score": 75228,
+    "tb": 17
+  },
+  {
+    "w": "nájsť",
+    "refl": "",
+    "g": "to find, to discover, to locate",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": "nachádzať",
+    "pres": [
+      "nájdem",
+      "nájdeš",
+      "nájde",
+      "nájdeme",
+      "nájdete",
+      "nájdu"
+    ],
+    "past": [
+      "našiel",
+      "našla",
+      "našlo",
+      "našli"
+    ],
+    "imp": [
+      "nájdi",
+      "nájdime",
+      "nájdite"
+    ],
+    "score": 66778,
+    "tb": 58
+  },
+  {
+    "w": "stať",
+    "refl": "sa",
+    "g": "to become, to happen, to occur",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": "stávať",
+    "pres": [
+      "stanem",
+      "staneš",
+      "stane",
+      "staneme",
+      "stanete",
+      "stanú"
+    ],
+    "past": [
+      "stal",
+      "stala",
+      "stalo",
+      "stali"
+    ],
+    "imp": [
+      "staň",
+      "staňme",
+      "staňte"
+    ],
+    "score": 65654,
+    "tb": 90
+  },
+  {
+    "w": "ďakovať",
+    "refl": "",
+    "g": "to thank",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": "poďakovať",
+    "pres": [
+      "ďakujem",
+      "ďakuješ",
+      "ďakuje",
+      "ďakujeme",
+      "ďakujete",
+      "ďakujú"
+    ],
+    "past": [
+      "ďakoval",
+      "ďakovala",
+      "ďakovalo",
+      "ďakovali"
+    ],
+    "imp": [
+      "ďakuj",
+      "ďakujme",
+      "ďakujte"
+    ],
+    "score": 64904,
+    "tb": 23
+  },
+  {
+    "w": "zabiť",
+    "refl": "",
+    "g": "to kill, to murder, to slay",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "zabíjať",
+    "pres": [
+      "zabijem",
+      "zabiješ",
+      "zabije",
+      "zabijeme",
+      "zabijete",
+      "zabijú"
+    ],
+    "past": [
+      "zabil",
+      "zabila",
+      "zabilo",
+      "zabili"
+    ],
+    "imp": [
+      "zabi",
+      "zabime",
+      "zabite"
+    ],
+    "score": 47250,
+    "tb": 17
+  },
+  {
+    "w": "vyzerať",
+    "refl": "",
+    "g": "to look, to seem",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "vyzerám",
+      "vyzeráš",
+      "vyzerá",
+      "vyzeráme",
+      "vyzeráte",
+      "vyzerajú"
+    ],
+    "past": [
+      "vyzeral",
+      "vyzerala",
+      "vyzeralo",
+      "vyzerali"
+    ],
+    "imp": [
+      "vyzeraj",
+      "vyzerajme",
+      "vyzerajte"
+    ],
+    "score": 44786,
+    "tb": 23
+  },
+  {
+    "w": "počuť",
+    "refl": "",
+    "g": "to hear, to find out",
+    "asp": "impf",
+    "cls": "4d",
+    "partner": null,
+    "pres": [
+      "počujem",
+      "počuješ",
+      "počuje",
+      "počujeme",
+      "počujete",
+      "počujú"
+    ],
+    "past": [
+      "počul",
+      "počula",
+      "počulo",
+      "počuli"
+    ],
+    "imp": [
+      "počuj",
+      "počujme",
+      "počujte"
+    ],
+    "score": 43722,
+    "tb": 25
+  },
+  {
+    "w": "volať",
+    "refl": "",
+    "g": "to call, to telephone",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "volám",
+      "voláš",
+      "volá",
+      "voláme",
+      "voláte",
+      "volajú"
+    ],
+    "past": [
+      "volal",
+      "volala",
+      "volalo",
+      "volali"
+    ],
+    "imp": [
+      "volaj",
+      "volajme",
+      "volajte"
+    ],
+    "score": 40819,
+    "tb": 43
+  },
+  {
+    "w": "pomôcť",
+    "refl": "",
+    "g": "to help",
+    "asp": "pf",
+    "cls": "irreg-môcť",
+    "partner": "pomáhať",
+    "pres": [
+      "pomôžem",
+      "pomôžeš",
+      "pomôže",
+      "pomôžeme",
+      "pomôžete",
+      "pomôžu"
+    ],
+    "past": [
+      "pomohol",
+      "pomohla",
+      "pomohlo",
+      "pomohli"
+    ],
+    "imp": [
+      "pomôž",
+      "pomôžme",
+      "pomôžte"
+    ],
+    "score": 40494,
+    "tb": 18
+  },
+  {
+    "w": "vrátiť",
+    "refl": "",
+    "g": "to return",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "vracať",
+    "pres": [
+      "vrátim",
+      "vrátiš",
+      "vráti",
+      "vrátime",
+      "vrátite",
+      "vrátia"
+    ],
+    "past": [
+      "vrátil",
+      "vrátila",
+      "vrátilo",
+      "vrátili"
+    ],
+    "imp": [
+      "vráť",
+      "vráťme",
+      "vráťte"
+    ],
+    "score": 38577,
+    "tb": 53
+  },
+  {
+    "w": "spraviť",
+    "refl": "",
+    "g": "to do",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "spravím",
+      "spravíš",
+      "spraví",
+      "spravíme",
+      "spravíte",
+      "spravia"
+    ],
+    "past": [
+      "spravil",
+      "spravila",
+      "spravilo",
+      "spravili"
+    ],
+    "imp": [
+      "sprav",
+      "spravme",
+      "spravte"
+    ],
+    "score": 38084,
+    "tb": 5
+  },
+  {
+    "w": "začať",
+    "refl": "",
+    "g": "to start, to begin",
+    "asp": "pf",
+    "cls": "4b",
+    "partner": "začínať",
+    "pres": [
+      "začnem",
+      "začneš",
+      "začne",
+      "začneme",
+      "začnete",
+      "začnú"
+    ],
+    "past": [
+      "začal",
+      "začala",
+      "začalo",
+      "začali"
+    ],
+    "imp": [
+      "začni",
+      "začnime",
+      "začnite"
+    ],
+    "score": 35816,
+    "tb": 89
+  },
+  {
+    "w": "nechať",
+    "refl": "",
+    "g": "to let, allow, to leave",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "nechávať",
+    "pres": [
+      "nechám",
+      "necháš",
+      "nechá",
+      "necháme",
+      "necháte",
+      "nechajú"
+    ],
+    "past": [
+      "nechal",
+      "nechala",
+      "nechalo",
+      "nechali"
+    ],
+    "imp": [
+      "nechaj",
+      "nechajme",
+      "nechajte"
+    ],
+    "score": 33936,
+    "tb": 23
+  },
+  {
+    "w": "poznať",
+    "refl": "",
+    "g": "to know",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "poznám",
+      "poznáš",
+      "pozná",
+      "poznáme",
+      "poznáte",
+      "poznajú"
+    ],
+    "past": [
+      "poznal",
+      "poznala",
+      "poznalo",
+      "poznali"
+    ],
+    "imp": [
+      "poznaj",
+      "poznajme",
+      "poznajte"
+    ],
+    "score": 33323,
+    "tb": 41
+  },
+  {
+    "w": "pracovať",
+    "refl": "",
+    "g": "to work",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "pracujem",
+      "pracuješ",
+      "pracuje",
+      "pracujeme",
+      "pracujete",
+      "pracujú"
+    ],
+    "past": [
+      "pracoval",
+      "pracovala",
+      "pracovalo",
+      "pracovali"
+    ],
+    "imp": [
+      "pracuj",
+      "pracujme",
+      "pracujte"
+    ],
+    "score": 29592,
+    "tb": 18
+  },
+  {
+    "w": "pôjsť",
+    "refl": "",
+    "g": "to originate, to arise, to spring from",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "pôjdem",
+      "pôjdeš",
+      "pôjde",
+      "pôjdeme",
+      "pôjdete",
+      "pôjdu"
+    ],
+    "past": [
+      "pošiel",
+      "pošla",
+      "pošlo",
+      "pošli"
+    ],
+    "imp": [
+      "pôjdi",
+      "pôjdime",
+      "pôjdite"
+    ],
+    "score": 29391,
+    "tb": 1
+  },
+  {
+    "w": "milovať",
+    "refl": "",
+    "g": "to love, to make love",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "milujem",
+      "miluješ",
+      "miluje",
+      "milujeme",
+      "milujete",
+      "milujú"
+    ],
+    "past": [
+      "miloval",
+      "milovala",
+      "milovalo",
+      "milovali"
+    ],
+    "imp": [
+      "miluj",
+      "milujme",
+      "milujte"
+    ],
+    "score": 29368,
+    "tb": 7
+  },
+  {
+    "w": "odísť",
+    "refl": "",
+    "g": "leave, depart",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": "odchádzať",
+    "pres": [
+      "odídem",
+      "odídeš",
+      "odíde",
+      "odídeme",
+      "odídete",
+      "odídu"
+    ],
+    "past": [
+      "odišiel",
+      "odišla",
+      "odišlo",
+      "odišli"
+    ],
+    "imp": [
+      "odíď",
+      "odíďme",
+      "odíďte"
+    ],
+    "score": 29287,
+    "tb": 48
+  },
+  {
+    "w": "žiť",
+    "refl": "",
+    "g": "to live",
+    "asp": "impf",
+    "cls": "4d",
+    "partner": null,
+    "pres": [
+      "žijem",
+      "žiješ",
+      "žije",
+      "žijeme",
+      "žijete",
+      "žijú"
+    ],
+    "past": [
+      "žil",
+      "žila",
+      "žilo",
+      "žili"
+    ],
+    "imp": [
+      "ži",
+      "žime",
+      "žite"
+    ],
+    "score": 28163,
+    "tb": 24
+  },
+  {
+    "w": "zomrieť",
+    "refl": "",
+    "g": "to die",
+    "asp": "pf",
+    "cls": "3b",
+    "partner": "zomierať",
+    "pres": [
+      "zomriem",
+      "zomrieš",
+      "zomrie",
+      "zomrieme",
+      "zomriete",
+      "zomrú"
+    ],
+    "past": [
+      "zomrel",
+      "zomrela",
+      "zomrelo",
+      "zomreli"
+    ],
+    "imp": [
+      "zomri",
+      "zomrime",
+      "zomrite"
+    ],
+    "score": 28044,
+    "tb": 35
+  },
+  {
+    "w": "znamenať",
+    "refl": "",
+    "g": "to mean",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "znamenám",
+      "znamenáš",
+      "znamená",
+      "znamenáme",
+      "znamenáte",
+      "znamenajú"
+    ],
+    "past": [
+      "znamenal",
+      "znamenala",
+      "znamenalo",
+      "znamenali"
+    ],
+    "imp": [
+      "znamenaj",
+      "znamenajme",
+      "znamenajte"
+    ],
+    "score": 25168,
+    "tb": 30
+  },
+  {
+    "w": "čakať",
+    "refl": "",
+    "g": "to wait",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "čakám",
+      "čakáš",
+      "čaká",
+      "čakáme",
+      "čakáte",
+      "čakajú"
+    ],
+    "past": [
+      "čakal",
+      "čakala",
+      "čakalo",
+      "čakali"
+    ],
+    "imp": [
+      "čakaj",
+      "čakajme",
+      "čakajte"
+    ],
+    "score": 24297,
+    "tb": 43
+  },
+  {
+    "w": "dokázať",
+    "refl": "",
+    "g": "to prove",
+    "asp": "pf",
+    "cls": "4a",
+    "partner": "dokazovať",
+    "pres": [
+      "dokážem",
+      "dokážeš",
+      "dokáže",
+      "dokážeme",
+      "dokážete",
+      "dokážu"
+    ],
+    "past": [
+      "dokázal",
+      "dokázala",
+      "dokázalo",
+      "dokázali"
+    ],
+    "imp": [
+      "dokáž",
+      "dokážme",
+      "dokážte"
+    ],
+    "score": 23916,
+    "tb": 17
+  },
+  {
+    "w": "stretnúť",
+    "refl": "",
+    "g": "to meet",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "stretávať",
+    "pres": [
+      "stretnem",
+      "stretneš",
+      "stretne",
+      "stretneme",
+      "stretnete",
+      "stretnú"
+    ],
+    "past": [
+      "stretol",
+      "stretla",
+      "stretlo",
+      "stretli"
+    ],
+    "imp": [
+      "stretni",
+      "stretnime",
+      "stretnite"
+    ],
+    "score": 23000,
+    "tb": 22
+  },
+  {
+    "w": "hľadať",
+    "refl": "",
+    "g": "to search, to look for",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "výhľadať",
+    "pres": [
+      "hľadám",
+      "hľadáš",
+      "hľadá",
+      "hľadáme",
+      "hľadáte",
+      "hľadajú"
+    ],
+    "past": [
+      "hľadal",
+      "hľadala",
+      "hľadalo",
+      "hľadali"
+    ],
+    "imp": [
+      "hľadaj",
+      "hľadajme",
+      "hľadajte"
+    ],
+    "score": 21112,
+    "tb": 22
+  },
+  {
+    "w": "zostať",
+    "refl": "",
+    "g": "synonym of ostať",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": "zostávať",
+    "pres": [
+      "zostanem",
+      "zostaneš",
+      "zostane",
+      "zostaneme",
+      "zostanete",
+      "zostanú"
+    ],
+    "past": [
+      "zostal",
+      "zostala",
+      "zostalo",
+      "zostali"
+    ],
+    "imp": [
+      "zostaň",
+      "zostaňme",
+      "zostaňte"
+    ],
+    "score": 21103,
+    "tb": 37
+  },
+  {
+    "w": "hrať",
+    "refl": "",
+    "g": "to play",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "hrám",
+      "hráš",
+      "hrá",
+      "hráme",
+      "hráte",
+      "hrajú"
+    ],
+    "past": [
+      "hral",
+      "hrala",
+      "hralo",
+      "hrali"
+    ],
+    "imp": [
+      "hraj",
+      "hrajme",
+      "hrajte"
+    ],
+    "score": 19677,
+    "tb": 18
+  },
+  {
+    "w": "stáť",
+    "refl": "",
+    "g": "to stand, to be situated",
+    "asp": "impf",
+    "cls": "irreg-stáť",
+    "partner": null,
+    "pres": [
+      "stojím",
+      "stojíš",
+      "stojí",
+      "stojíme",
+      "stojíte",
+      "stoja"
+    ],
+    "past": [
+      "stál",
+      "stála",
+      "stálo",
+      "stáli"
+    ],
+    "imp": [
+      "stoj",
+      "stojme",
+      "stojte"
+    ],
+    "score": 18453,
+    "tb": 50
+  },
+  {
+    "w": "rozumieť",
+    "refl": "",
+    "g": "to understand",
+    "asp": "impf",
+    "cls": "2",
+    "partner": "porozumieť",
+    "pres": [
+      "rozumiem",
+      "rozumieš",
+      "rozumie",
+      "rozumieme",
+      "rozumiete",
+      "rozumejú"
+    ],
+    "past": [
+      "rozumel",
+      "rozumela",
+      "rozumelo",
+      "rozumeli"
+    ],
+    "imp": [
+      "rozumej",
+      "rozumejme",
+      "rozumejte"
+    ],
+    "score": 18263,
+    "tb": 7
+  },
+  {
+    "w": "vziať",
+    "refl": "",
+    "g": "to take",
+    "asp": "pf",
+    "cls": "4b",
+    "partner": "brať",
+    "pres": [
+      "vezmem",
+      "vezmeš",
+      "vezme",
+      "vezmeme",
+      "vezmete",
+      "vezmú"
+    ],
+    "past": [
+      "vzal",
+      "vzala",
+      "vzalo",
+      "vzali"
+    ],
+    "imp": [
+      "vezmi",
+      "vezmime",
+      "vezmite"
+    ],
+    "score": 18039,
+    "tb": 29
+  },
+  {
+    "w": "ukázať",
+    "refl": "",
+    "g": "to point, to point out, to show",
+    "asp": "pf",
+    "cls": "4a",
+    "partner": "ukazovať",
+    "pres": [
+      "ukážem",
+      "ukážeš",
+      "ukáže",
+      "ukážeme",
+      "ukážete",
+      "ukážu"
+    ],
+    "past": [
+      "ukázal",
+      "ukázala",
+      "ukázalo",
+      "ukázali"
+    ],
+    "imp": [
+      "ukáž",
+      "ukážme",
+      "ukážte"
+    ],
+    "score": 17573,
+    "tb": 24
+  },
+  {
+    "w": "báť",
+    "refl": "sa",
+    "g": "to be afraid, to fear",
+    "asp": "impf",
+    "cls": "irreg-stáť",
+    "partner": "bojať",
+    "pres": [
+      "bojím",
+      "bojíš",
+      "bojí",
+      "bojíme",
+      "bojíte",
+      "boja"
+    ],
+    "past": [
+      "bál",
+      "bála",
+      "bálo",
+      "báli"
+    ],
+    "imp": [
+      "boj",
+      "bojme",
+      "bojte"
+    ],
+    "score": 17490,
+    "tb": 18
+  },
+  {
+    "w": "chodiť",
+    "refl": "",
+    "g": "to go, to walk",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "chodím",
+      "chodíš",
+      "chodí",
+      "chodíme",
+      "chodíte",
+      "chodia"
+    ],
+    "past": [
+      "chodil",
+      "chodila",
+      "chodilo",
+      "chodili"
+    ],
+    "imp": [
+      "choď",
+      "choďme",
+      "choďte"
+    ],
+    "score": 17422,
+    "tb": 15
+  },
+  {
+    "w": "zmeniť",
+    "refl": "",
+    "g": "to change, to alter, to modify",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "meniť",
+    "pres": [
+      "zmením",
+      "zmeníš",
+      "zmení",
+      "zmeníme",
+      "zmeníte",
+      "zmenia"
+    ],
+    "past": [
+      "zmenil",
+      "zmenila",
+      "zmenilo",
+      "zmenili"
+    ],
+    "imp": [
+      "zmeň",
+      "zmeňme",
+      "zmeňte"
+    ],
+    "score": 16806,
+    "tb": 11
+  },
+  {
+    "w": "rozhodnúť",
+    "refl": "",
+    "g": "to decide",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "rozhodovať",
+    "pres": [
+      "rozhodnem",
+      "rozhodneš",
+      "rozhodne",
+      "rozhodneme",
+      "rozhodnete",
+      "rozhodnú"
+    ],
+    "past": [
+      "rozhodol",
+      "rozhodla",
+      "rozhodlo",
+      "rozhodli"
+    ],
+    "imp": [
+      "rozhodni",
+      "rozhodnime",
+      "rozhodnite"
+    ],
+    "score": 15853,
+    "tb": 27
+  },
+  {
+    "w": "pamätať",
+    "refl": "",
+    "g": "to remember",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "pamätám",
+      "pamätáš",
+      "pamätá",
+      "pamätáme",
+      "pamätáte",
+      "pamätajú"
+    ],
+    "past": [
+      "pamätal",
+      "pamätala",
+      "pamätalo",
+      "pamätali"
+    ],
+    "imp": [
+      "pamätaj",
+      "pamätajme",
+      "pamätajte"
+    ],
+    "score": 15404,
+    "tb": 5
+  },
+  {
+    "w": "dávať",
+    "refl": "",
+    "g": "to give",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "dať",
+    "pres": [
+      "dávam",
+      "dávaš",
+      "dáva",
+      "dávame",
+      "dávate",
+      "dávajú"
+    ],
+    "past": [
+      "dával",
+      "dávala",
+      "dávalo",
+      "dávali"
+    ],
+    "imp": [
+      "dávaj",
+      "dávajme",
+      "dávajte"
+    ],
+    "score": 14922,
+    "tb": 11
+  },
+  {
+    "w": "prejsť",
+    "refl": "",
+    "g": "to walk, to go, to pass through",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "prejdem",
+      "prejdeš",
+      "prejde",
+      "prejdeme",
+      "prejdete",
+      "prejdú"
+    ],
+    "past": [
+      "prešiel",
+      "prešla",
+      "prešlo",
+      "prešli"
+    ],
+    "imp": [
+      "prejdi",
+      "prejdime",
+      "prejdite"
+    ],
+    "score": 14596,
+    "tb": 17
+  },
+  {
+    "w": "zastaviť",
+    "refl": "",
+    "g": "to stop, to halt, to interrupt",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "zastavovať",
+    "pres": [
+      "zastavím",
+      "zastavíš",
+      "zastaví",
+      "zastavíme",
+      "zastavíte",
+      "zastavia"
+    ],
+    "past": [
+      "zastavil",
+      "zastavila",
+      "zastavilo",
+      "zastavili"
+    ],
+    "imp": [
+      "zastav",
+      "zastavme",
+      "zastavte"
+    ],
+    "score": 14556,
+    "tb": 14
+  },
+  {
+    "w": "pozerať",
+    "refl": "",
+    "g": "to look at, to stare, to gaze",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "pozrieť",
+    "pres": [
+      "pozerám",
+      "pozeráš",
+      "pozerá",
+      "pozeráme",
+      "pozeráte",
+      "pozerajú"
+    ],
+    "past": [
+      "pozeral",
+      "pozerala",
+      "pozeralo",
+      "pozerali"
+    ],
+    "imp": [
+      "pozeraj",
+      "pozerajme",
+      "pozerajte"
+    ],
+    "score": 14443,
+    "tb": 12
+  },
+  {
+    "w": "držať",
+    "refl": "",
+    "g": "to hold",
+    "asp": "impf",
+    "cls": "5c",
+    "partner": null,
+    "pres": [
+      "držím",
+      "držíš",
+      "drží",
+      "držíme",
+      "držíte",
+      "držia"
+    ],
+    "past": [
+      "držal",
+      "držala",
+      "držalo",
+      "držali"
+    ],
+    "imp": [
+      "drž",
+      "držme",
+      "držte"
+    ],
+    "score": 13984,
+    "tb": 21
+  },
+  {
+    "w": "brať",
+    "refl": "",
+    "g": "to take",
+    "asp": "impf",
+    "cls": "3d",
+    "partner": "vziať",
+    "pres": [
+      "beriem",
+      "berieš",
+      "berie",
+      "berieme",
+      "beriete",
+      "berú"
+    ],
+    "past": [
+      "bral",
+      "brala",
+      "bralo",
+      "brali"
+    ],
+    "imp": [
+      "ber",
+      "berme",
+      "berte"
+    ],
+    "score": 13658,
+    "tb": 5
+  },
+  {
+    "w": "spať",
+    "refl": "",
+    "g": "to sleep",
+    "asp": "impf",
+    "cls": "5c",
+    "partner": null,
+    "pres": [
+      "spím",
+      "spíš",
+      "spí",
+      "spíme",
+      "spíte",
+      "spia"
+    ],
+    "past": [
+      "spal",
+      "spala",
+      "spalo",
+      "spali"
+    ],
+    "imp": [
+      "spi",
+      "spime",
+      "spite"
+    ],
+    "score": 13594,
+    "tb": 11
+  },
+  {
+    "w": "zabudnúť",
+    "refl": "",
+    "g": "to forget",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "zabúdať",
+    "pres": [
+      "zabudnem",
+      "zabudneš",
+      "zabudne",
+      "zabudneme",
+      "zabudnete",
+      "zabudnú"
+    ],
+    "past": [
+      "zabudol",
+      "zabudla",
+      "zabudlo",
+      "zabudli"
+    ],
+    "imp": [
+      "zabudni",
+      "zabudnime",
+      "zabudnite"
+    ],
+    "score": 13017,
+    "tb": 19
+  },
+  {
+    "w": "kúpiť",
+    "refl": "",
+    "g": "to buy",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "kupovať",
+    "pres": [
+      "kúpim",
+      "kúpiš",
+      "kúpi",
+      "kúpime",
+      "kúpite",
+      "kúpia"
+    ],
+    "past": [
+      "kúpil",
+      "kúpila",
+      "kúpilo",
+      "kúpili"
+    ],
+    "imp": [
+      "kúp",
+      "kúpme",
+      "kúpte"
+    ],
+    "score": 12752,
+    "tb": 2
+  },
+  {
+    "w": "prestať",
+    "refl": "",
+    "g": "to stop, to cease, to quit",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": "prestávať",
+    "pres": [
+      "prestanem",
+      "prestaneš",
+      "prestane",
+      "prestaneme",
+      "prestanete",
+      "prestanú"
+    ],
+    "past": [
+      "prestal",
+      "prestala",
+      "prestalo",
+      "prestali"
+    ],
+    "imp": [
+      "prestaň",
+      "prestaňme",
+      "prestaňte"
+    ],
+    "score": 11745,
+    "tb": 23
+  },
+  {
+    "w": "priniesť",
+    "refl": "",
+    "g": "to bring",
+    "asp": "pf",
+    "cls": "3a",
+    "partner": "prinášať",
+    "pres": [
+      "prinesiem",
+      "prinesieš",
+      "prinesie",
+      "prinesieme",
+      "prinesiete",
+      "prinesú"
+    ],
+    "past": [
+      "priniesol",
+      "priniesla",
+      "prinieslo",
+      "priniesli"
+    ],
+    "imp": [
+      "prines",
+      "prinesme",
+      "prineste"
+    ],
+    "score": 11455,
+    "tb": 27
+  },
+  {
+    "w": "získať",
+    "refl": "",
+    "g": "to gain",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "získavať",
+    "pres": [
+      "získam",
+      "získaš",
+      "získa",
+      "získame",
+      "získate",
+      "získajú"
+    ],
+    "past": [
+      "získal",
+      "získala",
+      "získalo",
+      "získali"
+    ],
+    "imp": [
+      "získaj",
+      "získajme",
+      "získajte"
+    ],
+    "score": 11351,
+    "tb": 16
+  },
+  {
+    "w": "pýtať",
+    "refl": "",
+    "g": "to ask, to demand, to ask for",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "spýtať",
+    "pres": [
+      "pýtam",
+      "pýtaš",
+      "pýta",
+      "pýtame",
+      "pýtate",
+      "pýtajú"
+    ],
+    "past": [
+      "pýtal",
+      "pýtala",
+      "pýtalo",
+      "pýtali"
+    ],
+    "imp": [
+      "pýtaj",
+      "pýtajme",
+      "pýtajte"
+    ],
+    "score": 11343,
+    "tb": 10
+  },
+  {
+    "w": "klamať",
+    "refl": "",
+    "g": "to lie",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": null,
+    "pres": [
+      "klamem",
+      "klameš",
+      "klame",
+      "klameme",
+      "klamete",
+      "klamú"
+    ],
+    "past": [
+      "klamal",
+      "klamala",
+      "klamalo",
+      "klamali"
+    ],
+    "imp": [
+      "klam",
+      "klamme",
+      "klamte"
+    ],
+    "score": 11284,
+    "tb": 3
+  },
+  {
+    "w": "sedieť",
+    "refl": "",
+    "g": "to sit, to brood",
+    "asp": "impf",
+    "cls": "5b",
+    "partner": null,
+    "pres": [
+      "sedím",
+      "sedíš",
+      "sedí",
+      "sedíme",
+      "sedíte",
+      "sedia"
+    ],
+    "past": [
+      "sedel",
+      "sedela",
+      "sedelo",
+      "sedeli"
+    ],
+    "imp": [
+      "seď",
+      "seďme",
+      "seďte"
+    ],
+    "score": 11115,
+    "tb": 51
+  },
+  {
+    "w": "sledovať",
+    "refl": "",
+    "g": "to follow, to track, to watch",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "sledujem",
+      "sleduješ",
+      "sleduje",
+      "sledujeme",
+      "sledujete",
+      "sledujú"
+    ],
+    "past": [
+      "sledoval",
+      "sledovala",
+      "sledovalo",
+      "sledovali"
+    ],
+    "imp": [
+      "sleduj",
+      "sledujme",
+      "sledujte"
+    ],
+    "score": 10855,
+    "tb": 28
+  },
+  {
+    "w": "bojovať",
+    "refl": "",
+    "g": "to fight",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "bojujem",
+      "bojuješ",
+      "bojuje",
+      "bojujeme",
+      "bojujete",
+      "bojujú"
+    ],
+    "past": [
+      "bojoval",
+      "bojovala",
+      "bojovalo",
+      "bojovali"
+    ],
+    "imp": [
+      "bojuj",
+      "bojujme",
+      "bojujte"
+    ],
+    "score": 9986,
+    "tb": 4
+  },
+  {
+    "w": "naučiť",
+    "refl": "",
+    "g": "",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "naučím",
+      "naučíš",
+      "naučí",
+      "naučíme",
+      "naučíte",
+      "naučia"
+    ],
+    "past": [
+      "naučil",
+      "naučila",
+      "naučilo",
+      "naučili"
+    ],
+    "imp": [
+      "nauč",
+      "naučme",
+      "naučte"
+    ],
+    "score": 9940,
+    "tb": 8
+  },
+  {
+    "w": "vyhrať",
+    "refl": "",
+    "g": "to win",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "vyhrávať",
+    "pres": [
+      "vyhrám",
+      "vyhráš",
+      "vyhrá",
+      "vyhráme",
+      "vyhráte",
+      "vyhrajú"
+    ],
+    "past": [
+      "vyhral",
+      "vyhrala",
+      "vyhralo",
+      "vyhrali"
+    ],
+    "imp": [
+      "vyhraj",
+      "vyhrajme",
+      "vyhrajte"
+    ],
+    "score": 9849,
+    "tb": 5
+  },
+  {
+    "w": "zdraviť",
+    "refl": "",
+    "g": "to greet",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "pozdraviť",
+    "pres": [
+      "zdravím",
+      "zdravíš",
+      "zdraví",
+      "zdravíme",
+      "zdravíte",
+      "zdravia"
+    ],
+    "past": [
+      "zdravil",
+      "zdravila",
+      "zdravilo",
+      "zdravili"
+    ],
+    "imp": [
+      "zdrav",
+      "zdravme",
+      "zdravte"
+    ],
+    "score": 9820,
+    "tb": 2
+  },
+  {
+    "w": "trvať",
+    "refl": "",
+    "g": "to last",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "trvám",
+      "trváš",
+      "trvá",
+      "trváme",
+      "trváte",
+      "trvajú"
+    ],
+    "past": [
+      "trval",
+      "trvala",
+      "trvalo",
+      "trvali"
+    ],
+    "imp": [
+      "trvaj",
+      "trvajme",
+      "trvajte"
+    ],
+    "score": 9616,
+    "tb": 21
+  },
+  {
+    "w": "bývať",
+    "refl": "",
+    "g": "to reside, to dwell, to live",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "bývam",
+      "bývaš",
+      "býva",
+      "bývame",
+      "bývate",
+      "bývajú"
+    ],
+    "past": [
+      "býval",
+      "bývala",
+      "bývalo",
+      "bývali"
+    ],
+    "imp": [
+      "bývaj",
+      "bývajme",
+      "bývajte"
+    ],
+    "score": 9597,
+    "tb": 28
+  },
+  {
+    "w": "zvládnuť",
+    "refl": "",
+    "g": "to master a skill, to overcome",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "zvládať",
+    "pres": [
+      "zvládnem",
+      "zvládneš",
+      "zvládne",
+      "zvládneme",
+      "zvládnete",
+      "zvládnu"
+    ],
+    "past": [
+      "zvládol",
+      "zvládla",
+      "zvládlo",
+      "zvládli"
+    ],
+    "imp": [
+      "zvládni",
+      "zvládnime",
+      "zvládnite"
+    ],
+    "score": 9542,
+    "tb": 5
+  },
+  {
+    "w": "počúvať",
+    "refl": "",
+    "g": "to listen, to hear",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "počúvnuť",
+    "pres": [
+      "počúvam",
+      "počúvaš",
+      "počúva",
+      "počúvame",
+      "počúvate",
+      "počúvajú"
+    ],
+    "past": [
+      "počúval",
+      "počúvala",
+      "počúvalo",
+      "počúvali"
+    ],
+    "imp": [
+      "počúvaj",
+      "počúvajme",
+      "počúvajte"
+    ],
+    "score": 9508,
+    "tb": 13
+  },
+  {
+    "w": "správať",
+    "refl": "sa",
+    "g": "to behave",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "správam",
+      "správaš",
+      "správa",
+      "správame",
+      "správate",
+      "správajú"
+    ],
+    "past": [
+      "správal",
+      "správala",
+      "správalo",
+      "správali"
+    ],
+    "imp": [
+      "správaj",
+      "správajme",
+      "správajte"
+    ],
+    "score": 8738,
+    "tb": 6
+  },
+  {
+    "w": "viesť",
+    "refl": "",
+    "g": "to lead",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": null,
+    "pres": [
+      "vediem",
+      "vedieš",
+      "vedie",
+      "vedieme",
+      "vediete",
+      "vedú"
+    ],
+    "past": [
+      "viedol",
+      "viedla",
+      "viedlo",
+      "viedli"
+    ],
+    "imp": [
+      "veď",
+      "veďme",
+      "veďte"
+    ],
+    "score": 8730,
+    "tb": 28
+  },
+  {
+    "w": "ostať",
+    "refl": "",
+    "g": "to stay, to remain",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": "ostávať",
+    "pres": [
+      "ostanem",
+      "ostaneš",
+      "ostane",
+      "ostaneme",
+      "ostanete",
+      "ostanú"
+    ],
+    "past": [
+      "ostal",
+      "ostala",
+      "ostalo",
+      "ostali"
+    ],
+    "imp": [
+      "ostaň",
+      "ostaňme",
+      "ostaňte"
+    ],
+    "score": 8671,
+    "tb": 24
+  },
+  {
+    "w": "napísať",
+    "refl": "",
+    "g": "to write, to compose",
+    "asp": "pf",
+    "cls": "4a",
+    "partner": "písať",
+    "pres": [
+      "napíšem",
+      "napíšeš",
+      "napíše",
+      "napíšeme",
+      "napíšete",
+      "napíšu"
+    ],
+    "past": [
+      "napísal",
+      "napísala",
+      "napísalo",
+      "napísali"
+    ],
+    "imp": [
+      "napíš",
+      "napíšme",
+      "napíšte"
+    ],
+    "score": 8665,
+    "tb": 14
+  },
+  {
+    "w": "opustiť",
+    "refl": "",
+    "g": "to abandon, leave, leave behind",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "opúšťať",
+    "pres": [
+      "opustím",
+      "opustíš",
+      "opustí",
+      "opustíme",
+      "opustíte",
+      "opustia"
+    ],
+    "past": [
+      "opustil",
+      "opustila",
+      "opustilo",
+      "opustili"
+    ],
+    "imp": [
+      "opusti",
+      "opustime",
+      "opustite"
+    ],
+    "score": 8657,
+    "tb": 14
+  },
+  {
+    "w": "odchádzať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "odchádzam",
+      "odchádzaš",
+      "odchádza",
+      "odchádzame",
+      "odchádzate",
+      "odchádzajú"
+    ],
+    "past": [
+      "odchádzal",
+      "odchádzala",
+      "odchádzalo",
+      "odchádzali"
+    ],
+    "imp": [
+      "odchádzaj",
+      "odchádzajme",
+      "odchádzajte"
+    ],
+    "score": 8372,
+    "tb": 11
+  },
+  {
+    "w": "patriť",
+    "refl": "",
+    "g": "to belong",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "patrím",
+      "patríš",
+      "patrí",
+      "patríme",
+      "patríte",
+      "patria"
+    ],
+    "past": [
+      "patril",
+      "patrila",
+      "patrilo",
+      "patrili"
+    ],
+    "imp": [
+      "patri",
+      "patrime",
+      "patrite"
+    ],
+    "score": 8330,
+    "tb": 38
+  },
+  {
+    "w": "písať",
+    "refl": "",
+    "g": "to write",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": "napísať",
+    "pres": [
+      "píšem",
+      "píšeš",
+      "píše",
+      "píšeme",
+      "píšete",
+      "píšu"
+    ],
+    "past": [
+      "písal",
+      "písala",
+      "písalo",
+      "písali"
+    ],
+    "imp": [
+      "píš",
+      "píšme",
+      "píšte"
+    ],
+    "score": 8307,
+    "tb": 27
+  },
+  {
+    "w": "otvoriť",
+    "refl": "",
+    "g": "to open",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "otvárať",
+    "pres": [
+      "otvorím",
+      "otvoríš",
+      "otvorí",
+      "otvoríme",
+      "otvoríte",
+      "otvoria"
+    ],
+    "past": [
+      "otvoril",
+      "otvorila",
+      "otvorilo",
+      "otvorili"
+    ],
+    "imp": [
+      "otvor",
+      "otvorme",
+      "otvorte"
+    ],
+    "score": 8301,
+    "tb": 48
+  },
+  {
+    "w": "čítať",
+    "refl": "",
+    "g": "to read",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "prečítať",
+    "pres": [
+      "čítam",
+      "čítaš",
+      "číta",
+      "čítame",
+      "čítate",
+      "čítajú"
+    ],
+    "past": [
+      "čítal",
+      "čítala",
+      "čítalo",
+      "čítali"
+    ],
+    "imp": [
+      "čítaj",
+      "čítajme",
+      "čítajte"
+    ],
+    "score": 8245,
+    "tb": 14
+  },
+  {
+    "w": "pokračovať",
+    "refl": "",
+    "g": "to continue",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "pokračujem",
+      "pokračuješ",
+      "pokračuje",
+      "pokračujeme",
+      "pokračujete",
+      "pokračujú"
+    ],
+    "past": [
+      "pokračoval",
+      "pokračovala",
+      "pokračovalo",
+      "pokračovali"
+    ],
+    "imp": [
+      "pokračuj",
+      "pokračujme",
+      "pokračujte"
+    ],
+    "score": 7947,
+    "tb": 26
+  },
+  {
+    "w": "platiť",
+    "refl": "",
+    "g": "to pay, to hold",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "platím",
+      "platíš",
+      "platí",
+      "platíme",
+      "platíte",
+      "platia"
+    ],
+    "past": [
+      "platil",
+      "platila",
+      "platilo",
+      "platili"
+    ],
+    "imp": [
+      "plať",
+      "plaťme",
+      "plaťte"
+    ],
+    "score": 7576,
+    "tb": 3
+  },
+  {
+    "w": "predstaviť",
+    "refl": "",
+    "g": "to introduce, to present, to showcase",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "predstavovať",
+    "pres": [
+      "predstavím",
+      "predstavíš",
+      "predstaví",
+      "predstavíme",
+      "predstavíte",
+      "predstavia"
+    ],
+    "past": [
+      "predstavil",
+      "predstavila",
+      "predstavilo",
+      "predstavili"
+    ],
+    "imp": [
+      "predstav",
+      "predstavme",
+      "predstavte"
+    ],
+    "score": 7272,
+    "tb": 5
+  },
+  {
+    "w": "ukradnúť",
+    "refl": "",
+    "g": "to steal",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "kradnúť",
+    "pres": [
+      "ukradnem",
+      "ukradneš",
+      "ukradne",
+      "ukradneme",
+      "ukradnete",
+      "ukradnú"
+    ],
+    "past": [
+      "ukradol",
+      "ukradla",
+      "ukradlo",
+      "ukradli"
+    ],
+    "imp": [
+      "ukradni",
+      "ukradnime",
+      "ukradnite"
+    ],
+    "score": 7018,
+    "tb": 2
+  },
+  {
+    "w": "hádať",
+    "refl": "",
+    "g": "to guess, to quarrel, to argue",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "hádam",
+      "hádaš",
+      "háda",
+      "hádame",
+      "hádate",
+      "hádajú"
+    ],
+    "past": [
+      "hádal",
+      "hádala",
+      "hádalo",
+      "hádali"
+    ],
+    "imp": [
+      "hádaj",
+      "hádajme",
+      "hádajte"
+    ],
+    "score": 6817,
+    "tb": 2
+  },
+  {
+    "w": "vyjsť",
+    "refl": "",
+    "g": "to step out, to leave, to finish",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "vyjdem",
+      "vyjdeš",
+      "vyjde",
+      "vyjdeme",
+      "vyjdete",
+      "vyjdú"
+    ],
+    "past": [
+      "vyšiel",
+      "vyšla",
+      "vyšlo",
+      "vyšli"
+    ],
+    "imp": [
+      "vyjdi",
+      "vyjdime",
+      "vyjdite"
+    ],
+    "score": 6536,
+    "tb": 44
+  },
+  {
+    "w": "postaviť",
+    "refl": "",
+    "g": "to place, to position, to erect",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "postavím",
+      "postavíš",
+      "postaví",
+      "postavíme",
+      "postavíte",
+      "postavia"
+    ],
+    "past": [
+      "postavil",
+      "postavila",
+      "postavilo",
+      "postavili"
+    ],
+    "imp": [
+      "postav",
+      "postavme",
+      "postavte"
+    ],
+    "score": 6386,
+    "tb": 17
+  },
+  {
+    "w": "nosiť",
+    "refl": "",
+    "g": "to carry",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "nosím",
+      "nosíš",
+      "nosí",
+      "nosíme",
+      "nosíte",
+      "nosia"
+    ],
+    "past": [
+      "nosil",
+      "nosila",
+      "nosilo",
+      "nosili"
+    ],
+    "imp": [
+      "nos",
+      "nosme",
+      "noste"
+    ],
+    "score": 6349,
+    "tb": 5
+  },
+  {
+    "w": "utiecť",
+    "refl": "",
+    "g": "to escape",
+    "asp": "pf",
+    "cls": "3a",
+    "partner": "utekať",
+    "pres": [
+      "utečiem",
+      "utečieš",
+      "utečie",
+      "utečieme",
+      "utečiete",
+      "utečú"
+    ],
+    "past": [
+      "utiekol",
+      "utiekla",
+      "utieklo",
+      "utiekli"
+    ],
+    "imp": [
+      "uteč",
+      "utečme",
+      "utečte"
+    ],
+    "score": 6274,
+    "tb": 15
+  },
+  {
+    "w": "pustiť",
+    "refl": "",
+    "g": "to release, let go, to drop",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "pustím",
+      "pustíš",
+      "pustí",
+      "pustíme",
+      "pustíte",
+      "pustia"
+    ],
+    "past": [
+      "pustil",
+      "pustila",
+      "pustilo",
+      "pustili"
+    ],
+    "imp": [
+      "pusti",
+      "pustime",
+      "pustite"
+    ],
+    "score": 6106,
+    "tb": 19
+  },
+  {
+    "w": "učiť",
+    "refl": "",
+    "g": "to teach",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "naučiť",
+    "pres": [
+      "učím",
+      "učíš",
+      "učí",
+      "učíme",
+      "učíte",
+      "učia"
+    ],
+    "past": [
+      "učil",
+      "učila",
+      "učilo",
+      "učili"
+    ],
+    "imp": [
+      "uč",
+      "učme",
+      "učte"
+    ],
+    "score": 6092,
+    "tb": 7
+  },
+  {
+    "w": "piť",
+    "refl": "",
+    "g": "to drink",
+    "asp": "impf",
+    "cls": "4d",
+    "partner": null,
+    "pres": [
+      "pijem",
+      "piješ",
+      "pije",
+      "pijeme",
+      "pijete",
+      "pijú"
+    ],
+    "past": [
+      "pil",
+      "pila",
+      "pilo",
+      "pili"
+    ],
+    "imp": [
+      "pi",
+      "pime",
+      "pite"
+    ],
+    "score": 5999,
+    "tb": 7
+  },
+  {
+    "w": "ľúbiť",
+    "refl": "",
+    "g": "to love, to like",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "ľúbim",
+      "ľúbiš",
+      "ľúbi",
+      "ľúbime",
+      "ľúbite",
+      "ľúbia"
+    ],
+    "past": [
+      "ľúbil",
+      "ľúbila",
+      "ľúbilo",
+      "ľúbili"
+    ],
+    "imp": [
+      "ľúb",
+      "ľúbme",
+      "ľúbte"
+    ],
+    "score": 5849,
+    "tb": 5
+  },
+  {
+    "w": "tešiť",
+    "refl": "",
+    "g": "to please, to make happy, to comfort someone",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "utešiť",
+    "pres": [
+      "teším",
+      "tešíš",
+      "teší",
+      "tešíme",
+      "tešíte",
+      "tešia"
+    ],
+    "past": [
+      "tešil",
+      "tešila",
+      "tešilo",
+      "tešili"
+    ],
+    "imp": [
+      "teš",
+      "tešme",
+      "tešte"
+    ],
+    "score": 5763,
+    "tb": 12
+  },
+  {
+    "w": "predať",
+    "refl": "",
+    "g": "to sell",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "predávať",
+    "pres": [
+      "predám",
+      "predáš",
+      "predá",
+      "predáme",
+      "predáte",
+      "predajú"
+    ],
+    "past": [
+      "predal",
+      "predala",
+      "predalo",
+      "predali"
+    ],
+    "imp": [
+      "predaj",
+      "predajme",
+      "predajte"
+    ],
+    "score": 5641,
+    "tb": 2
+  },
+  {
+    "w": "vytvoriť",
+    "refl": "",
+    "g": "to establish, to set up, to create",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "vytvárať",
+    "pres": [
+      "vytvorím",
+      "vytvoríš",
+      "vytvorí",
+      "vytvoríme",
+      "vytvoríte",
+      "vytvoria"
+    ],
+    "past": [
+      "vytvoril",
+      "vytvorila",
+      "vytvorilo",
+      "vytvorili"
+    ],
+    "imp": [
+      "vytvor",
+      "vytvorme",
+      "vytvorte"
+    ],
+    "score": 5390,
+    "tb": 37
+  },
+  {
+    "w": "staviť",
+    "refl": "",
+    "g": "to bet, to wager, to stake",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "stavať",
+    "pres": [
+      "stavím",
+      "stavíš",
+      "staví",
+      "stavíme",
+      "stavíte",
+      "stavia"
+    ],
+    "past": [
+      "stavil",
+      "stavila",
+      "stavilo",
+      "stavili"
+    ],
+    "imp": [
+      "stav",
+      "stavme",
+      "stavte"
+    ],
+    "score": 5319,
+    "tb": 2
+  },
+  {
+    "w": "sľúbiť",
+    "refl": "",
+    "g": "to promise",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "sľubovať",
+    "pres": [
+      "sľúbim",
+      "sľúbiš",
+      "sľúbi",
+      "sľúbime",
+      "sľúbite",
+      "sľúbia"
+    ],
+    "past": [
+      "sľúbil",
+      "sľúbila",
+      "sľúbilo",
+      "sľúbili"
+    ],
+    "imp": [
+      "sľúb",
+      "sľúbme",
+      "sľúbte"
+    ],
+    "score": 5150,
+    "tb": 6
+  },
+  {
+    "w": "dôjsť",
+    "refl": "",
+    "g": "to arrive, to reach",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "dôjdem",
+      "dôjdeš",
+      "dôjde",
+      "dôjdeme",
+      "dôjdete",
+      "dôjdu"
+    ],
+    "past": [
+      "došiel",
+      "došla",
+      "došlo",
+      "došli"
+    ],
+    "imp": [
+      "dôjdi",
+      "dôjdime",
+      "dôjdite"
+    ],
+    "score": 4690,
+    "tb": 12
+  },
+  {
+    "w": "priať",
+    "refl": "",
+    "g": "to wish",
+    "asp": "impf",
+    "cls": "4d",
+    "partner": null,
+    "pres": [
+      "prajem",
+      "praješ",
+      "praje",
+      "prajeme",
+      "prajete",
+      "prajú"
+    ],
+    "past": [
+      "prial",
+      "priala",
+      "prialo",
+      "priali"
+    ],
+    "imp": [
+      "praj",
+      "prajme",
+      "prajte"
+    ],
+    "score": 4684,
+    "tb": 4
+  },
+  {
+    "w": "umrieť",
+    "refl": "",
+    "g": "to die",
+    "asp": "impf",
+    "cls": "3b",
+    "partner": null,
+    "pres": [
+      "umriem",
+      "umrieš",
+      "umrie",
+      "umrieme",
+      "umriete",
+      "umrú"
+    ],
+    "past": [
+      "umrel",
+      "umrela",
+      "umrelo",
+      "umreli"
+    ],
+    "imp": [
+      "umri",
+      "umrime",
+      "umrite"
+    ],
+    "score": 4621,
+    "tb": 3
+  },
+  {
+    "w": "vracať",
+    "refl": "",
+    "g": "to vomit",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "vraciam",
+      "vraciaš",
+      "vracia",
+      "vraciame",
+      "vraciate",
+      "vracajú"
+    ],
+    "past": [
+      "vracal",
+      "vracala",
+      "vracalo",
+      "vracali"
+    ],
+    "imp": [
+      "vracaj",
+      "vracajme",
+      "vracajte"
+    ],
+    "score": 4527,
+    "tb": 8
+  },
+  {
+    "w": "končiť",
+    "refl": "",
+    "g": "to end",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "končím",
+      "končíš",
+      "končí",
+      "končíme",
+      "končíte",
+      "končia"
+    ],
+    "past": [
+      "končil",
+      "končila",
+      "končilo",
+      "končili"
+    ],
+    "imp": [
+      "konči",
+      "končime",
+      "končite"
+    ],
+    "score": 4440,
+    "tb": 7
+  },
+  {
+    "w": "ujsť",
+    "refl": "",
+    "g": "to flee, to escape, to run away",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "ujdem",
+      "ujdeš",
+      "ujde",
+      "ujdeme",
+      "ujdete",
+      "ujdú"
+    ],
+    "past": [
+      "ušiel",
+      "ušla",
+      "ušlo",
+      "ušli"
+    ],
+    "imp": [
+      "ujdi",
+      "ujdime",
+      "ujdite"
+    ],
+    "score": 4329,
+    "tb": 2
+  },
+  {
+    "w": "spievať",
+    "refl": "",
+    "g": "to sing",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "zaspievať",
+    "pres": [
+      "spievam",
+      "spievaš",
+      "spieva",
+      "spievame",
+      "spievate",
+      "spievajú"
+    ],
+    "past": [
+      "spieval",
+      "spievala",
+      "spievalo",
+      "spievali"
+    ],
+    "imp": [
+      "spievaj",
+      "spievajme",
+      "spievajte"
+    ],
+    "score": 4282,
+    "tb": 4
+  },
+  {
+    "w": "plakať",
+    "refl": "",
+    "g": "to weep, to cry",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": null,
+    "pres": [
+      "plačem",
+      "plačeš",
+      "plače",
+      "plačeme",
+      "plačete",
+      "plačú"
+    ],
+    "past": [
+      "plakal",
+      "plakala",
+      "plakalo",
+      "plakali"
+    ],
+    "imp": [
+      "plač",
+      "plačme",
+      "plačte"
+    ],
+    "score": 4213,
+    "tb": 4
+  },
+  {
+    "w": "zabíjať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "zabíjam",
+      "zabíjaš",
+      "zabíja",
+      "zabíjame",
+      "zabíjate",
+      "zabíjajú"
+    ],
+    "past": [
+      "zabíjal",
+      "zabíjala",
+      "zabíjalo",
+      "zabíjali"
+    ],
+    "imp": [
+      "zabíjaj",
+      "zabíjajme",
+      "zabíjajte"
+    ],
+    "score": 4150,
+    "tb": 3
+  },
+  {
+    "w": "strieľať",
+    "refl": "",
+    "g": "to shoot, fire",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "streliť",
+    "pres": [
+      "strieľam",
+      "strieľaš",
+      "strieľa",
+      "strieľame",
+      "strieľate",
+      "strieľajú"
+    ],
+    "past": [
+      "strieľal",
+      "strieľala",
+      "strieľalo",
+      "strieľali"
+    ],
+    "imp": [
+      "strieľaj",
+      "strieľajme",
+      "strieľajte"
+    ],
+    "score": 4091,
+    "tb": 1
+  },
+  {
+    "w": "vytiahnuť",
+    "refl": "",
+    "g": "to extract, pull out, take out",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": null,
+    "pres": [
+      "vytiahnem",
+      "vytiahneš",
+      "vytiahne",
+      "vytiahneme",
+      "vytiahnete",
+      "vytiahnu"
+    ],
+    "past": [
+      "vytiahol",
+      "vytiahla",
+      "vytiahlo",
+      "vytiahli"
+    ],
+    "imp": [
+      "vytiahni",
+      "vytiahnime",
+      "vytiahnite"
+    ],
+    "score": 4070,
+    "tb": 14
+  },
+  {
+    "w": "vojsť",
+    "refl": "",
+    "g": "to enter, to step into, to go in",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "vojdem",
+      "vojdeš",
+      "vojde",
+      "vojdeme",
+      "vojdete",
+      "vojdú"
+    ],
+    "past": [
+      "vošiel",
+      "vošla",
+      "vošlo",
+      "vošli"
+    ],
+    "imp": [
+      "vojdi",
+      "vojdime",
+      "vojdite"
+    ],
+    "score": 4063,
+    "tb": 16
+  },
+  {
+    "w": "kričať",
+    "refl": "",
+    "g": "to cry, to shout, to scream",
+    "asp": "impf",
+    "cls": "5c",
+    "partner": "zakričať",
+    "pres": [
+      "kričím",
+      "kričíš",
+      "kričí",
+      "kričíme",
+      "kričíte",
+      "kričia"
+    ],
+    "past": [
+      "kričal",
+      "kričala",
+      "kričalo",
+      "kričali"
+    ],
+    "imp": [
+      "krič",
+      "kričme",
+      "kričte"
+    ],
+    "score": 3840,
+    "tb": 26
+  },
+  {
+    "w": "predávať",
+    "refl": "",
+    "g": "to sell",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "predať",
+    "pres": [
+      "predávam",
+      "predávaš",
+      "predáva",
+      "predávame",
+      "predávate",
+      "predávajú"
+    ],
+    "past": [
+      "predával",
+      "predávala",
+      "predávalo",
+      "predávali"
+    ],
+    "imp": [
+      "predávaj",
+      "predávajme",
+      "predávajte"
+    ],
+    "score": 3704,
+    "tb": 2
+  },
+  {
+    "w": "meniť",
+    "refl": "",
+    "g": "to change, to alter, to transform",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "zmeniť",
+    "pres": [
+      "mením",
+      "meníš",
+      "mení",
+      "meníme",
+      "meníte",
+      "menia"
+    ],
+    "past": [
+      "menil",
+      "menila",
+      "menilo",
+      "menili"
+    ],
+    "imp": [
+      "meň",
+      "meňme",
+      "meňte"
+    ],
+    "score": 3674,
+    "tb": 7
+  },
+  {
+    "w": "skočiť",
+    "refl": "",
+    "g": "to jump",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "skákať",
+    "pres": [
+      "skočím",
+      "skočíš",
+      "skočí",
+      "skočíme",
+      "skočíte",
+      "skočia"
+    ],
+    "past": [
+      "skočil",
+      "skočila",
+      "skočilo",
+      "skočili"
+    ],
+    "imp": [
+      "skoč",
+      "skočme",
+      "skočte"
+    ],
+    "score": 3618,
+    "tb": 12
+  },
+  {
+    "w": "bežať",
+    "refl": "",
+    "g": "to run",
+    "asp": "impf",
+    "cls": "5c",
+    "partner": null,
+    "pres": [
+      "bežím",
+      "bežíš",
+      "beží",
+      "bežíme",
+      "bežíte",
+      "bežia"
+    ],
+    "past": [
+      "bežal",
+      "bežala",
+      "bežalo",
+      "bežali"
+    ],
+    "imp": [
+      "bež",
+      "bežme",
+      "bežte"
+    ],
+    "score": 3565,
+    "tb": 14
+  },
+  {
+    "w": "udrieť",
+    "refl": "",
+    "g": "to strike, to hit",
+    "asp": "pf",
+    "cls": "3b",
+    "partner": "udierať",
+    "pres": [
+      "udriem",
+      "udrieš",
+      "udrie",
+      "udrieme",
+      "udriete",
+      "udrú"
+    ],
+    "past": [
+      "udrel",
+      "udrela",
+      "udrelo",
+      "udreli"
+    ],
+    "imp": [
+      "udri",
+      "udrime",
+      "udrite"
+    ],
+    "score": 3555,
+    "tb": 4
+  },
+  {
+    "w": "smiať",
+    "refl": "sa",
+    "g": "to laugh, to make fun of, to mock",
+    "asp": "impf",
+    "cls": "4d",
+    "partner": null,
+    "pres": [
+      "smejem",
+      "smeješ",
+      "smeje",
+      "smejeme",
+      "smejete",
+      "smejú"
+    ],
+    "past": [
+      "smial",
+      "smiala",
+      "smialo",
+      "smiali"
+    ],
+    "imp": [
+      "smej",
+      "smejme",
+      "smejte"
+    ],
+    "score": 3553,
+    "tb": 9
+  },
+  {
+    "w": "stávať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "stávam",
+      "stávaš",
+      "stáva",
+      "stávame",
+      "stávate",
+      "stávajú"
+    ],
+    "past": [
+      "stával",
+      "stávala",
+      "stávalo",
+      "stávali"
+    ],
+    "imp": [
+      "stávaj",
+      "stávajme",
+      "stávajte"
+    ],
+    "score": 3542,
+    "tb": 11
+  },
+  {
+    "w": "želať",
+    "refl": "",
+    "g": "to wish",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "želám",
+      "želáš",
+      "želá",
+      "želáme",
+      "želáte",
+      "želajú"
+    ],
+    "past": [
+      "želal",
+      "želala",
+      "želalo",
+      "želali"
+    ],
+    "imp": [
+      "želaj",
+      "želajme",
+      "želajte"
+    ],
+    "score": 3431,
+    "tb": 12
+  },
+  {
+    "w": "predstavovať",
+    "refl": "",
+    "g": "to represent, to constitute, to be",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "predstavujem",
+      "predstavuješ",
+      "predstavuje",
+      "predstavujeme",
+      "predstavujete",
+      "predstavujú"
+    ],
+    "past": [
+      "predstavoval",
+      "predstavovala",
+      "predstavovalo",
+      "predstavovali"
+    ],
+    "imp": [
+      "predstavuj",
+      "predstavujme",
+      "predstavujte"
+    ],
+    "score": 3372,
+    "tb": 14
+  },
+  {
+    "w": "prečítať",
+    "refl": "",
+    "g": "",
+    "asp": "pf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "prečítam",
+      "prečítaš",
+      "prečíta",
+      "prečítame",
+      "prečítate",
+      "prečítajú"
+    ],
+    "past": [
+      "prečítal",
+      "prečítala",
+      "prečítalo",
+      "prečítali"
+    ],
+    "imp": [
+      "prečítaj",
+      "prečítajme",
+      "prečítajte"
+    ],
+    "score": 3328,
+    "tb": 4
+  },
+  {
+    "w": "letieť",
+    "refl": "",
+    "g": "to fly",
+    "asp": "impf",
+    "cls": "5b",
+    "partner": "poletieť",
+    "pres": [
+      "letím",
+      "letíš",
+      "letí",
+      "letíme",
+      "letíte",
+      "letia"
+    ],
+    "past": [
+      "letel",
+      "letela",
+      "letelo",
+      "leteli"
+    ],
+    "imp": [
+      "leť",
+      "leťme",
+      "leťte"
+    ],
+    "score": 3306,
+    "tb": 14
+  },
+  {
+    "w": "podpísať",
+    "refl": "",
+    "g": "to sign official by writing one's signature)",
+    "asp": "pf",
+    "cls": "4a",
+    "partner": "podpisovať",
+    "pres": [
+      "podpíšem",
+      "podpíšeš",
+      "podpíše",
+      "podpíšeme",
+      "podpíšete",
+      "podpíšu"
+    ],
+    "past": [
+      "podpísal",
+      "podpísala",
+      "podpísalo",
+      "podpísali"
+    ],
+    "imp": [
+      "podpíš",
+      "podpíšme",
+      "podpíšte"
+    ],
+    "score": 3242,
+    "tb": 5
+  },
+  {
+    "w": "riadiť",
+    "refl": "",
+    "g": "to direct, to manage, to clean",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "riadim",
+      "riadiš",
+      "riadi",
+      "riadime",
+      "riadite",
+      "riadia"
+    ],
+    "past": [
+      "riadil",
+      "riadila",
+      "riadilo",
+      "riadili"
+    ],
+    "imp": [
+      "riaď",
+      "riaďme",
+      "riaďte"
+    ],
+    "score": 3206,
+    "tb": 2
+  },
+  {
+    "w": "zavrieť",
+    "refl": "",
+    "g": "alternative form of zatvoriť",
+    "asp": "pf",
+    "cls": "3b",
+    "partner": "zavierať",
+    "pres": [
+      "zavriem",
+      "zavrieš",
+      "zavrie",
+      "zavrieme",
+      "zavriete",
+      "zavrú"
+    ],
+    "past": [
+      "zavrel",
+      "zavrela",
+      "zavrelo",
+      "zavreli"
+    ],
+    "imp": [
+      "zavri",
+      "zavrime",
+      "zavrite"
+    ],
+    "score": 3179,
+    "tb": 15
+  },
+  {
+    "w": "zostávať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "zostávam",
+      "zostávaš",
+      "zostáva",
+      "zostávame",
+      "zostávate",
+      "zostávajú"
+    ],
+    "past": [
+      "zostával",
+      "zostávala",
+      "zostávalo",
+      "zostávali"
+    ],
+    "imp": [
+      "zostávaj",
+      "zostávajme",
+      "zostávajte"
+    ],
+    "score": 3152,
+    "tb": 5
+  },
+  {
+    "w": "dostávať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "dostávam",
+      "dostávaš",
+      "dostáva",
+      "dostávame",
+      "dostávate",
+      "dostávajú"
+    ],
+    "past": [
+      "dostával",
+      "dostávala",
+      "dostávalo",
+      "dostávali"
+    ],
+    "imp": [
+      "dostávaj",
+      "dostávajme",
+      "dostávajte"
+    ],
+    "score": 2986,
+    "tb": 6
+  },
+  {
+    "w": "prinútiť",
+    "refl": "",
+    "g": "to force, to compel",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "prinucovať",
+    "pres": [
+      "prinútim",
+      "prinútiš",
+      "prinúti",
+      "prinútime",
+      "prinútite",
+      "prinútia"
+    ],
+    "past": [
+      "prinútil",
+      "prinútila",
+      "prinútilo",
+      "prinútili"
+    ],
+    "imp": [
+      "prinúť",
+      "prinúťme",
+      "prinúťte"
+    ],
+    "score": 2925,
+    "tb": 3
+  },
+  {
+    "w": "zájsť",
+    "refl": "",
+    "g": "to go, to walk, to reach",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "zájdem",
+      "zájdeš",
+      "zájde",
+      "zájdeme",
+      "zájdete",
+      "zájdu"
+    ],
+    "past": [
+      "zašiel",
+      "zašla",
+      "zašlo",
+      "zašli"
+    ],
+    "imp": [
+      "zájdi",
+      "zájdime",
+      "zájdite"
+    ],
+    "score": 2889,
+    "tb": 5
+  },
+  {
+    "w": "požičať",
+    "refl": "",
+    "g": "to lend, to borrow",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "požičiavať",
+    "pres": [
+      "požičiam",
+      "požičiaš",
+      "požičia",
+      "požičiame",
+      "požičiate",
+      "požičajú"
+    ],
+    "past": [
+      "požičal",
+      "požičala",
+      "požičalo",
+      "požičali"
+    ],
+    "imp": [
+      "požičaj",
+      "požičajme",
+      "požičajte"
+    ],
+    "score": 2870,
+    "tb": 2
+  },
+  {
+    "w": "dýchať",
+    "refl": "",
+    "g": "to breathe",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "dýchnuť",
+    "pres": [
+      "dýcham",
+      "dýchaš",
+      "dýcha",
+      "dýchame",
+      "dýchate",
+      "dýchajú"
+    ],
+    "past": [
+      "dýchal",
+      "dýchala",
+      "dýchalo",
+      "dýchali"
+    ],
+    "imp": [
+      "dýchaj",
+      "dýchajme",
+      "dýchajte"
+    ],
+    "score": 2828,
+    "tb": 3
+  },
+  {
+    "w": "cestovať",
+    "refl": "",
+    "g": "to travel",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "cestujem",
+      "cestuješ",
+      "cestuje",
+      "cestujeme",
+      "cestujete",
+      "cestujú"
+    ],
+    "past": [
+      "cestoval",
+      "cestovala",
+      "cestovalo",
+      "cestovali"
+    ],
+    "imp": [
+      "cestuj",
+      "cestujme",
+      "cestujte"
+    ],
+    "score": 2804,
+    "tb": 4
+  },
+  {
+    "w": "biť",
+    "refl": "",
+    "g": "to beat, to hit, to strike",
+    "asp": "impf",
+    "cls": "4d",
+    "partner": null,
+    "pres": [
+      "bijem",
+      "biješ",
+      "bije",
+      "bijeme",
+      "bijete",
+      "bijú"
+    ],
+    "past": [
+      "bil",
+      "bila",
+      "bilo",
+      "bili"
+    ],
+    "imp": [
+      "bi",
+      "bime",
+      "bite"
+    ],
+    "score": 2790,
+    "tb": 3
+  },
+  {
+    "w": "uniesť",
+    "refl": "",
+    "g": "to kidnap",
+    "asp": "pf",
+    "cls": "3a",
+    "partner": "unášať",
+    "pres": [
+      "unesiem",
+      "unesieš",
+      "unesie",
+      "unesieme",
+      "unesiete",
+      "unesú"
+    ],
+    "past": [
+      "uniesol",
+      "uniesla",
+      "unieslo",
+      "uniesli"
+    ],
+    "imp": [
+      "unes",
+      "unesme",
+      "uneste"
+    ],
+    "score": 2733,
+    "tb": 1
+  },
+  {
+    "w": "zarobiť",
+    "refl": "",
+    "g": "to earn, make, to profit",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "zarábať",
+    "pres": [
+      "zarobím",
+      "zarobíš",
+      "zarobí",
+      "zarobíme",
+      "zarobíte",
+      "zarobia"
+    ],
+    "past": [
+      "zarobil",
+      "zarobila",
+      "zarobilo",
+      "zarobili"
+    ],
+    "imp": [
+      "zarob",
+      "zarobme",
+      "zarobte"
+    ],
+    "score": 2683,
+    "tb": 1
+  },
+  {
+    "w": "vypnúť",
+    "refl": "",
+    "g": "to turn off, to shut down, to disable",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "vypínať",
+    "pres": [
+      "vypnem",
+      "vypneš",
+      "vypne",
+      "vypneme",
+      "vypnete",
+      "vypnú"
+    ],
+    "past": [
+      "vypol",
+      "vypla",
+      "vyplo",
+      "vypli"
+    ],
+    "imp": [
+      "vypni",
+      "vypnime",
+      "vypnite"
+    ],
+    "score": 2656,
+    "tb": 6
+  },
+  {
+    "w": "vymeniť",
+    "refl": "",
+    "g": "to replace, to change, to exchange",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "vymieňať",
+    "pres": [
+      "vymením",
+      "vymeníš",
+      "vymení",
+      "vymeníme",
+      "vymeníte",
+      "vymenia"
+    ],
+    "past": [
+      "vymenil",
+      "vymenila",
+      "vymenilo",
+      "vymenili"
+    ],
+    "imp": [
+      "vymeň",
+      "vymeňme",
+      "vymeňte"
+    ],
+    "score": 2614,
+    "tb": 2
+  },
+  {
+    "w": "nezabudnúť",
+    "refl": "",
+    "g": "",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": null,
+    "pres": [
+      "nezabudnem",
+      "nezabudneš",
+      "nezabudne",
+      "nezabudneme",
+      "nezabudnete",
+      "nezabudnú"
+    ],
+    "past": [
+      "nezabudol",
+      "nezabudla",
+      "nezabudlo",
+      "nezabudli"
+    ],
+    "imp": [
+      "nezabudni",
+      "nezabudnime",
+      "nezabudnite"
+    ],
+    "score": 2601,
+    "tb": 1
+  },
+  {
+    "w": "brániť",
+    "refl": "",
+    "g": "to defend",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "bránim",
+      "brániš",
+      "bráni",
+      "bránime",
+      "bránite",
+      "bránia"
+    ],
+    "past": [
+      "bránil",
+      "bránila",
+      "bránilo",
+      "bránili"
+    ],
+    "imp": [
+      "bráň",
+      "bráňme",
+      "bráňte"
+    ],
+    "score": 2509,
+    "tb": 4
+  },
+  {
+    "w": "rozísť",
+    "refl": "sa",
+    "g": "to disperse, to scatter, to part ways",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "rozídem",
+      "rozídeš",
+      "rozíde",
+      "rozídeme",
+      "rozídete",
+      "rozídu"
+    ],
+    "past": [
+      "rozišiel",
+      "rozišla",
+      "rozišlo",
+      "rozišli"
+    ],
+    "imp": [
+      "rozíď",
+      "rozíďme",
+      "rozíďte"
+    ],
+    "score": 2483,
+    "tb": 2
+  },
+  {
+    "w": "vadiť",
+    "refl": "",
+    "g": "to bother",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "vadím",
+      "vadíš",
+      "vadí",
+      "vadíme",
+      "vadíte",
+      "vadia"
+    ],
+    "past": [
+      "vadil",
+      "vadila",
+      "vadilo",
+      "vadili"
+    ],
+    "imp": [
+      "vaď",
+      "vaďme",
+      "vaďte"
+    ],
+    "score": 2477,
+    "tb": 1
+  },
+  {
+    "w": "srať",
+    "refl": "",
+    "g": "to defecate, to shit",
+    "asp": "impf",
+    "cls": "3d",
+    "partner": null,
+    "pres": [
+      "seriem",
+      "serieš",
+      "serie",
+      "serieme",
+      "seriete",
+      "serú"
+    ],
+    "past": [
+      "sral",
+      "srala",
+      "sralo",
+      "srali"
+    ],
+    "imp": [
+      "ser",
+      "serme",
+      "serte"
+    ],
+    "score": 2364,
+    "tb": 1
+  },
+  {
+    "w": "nastať",
+    "refl": "",
+    "g": "to set in, to arise, to begin",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": "nastávať",
+    "pres": [
+      "nastanem",
+      "nastaneš",
+      "nastane",
+      "nastaneme",
+      "nastanete",
+      "nastanú"
+    ],
+    "past": [
+      "nastal",
+      "nastala",
+      "nastalo",
+      "nastali"
+    ],
+    "imp": [
+      "nastaň",
+      "nastaňme",
+      "nastaňte"
+    ],
+    "score": 2359,
+    "tb": 15
+  },
+  {
+    "w": "zísť",
+    "refl": "",
+    "g": "to descend, to go down, to get off",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "zídem",
+      "zídeš",
+      "zíde",
+      "zídeme",
+      "zídete",
+      "zídu"
+    ],
+    "past": [
+      "zišiel",
+      "zišla",
+      "zišlo",
+      "zišli"
+    ],
+    "imp": [
+      "zíď",
+      "zíďme",
+      "zíďte"
+    ],
+    "score": 2337,
+    "tb": 15
+  },
+  {
+    "w": "lietať",
+    "refl": "",
+    "g": "to fly",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "lietam",
+      "lietaš",
+      "lieta",
+      "lietame",
+      "lietate",
+      "lietajú"
+    ],
+    "past": [
+      "lietal",
+      "lietala",
+      "lietalo",
+      "lietali"
+    ],
+    "imp": [
+      "lietaj",
+      "lietajme",
+      "lietajte"
+    ],
+    "score": 2291,
+    "tb": 5
+  },
+  {
+    "w": "vyrásť",
+    "refl": "",
+    "g": "to grow up",
+    "asp": "pf",
+    "cls": "3a",
+    "partner": "vyrastať",
+    "pres": [
+      "vyrastiem",
+      "vyrastieš",
+      "vyrastie",
+      "vyrastieme",
+      "vyrastiete",
+      "vyrastú"
+    ],
+    "past": [
+      "vyrástol",
+      "vyrástla",
+      "vyrástlo",
+      "vyrástli"
+    ],
+    "imp": [
+      "vyrasti",
+      "vyrastime",
+      "vyrastite"
+    ],
+    "score": 2279,
+    "tb": 7
+  },
+  {
+    "w": "zaspať",
+    "refl": "",
+    "g": "to fall asleep",
+    "asp": "pf",
+    "cls": "5c",
+    "partner": "zaspávať",
+    "pres": [
+      "zaspím",
+      "zaspíš",
+      "zaspí",
+      "zaspíme",
+      "zaspíte",
+      "zaspia"
+    ],
+    "past": [
+      "zaspal",
+      "zaspala",
+      "zaspalo",
+      "zaspali"
+    ],
+    "imp": [
+      "zaspi",
+      "zaspime",
+      "zaspite"
+    ],
+    "score": 2251,
+    "tb": 11
+  },
+  {
+    "w": "niesť",
+    "refl": "",
+    "g": "to carry",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": "doniesť",
+    "pres": [
+      "nesiem",
+      "nesieš",
+      "nesie",
+      "nesieme",
+      "nesiete",
+      "nesú"
+    ],
+    "past": [
+      "niesol",
+      "niesla",
+      "nieslo",
+      "niesli"
+    ],
+    "imp": [
+      "nes",
+      "nesme",
+      "neste"
+    ],
+    "score": 2214,
+    "tb": 9
+  },
+  {
+    "w": "šoférovať",
+    "refl": "",
+    "g": "to drive",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "šoférujem",
+      "šoféruješ",
+      "šoféruje",
+      "šoférujeme",
+      "šoférujete",
+      "šoférujú"
+    ],
+    "past": [
+      "šoféroval",
+      "šoférovala",
+      "šoférovalo",
+      "šoférovali"
+    ],
+    "imp": [
+      "šoféruj",
+      "šoférujme",
+      "šoférujte"
+    ],
+    "score": 2204,
+    "tb": 1
+  },
+  {
+    "w": "obliecť",
+    "refl": "",
+    "g": "to put on",
+    "asp": "pf",
+    "cls": "3a",
+    "partner": "obliekať",
+    "pres": [
+      "oblečiem",
+      "oblečieš",
+      "oblečie",
+      "oblečieme",
+      "oblečiete",
+      "oblečú"
+    ],
+    "past": [
+      "obliekol",
+      "obliekla",
+      "oblieklo",
+      "obliekli"
+    ],
+    "imp": [
+      "obleč",
+      "oblečme",
+      "oblečte"
+    ],
+    "score": 2126,
+    "tb": 1
+  },
+  {
+    "w": "počítať",
+    "refl": "",
+    "g": "to count, to calculate, to compute",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "počítam",
+      "počítaš",
+      "počíta",
+      "počítame",
+      "počítate",
+      "počítajú"
+    ],
+    "past": [
+      "počítal",
+      "počítala",
+      "počítalo",
+      "počítali"
+    ],
+    "imp": [
+      "počítaj",
+      "počítajme",
+      "počítajte"
+    ],
+    "score": 2073,
+    "tb": 3
+  },
+  {
+    "w": "pristáť",
+    "refl": "",
+    "g": "to land, to touch down, to dock",
+    "asp": "pf",
+    "cls": "irreg-stáť",
+    "partner": "pristávať",
+    "pres": [
+      "pristanem",
+      "pristaneš",
+      "pristane",
+      "pristaneme",
+      "pristanete",
+      "pristanú"
+    ],
+    "past": [
+      "pristál",
+      "pristála",
+      "pristálo",
+      "pristáli"
+    ],
+    "imp": [
+      "pristaň",
+      "pristaňme",
+      "pristaňte"
+    ],
+    "score": 2052,
+    "tb": 7
+  },
+  {
+    "w": "tráviť",
+    "refl": "",
+    "g": "to digest, to spend",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "trávim",
+      "tráviš",
+      "trávi",
+      "trávime",
+      "trávite",
+      "trávia"
+    ],
+    "past": [
+      "trávil",
+      "trávila",
+      "trávilo",
+      "trávili"
+    ],
+    "imp": [
+      "tráv",
+      "trávme",
+      "trávte"
+    ],
+    "score": 2051,
+    "tb": 1
+  },
+  {
+    "w": "fajčiť",
+    "refl": "",
+    "g": "to smoke",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "fajčím",
+      "fajčíš",
+      "fajčí",
+      "fajčíme",
+      "fajčíte",
+      "fajčia"
+    ],
+    "past": [
+      "fajčil",
+      "fajčila",
+      "fajčilo",
+      "fajčili"
+    ],
+    "imp": [
+      "fajči",
+      "fajčime",
+      "fajčite"
+    ],
+    "score": 2035,
+    "tb": 1
+  },
+  {
+    "w": "tlačiť",
+    "refl": "",
+    "g": "to push, to push one's way",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "tlačím",
+      "tlačíš",
+      "tlačí",
+      "tlačíme",
+      "tlačíte",
+      "tlačia"
+    ],
+    "past": [
+      "tlačil",
+      "tlačila",
+      "tlačilo",
+      "tlačili"
+    ],
+    "imp": [
+      "tlač",
+      "tlačme",
+      "tlačte"
+    ],
+    "score": 1994,
+    "tb": 2
+  },
+  {
+    "w": "kupovať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "kupujem",
+      "kupuješ",
+      "kupuje",
+      "kupujeme",
+      "kupujete",
+      "kupujú"
+    ],
+    "past": [
+      "kupoval",
+      "kupovala",
+      "kupovalo",
+      "kupovali"
+    ],
+    "imp": [
+      "kupuj",
+      "kupujme",
+      "kupujte"
+    ],
+    "score": 1975,
+    "tb": 2
+  },
+  {
+    "w": "rozbiť",
+    "refl": "",
+    "g": "to break, to shatter, to smash",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "rozbíjať",
+    "pres": [
+      "rozbijem",
+      "rozbiješ",
+      "rozbije",
+      "rozbijeme",
+      "rozbijete",
+      "rozbijú"
+    ],
+    "past": [
+      "rozbil",
+      "rozbila",
+      "rozbilo",
+      "rozbili"
+    ],
+    "imp": [
+      "rozbi",
+      "rozbime",
+      "rozbite"
+    ],
+    "score": 1966,
+    "tb": 3
+  },
+  {
+    "w": "ozvať",
+    "refl": "",
+    "g": "to be heard, to get back to, to call back or talk back",
+    "asp": "pf",
+    "cls": "4a",
+    "partner": "ozývať",
+    "pres": [
+      "ozvem",
+      "ozveš",
+      "ozve",
+      "ozveme",
+      "ozvete",
+      "ozvú"
+    ],
+    "past": [
+      "ozval",
+      "ozvala",
+      "ozvalo",
+      "ozvali"
+    ],
+    "imp": [
+      "ozvi",
+      "ozvime",
+      "ozvite"
+    ],
+    "score": 1960,
+    "tb": 13
+  },
+  {
+    "w": "túžiť",
+    "refl": "",
+    "g": "to desire",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "túžim",
+      "túžiš",
+      "túži",
+      "túžime",
+      "túžite",
+      "túžia"
+    ],
+    "past": [
+      "túžil",
+      "túžila",
+      "túžilo",
+      "túžili"
+    ],
+    "imp": [
+      "túž",
+      "túžme",
+      "túžte"
+    ],
+    "score": 1958,
+    "tb": 12
+  },
+  {
+    "w": "horieť",
+    "refl": "",
+    "g": "to burn",
+    "asp": "impf",
+    "cls": "5b",
+    "partner": null,
+    "pres": [
+      "horím",
+      "horíš",
+      "horí",
+      "horíme",
+      "horíte",
+      "horia"
+    ],
+    "past": [
+      "horel",
+      "horela",
+      "horelo",
+      "horeli"
+    ],
+    "imp": [
+      "hor",
+      "horme",
+      "horte"
+    ],
+    "score": 1907,
+    "tb": 1
+  },
+  {
+    "w": "variť",
+    "refl": "",
+    "g": "to cook, to brew",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "varím",
+      "varíš",
+      "varí",
+      "varíme",
+      "varíte",
+      "varia"
+    ],
+    "past": [
+      "varil",
+      "varila",
+      "varilo",
+      "varili"
+    ],
+    "imp": [
+      "var",
+      "varme",
+      "varte"
+    ],
+    "score": 1900,
+    "tb": 2
+  },
+  {
+    "w": "kradnúť",
+    "refl": "",
+    "g": "to steal",
+    "asp": "impf",
+    "cls": "4c",
+    "partner": "ukradnúť",
+    "pres": [
+      "kradnem",
+      "kradneš",
+      "kradne",
+      "kradneme",
+      "kradnete",
+      "kradnú"
+    ],
+    "past": [
+      "kradol",
+      "kradla",
+      "kradlo",
+      "kradli"
+    ],
+    "imp": [
+      "kradni",
+      "kradnime",
+      "kradnite"
+    ],
+    "score": 1900,
+    "tb": 1
+  },
+  {
+    "w": "rásť",
+    "refl": "",
+    "g": "to grow",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": null,
+    "pres": [
+      "rastiem",
+      "rastieš",
+      "rastie",
+      "rastieme",
+      "rastiete",
+      "rastú"
+    ],
+    "past": [
+      "rástol",
+      "rástla",
+      "rástlo",
+      "rástli"
+    ],
+    "imp": [
+      "rasti",
+      "rastime",
+      "rastite"
+    ],
+    "score": 1891,
+    "tb": 13
+  },
+  {
+    "w": "vstať",
+    "refl": "",
+    "g": "to stand up, to get up, to rise",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": "vstávať",
+    "pres": [
+      "vstanem",
+      "vstaneš",
+      "vstane",
+      "vstaneme",
+      "vstanete",
+      "vstanú"
+    ],
+    "past": [
+      "vstal",
+      "vstala",
+      "vstalo",
+      "vstali"
+    ],
+    "imp": [
+      "vstaň",
+      "vstaňme",
+      "vstaňte"
+    ],
+    "score": 1837,
+    "tb": 19
+  },
+  {
+    "w": "rozdeliť",
+    "refl": "",
+    "g": "to split",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "rozdeľovať",
+    "pres": [
+      "rozdelím",
+      "rozdelíš",
+      "rozdelí",
+      "rozdelíme",
+      "rozdelíte",
+      "rozdelia"
+    ],
+    "past": [
+      "rozdelil",
+      "rozdelila",
+      "rozdelilo",
+      "rozdelili"
+    ],
+    "imp": [
+      "rozdeľ",
+      "rozdeľme",
+      "rozdeľte"
+    ],
+    "score": 1795,
+    "tb": 1
+  },
+  {
+    "w": "dôverovať",
+    "refl": "",
+    "g": "to trust",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "dôverujem",
+      "dôveruješ",
+      "dôveruje",
+      "dôverujeme",
+      "dôverujete",
+      "dôverujú"
+    ],
+    "past": [
+      "dôveroval",
+      "dôverovala",
+      "dôverovalo",
+      "dôverovali"
+    ],
+    "imp": [
+      "dôveruj",
+      "dôverujme",
+      "dôverujte"
+    ],
+    "score": 1776,
+    "tb": 1
+  },
+  {
+    "w": "strážiť",
+    "refl": "",
+    "g": "to guard",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "strážim",
+      "strážiš",
+      "stráži",
+      "strážime",
+      "strážite",
+      "strážia"
+    ],
+    "past": [
+      "strážil",
+      "strážila",
+      "strážilo",
+      "strážili"
+    ],
+    "imp": [
+      "stráž",
+      "strážme",
+      "strážte"
+    ],
+    "score": 1766,
+    "tb": 1
+  },
+  {
+    "w": "smieť",
+    "refl": "",
+    "g": "to be allowed, may",
+    "asp": "impf",
+    "cls": "3b",
+    "partner": null,
+    "pres": [
+      "smiem",
+      "smieš",
+      "smie",
+      "smieme",
+      "smiete",
+      "smú"
+    ],
+    "past": [
+      "smel",
+      "smela",
+      "smelo",
+      "smeli"
+    ],
+    "imp": [
+      "smi",
+      "smime",
+      "smite"
+    ],
+    "score": 1748,
+    "tb": 1
+  },
+  {
+    "w": "splniť",
+    "refl": "",
+    "g": "to fulfill",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "splním",
+      "splníš",
+      "splní",
+      "splníme",
+      "splníte",
+      "splnia"
+    ],
+    "past": [
+      "splnil",
+      "splnila",
+      "splnilo",
+      "splnili"
+    ],
+    "imp": [
+      "splň",
+      "splňme",
+      "splňte"
+    ],
+    "score": 1747,
+    "tb": 4
+  },
+  {
+    "w": "plávať",
+    "refl": "",
+    "g": "to swim",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "plávam",
+      "plávaš",
+      "pláva",
+      "plávame",
+      "plávate",
+      "plávajú"
+    ],
+    "past": [
+      "plával",
+      "plávala",
+      "plávalo",
+      "plávali"
+    ],
+    "imp": [
+      "plávaj",
+      "plávajme",
+      "plávajte"
+    ],
+    "score": 1721,
+    "tb": 8
+  },
+  {
+    "w": "ponáhľať",
+    "refl": "sa",
+    "g": "to hurry",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "ponáhľam",
+      "ponáhľaš",
+      "ponáhľa",
+      "ponáhľame",
+      "ponáhľate",
+      "ponáhľajú"
+    ],
+    "past": [
+      "ponáhľal",
+      "ponáhľala",
+      "ponáhľalo",
+      "ponáhľali"
+    ],
+    "imp": [
+      "ponáhľaj",
+      "ponáhľajme",
+      "ponáhľajte"
+    ],
+    "score": 1707,
+    "tb": 7
+  },
+  {
+    "w": "jebať",
+    "refl": "",
+    "g": "to fuck, to put, to put away",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": null,
+    "pres": [
+      "jebem",
+      "jebeš",
+      "jebe",
+      "jebeme",
+      "jebete",
+      "jebú"
+    ],
+    "past": [
+      "jebal",
+      "jebala",
+      "jebalo",
+      "jebali"
+    ],
+    "imp": [
+      "jeb",
+      "jebme",
+      "jebte"
+    ],
+    "score": 1699,
+    "tb": 1
+  },
+  {
+    "w": "vyrobiť",
+    "refl": "",
+    "g": "to make, to produce, to tan into leather)",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "vyrábať",
+    "pres": [
+      "vyrobím",
+      "vyrobíš",
+      "vyrobí",
+      "vyrobíme",
+      "vyrobíte",
+      "vyrobia"
+    ],
+    "past": [
+      "vyrobil",
+      "vyrobila",
+      "vyrobilo",
+      "vyrobili"
+    ],
+    "imp": [
+      "vyrob",
+      "vyrobme",
+      "vyrobte"
+    ],
+    "score": 1666,
+    "tb": 1
+  },
+  {
+    "w": "ostávať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "ostávam",
+      "ostávaš",
+      "ostáva",
+      "ostávame",
+      "ostávate",
+      "ostávajú"
+    ],
+    "past": [
+      "ostával",
+      "ostávala",
+      "ostávalo",
+      "ostávali"
+    ],
+    "imp": [
+      "ostávaj",
+      "ostávajme",
+      "ostávajte"
+    ],
+    "score": 1659,
+    "tb": 6
+  },
+  {
+    "w": "kryť",
+    "refl": "",
+    "g": "to cover, protect",
+    "asp": "impf",
+    "cls": "4d",
+    "partner": null,
+    "pres": [
+      "kryjem",
+      "kryješ",
+      "kryje",
+      "kryjeme",
+      "kryjete",
+      "kryjú"
+    ],
+    "past": [
+      "kryl",
+      "kryla",
+      "krylo",
+      "kryli"
+    ],
+    "imp": [
+      "kry",
+      "kryme",
+      "kryte"
+    ],
+    "score": 1618,
+    "tb": 3
+  },
+  {
+    "w": "prenasledovať",
+    "refl": "",
+    "g": "to chase, to pursue",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "prenasledujem",
+      "prenasleduješ",
+      "prenasleduje",
+      "prenasledujeme",
+      "prenasledujete",
+      "prenasledujú"
+    ],
+    "past": [
+      "prenasledoval",
+      "prenasledovala",
+      "prenasledovalo",
+      "prenasledovali"
+    ],
+    "imp": [
+      "prenasleduj",
+      "prenasledujme",
+      "prenasledujte"
+    ],
+    "score": 1602,
+    "tb": 5
+  },
+  {
+    "w": "zradiť",
+    "refl": "",
+    "g": "to betray",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "zrádzať",
+    "pres": [
+      "zradím",
+      "zradíš",
+      "zradí",
+      "zradíme",
+      "zradíte",
+      "zradia"
+    ],
+    "past": [
+      "zradil",
+      "zradila",
+      "zradilo",
+      "zradili"
+    ],
+    "imp": [
+      "zraď",
+      "zraďme",
+      "zraďte"
+    ],
+    "score": 1570,
+    "tb": 3
+  },
+  {
+    "w": "kráčať",
+    "refl": "",
+    "g": "to walk",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "kráčam",
+      "kráčaš",
+      "kráča",
+      "kráčame",
+      "kráčate",
+      "kráčajú"
+    ],
+    "past": [
+      "kráčal",
+      "kráčala",
+      "kráčalo",
+      "kráčali"
+    ],
+    "imp": [
+      "kráčaj",
+      "kráčajme",
+      "kráčajte"
+    ],
+    "score": 1567,
+    "tb": 18
+  },
+  {
+    "w": "strčiť",
+    "refl": "",
+    "g": "to stuck sth., to stick out.",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "strčím",
+      "strčíš",
+      "strčí",
+      "strčíme",
+      "strčíte",
+      "strčia"
+    ],
+    "past": [
+      "strčil",
+      "strčila",
+      "strčilo",
+      "strčili"
+    ],
+    "imp": [
+      "strč",
+      "strčme",
+      "strčte"
+    ],
+    "score": 1567,
+    "tb": 8
+  },
+  {
+    "w": "prdieť",
+    "refl": "",
+    "g": "to fart",
+    "asp": "impf",
+    "cls": "5b",
+    "partner": "prdnúť",
+    "pres": [
+      "prdím",
+      "prdíš",
+      "prdí",
+      "prdíme",
+      "prdíte",
+      "prdia"
+    ],
+    "past": [
+      "prdel",
+      "prdela",
+      "prdelo",
+      "prdeli"
+    ],
+    "imp": [
+      "prď",
+      "prďme",
+      "prďte"
+    ],
+    "score": 1559,
+    "tb": 1
+  },
+  {
+    "w": "streliť",
+    "refl": "",
+    "g": "to shoot, fire, to slap",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "strieľať",
+    "pres": [
+      "strelím",
+      "strelíš",
+      "strelí",
+      "strelíme",
+      "strelíte",
+      "strelia"
+    ],
+    "past": [
+      "strelil",
+      "strelila",
+      "strelilo",
+      "strelili"
+    ],
+    "imp": [
+      "streľ",
+      "streľme",
+      "streľte"
+    ],
+    "score": 1548,
+    "tb": 1
+  },
+  {
+    "w": "informovať",
+    "refl": "",
+    "g": "to inform, to inform oneself, to inquire",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "informujem",
+      "informuješ",
+      "informuje",
+      "informujeme",
+      "informujete",
+      "informujú"
+    ],
+    "past": [
+      "informoval",
+      "informovala",
+      "informovalo",
+      "informovali"
+    ],
+    "imp": [
+      "informuj",
+      "informujme",
+      "informujte"
+    ],
+    "score": 1541,
+    "tb": 4
+  },
+  {
+    "w": "prebudiť",
+    "refl": "",
+    "g": "to wake up, to awake",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "prebúdzať",
+    "pres": [
+      "prebudím",
+      "prebudíš",
+      "prebudí",
+      "prebudíme",
+      "prebudíte",
+      "prebudia"
+    ],
+    "past": [
+      "prebudil",
+      "prebudila",
+      "prebudilo",
+      "prebudili"
+    ],
+    "imp": [
+      "prebuď",
+      "prebuďme",
+      "prebuďte"
+    ],
+    "score": 1533,
+    "tb": 6
+  },
+  {
+    "w": "smerovať",
+    "refl": "",
+    "g": "to move, to head, to face",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": "nasmerovať",
+    "pres": [
+      "smerujem",
+      "smeruješ",
+      "smeruje",
+      "smerujeme",
+      "smerujete",
+      "smerujú"
+    ],
+    "past": [
+      "smeroval",
+      "smerovala",
+      "smerovalo",
+      "smerovali"
+    ],
+    "imp": [
+      "smeruj",
+      "smerujme",
+      "smerujte"
+    ],
+    "score": 1511,
+    "tb": 3
+  },
+  {
+    "w": "premeniť",
+    "refl": "",
+    "g": "to transform, to turn into, to convert",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "premieňať",
+    "pres": [
+      "premením",
+      "premeníš",
+      "premení",
+      "premeníme",
+      "premeníte",
+      "premenia"
+    ],
+    "past": [
+      "premenil",
+      "premenila",
+      "premenilo",
+      "premenili"
+    ],
+    "imp": [
+      "premeň",
+      "premeňme",
+      "premeňte"
+    ],
+    "score": 1491,
+    "tb": 9
+  },
+  {
+    "w": "krvácať",
+    "refl": "",
+    "g": "to bleed",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "krvácam",
+      "krvácaš",
+      "krváca",
+      "krvácame",
+      "krvácate",
+      "krvácajú"
+    ],
+    "past": [
+      "krvácal",
+      "krvácala",
+      "krvácalo",
+      "krvácali"
+    ],
+    "imp": [
+      "krvácaj",
+      "krvácajme",
+      "krvácajte"
+    ],
+    "score": 1483,
+    "tb": 1
+  },
+  {
+    "w": "stavať",
+    "refl": "",
+    "g": "to build, to construct, to stand up",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "postaviť",
+    "pres": [
+      "staviam",
+      "staviaš",
+      "stavia",
+      "staviame",
+      "staviate",
+      "stavajú"
+    ],
+    "past": [
+      "staval",
+      "stavala",
+      "stavalo",
+      "stavali"
+    ],
+    "imp": [
+      "stavaj",
+      "stavajme",
+      "stavajte"
+    ],
+    "score": 1463,
+    "tb": 4
+  },
+  {
+    "w": "vládnuť",
+    "refl": "",
+    "g": "to reign, to govern",
+    "asp": "impf",
+    "cls": "4c",
+    "partner": null,
+    "pres": [
+      "vládnem",
+      "vládneš",
+      "vládne",
+      "vládneme",
+      "vládnete",
+      "vládnu"
+    ],
+    "past": [
+      "vládol",
+      "vládla",
+      "vládlo",
+      "vládli"
+    ],
+    "imp": [
+      "vládni",
+      "vládnime",
+      "vládnite"
+    ],
+    "score": 1428,
+    "tb": 15
+  },
+  {
+    "w": "vytvárať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "vytváram",
+      "vytváraš",
+      "vytvára",
+      "vytvárame",
+      "vytvárate",
+      "vytvárajú"
+    ],
+    "past": [
+      "vytváral",
+      "vytvárala",
+      "vytváralo",
+      "vytvárali"
+    ],
+    "imp": [
+      "vytváraj",
+      "vytvárajme",
+      "vytvárajte"
+    ],
+    "score": 1403,
+    "tb": 3
+  },
+  {
+    "w": "zvýšiť",
+    "refl": "",
+    "g": "to increase, to grow",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "zvyšovať",
+    "pres": [
+      "zvýšim",
+      "zvýšiš",
+      "zvýši",
+      "zvýšime",
+      "zvýšite",
+      "zvýšia"
+    ],
+    "past": [
+      "zvýšil",
+      "zvýšila",
+      "zvýšilo",
+      "zvýšili"
+    ],
+    "imp": [
+      "zvýš",
+      "zvýšme",
+      "zvýšte"
+    ],
+    "score": 1399,
+    "tb": 9
+  },
+  {
+    "w": "otvárať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "otváram",
+      "otváraš",
+      "otvára",
+      "otvárame",
+      "otvárate",
+      "otvárajú"
+    ],
+    "past": [
+      "otváral",
+      "otvárala",
+      "otváralo",
+      "otvárali"
+    ],
+    "imp": [
+      "otváraj",
+      "otvárajme",
+      "otvárajte"
+    ],
+    "score": 1375,
+    "tb": 5
+  },
+  {
+    "w": "kopať",
+    "refl": "",
+    "g": "to dig, to kick",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": null,
+    "pres": [
+      "kopem",
+      "kopeš",
+      "kope",
+      "kopeme",
+      "kopete",
+      "kopú"
+    ],
+    "past": [
+      "kopal",
+      "kopala",
+      "kopalo",
+      "kopali"
+    ],
+    "imp": [
+      "kop",
+      "kopme",
+      "kopte"
+    ],
+    "score": 1349,
+    "tb": 1
+  },
+  {
+    "w": "nastúpiť",
+    "refl": "",
+    "g": "to board, to get on, to line up",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "nastupovať",
+    "pres": [
+      "nastúpim",
+      "nastúpiš",
+      "nastúpi",
+      "nastúpime",
+      "nastúpite",
+      "nastúpia"
+    ],
+    "past": [
+      "nastúpil",
+      "nastúpila",
+      "nastúpilo",
+      "nastúpili"
+    ],
+    "imp": [
+      "nastúp",
+      "nastúpme",
+      "nastúpte"
+    ],
+    "score": 1330,
+    "tb": 11
+  },
+  {
+    "w": "zapnúť",
+    "refl": "",
+    "g": "to switch on, to power up, to enable",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "zapínať",
+    "pres": [
+      "zapnem",
+      "zapneš",
+      "zapne",
+      "zapneme",
+      "zapnete",
+      "zapnú"
+    ],
+    "past": [
+      "zapol",
+      "zapla",
+      "zaplo",
+      "zapli"
+    ],
+    "imp": [
+      "zapni",
+      "zapnime",
+      "zapnite"
+    ],
+    "score": 1326,
+    "tb": 2
+  },
+  {
+    "w": "zapáliť",
+    "refl": "",
+    "g": "to set fire, to set on fire",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "zapaľovať",
+    "pres": [
+      "zapálim",
+      "zapáliš",
+      "zapáli",
+      "zapálime",
+      "zapálite",
+      "zapália"
+    ],
+    "past": [
+      "zapálil",
+      "zapálila",
+      "zapálilo",
+      "zapálili"
+    ],
+    "imp": [
+      "zapáľ",
+      "zapáľme",
+      "zapáľte"
+    ],
+    "score": 1253,
+    "tb": 2
+  },
+  {
+    "w": "domnievať",
+    "refl": "sa",
+    "g": "to assume, to suppose",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "domnievam",
+      "domnievaš",
+      "domnieva",
+      "domnievame",
+      "domnievate",
+      "domnievajú"
+    ],
+    "past": [
+      "domnieval",
+      "domnievala",
+      "domnievalo",
+      "domnievali"
+    ],
+    "imp": [
+      "domnievaj",
+      "domnievajme",
+      "domnievajte"
+    ],
+    "score": 1246,
+    "tb": 1
+  },
+  {
+    "w": "zarábať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "zarobiť",
+    "pres": [
+      "zarábam",
+      "zarábaš",
+      "zarába",
+      "zarábame",
+      "zarábate",
+      "zarábajú"
+    ],
+    "past": [
+      "zarábal",
+      "zarábala",
+      "zarábalo",
+      "zarábali"
+    ],
+    "imp": [
+      "zarábaj",
+      "zarábajme",
+      "zarábajte"
+    ],
+    "score": 1243,
+    "tb": 1
+  },
+  {
+    "w": "oslobodiť",
+    "refl": "",
+    "g": "to free, to liberate",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "oslobodzovať",
+    "pres": [
+      "oslobodím",
+      "oslobodíš",
+      "oslobodí",
+      "oslobodíme",
+      "oslobodíte",
+      "oslobodia"
+    ],
+    "past": [
+      "oslobodil",
+      "oslobodila",
+      "oslobodilo",
+      "oslobodili"
+    ],
+    "imp": [
+      "osloboď",
+      "osloboďme",
+      "osloboďte"
+    ],
+    "score": 1216,
+    "tb": 1
+  },
+  {
+    "w": "behať",
+    "refl": "",
+    "g": "to run",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "behám",
+      "beháš",
+      "behá",
+      "beháme",
+      "beháte",
+      "behajú"
+    ],
+    "past": [
+      "behal",
+      "behala",
+      "behalo",
+      "behali"
+    ],
+    "imp": [
+      "behaj",
+      "behajme",
+      "behajte"
+    ],
+    "score": 1202,
+    "tb": 2
+  },
+  {
+    "w": "vyrábať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "vyrábam",
+      "vyrábaš",
+      "vyrába",
+      "vyrábame",
+      "vyrábate",
+      "vyrábajú"
+    ],
+    "past": [
+      "vyrábal",
+      "vyrábala",
+      "vyrábalo",
+      "vyrábali"
+    ],
+    "imp": [
+      "vyrábaj",
+      "vyrábajme",
+      "vyrábajte"
+    ],
+    "score": 1179,
+    "tb": 4
+  },
+  {
+    "w": "loviť",
+    "refl": "",
+    "g": "to hunt",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "lovím",
+      "lovíš",
+      "loví",
+      "lovíme",
+      "lovíte",
+      "lovia"
+    ],
+    "past": [
+      "lovil",
+      "lovila",
+      "lovilo",
+      "lovili"
+    ],
+    "imp": [
+      "lov",
+      "lovme",
+      "lovte"
+    ],
+    "score": 1178,
+    "tb": 1
+  },
+  {
+    "w": "zatvoriť",
+    "refl": "",
+    "g": "to close, to shut",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "zatvárať",
+    "pres": [
+      "zatvorím",
+      "zatvoríš",
+      "zatvorí",
+      "zatvoríme",
+      "zatvoríte",
+      "zatvoria"
+    ],
+    "past": [
+      "zatvoril",
+      "zatvorila",
+      "zatvorilo",
+      "zatvorili"
+    ],
+    "imp": [
+      "zatvor",
+      "zatvorme",
+      "zatvorte"
+    ],
+    "score": 1132,
+    "tb": 5
+  },
+  {
+    "w": "chytať",
+    "refl": "",
+    "g": "to catch",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "chytiť",
+    "pres": [
+      "chytám",
+      "chytáš",
+      "chytá",
+      "chytáme",
+      "chytáte",
+      "chytajú"
+    ],
+    "past": [
+      "chytal",
+      "chytala",
+      "chytalo",
+      "chytali"
+    ],
+    "imp": [
+      "chytaj",
+      "chytajme",
+      "chytajte"
+    ],
+    "score": 1116,
+    "tb": 3
+  },
+  {
+    "w": "preskočiť",
+    "refl": "",
+    "g": "to jump over, to skip, to disregard",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "preskakovať",
+    "pres": [
+      "preskočím",
+      "preskočíš",
+      "preskočí",
+      "preskočíme",
+      "preskočíte",
+      "preskočia"
+    ],
+    "past": [
+      "preskočil",
+      "preskočila",
+      "preskočilo",
+      "preskočili"
+    ],
+    "imp": [
+      "preskoč",
+      "preskočme",
+      "preskočte"
+    ],
+    "score": 1089,
+    "tb": 3
+  },
+  {
+    "w": "zamknúť",
+    "refl": "",
+    "g": "to lock, to lock in, to confine",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "zamykať",
+    "pres": [
+      "zamknem",
+      "zamkneš",
+      "zamkne",
+      "zamkneme",
+      "zamknete",
+      "zamknú"
+    ],
+    "past": [
+      "zamkol",
+      "zamkla",
+      "zamklo",
+      "zamkli"
+    ],
+    "imp": [
+      "zamkni",
+      "zamknime",
+      "zamknite"
+    ],
+    "score": 1089,
+    "tb": 2
+  },
+  {
+    "w": "pršať",
+    "refl": "",
+    "g": "to rain, to fall down",
+    "asp": "impf-impers",
+    "cls": "5c",
+    "partner": null,
+    "pres": [
+      "prším",
+      "pršíš",
+      "prší",
+      "pršíme",
+      "pršíte",
+      "pršia"
+    ],
+    "past": [
+      "pršal",
+      "pršala",
+      "pršalo",
+      "pršali"
+    ],
+    "imp": [
+      "prš",
+      "pršme",
+      "pršte"
+    ],
+    "score": 1085,
+    "tb": 6
+  },
+  {
+    "w": "upratať",
+    "refl": "",
+    "g": "to clean, to tidy",
+    "asp": "pf",
+    "cls": "4a",
+    "partner": "upratovať",
+    "pres": [
+      "upracem",
+      "upraceš",
+      "uprace",
+      "upraceme",
+      "upracete",
+      "upracú"
+    ],
+    "past": [
+      "upratal",
+      "upratala",
+      "upratalo",
+      "upratali"
+    ],
+    "imp": [
+      "uprac",
+      "upracme",
+      "upracte"
+    ],
+    "score": 1075,
+    "tb": 2
+  },
+  {
+    "w": "kŕmiť",
+    "refl": "",
+    "g": "to feed",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "nakŕmiť",
+    "pres": [
+      "kŕmim",
+      "kŕmiš",
+      "kŕmi",
+      "kŕmime",
+      "kŕmite",
+      "kŕmia"
+    ],
+    "past": [
+      "kŕmil",
+      "kŕmila",
+      "kŕmilo",
+      "kŕmili"
+    ],
+    "imp": [
+      "kŕm",
+      "kŕmme",
+      "kŕmte"
+    ],
+    "score": 1064,
+    "tb": 1
+  },
+  {
+    "w": "opúšťať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "opúšťam",
+      "opúšťaš",
+      "opúšťa",
+      "opúšťame",
+      "opúšťate",
+      "opúšťajú"
+    ],
+    "past": [
+      "opúšťal",
+      "opúšťala",
+      "opúšťalo",
+      "opúšťali"
+    ],
+    "imp": [
+      "opúšťaj",
+      "opúšťajme",
+      "opúšťajte"
+    ],
+    "score": 1040,
+    "tb": 1
+  },
+  {
+    "w": "telefonovať",
+    "refl": "",
+    "g": "to telephone",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "telefonujem",
+      "telefonuješ",
+      "telefonuje",
+      "telefonujeme",
+      "telefonujete",
+      "telefonujú"
+    ],
+    "past": [
+      "telefonoval",
+      "telefonovala",
+      "telefonovalo",
+      "telefonovali"
+    ],
+    "imp": [
+      "telefonuj",
+      "telefonujme",
+      "telefonujte"
+    ],
+    "score": 1036,
+    "tb": 1
+  },
+  {
+    "w": "znať",
+    "refl": "",
+    "g": "to know",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "znám",
+      "znáš",
+      "zná",
+      "známe",
+      "znáte",
+      "znajú"
+    ],
+    "past": [
+      "znal",
+      "znala",
+      "znalo",
+      "znali"
+    ],
+    "imp": [
+      "znaj",
+      "znajme",
+      "znajte"
+    ],
+    "score": 1026,
+    "tb": 1
+  },
+  {
+    "w": "blahoželať",
+    "refl": "",
+    "g": "to congratulate",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "blahoželám",
+      "blahoželáš",
+      "blahoželá",
+      "blahoželáme",
+      "blahoželáte",
+      "blahoželajú"
+    ],
+    "past": [
+      "blahoželal",
+      "blahoželala",
+      "blahoželalo",
+      "blahoželali"
+    ],
+    "imp": [
+      "blahoželaj",
+      "blahoželajme",
+      "blahoželajte"
+    ],
+    "score": 1016,
+    "tb": 6
+  },
+  {
+    "w": "triasť",
+    "refl": "",
+    "g": "to shake, to tremble",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": "potriasť",
+    "pres": [
+      "trasiem",
+      "trasieš",
+      "trasie",
+      "trasieme",
+      "trasiete",
+      "trasú"
+    ],
+    "past": [
+      "triasol",
+      "triasla",
+      "triaslo",
+      "triasli"
+    ],
+    "imp": [
+      "tras",
+      "trasme",
+      "traste"
+    ],
+    "score": 991,
+    "tb": 5
+  },
+  {
+    "w": "stvoriť",
+    "refl": "",
+    "g": "to create, to make",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "tvoriť",
+    "pres": [
+      "stvorím",
+      "stvoríš",
+      "stvorí",
+      "stvoríme",
+      "stvoríte",
+      "stvoria"
+    ],
+    "past": [
+      "stvoril",
+      "stvorila",
+      "stvorilo",
+      "stvorili"
+    ],
+    "imp": [
+      "stvor",
+      "stvorme",
+      "stvorte"
+    ],
+    "score": 983,
+    "tb": 3
+  },
+  {
+    "w": "klásť",
+    "refl": "",
+    "g": "to place, to lay, to arrange",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": null,
+    "pres": [
+      "kladiem",
+      "kladieš",
+      "kladie",
+      "kladieme",
+      "kladiete",
+      "kladú"
+    ],
+    "past": [
+      "kládol",
+      "kládla",
+      "kládlo",
+      "kládli"
+    ],
+    "imp": [
+      "klaď",
+      "klaďme",
+      "klaďte"
+    ],
+    "score": 953,
+    "tb": 2
+  },
+  {
+    "w": "vybudovať",
+    "refl": "",
+    "g": "to build",
+    "asp": "pf",
+    "cls": "4e",
+    "partner": "budovať",
+    "pres": [
+      "vybudujem",
+      "vybuduješ",
+      "vybuduje",
+      "vybudujeme",
+      "vybudujete",
+      "vybudujú"
+    ],
+    "past": [
+      "vybudoval",
+      "vybudovala",
+      "vybudovalo",
+      "vybudovali"
+    ],
+    "imp": [
+      "vybuduj",
+      "vybudujme",
+      "vybudujte"
+    ],
+    "score": 953,
+    "tb": 1
+  },
+  {
+    "w": "tvoriť",
+    "refl": "",
+    "g": "to create, to make, to form",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "vytvoriť",
+    "pres": [
+      "tvorím",
+      "tvoríš",
+      "tvorí",
+      "tvoríme",
+      "tvoríte",
+      "tvoria"
+    ],
+    "past": [
+      "tvoril",
+      "tvorila",
+      "tvorilo",
+      "tvorili"
+    ],
+    "imp": [
+      "tvor",
+      "tvorme",
+      "tvorte"
+    ],
+    "score": 941,
+    "tb": 18
+  },
+  {
+    "w": "darovať",
+    "refl": "",
+    "g": "to donate",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "darujem",
+      "daruješ",
+      "daruje",
+      "darujeme",
+      "darujete",
+      "darujú"
+    ],
+    "past": [
+      "daroval",
+      "darovala",
+      "darovalo",
+      "darovali"
+    ],
+    "imp": [
+      "daruj",
+      "darujme",
+      "darujte"
+    ],
+    "score": 936,
+    "tb": 1
+  },
+  {
+    "w": "tajiť",
+    "refl": "",
+    "g": "to be hiding",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "tajím",
+      "tajíš",
+      "tají",
+      "tajíme",
+      "tajíte",
+      "taja"
+    ],
+    "past": [
+      "tajil",
+      "tajila",
+      "tajilo",
+      "tajili"
+    ],
+    "imp": [
+      "taj",
+      "tajme",
+      "tajte"
+    ],
+    "score": 934,
+    "tb": 1
+  },
+  {
+    "w": "liezť",
+    "refl": "",
+    "g": "to crawl, to move slowly",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": "vliezť",
+    "pres": [
+      "leziem",
+      "lezieš",
+      "lezie",
+      "lezieme",
+      "leziete",
+      "lezú"
+    ],
+    "past": [
+      "liezol",
+      "liezla",
+      "liezlo",
+      "liezli"
+    ],
+    "imp": [
+      "lez",
+      "lezme",
+      "lezte"
+    ],
+    "score": 933,
+    "tb": 1
+  },
+  {
+    "w": "netrápiť",
+    "refl": "",
+    "g": "to not bother or worry",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "netrápim",
+      "netrápiš",
+      "netrápi",
+      "netrápime",
+      "netrápite",
+      "netrápia"
+    ],
+    "past": [
+      "netrápil",
+      "netrápila",
+      "netrápilo",
+      "netrápili"
+    ],
+    "imp": [
+      "netráp",
+      "netrápme",
+      "netrápte"
+    ],
+    "score": 931,
+    "tb": 1
+  },
+  {
+    "w": "kázať",
+    "refl": "",
+    "g": "to preach",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": null,
+    "pres": [
+      "kážem",
+      "kážeš",
+      "káže",
+      "kážeme",
+      "kážete",
+      "kážu"
+    ],
+    "past": [
+      "kázal",
+      "kázala",
+      "kázalo",
+      "kázali"
+    ],
+    "imp": [
+      "káž",
+      "kážme",
+      "kážte"
+    ],
+    "score": 923,
+    "tb": 1
+  },
+  {
+    "w": "vstávať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "vstávam",
+      "vstávaš",
+      "vstáva",
+      "vstávame",
+      "vstávate",
+      "vstávajú"
+    ],
+    "past": [
+      "vstával",
+      "vstávala",
+      "vstávalo",
+      "vstávali"
+    ],
+    "imp": [
+      "vstávaj",
+      "vstávajme",
+      "vstávajte"
+    ],
+    "score": 921,
+    "tb": 1
+  },
+  {
+    "w": "mučiť",
+    "refl": "",
+    "g": "to torture",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "mučím",
+      "mučíš",
+      "mučí",
+      "mučíme",
+      "mučíte",
+      "mučia"
+    ],
+    "past": [
+      "mučil",
+      "mučila",
+      "mučilo",
+      "mučili"
+    ],
+    "imp": [
+      "muč",
+      "mučme",
+      "mučte"
+    ],
+    "score": 921,
+    "tb": 1
+  },
+  {
+    "w": "zahynúť",
+    "refl": "",
+    "g": "to die, to perish",
+    "asp": "pf",
+    "cls": "3c",
+    "partner": "hynúť",
+    "pres": [
+      "zahyniem",
+      "zahynieš",
+      "zahynie",
+      "zahynieme",
+      "zahyniete",
+      "zahynú"
+    ],
+    "past": [
+      "zahynul",
+      "zahynula",
+      "zahynulo",
+      "zahynuli"
+    ],
+    "imp": [
+      "zahyň",
+      "zahyňme",
+      "zahyňte"
+    ],
+    "score": 897,
+    "tb": 6
+  },
+  {
+    "w": "pristať",
+    "refl": "",
+    "g": "to fit, to suit, to match",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": null,
+    "pres": [
+      "pristanem",
+      "pristaneš",
+      "pristane",
+      "pristaneme",
+      "pristanete",
+      "pristanú"
+    ],
+    "past": [
+      "pristal",
+      "pristala",
+      "pristalo",
+      "pristali"
+    ],
+    "imp": [
+      "pristaň",
+      "pristaňme",
+      "pristaňte"
+    ],
+    "score": 896,
+    "tb": 4
+  },
+  {
+    "w": "súdiť",
+    "refl": "",
+    "g": "to judge",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "súdim",
+      "súdiš",
+      "súdi",
+      "súdime",
+      "súdite",
+      "súdia"
+    ],
+    "past": [
+      "súdil",
+      "súdila",
+      "súdilo",
+      "súdili"
+    ],
+    "imp": [
+      "súď",
+      "súďme",
+      "súďte"
+    ],
+    "score": 895,
+    "tb": 1
+  },
+  {
+    "w": "dospieť",
+    "refl": "",
+    "g": "to reach maturity, to arrive, to reach",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": null,
+    "pres": [
+      "dospejem",
+      "dospeješ",
+      "dospeje",
+      "dospejeme",
+      "dospejete",
+      "dospejú"
+    ],
+    "past": [
+      "dospel",
+      "dospela",
+      "dospelo",
+      "dospeli"
+    ],
+    "imp": [
+      "dospej",
+      "dospejme",
+      "dospejte"
+    ],
+    "score": 883,
+    "tb": 5
+  },
+  {
+    "w": "spoliehať",
+    "refl": "sa",
+    "g": "to count on, to rely on, to trust",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "spoľahnúť",
+    "pres": [
+      "spolieham",
+      "spoliehaš",
+      "spolieha",
+      "spoliehame",
+      "spoliehate",
+      "spoliehajú"
+    ],
+    "past": [
+      "spoliehal",
+      "spoliehala",
+      "spoliehalo",
+      "spoliehali"
+    ],
+    "imp": [
+      "spoliehaj",
+      "spoliehajme",
+      "spoliehajte"
+    ],
+    "score": 875,
+    "tb": 1
+  },
+  {
+    "w": "baliť",
+    "refl": "",
+    "g": "to pack, to wrap",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "zabaliť",
+    "pres": [
+      "balím",
+      "balíš",
+      "balí",
+      "balíme",
+      "balíte",
+      "balia"
+    ],
+    "past": [
+      "balil",
+      "balila",
+      "balilo",
+      "balili"
+    ],
+    "imp": [
+      "baľ",
+      "baľme",
+      "baľte"
+    ],
+    "score": 871,
+    "tb": 1
+  },
+  {
+    "w": "plniť",
+    "refl": "",
+    "g": "to fill, to fulfill",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "plním",
+      "plníš",
+      "plní",
+      "plníme",
+      "plníte",
+      "plnia"
+    ],
+    "past": [
+      "plnil",
+      "plnila",
+      "plnilo",
+      "plnili"
+    ],
+    "imp": [
+      "plň",
+      "plňme",
+      "plňte"
+    ],
+    "score": 854,
+    "tb": 1
+  },
+  {
+    "w": "deliť",
+    "refl": "",
+    "g": "to divide",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "delím",
+      "delíš",
+      "delí",
+      "delíme",
+      "delíte",
+      "delia"
+    ],
+    "past": [
+      "delil",
+      "delila",
+      "delilo",
+      "delili"
+    ],
+    "imp": [
+      "deľ",
+      "deľme",
+      "deľte"
+    ],
+    "score": 849,
+    "tb": 2
+  },
+  {
+    "w": "nastaviť",
+    "refl": "",
+    "g": "to set, to position, to turn",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "nastavovať",
+    "pres": [
+      "nastavím",
+      "nastavíš",
+      "nastaví",
+      "nastavíme",
+      "nastavíte",
+      "nastavia"
+    ],
+    "past": [
+      "nastavil",
+      "nastavila",
+      "nastavilo",
+      "nastavili"
+    ],
+    "imp": [
+      "nastav",
+      "nastavme",
+      "nastavte"
+    ],
+    "score": 842,
+    "tb": 2
+  },
+  {
+    "w": "svietiť",
+    "refl": "",
+    "g": "to shine",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "svietim",
+      "svietiš",
+      "svieti",
+      "svietime",
+      "svietite",
+      "svietia"
+    ],
+    "past": [
+      "svietil",
+      "svietila",
+      "svietilo",
+      "svietili"
+    ],
+    "imp": [
+      "svieť",
+      "svieťme",
+      "svieťte"
+    ],
+    "score": 837,
+    "tb": 2
+  },
+  {
+    "w": "odpočívať",
+    "refl": "",
+    "g": "to rest, to be resting on",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "odpočinúť",
+    "pres": [
+      "odpočívam",
+      "odpočívaš",
+      "odpočíva",
+      "odpočívame",
+      "odpočívate",
+      "odpočívajú"
+    ],
+    "past": [
+      "odpočíval",
+      "odpočívala",
+      "odpočívalo",
+      "odpočívali"
+    ],
+    "imp": [
+      "odpočívaj",
+      "odpočívajme",
+      "odpočívajte"
+    ],
+    "score": 836,
+    "tb": 3
+  },
+  {
+    "w": "zvoliť",
+    "refl": "",
+    "g": "to choose, to select, to elect",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "zvolím",
+      "zvolíš",
+      "zvolí",
+      "zvolíme",
+      "zvolíte",
+      "zvolia"
+    ],
+    "past": [
+      "zvolil",
+      "zvolila",
+      "zvolilo",
+      "zvolili"
+    ],
+    "imp": [
+      "zvoľ",
+      "zvoľme",
+      "zvoľte"
+    ],
+    "score": 830,
+    "tb": 5
+  },
+  {
+    "w": "obnoviť",
+    "refl": "",
+    "g": "to restore, to renovate, to regenerate",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "obnovovať",
+    "pres": [
+      "obnovím",
+      "obnovíš",
+      "obnoví",
+      "obnovíme",
+      "obnovíte",
+      "obnovia"
+    ],
+    "past": [
+      "obnovil",
+      "obnovila",
+      "obnovilo",
+      "obnovili"
+    ],
+    "imp": [
+      "obnov",
+      "obnovme",
+      "obnovte"
+    ],
+    "score": 829,
+    "tb": 2
+  },
+  {
+    "w": "kašlať",
+    "refl": "",
+    "g": "to cough",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": null,
+    "pres": [
+      "kašlem",
+      "kašleš",
+      "kašle",
+      "kašleme",
+      "kašlete",
+      "kašlú"
+    ],
+    "past": [
+      "kašlal",
+      "kašlala",
+      "kašlalo",
+      "kašlali"
+    ],
+    "imp": [
+      "kašli",
+      "kašlime",
+      "kašlite"
+    ],
+    "score": 822,
+    "tb": 1
+  },
+  {
+    "w": "opísať",
+    "refl": "",
+    "g": "to describe, to copy verbatim",
+    "asp": "pf",
+    "cls": "4a",
+    "partner": "opisovať",
+    "pres": [
+      "opíšem",
+      "opíšeš",
+      "opíše",
+      "opíšeme",
+      "opíšete",
+      "opíšu"
+    ],
+    "past": [
+      "opísal",
+      "opísala",
+      "opísalo",
+      "opísali"
+    ],
+    "imp": [
+      "opíš",
+      "opíšme",
+      "opíšte"
+    ],
+    "score": 794,
+    "tb": 2
+  },
+  {
+    "w": "zaspievať",
+    "refl": "",
+    "g": "to sing, to incite, to recite",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "spievať",
+    "pres": [
+      "zaspievam",
+      "zaspievaš",
+      "zaspieva",
+      "zaspievame",
+      "zaspievate",
+      "zaspievajú"
+    ],
+    "past": [
+      "zaspieval",
+      "zaspievala",
+      "zaspievalo",
+      "zaspievali"
+    ],
+    "imp": [
+      "zaspievaj",
+      "zaspievajme",
+      "zaspievajte"
+    ],
+    "score": 785,
+    "tb": 1
+  },
+  {
+    "w": "akceptovať",
+    "refl": "",
+    "g": "to accept",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "akceptujem",
+      "akceptuješ",
+      "akceptuje",
+      "akceptujeme",
+      "akceptujete",
+      "akceptujú"
+    ],
+    "past": [
+      "akceptoval",
+      "akceptovala",
+      "akceptovalo",
+      "akceptovali"
+    ],
+    "imp": [
+      "akceptuj",
+      "akceptujme",
+      "akceptujte"
+    ],
+    "score": 776,
+    "tb": 1
+  },
+  {
+    "w": "kašľať",
+    "refl": "",
+    "g": "to cough",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": null,
+    "pres": [
+      "kašlem",
+      "kašleš",
+      "kašle",
+      "kašleme",
+      "kašlete",
+      "kašľú"
+    ],
+    "past": [
+      "kašľal",
+      "kašľala",
+      "kašľalo",
+      "kašľali"
+    ],
+    "imp": [
+      "kašli",
+      "kašlime",
+      "kašlite"
+    ],
+    "score": 764,
+    "tb": 1
+  },
+  {
+    "w": "hlasovať",
+    "refl": "",
+    "g": "to vote",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": "zahlasovať",
+    "pres": [
+      "hlasujem",
+      "hlasuješ",
+      "hlasuje",
+      "hlasujeme",
+      "hlasujete",
+      "hlasujú"
+    ],
+    "past": [
+      "hlasoval",
+      "hlasovala",
+      "hlasovalo",
+      "hlasovali"
+    ],
+    "imp": [
+      "hlasuj",
+      "hlasujme",
+      "hlasujte"
+    ],
+    "score": 763,
+    "tb": 1
+  },
+  {
+    "w": "bodnúť",
+    "refl": "",
+    "g": "to stab",
+    "asp": "impf",
+    "cls": "4c",
+    "partner": null,
+    "pres": [
+      "bodnem",
+      "bodneš",
+      "bodne",
+      "bodneme",
+      "bodnete",
+      "bodnú"
+    ],
+    "past": [
+      "bodol",
+      "bodla",
+      "bodlo",
+      "bodli"
+    ],
+    "imp": [
+      "bodni",
+      "bodnime",
+      "bodnite"
+    ],
+    "score": 755,
+    "tb": 2
+  },
+  {
+    "w": "viezť",
+    "refl": "",
+    "g": "to carry, convey, haul",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": null,
+    "pres": [
+      "veziem",
+      "vezieš",
+      "vezie",
+      "vezieme",
+      "veziete",
+      "vezú"
+    ],
+    "past": [
+      "viezol",
+      "viezla",
+      "viezlo",
+      "viezli"
+    ],
+    "imp": [
+      "vez",
+      "vezme",
+      "vezte"
+    ],
+    "score": 747,
+    "tb": 3
+  },
+  {
+    "w": "zatvárať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "zatváram",
+      "zatváraš",
+      "zatvára",
+      "zatvárame",
+      "zatvárate",
+      "zatvárajú"
+    ],
+    "past": [
+      "zatváral",
+      "zatvárala",
+      "zatváralo",
+      "zatvárali"
+    ],
+    "imp": [
+      "zatváraj",
+      "zatvárajme",
+      "zatvárajte"
+    ],
+    "score": 744,
+    "tb": 6
+  },
+  {
+    "w": "aktivovať",
+    "refl": "",
+    "g": "to activate, to enable",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "aktivujem",
+      "aktivuješ",
+      "aktivuje",
+      "aktivujeme",
+      "aktivujete",
+      "aktivujú"
+    ],
+    "past": [
+      "aktivoval",
+      "aktivovala",
+      "aktivovalo",
+      "aktivovali"
+    ],
+    "imp": [
+      "aktivuj",
+      "aktivujme",
+      "aktivujte"
+    ],
+    "score": 741,
+    "tb": 1
+  },
+  {
+    "w": "podržať",
+    "refl": "",
+    "g": "to hold for a moment, to support",
+    "asp": "pf",
+    "cls": "5c",
+    "partner": "podržiavať",
+    "pres": [
+      "podržím",
+      "podržíš",
+      "podrží",
+      "podržíme",
+      "podržíte",
+      "podržia"
+    ],
+    "past": [
+      "podržal",
+      "podržala",
+      "podržalo",
+      "podržali"
+    ],
+    "imp": [
+      "podrž",
+      "podržme",
+      "podržte"
+    ],
+    "score": 722,
+    "tb": 1
+  },
+  {
+    "w": "páliť",
+    "refl": "",
+    "g": "to burn",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "pálim",
+      "páliš",
+      "páli",
+      "pálime",
+      "pálite",
+      "pália"
+    ],
+    "past": [
+      "pálil",
+      "pálila",
+      "pálilo",
+      "pálili"
+    ],
+    "imp": [
+      "páľ",
+      "páľme",
+      "páľte"
+    ],
+    "score": 716,
+    "tb": 6
+  },
+  {
+    "w": "otráviť",
+    "refl": "",
+    "g": "to poison",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "otravovať",
+    "pres": [
+      "otrávim",
+      "otráviš",
+      "otrávi",
+      "otrávime",
+      "otrávite",
+      "otrávia"
+    ],
+    "past": [
+      "otrávil",
+      "otrávila",
+      "otrávilo",
+      "otrávili"
+    ],
+    "imp": [
+      "otráv",
+      "otrávme",
+      "otrávte"
+    ],
+    "score": 713,
+    "tb": 1
+  },
+  {
+    "w": "zhorieť",
+    "refl": "",
+    "g": "to burn down, to burn completely",
+    "asp": "pf",
+    "cls": "5b",
+    "partner": null,
+    "pres": [
+      "zhorím",
+      "zhoríš",
+      "zhorí",
+      "zhoríme",
+      "zhoríte",
+      "zhoria"
+    ],
+    "past": [
+      "zhorel",
+      "zhorela",
+      "zhorelo",
+      "zhoreli"
+    ],
+    "imp": [
+      "zhor",
+      "zhorme",
+      "zhorte"
+    ],
+    "score": 691,
+    "tb": 3
+  },
+  {
+    "w": "objať",
+    "refl": "",
+    "g": "to hug, to embrace",
+    "asp": "pf",
+    "cls": "4b",
+    "partner": "objímať",
+    "pres": [
+      "objímem",
+      "objímeš",
+      "objíme",
+      "objímeme",
+      "objímete",
+      "objímu"
+    ],
+    "past": [
+      "objal",
+      "objala",
+      "objalo",
+      "objali"
+    ],
+    "imp": [
+      "objím",
+      "objímme",
+      "objímte"
+    ],
+    "score": 686,
+    "tb": 15
+  },
+  {
+    "w": "opiť",
+    "refl": "",
+    "g": "to get drunk",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "opíjať",
+    "pres": [
+      "opijem",
+      "opiješ",
+      "opije",
+      "opijeme",
+      "opijete",
+      "opijú"
+    ],
+    "past": [
+      "opil",
+      "opila",
+      "opilo",
+      "opili"
+    ],
+    "imp": [
+      "opi",
+      "opime",
+      "opite"
+    ],
+    "score": 683,
+    "tb": 1
+  },
+  {
+    "w": "zbiť",
+    "refl": "",
+    "g": "to nail together, to assemble, to knock down",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "zbíjať",
+    "pres": [
+      "zbijem",
+      "zbiješ",
+      "zbije",
+      "zbijeme",
+      "zbijete",
+      "zbijú"
+    ],
+    "past": [
+      "zbil",
+      "zbila",
+      "zbilo",
+      "zbili"
+    ],
+    "imp": [
+      "zbi",
+      "zbime",
+      "zbite"
+    ],
+    "score": 663,
+    "tb": 1
+  },
+  {
+    "w": "voliť",
+    "refl": "",
+    "g": "to choose, to select, to vote",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "zvoliť",
+    "pres": [
+      "volím",
+      "volíš",
+      "volí",
+      "volíme",
+      "volíte",
+      "volia"
+    ],
+    "past": [
+      "volil",
+      "volila",
+      "volilo",
+      "volili"
+    ],
+    "imp": [
+      "voľ",
+      "voľme",
+      "voľte"
+    ],
+    "score": 651,
+    "tb": 1
+  },
+  {
+    "w": "šukať",
+    "refl": "",
+    "g": "to fuck, to wander",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "šukám",
+      "šukáš",
+      "šuká",
+      "šukáme",
+      "šukáte",
+      "šukajú"
+    ],
+    "past": [
+      "šukal",
+      "šukala",
+      "šukalo",
+      "šukali"
+    ],
+    "imp": [
+      "šukaj",
+      "šukajme",
+      "šukajte"
+    ],
+    "score": 632,
+    "tb": 1
+  },
+  {
+    "w": "preukázať",
+    "refl": "",
+    "g": "to show proof, to prove, to show",
+    "asp": "pf",
+    "cls": "4a",
+    "partner": "preukazovať",
+    "pres": [
+      "preukážem",
+      "preukážeš",
+      "preukáže",
+      "preukážeme",
+      "preukážete",
+      "preukážu"
+    ],
+    "past": [
+      "preukázal",
+      "preukázala",
+      "preukázalo",
+      "preukázali"
+    ],
+    "imp": [
+      "preukáž",
+      "preukážme",
+      "preukážte"
+    ],
+    "score": 609,
+    "tb": 1
+  },
+  {
+    "w": "narobiť",
+    "refl": "",
+    "g": "to make, to cause",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "narobím",
+      "narobíš",
+      "narobí",
+      "narobíme",
+      "narobíte",
+      "narobia"
+    ],
+    "past": [
+      "narobil",
+      "narobila",
+      "narobilo",
+      "narobili"
+    ],
+    "imp": [
+      "narob",
+      "narobme",
+      "narobte"
+    ],
+    "score": 586,
+    "tb": 1
+  },
+  {
+    "w": "obísť",
+    "refl": "",
+    "g": "to go around, to walk around, to travel through",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "obídem",
+      "obídeš",
+      "obíde",
+      "obídeme",
+      "obídete",
+      "obídu"
+    ],
+    "past": [
+      "obišiel",
+      "obišla",
+      "obišlo",
+      "obišli"
+    ],
+    "imp": [
+      "obíď",
+      "obíďme",
+      "obíďte"
+    ],
+    "score": 579,
+    "tb": 1
+  },
+  {
+    "w": "hnúť",
+    "refl": "",
+    "g": "to move, to move about",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "hýbať",
+    "pres": [
+      "hnem",
+      "hneš",
+      "hne",
+      "hneme",
+      "hnete",
+      "hnú"
+    ],
+    "past": [
+      "hnul",
+      "hnula",
+      "hnulo",
+      "hnuli"
+    ],
+    "imp": [
+      "hni",
+      "hnime",
+      "hnite"
+    ],
+    "score": 558,
+    "tb": 1
+  },
+  {
+    "w": "rátať",
+    "refl": "",
+    "g": "to count, to calculate",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "rátam",
+      "rátaš",
+      "ráta",
+      "rátame",
+      "rátate",
+      "rátajú"
+    ],
+    "past": [
+      "rátal",
+      "rátala",
+      "rátalo",
+      "rátali"
+    ],
+    "imp": [
+      "rátaj",
+      "rátajme",
+      "rátajte"
+    ],
+    "score": 537,
+    "tb": 1
+  },
+  {
+    "w": "tiecť",
+    "refl": "",
+    "g": "to flow",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": null,
+    "pres": [
+      "tečiem",
+      "tečieš",
+      "tečie",
+      "tečieme",
+      "tečiete",
+      "tečú"
+    ],
+    "past": [
+      "tiekol",
+      "tiekla",
+      "tieklo",
+      "tiekli"
+    ],
+    "imp": [
+      "teč",
+      "tečme",
+      "tečte"
+    ],
+    "score": 531,
+    "tb": 2
+  },
+  {
+    "w": "rodiť",
+    "refl": "",
+    "g": "to bear, to give birth",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "rodím",
+      "rodíš",
+      "rodí",
+      "rodíme",
+      "rodíte",
+      "rodia"
+    ],
+    "past": [
+      "rodil",
+      "rodila",
+      "rodilo",
+      "rodili"
+    ],
+    "imp": [
+      "roď",
+      "roďme",
+      "roďte"
+    ],
+    "score": 523,
+    "tb": 1
+  },
+  {
+    "w": "pátrať",
+    "refl": "",
+    "g": "to look for, search, to scout",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "patriť",
+    "pres": [
+      "pátrám",
+      "pátráš",
+      "pátrá",
+      "pátráme",
+      "pátráte",
+      "pátrajú"
+    ],
+    "past": [
+      "pátral",
+      "pátrala",
+      "pátralo",
+      "pátrali"
+    ],
+    "imp": [
+      "pátraj",
+      "pátrajme",
+      "pátrajte"
+    ],
+    "score": 516,
+    "tb": 1
+  },
+  {
+    "w": "vymknúť",
+    "refl": "",
+    "g": "to lock out, to dislocate, to sprain",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "vymkýnať",
+    "pres": [
+      "vymknem",
+      "vymkneš",
+      "vymkne",
+      "vymkneme",
+      "vymknete",
+      "vymknú"
+    ],
+    "past": [
+      "vymkol",
+      "vymkla",
+      "vymklo",
+      "vymkli"
+    ],
+    "imp": [
+      "vymkni",
+      "vymknime",
+      "vymknite"
+    ],
+    "score": 511,
+    "tb": 1
+  },
+  {
+    "w": "sať",
+    "refl": "",
+    "g": "to suck",
+    "asp": "impf",
+    "cls": "4d",
+    "partner": null,
+    "pres": [
+      "sajem",
+      "saješ",
+      "saje",
+      "sajeme",
+      "sajete",
+      "sajú"
+    ],
+    "past": [
+      "sal",
+      "sala",
+      "salo",
+      "sali"
+    ],
+    "imp": [
+      "saj",
+      "sajme",
+      "sajte"
+    ],
+    "score": 507,
+    "tb": 1
+  },
+  {
+    "w": "organizovať",
+    "refl": "",
+    "g": "to organize",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": "zorganizovať",
+    "pres": [
+      "organizujem",
+      "organizuješ",
+      "organizuje",
+      "organizujeme",
+      "organizujete",
+      "organizujú"
+    ],
+    "past": [
+      "organizoval",
+      "organizovala",
+      "organizovalo",
+      "organizovali"
+    ],
+    "imp": [
+      "organizuj",
+      "organizujme",
+      "organizujte"
+    ],
+    "score": 485,
+    "tb": 1
+  },
+  {
+    "w": "nadísť",
+    "refl": "",
+    "g": "to come, to arrive, to set in",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "nadídem",
+      "nadídeš",
+      "nadíde",
+      "nadídeme",
+      "nadídete",
+      "nadídu"
+    ],
+    "past": [
+      "nadišiel",
+      "nadišla",
+      "nadišlo",
+      "nadišli"
+    ],
+    "imp": [
+      "nadíď",
+      "nadíďme",
+      "nadíďte"
+    ],
+    "score": 476,
+    "tb": 1
+  },
+  {
+    "w": "predpovedať",
+    "refl": "",
+    "g": "to predict",
+    "asp": "pf",
+    "cls": "irreg-povedať",
+    "partner": null,
+    "pres": [
+      "predpovedám",
+      "predpovedáš",
+      "predpovedá",
+      "predpovedáme",
+      "predpovedáte",
+      "predpovedajú"
+    ],
+    "past": [
+      "predpovedal",
+      "predpovedala",
+      "predpovedalo",
+      "predpovedali"
+    ],
+    "imp": [
+      "predpovedz",
+      "predpovedzme",
+      "predpovedzte"
+    ],
+    "score": 468,
+    "tb": 3
+  },
+  {
+    "w": "obsadiť",
+    "refl": "",
+    "g": "to occupy, take",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "obsadzovať",
+    "pres": [
+      "obsadím",
+      "obsadíš",
+      "obsadí",
+      "obsadíme",
+      "obsadíte",
+      "obsadia"
+    ],
+    "past": [
+      "obsadil",
+      "obsadila",
+      "obsadilo",
+      "obsadili"
+    ],
+    "imp": [
+      "obsaď",
+      "obsaďme",
+      "obsaďte"
+    ],
+    "score": 466,
+    "tb": 6
+  },
+  {
+    "w": "flirtovať",
+    "refl": "",
+    "g": "to flirt",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "flirtujem",
+      "flirtuješ",
+      "flirtuje",
+      "flirtujeme",
+      "flirtujete",
+      "flirtujú"
+    ],
+    "past": [
+      "flirtoval",
+      "flirtovala",
+      "flirtovalo",
+      "flirtovali"
+    ],
+    "imp": [
+      "flirtuj",
+      "flirtujme",
+      "flirtujte"
+    ],
+    "score": 460,
+    "tb": 1
+  },
+  {
+    "w": "explodovať",
+    "refl": "",
+    "g": "to explode",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "explodujem",
+      "exploduješ",
+      "exploduje",
+      "explodujeme",
+      "explodujete",
+      "explodujú"
+    ],
+    "past": [
+      "explodoval",
+      "explodovala",
+      "explodovalo",
+      "explodovali"
+    ],
+    "imp": [
+      "exploduj",
+      "explodujme",
+      "explodujte"
+    ],
+    "score": 416,
+    "tb": 1
+  },
+  {
+    "w": "pobiť",
+    "refl": "",
+    "g": "to break, to slaughter, to slay",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "pobíjať",
+    "pres": [
+      "pobijem",
+      "pobiješ",
+      "pobije",
+      "pobijeme",
+      "pobijete",
+      "pobijú"
+    ],
+    "past": [
+      "pobil",
+      "pobila",
+      "pobilo",
+      "pobili"
+    ],
+    "imp": [
+      "pobi",
+      "pobime",
+      "pobite"
+    ],
+    "score": 410,
+    "tb": 1
+  },
+  {
+    "w": "parkovať",
+    "refl": "",
+    "g": "to park",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": "zaparkovať",
+    "pres": [
+      "parkujem",
+      "parkuješ",
+      "parkuje",
+      "parkujeme",
+      "parkujete",
+      "parkujú"
+    ],
+    "past": [
+      "parkoval",
+      "parkovala",
+      "parkovalo",
+      "parkovali"
+    ],
+    "imp": [
+      "parkuj",
+      "parkujme",
+      "parkujte"
+    ],
+    "score": 406,
+    "tb": 1
+  },
+  {
+    "w": "pliesť",
+    "refl": "",
+    "g": "to braid, to plait, to knit",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": "upliesť",
+    "pres": [
+      "pletiem",
+      "pletieš",
+      "pletie",
+      "pletieme",
+      "pletiete",
+      "pletú"
+    ],
+    "past": [
+      "plietol",
+      "plietla",
+      "plietlo",
+      "plietli"
+    ],
+    "imp": [
+      "pleť",
+      "pleťme",
+      "pleťte"
+    ],
+    "score": 403,
+    "tb": 1
+  },
+  {
+    "w": "adoptovať",
+    "refl": "",
+    "g": "to adopt",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "adoptujem",
+      "adoptuješ",
+      "adoptuje",
+      "adoptujeme",
+      "adoptujete",
+      "adoptujú"
+    ],
+    "past": [
+      "adoptoval",
+      "adoptovala",
+      "adoptovalo",
+      "adoptovali"
+    ],
+    "imp": [
+      "adoptuj",
+      "adoptujme",
+      "adoptujte"
+    ],
+    "score": 401,
+    "tb": 2
+  },
+  {
+    "w": "vystaviť",
+    "refl": "",
+    "g": "to build, to construct, to exhibit",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "vystavovať",
+    "pres": [
+      "vystavím",
+      "vystavíš",
+      "vystaví",
+      "vystavíme",
+      "vystavíte",
+      "vystavia"
+    ],
+    "past": [
+      "vystavil",
+      "vystavila",
+      "vystavilo",
+      "vystavili"
+    ],
+    "imp": [
+      "vystav",
+      "vystavme",
+      "vystavte"
+    ],
+    "score": 396,
+    "tb": 1
+  },
+  {
+    "w": "vystáť",
+    "refl": "",
+    "g": "to create by standing, to get by standing in line, to obtain",
+    "asp": "pf",
+    "cls": "irreg-stáť",
+    "partner": null,
+    "pres": [
+      "vystojím",
+      "vystojíš",
+      "vystojí",
+      "vystojíme",
+      "vystojíte",
+      "vystoja"
+    ],
+    "past": [
+      "vystál",
+      "vystála",
+      "vystálo",
+      "vystáli"
+    ],
+    "imp": [
+      "vystoj",
+      "vystojme",
+      "vystojte"
+    ],
+    "score": 394,
+    "tb": 1
+  },
+  {
+    "w": "zastať",
+    "refl": "",
+    "g": "to stop, to halt, to pull up",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": "zastávať",
+    "pres": [
+      "zastanem",
+      "zastaneš",
+      "zastane",
+      "zastaneme",
+      "zastanete",
+      "zastanú"
+    ],
+    "past": [
+      "zastal",
+      "zastala",
+      "zastalo",
+      "zastali"
+    ],
+    "imp": [
+      "zastaň",
+      "zastaňme",
+      "zastaňte"
+    ],
+    "score": 390,
+    "tb": 26
+  },
+  {
+    "w": "analyzovať",
+    "refl": "",
+    "g": "to analyze",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "analyzujem",
+      "analyzuješ",
+      "analyzuje",
+      "analyzujeme",
+      "analyzujete",
+      "analyzujú"
+    ],
+    "past": [
+      "analyzoval",
+      "analyzovala",
+      "analyzovalo",
+      "analyzovali"
+    ],
+    "imp": [
+      "analyzuj",
+      "analyzujme",
+      "analyzujte"
+    ],
+    "score": 388,
+    "tb": 1
+  },
+  {
+    "w": "voziť",
+    "refl": "",
+    "g": "to carry, convey, haul",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "vozím",
+      "vozíš",
+      "vozí",
+      "vozíme",
+      "vozíte",
+      "vozia"
+    ],
+    "past": [
+      "vozil",
+      "vozila",
+      "vozilo",
+      "vozili"
+    ],
+    "imp": [
+      "voz",
+      "vozme",
+      "vozte"
+    ],
+    "score": 377,
+    "tb": 1
+  },
+  {
+    "w": "povstať",
+    "refl": "",
+    "g": "to rise, to stand up, to rise up",
+    "asp": "pf",
+    "cls": "irreg-stať",
+    "partner": "povstávať",
+    "pres": [
+      "povstanem",
+      "povstaneš",
+      "povstane",
+      "povstaneme",
+      "povstanete",
+      "povstanú"
+    ],
+    "past": [
+      "povstal",
+      "povstala",
+      "povstalo",
+      "povstali"
+    ],
+    "imp": [
+      "povstaň",
+      "povstaňme",
+      "povstaňte"
+    ],
+    "score": 368,
+    "tb": 3
+  },
+  {
+    "w": "lámať",
+    "refl": "",
+    "g": "to break, to refract to change direction)",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": "zlomiť",
+    "pres": [
+      "lámem",
+      "lámeš",
+      "láme",
+      "lámeme",
+      "lámete",
+      "lámu"
+    ],
+    "past": [
+      "lámal",
+      "lámala",
+      "lámalo",
+      "lámali"
+    ],
+    "imp": [
+      "lám",
+      "lámme",
+      "lámte"
+    ],
+    "score": 368,
+    "tb": 1
+  },
+  {
+    "w": "garantovať",
+    "refl": "",
+    "g": "to guarantee",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "garantujem",
+      "garantuješ",
+      "garantuje",
+      "garantujeme",
+      "garantujete",
+      "garantujú"
+    ],
+    "past": [
+      "garantoval",
+      "garantovala",
+      "garantovalo",
+      "garantovali"
+    ],
+    "imp": [
+      "garantuj",
+      "garantujme",
+      "garantujte"
+    ],
+    "score": 363,
+    "tb": 1
+  },
+  {
+    "w": "zastavovať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "zastavujem",
+      "zastavuješ",
+      "zastavuje",
+      "zastavujeme",
+      "zastavujete",
+      "zastavujú"
+    ],
+    "past": [
+      "zastavoval",
+      "zastavovala",
+      "zastavovalo",
+      "zastavovali"
+    ],
+    "imp": [
+      "zastavuj",
+      "zastavujme",
+      "zastavujte"
+    ],
+    "score": 362,
+    "tb": 1
+  },
+  {
+    "w": "blokovať",
+    "refl": "",
+    "g": "to block",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "blokujem",
+      "blokuješ",
+      "blokuje",
+      "blokujeme",
+      "blokujete",
+      "blokujú"
+    ],
+    "past": [
+      "blokoval",
+      "blokovala",
+      "blokovalo",
+      "blokovali"
+    ],
+    "imp": [
+      "blokuj",
+      "blokujme",
+      "blokujte"
+    ],
+    "score": 352,
+    "tb": 1
+  },
+  {
+    "w": "budovať",
+    "refl": "",
+    "g": "to build",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": "vybudovať",
+    "pres": [
+      "budujem",
+      "buduješ",
+      "buduje",
+      "budujeme",
+      "budujete",
+      "budujú"
+    ],
+    "past": [
+      "budoval",
+      "budovala",
+      "budovalo",
+      "budovali"
+    ],
+    "imp": [
+      "buduj",
+      "budujme",
+      "budujte"
+    ],
+    "score": 350,
+    "tb": 1
+  },
+  {
+    "w": "odstaviť",
+    "refl": "",
+    "g": "to shut down, to take out of service, to cut off",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "odstavovať",
+    "pres": [
+      "odstavím",
+      "odstavíš",
+      "odstaví",
+      "odstavíme",
+      "odstavíte",
+      "odstavia"
+    ],
+    "past": [
+      "odstavil",
+      "odstavila",
+      "odstavilo",
+      "odstavili"
+    ],
+    "imp": [
+      "odstav",
+      "odstavme",
+      "odstavte"
+    ],
+    "score": 349,
+    "tb": 1
+  },
+  {
+    "w": "upiecť",
+    "refl": "",
+    "g": "",
+    "asp": "pf",
+    "cls": "3a",
+    "partner": null,
+    "pres": [
+      "upečiem",
+      "upečieš",
+      "upečie",
+      "upečieme",
+      "upečiete",
+      "upečú"
+    ],
+    "past": [
+      "upiekol",
+      "upiekla",
+      "upieklo",
+      "upiekli"
+    ],
+    "imp": [
+      "upeč",
+      "upečme",
+      "upečte"
+    ],
+    "score": 343,
+    "tb": 1
+  },
+  {
+    "w": "mrznúť",
+    "refl": "",
+    "g": "to freeze, to suffer from cold",
+    "asp": "impf",
+    "cls": "4c",
+    "partner": "zamrznúť",
+    "pres": [
+      "mrznem",
+      "mrzneš",
+      "mrzne",
+      "mrzneme",
+      "mrznete",
+      "mrznú"
+    ],
+    "past": [
+      "mrzol",
+      "mrzla",
+      "mrzlo",
+      "mrzli"
+    ],
+    "imp": [
+      "mrzni",
+      "mrznime",
+      "mrznite"
+    ],
+    "score": 340,
+    "tb": 1
+  },
+  {
+    "w": "schudnúť",
+    "refl": "",
+    "g": "to lose weight",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "chudnúť",
+    "pres": [
+      "schudnem",
+      "schudneš",
+      "schudne",
+      "schudneme",
+      "schudnete",
+      "schudnú"
+    ],
+    "past": [
+      "schudol",
+      "schudla",
+      "schudlo",
+      "schudli"
+    ],
+    "imp": [
+      "schudni",
+      "schudnime",
+      "schudnite"
+    ],
+    "score": 336,
+    "tb": 1
+  },
+  {
+    "w": "nabiť",
+    "refl": "",
+    "g": "to drive, to hit, to beat",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "nabíjať",
+    "pres": [
+      "nabijem",
+      "nabiješ",
+      "nabije",
+      "nabijeme",
+      "nabijete",
+      "nabijú"
+    ],
+    "past": [
+      "nabil",
+      "nabila",
+      "nabilo",
+      "nabili"
+    ],
+    "imp": [
+      "nabi",
+      "nabime",
+      "nabite"
+    ],
+    "score": 334,
+    "tb": 1
+  },
+  {
+    "w": "piecť",
+    "refl": "",
+    "g": "to bake, to roast",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": "upiecť",
+    "pres": [
+      "pečiem",
+      "pečieš",
+      "pečie",
+      "pečieme",
+      "pečiete",
+      "pečú"
+    ],
+    "past": [
+      "piekol",
+      "piekla",
+      "pieklo",
+      "piekli"
+    ],
+    "imp": [
+      "peč",
+      "pečme",
+      "pečte"
+    ],
+    "score": 331,
+    "tb": 2
+  },
+  {
+    "w": "hnať",
+    "refl": "",
+    "g": "to drive",
+    "asp": "impf",
+    "cls": "3d",
+    "partner": null,
+    "pres": [
+      "ženiem",
+      "ženieš",
+      "ženie",
+      "ženieme",
+      "ženiete",
+      "ženú"
+    ],
+    "past": [
+      "hnal",
+      "hnala",
+      "hnalo",
+      "hnali"
+    ],
+    "imp": [
+      "žeň",
+      "žeňme",
+      "žeňte"
+    ],
+    "score": 327,
+    "tb": 1
+  },
+  {
+    "w": "fúkať",
+    "refl": "",
+    "g": "to blow",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "fúknuť",
+    "pres": [
+      "fúkam",
+      "fúkaš",
+      "fúka",
+      "fúkame",
+      "fúkate",
+      "fúkajú"
+    ],
+    "past": [
+      "fúkal",
+      "fúkala",
+      "fúkalo",
+      "fúkali"
+    ],
+    "imp": [
+      "fúkaj",
+      "fúkajme",
+      "fúkajte"
+    ],
+    "score": 327,
+    "tb": 1
+  },
+  {
+    "w": "pretekať",
+    "refl": "",
+    "g": "to race, to compete",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "pretekám",
+      "pretekáš",
+      "preteká",
+      "pretekáme",
+      "pretekáte",
+      "pretekajú"
+    ],
+    "past": [
+      "pretekal",
+      "pretekala",
+      "pretekalo",
+      "pretekali"
+    ],
+    "imp": [
+      "pretekaj",
+      "pretekajme",
+      "pretekajte"
+    ],
+    "score": 287,
+    "tb": 1
+  },
+  {
+    "w": "šepkať",
+    "refl": "",
+    "g": "to whisper",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "zašepkať",
+    "pres": [
+      "šepkám",
+      "šepkáš",
+      "šepká",
+      "šepkáme",
+      "šepkáte",
+      "šepkajú"
+    ],
+    "past": [
+      "šepkal",
+      "šepkala",
+      "šepkalo",
+      "šepkali"
+    ],
+    "imp": [
+      "šepkaj",
+      "šepkajme",
+      "šepkajte"
+    ],
+    "score": 283,
+    "tb": 3
+  },
+  {
+    "w": "jestvovať",
+    "refl": "",
+    "g": "to exist",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "jestvujem",
+      "jestvuješ",
+      "jestvuje",
+      "jestvujeme",
+      "jestvujete",
+      "jestvujú"
+    ],
+    "past": [
+      "jestvoval",
+      "jestvovala",
+      "jestvovalo",
+      "jestvovali"
+    ],
+    "imp": [
+      "jestvuj",
+      "jestvujme",
+      "jestvujte"
+    ],
+    "score": 265,
+    "tb": 7
+  },
+  {
+    "w": "hrýzť",
+    "refl": "",
+    "g": "to bite",
+    "asp": "impf",
+    "cls": "3a",
+    "partner": null,
+    "pres": [
+      "hryziem",
+      "hryzieš",
+      "hryzie",
+      "hryzieme",
+      "hryziete",
+      "hryzú"
+    ],
+    "past": [
+      "hrýzol",
+      "hrýzla",
+      "hrýzlo",
+      "hrýzli"
+    ],
+    "imp": [
+      "hryz",
+      "hryzme",
+      "hryzte"
+    ],
+    "score": 264,
+    "tb": 2
+  },
+  {
+    "w": "budiť",
+    "refl": "",
+    "g": "to wake up",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "budím",
+      "budíš",
+      "budí",
+      "budíme",
+      "budíte",
+      "budia"
+    ],
+    "past": [
+      "budil",
+      "budila",
+      "budilo",
+      "budili"
+    ],
+    "imp": [
+      "buď",
+      "buďme",
+      "buďte"
+    ],
+    "score": 240,
+    "tb": 1
+  },
+  {
+    "w": "odpísať",
+    "refl": "",
+    "g": "to copy verbatim, to cheat",
+    "asp": "pf",
+    "cls": "4a",
+    "partner": "odpisovať",
+    "pres": [
+      "odpíšem",
+      "odpíšeš",
+      "odpíše",
+      "odpíšeme",
+      "odpíšete",
+      "odpíšu"
+    ],
+    "past": [
+      "odpísal",
+      "odpísala",
+      "odpísalo",
+      "odpísali"
+    ],
+    "imp": [
+      "odpíš",
+      "odpíšme",
+      "odpíšte"
+    ],
+    "score": 234,
+    "tb": 1
+  },
+  {
+    "w": "nastupovať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "nastupujem",
+      "nastupuješ",
+      "nastupuje",
+      "nastupujeme",
+      "nastupujete",
+      "nastupujú"
+    ],
+    "past": [
+      "nastupoval",
+      "nastupovala",
+      "nastupovalo",
+      "nastupovali"
+    ],
+    "imp": [
+      "nastupuj",
+      "nastupujme",
+      "nastupujte"
+    ],
+    "score": 233,
+    "tb": 1
+  },
+  {
+    "w": "požehnať",
+    "refl": "",
+    "g": "to bless",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "žehnať",
+    "pres": [
+      "požehnám",
+      "požehnáš",
+      "požehná",
+      "požehnáme",
+      "požehnáte",
+      "požehnajú"
+    ],
+    "past": [
+      "požehnal",
+      "požehnala",
+      "požehnalo",
+      "požehnali"
+    ],
+    "imp": [
+      "požehnaj",
+      "požehnajme",
+      "požehnajte"
+    ],
+    "score": 229,
+    "tb": 1
+  },
+  {
+    "w": "učiniť",
+    "refl": "",
+    "g": "",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "učiním",
+      "učiníš",
+      "učiní",
+      "učiníme",
+      "učiníte",
+      "učinia"
+    ],
+    "past": [
+      "učinil",
+      "učinila",
+      "učinilo",
+      "učinili"
+    ],
+    "imp": [
+      "učiň",
+      "učiňme",
+      "učiňte"
+    ],
+    "score": 215,
+    "tb": 1
+  },
+  {
+    "w": "rezať",
+    "refl": "",
+    "g": "to cut",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": null,
+    "pres": [
+      "režem",
+      "režeš",
+      "reže",
+      "režeme",
+      "režete",
+      "režú"
+    ],
+    "past": [
+      "rezal",
+      "rezala",
+      "rezalo",
+      "rezali"
+    ],
+    "imp": [
+      "rež",
+      "režme",
+      "režte"
+    ],
+    "score": 202,
+    "tb": 1
+  },
+  {
+    "w": "prerobiť",
+    "refl": "",
+    "g": "to redo, to remake, to rework",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "prerábať",
+    "pres": [
+      "prerobím",
+      "prerobíš",
+      "prerobí",
+      "prerobíme",
+      "prerobíte",
+      "prerobia"
+    ],
+    "past": [
+      "prerobil",
+      "prerobila",
+      "prerobilo",
+      "prerobili"
+    ],
+    "imp": [
+      "prerob",
+      "prerobme",
+      "prerobte"
+    ],
+    "score": 201,
+    "tb": 1
+  },
+  {
+    "w": "vodiť",
+    "refl": "",
+    "g": "to lead",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "vodím",
+      "vodíš",
+      "vodí",
+      "vodíme",
+      "vodíte",
+      "vodia"
+    ],
+    "past": [
+      "vodil",
+      "vodila",
+      "vodilo",
+      "vodili"
+    ],
+    "imp": [
+      "voď",
+      "voďme",
+      "voďte"
+    ],
+    "score": 199,
+    "tb": 1
+  },
+  {
+    "w": "dostaviť",
+    "refl": "sa",
+    "g": "to appear, to report, to show up",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "dostavovať",
+    "pres": [
+      "dostavím",
+      "dostavíš",
+      "dostaví",
+      "dostavíme",
+      "dostavíte",
+      "dostavia"
+    ],
+    "past": [
+      "dostavil",
+      "dostavila",
+      "dostavilo",
+      "dostavili"
+    ],
+    "imp": [
+      "dostav",
+      "dostavme",
+      "dostavte"
+    ],
+    "score": 195,
+    "tb": 2
+  },
+  {
+    "w": "zastavať",
+    "refl": "",
+    "g": "to build up, to develop, to build in",
+    "asp": "pf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "zastaviam",
+      "zastaviaš",
+      "zastavia",
+      "zastaviame",
+      "zastaviate",
+      "zastavajú"
+    ],
+    "past": [
+      "zastaval",
+      "zastavala",
+      "zastavalo",
+      "zastavali"
+    ],
+    "imp": [
+      "zastavaj",
+      "zastavajme",
+      "zastavajte"
+    ],
+    "score": 195,
+    "tb": 1
+  },
+  {
+    "w": "dobiť",
+    "refl": "",
+    "g": "to finish striking, to beat severely, to batter",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "dobíjať",
+    "pres": [
+      "dobijem",
+      "dobiješ",
+      "dobije",
+      "dobijeme",
+      "dobijete",
+      "dobijú"
+    ],
+    "past": [
+      "dobil",
+      "dobila",
+      "dobilo",
+      "dobili"
+    ],
+    "imp": [
+      "dobi",
+      "dobime",
+      "dobite"
+    ],
+    "score": 188,
+    "tb": 1
+  },
+  {
+    "w": "delať",
+    "refl": "",
+    "g": "to do, to make, to work",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "delám",
+      "deláš",
+      "delá",
+      "deláme",
+      "deláte",
+      "delajú"
+    ],
+    "past": [
+      "delal",
+      "delala",
+      "delalo",
+      "delali"
+    ],
+    "imp": [
+      "delaj",
+      "delajme",
+      "delajte"
+    ],
+    "score": 184,
+    "tb": 1
+  },
+  {
+    "w": "pristávať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "pristávam",
+      "pristávaš",
+      "pristáva",
+      "pristávame",
+      "pristávate",
+      "pristávajú"
+    ],
+    "past": [
+      "pristával",
+      "pristávala",
+      "pristávalo",
+      "pristávali"
+    ],
+    "imp": [
+      "pristávaj",
+      "pristávajme",
+      "pristávajte"
+    ],
+    "score": 183,
+    "tb": 1
+  },
+  {
+    "w": "cikať",
+    "refl": "",
+    "g": "to pee",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "cikám",
+      "cikáš",
+      "ciká",
+      "cikáme",
+      "cikáte",
+      "cikajú"
+    ],
+    "past": [
+      "cikal",
+      "cikala",
+      "cikalo",
+      "cikali"
+    ],
+    "imp": [
+      "cikaj",
+      "cikajme",
+      "cikajte"
+    ],
+    "score": 180,
+    "tb": 1
+  },
+  {
+    "w": "žehnať",
+    "refl": "",
+    "g": "to bless",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "požehnať",
+    "pres": [
+      "žehnám",
+      "žehnáš",
+      "žehná",
+      "žehnáme",
+      "žehnáte",
+      "žehnajú"
+    ],
+    "past": [
+      "žehnal",
+      "žehnala",
+      "žehnalo",
+      "žehnali"
+    ],
+    "imp": [
+      "žehnaj",
+      "žehnajme",
+      "žehnajte"
+    ],
+    "score": 180,
+    "tb": 1
+  },
+  {
+    "w": "vybiť",
+    "refl": "",
+    "g": "to smash, to knock out, to beat up",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "vybíjať",
+    "pres": [
+      "vybijem",
+      "vybiješ",
+      "vybije",
+      "vybijeme",
+      "vybijete",
+      "vybijú"
+    ],
+    "past": [
+      "vybil",
+      "vybila",
+      "vybilo",
+      "vybili"
+    ],
+    "imp": [
+      "vybi",
+      "vybime",
+      "vybite"
+    ],
+    "score": 174,
+    "tb": 1
+  },
+  {
+    "w": "boxovať",
+    "refl": "",
+    "g": "to box",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "boxujem",
+      "boxuješ",
+      "boxuje",
+      "boxujeme",
+      "boxujete",
+      "boxujú"
+    ],
+    "past": [
+      "boxoval",
+      "boxovala",
+      "boxovalo",
+      "boxovali"
+    ],
+    "imp": [
+      "boxuj",
+      "boxujme",
+      "boxujte"
+    ],
+    "score": 171,
+    "tb": 1
+  },
+  {
+    "w": "vypínať",
+    "refl": "",
+    "g": "to turn off, to shut down, to disable",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "vypnúť",
+    "pres": [
+      "vypínam",
+      "vypínaš",
+      "vypína",
+      "vypíname",
+      "vypínate",
+      "vypínajú"
+    ],
+    "past": [
+      "vypínal",
+      "vypínala",
+      "vypínalo",
+      "vypínali"
+    ],
+    "imp": [
+      "vypínaj",
+      "vypínajme",
+      "vypínajte"
+    ],
+    "score": 168,
+    "tb": 1
+  },
+  {
+    "w": "pichať",
+    "refl": "",
+    "g": "to stab, to poke, to fuck",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "pichám",
+      "picháš",
+      "pichá",
+      "picháme",
+      "picháte",
+      "pichajú"
+    ],
+    "past": [
+      "pichal",
+      "pichala",
+      "pichalo",
+      "pichali"
+    ],
+    "imp": [
+      "pichaj",
+      "pichajme",
+      "pichajte"
+    ],
+    "score": 168,
+    "tb": 1
+  },
+  {
+    "w": "posúvať",
+    "refl": "",
+    "g": "to move",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "posunúť",
+    "pres": [
+      "posúvam",
+      "posúvaš",
+      "posúva",
+      "posúvame",
+      "posúvate",
+      "posúvajú"
+    ],
+    "past": [
+      "posúval",
+      "posúvala",
+      "posúvalo",
+      "posúvali"
+    ],
+    "imp": [
+      "posúvaj",
+      "posúvajme",
+      "posúvajte"
+    ],
+    "score": 167,
+    "tb": 2
+  },
+  {
+    "w": "zmenšiť",
+    "refl": "",
+    "g": "to diminish, to reduce",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "zmenšovať",
+    "pres": [
+      "zmenším",
+      "zmenšíš",
+      "zmenší",
+      "zmenšíme",
+      "zmenšíte",
+      "zmenšia"
+    ],
+    "past": [
+      "zmenšil",
+      "zmenšila",
+      "zmenšilo",
+      "zmenšili"
+    ],
+    "imp": [
+      "zmenši",
+      "zmenšime",
+      "zmenšite"
+    ],
+    "score": 161,
+    "tb": 1
+  },
+  {
+    "w": "prestávať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "prestávam",
+      "prestávaš",
+      "prestáva",
+      "prestávame",
+      "prestávate",
+      "prestávajú"
+    ],
+    "past": [
+      "prestával",
+      "prestávala",
+      "prestávalo",
+      "prestávali"
+    ],
+    "imp": [
+      "prestávaj",
+      "prestávajme",
+      "prestávajte"
+    ],
+    "score": 157,
+    "tb": 1
+  },
+  {
+    "w": "postavať",
+    "refl": "",
+    "g": "to set up, to stand up, to build",
+    "asp": "pf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "postaviam",
+      "postaviaš",
+      "postavia",
+      "postaviame",
+      "postaviate",
+      "postavajú"
+    ],
+    "past": [
+      "postaval",
+      "postavala",
+      "postavalo",
+      "postavali"
+    ],
+    "imp": [
+      "postavaj",
+      "postavajme",
+      "postavajte"
+    ],
+    "score": 154,
+    "tb": 1
+  },
+  {
+    "w": "chrápať",
+    "refl": "",
+    "g": "to snore",
+    "asp": "impf",
+    "cls": "4a",
+    "partner": null,
+    "pres": [
+      "chrápem",
+      "chrápeš",
+      "chrápe",
+      "chrápeme",
+      "chrápete",
+      "chrápu"
+    ],
+    "past": [
+      "chrápal",
+      "chrápala",
+      "chrápalo",
+      "chrápali"
+    ],
+    "imp": [
+      "chráp",
+      "chrápme",
+      "chrápte"
+    ],
+    "score": 151,
+    "tb": 1
+  },
+  {
+    "w": "zostaviť",
+    "refl": "",
+    "g": "to assemble, to compile, to draw up",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "zostavovať",
+    "pres": [
+      "zostavím",
+      "zostavíš",
+      "zostaví",
+      "zostavíme",
+      "zostavíte",
+      "zostavia"
+    ],
+    "past": [
+      "zostavil",
+      "zostavila",
+      "zostavilo",
+      "zostavili"
+    ],
+    "imp": [
+      "zostav",
+      "zostavme",
+      "zostavte"
+    ],
+    "score": 151,
+    "tb": 1
+  },
+  {
+    "w": "putovať",
+    "refl": "",
+    "g": "to travel, to pilgrimage",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "putujem",
+      "putuješ",
+      "putuje",
+      "putujeme",
+      "putujete",
+      "putujú"
+    ],
+    "past": [
+      "putoval",
+      "putovala",
+      "putovalo",
+      "putovali"
+    ],
+    "imp": [
+      "putuj",
+      "putujme",
+      "putujte"
+    ],
+    "score": 148,
+    "tb": 1
+  },
+  {
+    "w": "predísť",
+    "refl": "",
+    "g": "to overtake, to pass, to preempt",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "predídem",
+      "predídeš",
+      "predíde",
+      "predídeme",
+      "predídete",
+      "predídu"
+    ],
+    "past": [
+      "predišiel",
+      "predišla",
+      "predišlo",
+      "predišli"
+    ],
+    "imp": [
+      "predíď",
+      "predíďme",
+      "predíďte"
+    ],
+    "score": 145,
+    "tb": 1
+  },
+  {
+    "w": "pochodovať",
+    "refl": "",
+    "g": "to march",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "pochodujem",
+      "pochoduješ",
+      "pochoduje",
+      "pochodujeme",
+      "pochodujete",
+      "pochodujú"
+    ],
+    "past": [
+      "pochodoval",
+      "pochodovala",
+      "pochodovalo",
+      "pochodovali"
+    ],
+    "imp": [
+      "pochoduj",
+      "pochodujme",
+      "pochodujte"
+    ],
+    "score": 142,
+    "tb": 2
+  },
+  {
+    "w": "obmedziť",
+    "refl": "",
+    "g": "to delimit, to limit, to decrease",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "obmedzovať",
+    "pres": [
+      "obmedzím",
+      "obmedzíš",
+      "obmedzí",
+      "obmedzíme",
+      "obmedzíte",
+      "obmedzia"
+    ],
+    "past": [
+      "obmedzil",
+      "obmedzila",
+      "obmedzilo",
+      "obmedzili"
+    ],
+    "imp": [
+      "obmedz",
+      "obmedzme",
+      "obmedzte"
+    ],
+    "score": 141,
+    "tb": 2
+  },
+  {
+    "w": "stúpiť",
+    "refl": "",
+    "g": "to step, to tread",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "stúpim",
+      "stúpiš",
+      "stúpi",
+      "stúpime",
+      "stúpite",
+      "stúpia"
+    ],
+    "past": [
+      "stúpil",
+      "stúpila",
+      "stúpilo",
+      "stúpili"
+    ],
+    "imp": [
+      "stúp",
+      "stúpme",
+      "stúpte"
+    ],
+    "score": 140,
+    "tb": 1
+  },
+  {
+    "w": "štekať",
+    "refl": "",
+    "g": "to bark",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "šteknúť",
+    "pres": [
+      "štekám",
+      "štekáš",
+      "šteká",
+      "štekáme",
+      "štekáte",
+      "štekajú"
+    ],
+    "past": [
+      "štekal",
+      "štekala",
+      "štekalo",
+      "štekali"
+    ],
+    "imp": [
+      "štekaj",
+      "štekajme",
+      "štekajte"
+    ],
+    "score": 140,
+    "tb": 1
+  },
+  {
+    "w": "objímať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "objímam",
+      "objímaš",
+      "objíma",
+      "objímame",
+      "objímate",
+      "objímajú"
+    ],
+    "past": [
+      "objímal",
+      "objímala",
+      "objímalo",
+      "objímali"
+    ],
+    "imp": [
+      "objímaj",
+      "objímajme",
+      "objímajte"
+    ],
+    "score": 137,
+    "tb": 1
+  },
+  {
+    "w": "ošetriť",
+    "refl": "",
+    "g": "to treat",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "ošetrovať",
+    "pres": [
+      "ošetrím",
+      "ošetríš",
+      "ošetrí",
+      "ošetríme",
+      "ošetríte",
+      "ošetria"
+    ],
+    "past": [
+      "ošetril",
+      "ošetrila",
+      "ošetrilo",
+      "ošetrili"
+    ],
+    "imp": [
+      "ošetri",
+      "ošetrime",
+      "ošetrite"
+    ],
+    "score": 136,
+    "tb": 1
+  },
+  {
+    "w": "drieť",
+    "refl": "",
+    "g": "to rub, to scrub, to scour",
+    "asp": "impf",
+    "cls": "3b",
+    "partner": null,
+    "pres": [
+      "driem",
+      "drieš",
+      "drie",
+      "drieme",
+      "driete",
+      "drú"
+    ],
+    "past": [
+      "drel",
+      "drela",
+      "drelo",
+      "dreli"
+    ],
+    "imp": [
+      "dri",
+      "drime",
+      "drite"
+    ],
+    "score": 135,
+    "tb": 1
+  },
+  {
+    "w": "zapínať",
+    "refl": "",
+    "g": "to switch on, to power up, to enable",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "zapnúť",
+    "pres": [
+      "zapínam",
+      "zapínaš",
+      "zapína",
+      "zapíname",
+      "zapínate",
+      "zapínajú"
+    ],
+    "past": [
+      "zapínal",
+      "zapínala",
+      "zapínalo",
+      "zapínali"
+    ],
+    "imp": [
+      "zapínaj",
+      "zapínajme",
+      "zapínajte"
+    ],
+    "score": 134,
+    "tb": 1
+  },
+  {
+    "w": "nabíjať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "nabíjam",
+      "nabíjaš",
+      "nabíja",
+      "nabíjame",
+      "nabíjate",
+      "nabíjajú"
+    ],
+    "past": [
+      "nabíjal",
+      "nabíjala",
+      "nabíjalo",
+      "nabíjali"
+    ],
+    "imp": [
+      "nabíjaj",
+      "nabíjajme",
+      "nabíjajte"
+    ],
+    "score": 133,
+    "tb": 1
+  },
+  {
+    "w": "vrieť",
+    "refl": "",
+    "g": "to boil, to seethe",
+    "asp": "impf",
+    "cls": "3b",
+    "partner": null,
+    "pres": [
+      "vriem",
+      "vrieš",
+      "vrie",
+      "vrieme",
+      "vriete",
+      "vrú"
+    ],
+    "past": [
+      "vrel",
+      "vrela",
+      "vrelo",
+      "vreli"
+    ],
+    "imp": [
+      "vri",
+      "vrime",
+      "vrite"
+    ],
+    "score": 130,
+    "tb": 4
+  },
+  {
+    "w": "vzbudiť",
+    "refl": "",
+    "g": "to awake",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "budiť",
+    "pres": [
+      "vzbudím",
+      "vzbudíš",
+      "vzbudí",
+      "vzbudíme",
+      "vzbudíte",
+      "vzbudia"
+    ],
+    "past": [
+      "vzbudil",
+      "vzbudila",
+      "vzbudilo",
+      "vzbudili"
+    ],
+    "imp": [
+      "vzbuď",
+      "vzbuďme",
+      "vzbuďte"
+    ],
+    "score": 129,
+    "tb": 2
+  },
+  {
+    "w": "narábať",
+    "refl": "",
+    "g": "to handle",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "narábam",
+      "narábaš",
+      "narába",
+      "narábame",
+      "narábate",
+      "narábajú"
+    ],
+    "past": [
+      "narábal",
+      "narábala",
+      "narábalo",
+      "narábali"
+    ],
+    "imp": [
+      "narábaj",
+      "narábajme",
+      "narábajte"
+    ],
+    "score": 129,
+    "tb": 1
+  },
+  {
+    "w": "eliminovať",
+    "refl": "",
+    "g": "to eliminate",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "eliminujem",
+      "eliminuješ",
+      "eliminuje",
+      "eliminujeme",
+      "eliminujete",
+      "eliminujú"
+    ],
+    "past": [
+      "eliminoval",
+      "eliminovala",
+      "eliminovalo",
+      "eliminovali"
+    ],
+    "imp": [
+      "eliminuj",
+      "eliminujme",
+      "eliminujte"
+    ],
+    "score": 122,
+    "tb": 1
+  },
+  {
+    "w": "odčiniť",
+    "refl": "",
+    "g": "to redress, to make up, to make amends",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "odčiním",
+      "odčiníš",
+      "odčiní",
+      "odčiníme",
+      "odčiníte",
+      "odčinia"
+    ],
+    "past": [
+      "odčinil",
+      "odčinila",
+      "odčinilo",
+      "odčinili"
+    ],
+    "imp": [
+      "odčiň",
+      "odčiňme",
+      "odčiňte"
+    ],
+    "score": 121,
+    "tb": 1
+  },
+  {
+    "w": "kritizovať",
+    "refl": "",
+    "g": "to criticize",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": "skritizovať",
+    "pres": [
+      "kritizujem",
+      "kritizuješ",
+      "kritizuje",
+      "kritizujeme",
+      "kritizujete",
+      "kritizujú"
+    ],
+    "past": [
+      "kritizoval",
+      "kritizovala",
+      "kritizovalo",
+      "kritizovali"
+    ],
+    "imp": [
+      "kritizuj",
+      "kritizujme",
+      "kritizujte"
+    ],
+    "score": 119,
+    "tb": 5
+  },
+  {
+    "w": "dočítať",
+    "refl": "",
+    "g": "to finish, to read",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "dočítavať",
+    "pres": [
+      "dočítam",
+      "dočítaš",
+      "dočíta",
+      "dočítame",
+      "dočítate",
+      "dočítajú"
+    ],
+    "past": [
+      "dočítal",
+      "dočítala",
+      "dočítalo",
+      "dočítali"
+    ],
+    "imp": [
+      "dočítaj",
+      "dočítajme",
+      "dočítajte"
+    ],
+    "score": 117,
+    "tb": 1
+  },
+  {
+    "w": "nastávať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "nastávam",
+      "nastávaš",
+      "nastáva",
+      "nastávame",
+      "nastávate",
+      "nastávajú"
+    ],
+    "past": [
+      "nastával",
+      "nastávala",
+      "nastávalo",
+      "nastávali"
+    ],
+    "imp": [
+      "nastávaj",
+      "nastávajme",
+      "nastávajte"
+    ],
+    "score": 117,
+    "tb": 3
+  },
+  {
+    "w": "vystavovať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "vystavujem",
+      "vystavuješ",
+      "vystavuje",
+      "vystavujeme",
+      "vystavujete",
+      "vystavujú"
+    ],
+    "past": [
+      "vystavoval",
+      "vystavovala",
+      "vystavovalo",
+      "vystavovali"
+    ],
+    "imp": [
+      "vystavuj",
+      "vystavujme",
+      "vystavujte"
+    ],
+    "score": 117,
+    "tb": 1
+  },
+  {
+    "w": "absorbovať",
+    "refl": "",
+    "g": "to absorb, to take in",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "absorbujem",
+      "absorbuješ",
+      "absorbuje",
+      "absorbujeme",
+      "absorbujete",
+      "absorbujú"
+    ],
+    "past": [
+      "absorboval",
+      "absorbovala",
+      "absorbovalo",
+      "absorbovali"
+    ],
+    "imp": [
+      "absorbuj",
+      "absorbujme",
+      "absorbujte"
+    ],
+    "score": 112,
+    "tb": 1
+  },
+  {
+    "w": "tikať",
+    "refl": "",
+    "g": "to tick",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "tikám",
+      "tikáš",
+      "tiká",
+      "tikáme",
+      "tikáte",
+      "tikajú"
+    ],
+    "past": [
+      "tikal",
+      "tikala",
+      "tikalo",
+      "tikali"
+    ],
+    "imp": [
+      "tikaj",
+      "tikajme",
+      "tikajte"
+    ],
+    "score": 111,
+    "tb": 1
+  },
+  {
+    "w": "odmeniť",
+    "refl": "",
+    "g": "to reward, to award, to recompense",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "odmeňovať",
+    "pres": [
+      "odmením",
+      "odmeníš",
+      "odmení",
+      "odmeníme",
+      "odmeníte",
+      "odmenia"
+    ],
+    "past": [
+      "odmenil",
+      "odmenila",
+      "odmenilo",
+      "odmenili"
+    ],
+    "imp": [
+      "odmeň",
+      "odmeňme",
+      "odmeňte"
+    ],
+    "score": 111,
+    "tb": 1
+  },
+  {
+    "w": "zameniť",
+    "refl": "",
+    "g": "to substitute, to exchange, to swap",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "zamieňať",
+    "pres": [
+      "zamením",
+      "zameníš",
+      "zamení",
+      "zameníme",
+      "zameníte",
+      "zamenia"
+    ],
+    "past": [
+      "zamenil",
+      "zamenila",
+      "zamenilo",
+      "zamenili"
+    ],
+    "imp": [
+      "zameň",
+      "zameňme",
+      "zameňte"
+    ],
+    "score": 110,
+    "tb": 1
+  },
+  {
+    "w": "rozbíjať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "rozbíjam",
+      "rozbíjaš",
+      "rozbíja",
+      "rozbíjame",
+      "rozbíjate",
+      "rozbíjajú"
+    ],
+    "past": [
+      "rozbíjal",
+      "rozbíjala",
+      "rozbíjalo",
+      "rozbíjali"
+    ],
+    "imp": [
+      "rozbíjaj",
+      "rozbíjajme",
+      "rozbíjajte"
+    ],
+    "score": 109,
+    "tb": 1
+  },
+  {
+    "w": "brzdiť",
+    "refl": "",
+    "g": "to brake, to hinder",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "brzdím",
+      "brzdíš",
+      "brzdí",
+      "brzdíme",
+      "brzdíte",
+      "brzdia"
+    ],
+    "past": [
+      "brzdil",
+      "brzdila",
+      "brzdilo",
+      "brzdili"
+    ],
+    "imp": [
+      "brzdi",
+      "brzdime",
+      "brzdite"
+    ],
+    "score": 104,
+    "tb": 1
+  },
+  {
+    "w": "vzísť",
+    "refl": "",
+    "g": "to sprout, to come up, to grow",
+    "asp": "pf",
+    "cls": "irreg-ísť",
+    "partner": null,
+    "pres": [
+      "vzídem",
+      "vzídeš",
+      "vzíde",
+      "vzídeme",
+      "vzídete",
+      "vzídu"
+    ],
+    "past": [
+      "vzišiel",
+      "vzišla",
+      "vzišlo",
+      "vzišli"
+    ],
+    "imp": [
+      "vzíď",
+      "vzíďme",
+      "vzíďte"
+    ],
+    "score": 101,
+    "tb": 1
+  },
+  {
+    "w": "vymykať",
+    "refl": "sa",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "vymykám",
+      "vymykáš",
+      "vymyká",
+      "vymykáme",
+      "vymykáte",
+      "vymykajú"
+    ],
+    "past": [
+      "vymykal",
+      "vymykala",
+      "vymykalo",
+      "vymykali"
+    ],
+    "imp": [
+      "vymykaj",
+      "vymykajme",
+      "vymykajte"
+    ],
+    "score": 99,
+    "tb": 1
+  },
+  {
+    "w": "zahojiť",
+    "refl": "",
+    "g": "to treat, to heal",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "hojiť",
+    "pres": [
+      "zahojím",
+      "zahojíš",
+      "zahojí",
+      "zahojíme",
+      "zahojíte",
+      "zahoja"
+    ],
+    "past": [
+      "zahojil",
+      "zahojila",
+      "zahojilo",
+      "zahojili"
+    ],
+    "imp": [
+      "zahoj",
+      "zahojme",
+      "zahojte"
+    ],
+    "score": 98,
+    "tb": 1
+  },
+  {
+    "w": "bombardovať",
+    "refl": "",
+    "g": "to bomb, bombard",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "bombardujem",
+      "bombarduješ",
+      "bombarduje",
+      "bombardujeme",
+      "bombardujete",
+      "bombardujú"
+    ],
+    "past": [
+      "bombardoval",
+      "bombardovala",
+      "bombardovalo",
+      "bombardovali"
+    ],
+    "imp": [
+      "bombarduj",
+      "bombardujme",
+      "bombardujte"
+    ],
+    "score": 98,
+    "tb": 2
+  },
+  {
+    "w": "prebúdzať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "prebúdzam",
+      "prebúdzaš",
+      "prebúdza",
+      "prebúdzame",
+      "prebúdzate",
+      "prebúdzajú"
+    ],
+    "past": [
+      "prebúdzal",
+      "prebúdzala",
+      "prebúdzalo",
+      "prebúdzali"
+    ],
+    "imp": [
+      "prebúdzaj",
+      "prebúdzajme",
+      "prebúdzajte"
+    ],
+    "score": 98,
+    "tb": 2
+  },
+  {
+    "w": "prepáčiť",
+    "refl": "",
+    "g": "to excuse, to forgive",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "prepačovať",
+    "pres": [
+      "prepáčim",
+      "prepáčiš",
+      "prepáči",
+      "prepáčime",
+      "prepáčite",
+      "prepáčia"
+    ],
+    "past": [
+      "prepáčil",
+      "prepáčila",
+      "prepáčilo",
+      "prepáčili"
+    ],
+    "imp": [
+      "prepáč",
+      "prepáčme",
+      "prepáčte"
+    ],
+    "score": 97,
+    "tb": 1
+  },
+  {
+    "w": "lepiť",
+    "refl": "",
+    "g": "to stick",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "lepím",
+      "lepíš",
+      "lepí",
+      "lepíme",
+      "lepíte",
+      "lepia"
+    ],
+    "past": [
+      "lepil",
+      "lepila",
+      "lepilo",
+      "lepili"
+    ],
+    "imp": [
+      "lep",
+      "lepme",
+      "lepte"
+    ],
+    "score": 96,
+    "tb": 1
+  },
+  {
+    "w": "tiahnuť",
+    "refl": "",
+    "g": "to pull, to migrate",
+    "asp": "impf",
+    "cls": "4c",
+    "partner": null,
+    "pres": [
+      "tiahnem",
+      "tiahneš",
+      "tiahne",
+      "tiahneme",
+      "tiahnete",
+      "tiahnu"
+    ],
+    "past": [
+      "tiahol",
+      "tiahla",
+      "tiahlo",
+      "tiahli"
+    ],
+    "imp": [
+      "tiahni",
+      "tiahnime",
+      "tiahnite"
+    ],
+    "score": 96,
+    "tb": 3
+  },
+  {
+    "w": "odomknúť",
+    "refl": "",
+    "g": "to unlock, to open",
+    "asp": "pf",
+    "cls": "4c",
+    "partner": "odomykať",
+    "pres": [
+      "odomknem",
+      "odomkneš",
+      "odomkne",
+      "odomkneme",
+      "odomknete",
+      "odomknú"
+    ],
+    "past": [
+      "odomkol",
+      "odomkla",
+      "odomklo",
+      "odomkli"
+    ],
+    "imp": [
+      "odomkni",
+      "odomknime",
+      "odomknite"
+    ],
+    "score": 95,
+    "tb": 1
+  },
+  {
+    "w": "blúdiť",
+    "refl": "",
+    "g": "to wander, to stray",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "blúdim",
+      "blúdiš",
+      "blúdi",
+      "blúdime",
+      "blúdite",
+      "blúdia"
+    ],
+    "past": [
+      "blúdil",
+      "blúdila",
+      "blúdilo",
+      "blúdili"
+    ],
+    "imp": [
+      "blúď",
+      "blúďme",
+      "blúďte"
+    ],
+    "score": 93,
+    "tb": 1
+  },
+  {
+    "w": "vyzuť",
+    "refl": "",
+    "g": "to take off, to remove, to help take off shoes",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "vyzúvať",
+    "pres": [
+      "vyzujem",
+      "vyzuješ",
+      "vyzuje",
+      "vyzujeme",
+      "vyzujete",
+      "vyzujú"
+    ],
+    "past": [
+      "vyzul",
+      "vyzula",
+      "vyzulo",
+      "vyzuli"
+    ],
+    "imp": [
+      "vyzuj",
+      "vyzujme",
+      "vyzujte"
+    ],
+    "score": 92,
+    "tb": 1
+  },
+  {
+    "w": "zastávať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "zastávam",
+      "zastávaš",
+      "zastáva",
+      "zastávame",
+      "zastávate",
+      "zastávajú"
+    ],
+    "past": [
+      "zastával",
+      "zastávala",
+      "zastávalo",
+      "zastávali"
+    ],
+    "imp": [
+      "zastávaj",
+      "zastávajme",
+      "zastávajte"
+    ],
+    "score": 91,
+    "tb": 7
+  },
+  {
+    "w": "masturbovať",
+    "refl": "",
+    "g": "to masturbate",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "masturbujem",
+      "masturbuješ",
+      "masturbuje",
+      "masturbujeme",
+      "masturbujete",
+      "masturbujú"
+    ],
+    "past": [
+      "masturboval",
+      "masturbovala",
+      "masturbovalo",
+      "masturbovali"
+    ],
+    "imp": [
+      "masturbuj",
+      "masturbujme",
+      "masturbujte"
+    ],
+    "score": 90,
+    "tb": 1
+  },
+  {
+    "w": "porábať",
+    "refl": "",
+    "g": "to do",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "porábam",
+      "porábaš",
+      "porába",
+      "porábame",
+      "porábate",
+      "porábajú"
+    ],
+    "past": [
+      "porábal",
+      "porábala",
+      "porábalo",
+      "porábali"
+    ],
+    "imp": [
+      "porábaj",
+      "porábajme",
+      "porábajte"
+    ],
+    "score": 90,
+    "tb": 1
+  },
+  {
+    "w": "činiť",
+    "refl": "",
+    "g": "to do, to amount to",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "učiniť",
+    "pres": [
+      "činím",
+      "činíš",
+      "činí",
+      "činíme",
+      "činíte",
+      "činia"
+    ],
+    "past": [
+      "činil",
+      "činila",
+      "činilo",
+      "činili"
+    ],
+    "imp": [
+      "čiň",
+      "čiňme",
+      "čiňte"
+    ],
+    "score": 89,
+    "tb": 1
+  },
+  {
+    "w": "experimentovať",
+    "refl": "",
+    "g": "to experiment",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "experimentujem",
+      "experimentuješ",
+      "experimentuje",
+      "experimentujeme",
+      "experimentujete",
+      "experimentujú"
+    ],
+    "past": [
+      "experimentoval",
+      "experimentovala",
+      "experimentovalo",
+      "experimentovali"
+    ],
+    "imp": [
+      "experimentuj",
+      "experimentujme",
+      "experimentujte"
+    ],
+    "score": 87,
+    "tb": 1
+  },
+  {
+    "w": "šťať",
+    "refl": "",
+    "g": "to piss",
+    "asp": "impf",
+    "cls": "5c",
+    "partner": null,
+    "pres": [
+      "štím",
+      "štíš",
+      "ští",
+      "štíme",
+      "štíte",
+      "štia"
+    ],
+    "past": [
+      "šťal",
+      "šťala",
+      "šťalo",
+      "šťali"
+    ],
+    "imp": [
+      "šti",
+      "štime",
+      "štite"
+    ],
+    "score": 86,
+    "tb": 1
+  },
+  {
+    "w": "ohovárať",
+    "refl": "",
+    "g": "to slander, to defame",
+    "asp": "impf",
+    "cls": "1",
+    "partner": "ohovoriť",
+    "pres": [
+      "ohováram",
+      "ohováraš",
+      "ohovára",
+      "ohovárame",
+      "ohovárate",
+      "ohovárajú"
+    ],
+    "past": [
+      "ohováral",
+      "ohovárala",
+      "ohováralo",
+      "ohovárali"
+    ],
+    "imp": [
+      "ohováraj",
+      "ohovárajme",
+      "ohovárajte"
+    ],
+    "score": 85,
+    "tb": 1
+  },
+  {
+    "w": "zmenšovať",
+    "refl": "",
+    "g": "to diminish, to reduce",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": "zmenšiť",
+    "pres": [
+      "zmenšujem",
+      "zmenšuješ",
+      "zmenšuje",
+      "zmenšujeme",
+      "zmenšujete",
+      "zmenšujú"
+    ],
+    "past": [
+      "zmenšoval",
+      "zmenšovala",
+      "zmenšovalo",
+      "zmenšovali"
+    ],
+    "imp": [
+      "zmenšuj",
+      "zmenšujme",
+      "zmenšujte"
+    ],
+    "score": 82,
+    "tb": 2
+  },
+  {
+    "w": "raňajkovať",
+    "refl": "",
+    "g": "to breakfast",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "raňajkujem",
+      "raňajkuješ",
+      "raňajkuje",
+      "raňajkujeme",
+      "raňajkujete",
+      "raňajkujú"
+    ],
+    "past": [
+      "raňajkoval",
+      "raňajkovala",
+      "raňajkovalo",
+      "raňajkovali"
+    ],
+    "imp": [
+      "raňajkuj",
+      "raňajkujme",
+      "raňajkujte"
+    ],
+    "score": 79,
+    "tb": 1
+  },
+  {
+    "w": "filmovať",
+    "refl": "",
+    "g": "to film",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "filmujem",
+      "filmuješ",
+      "filmuje",
+      "filmujeme",
+      "filmujete",
+      "filmujú"
+    ],
+    "past": [
+      "filmoval",
+      "filmovala",
+      "filmovalo",
+      "filmovali"
+    ],
+    "imp": [
+      "filmuj",
+      "filmujme",
+      "filmujte"
+    ],
+    "score": 79,
+    "tb": 1
+  },
+  {
+    "w": "vzbudzovať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "vzbudzujem",
+      "vzbudzuješ",
+      "vzbudzuje",
+      "vzbudzujeme",
+      "vzbudzujete",
+      "vzbudzujú"
+    ],
+    "past": [
+      "vzbudzoval",
+      "vzbudzovala",
+      "vzbudzovalo",
+      "vzbudzovali"
+    ],
+    "imp": [
+      "vzbudzuj",
+      "vzbudzujme",
+      "vzbudzujte"
+    ],
+    "score": 78,
+    "tb": 4
+  },
+  {
+    "w": "nastáť",
+    "refl": "sa",
+    "g": "to spend a long time standing",
+    "asp": "pf",
+    "cls": "irreg-stáť",
+    "partner": null,
+    "pres": [
+      "nastojím",
+      "nastojíš",
+      "nastojí",
+      "nastojíme",
+      "nastojíte",
+      "nastoja"
+    ],
+    "past": [
+      "nastál",
+      "nastála",
+      "nastálo",
+      "nastáli"
+    ],
+    "imp": [
+      "nastoj",
+      "nastojme",
+      "nastojte"
+    ],
+    "score": 77,
+    "tb": 1
+  },
+  {
+    "w": "korčuľovať",
+    "refl": "",
+    "g": "to skate",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "korčuľujem",
+      "korčuľuješ",
+      "korčuľuje",
+      "korčuľujeme",
+      "korčuľujete",
+      "korčuľujú"
+    ],
+    "past": [
+      "korčuľoval",
+      "korčuľovala",
+      "korčuľovalo",
+      "korčuľovali"
+    ],
+    "imp": [
+      "korčuľuj",
+      "korčuľujme",
+      "korčuľujte"
+    ],
+    "score": 74,
+    "tb": 1
+  },
+  {
+    "w": "sotiť",
+    "refl": "",
+    "g": "to shove, to push",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "sácať",
+    "pres": [
+      "sotím",
+      "sotíš",
+      "sotí",
+      "sotíme",
+      "sotíte",
+      "sotia"
+    ],
+    "past": [
+      "sotil",
+      "sotila",
+      "sotilo",
+      "sotili"
+    ],
+    "imp": [
+      "soť",
+      "soťme",
+      "soťte"
+    ],
+    "score": 73,
+    "tb": 1
+  },
+  {
+    "w": "ubíjať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "ubíjam",
+      "ubíjaš",
+      "ubíja",
+      "ubíjame",
+      "ubíjate",
+      "ubíjajú"
+    ],
+    "past": [
+      "ubíjal",
+      "ubíjala",
+      "ubíjalo",
+      "ubíjali"
+    ],
+    "imp": [
+      "ubíjaj",
+      "ubíjajme",
+      "ubíjajte"
+    ],
+    "score": 73,
+    "tb": 1
+  },
+  {
+    "w": "striedať",
+    "refl": "",
+    "g": "to alternate, to replace",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "striedam",
+      "striedaš",
+      "strieda",
+      "striedame",
+      "striedate",
+      "striedajú"
+    ],
+    "past": [
+      "striedal",
+      "striedala",
+      "striedalo",
+      "striedali"
+    ],
+    "imp": [
+      "striedaj",
+      "striedajme",
+      "striedajte"
+    ],
+    "score": 72,
+    "tb": 3
+  },
+  {
+    "w": "deaktivovať",
+    "refl": "",
+    "g": "to deactivate, to disable",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "deaktivujem",
+      "deaktivuješ",
+      "deaktivuje",
+      "deaktivujeme",
+      "deaktivujete",
+      "deaktivujú"
+    ],
+    "past": [
+      "deaktivoval",
+      "deaktivovala",
+      "deaktivovalo",
+      "deaktivovali"
+    ],
+    "imp": [
+      "deaktivuj",
+      "deaktivujme",
+      "deaktivujte"
+    ],
+    "score": 72,
+    "tb": 1
+  },
+  {
+    "w": "rozbaliť",
+    "refl": "",
+    "g": "to unpack, to unwrap",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "rozbaľovať",
+    "pres": [
+      "rozbalím",
+      "rozbalíš",
+      "rozbalí",
+      "rozbalíme",
+      "rozbalíte",
+      "rozbalia"
+    ],
+    "past": [
+      "rozbalil",
+      "rozbalila",
+      "rozbalilo",
+      "rozbalili"
+    ],
+    "imp": [
+      "rozbaľ",
+      "rozbaľme",
+      "rozbaľte"
+    ],
+    "score": 72,
+    "tb": 1
+  },
+  {
+    "w": "pchať",
+    "refl": "",
+    "g": "to stuff, to cram, to push one's way in",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "pchám",
+      "pcháš",
+      "pchá",
+      "pcháme",
+      "pcháte",
+      "pchajú"
+    ],
+    "past": [
+      "pchal",
+      "pchala",
+      "pchalo",
+      "pchali"
+    ],
+    "imp": [
+      "pchaj",
+      "pchajme",
+      "pchajte"
+    ],
+    "score": 71,
+    "tb": 1
+  },
+  {
+    "w": "hojiť",
+    "refl": "",
+    "g": "to treat, to heal",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "zahojiť",
+    "pres": [
+      "hojím",
+      "hojíš",
+      "hojí",
+      "hojíme",
+      "hojíte",
+      "hoja"
+    ],
+    "past": [
+      "hojil",
+      "hojila",
+      "hojilo",
+      "hojili"
+    ],
+    "imp": [
+      "hoj",
+      "hojme",
+      "hojte"
+    ],
+    "score": 63,
+    "tb": 1
+  },
+  {
+    "w": "močiť",
+    "refl": "",
+    "g": "to soak, to urinate",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": "vymočiť",
+    "pres": [
+      "močím",
+      "močíš",
+      "močí",
+      "močíme",
+      "močíte",
+      "močia"
+    ],
+    "past": [
+      "močil",
+      "močila",
+      "močilo",
+      "močili"
+    ],
+    "imp": [
+      "moč",
+      "močme",
+      "močte"
+    ],
+    "score": 62,
+    "tb": 1
+  },
+  {
+    "w": "vymieňať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "vymieňam",
+      "vymieňaš",
+      "vymieňa",
+      "vymieňame",
+      "vymieňate",
+      "vymieňajú"
+    ],
+    "past": [
+      "vymieňal",
+      "vymieňala",
+      "vymieňalo",
+      "vymieňali"
+    ],
+    "imp": [
+      "vymieňaj",
+      "vymieňajme",
+      "vymieňajte"
+    ],
+    "score": 62,
+    "tb": 1
+  },
+  {
+    "w": "porobiť",
+    "refl": "",
+    "g": "to bewitch, to charm",
+    "asp": "pf",
+    "cls": "5a",
+    "partner": "porábať",
+    "pres": [
+      "porobím",
+      "porobíš",
+      "porobí",
+      "porobíme",
+      "porobíte",
+      "porobia"
+    ],
+    "past": [
+      "porobil",
+      "porobila",
+      "porobilo",
+      "porobili"
+    ],
+    "imp": [
+      "porob",
+      "porobme",
+      "porobte"
+    ],
+    "score": 61,
+    "tb": 1
+  },
+  {
+    "w": "dediť",
+    "refl": "",
+    "g": "to inherit",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "dedím",
+      "dedíš",
+      "dedí",
+      "dedíme",
+      "dedíte",
+      "dedia"
+    ],
+    "past": [
+      "dedil",
+      "dedila",
+      "dedilo",
+      "dedili"
+    ],
+    "imp": [
+      "deď",
+      "deďme",
+      "deďte"
+    ],
+    "score": 60,
+    "tb": 1
+  },
+  {
+    "w": "ozývať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "ozývam",
+      "ozývaš",
+      "ozýva",
+      "ozývame",
+      "ozývate",
+      "ozývajú"
+    ],
+    "past": [
+      "ozýval",
+      "ozývala",
+      "ozývalo",
+      "ozývali"
+    ],
+    "imp": [
+      "ozývaj",
+      "ozývajme",
+      "ozývajte"
+    ],
+    "score": 60,
+    "tb": 10
+  },
+  {
+    "w": "grilovať",
+    "refl": "",
+    "g": "to grill",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "grilujem",
+      "griluješ",
+      "griluje",
+      "grilujeme",
+      "grilujete",
+      "grilujú"
+    ],
+    "past": [
+      "griloval",
+      "grilovala",
+      "grilovalo",
+      "grilovali"
+    ],
+    "imp": [
+      "griluj",
+      "grilujme",
+      "grilujte"
+    ],
+    "score": 56,
+    "tb": 1
+  },
+  {
+    "w": "dostavať",
+    "refl": "",
+    "g": "to finish building, to complete, to build an addition",
+    "asp": "pf",
+    "cls": "1",
+    "partner": "dostavovať",
+    "pres": [
+      "dostaviam",
+      "dostaviaš",
+      "dostavia",
+      "dostaviame",
+      "dostaviate",
+      "dostavajú"
+    ],
+    "past": [
+      "dostaval",
+      "dostavala",
+      "dostavalo",
+      "dostavali"
+    ],
+    "imp": [
+      "dostavaj",
+      "dostavajme",
+      "dostavajte"
+    ],
+    "score": 54,
+    "tb": 1
+  },
+  {
+    "w": "smažiť",
+    "refl": "",
+    "g": "to fry",
+    "asp": "impf",
+    "cls": "5a",
+    "partner": null,
+    "pres": [
+      "smažím",
+      "smažíš",
+      "smaží",
+      "smažíme",
+      "smažíte",
+      "smažia"
+    ],
+    "past": [
+      "smažil",
+      "smažila",
+      "smažilo",
+      "smažili"
+    ],
+    "imp": [
+      "smaž",
+      "smažme",
+      "smažte"
+    ],
+    "score": 54,
+    "tb": 1
+  },
+  {
+    "w": "amputovať",
+    "refl": "",
+    "g": "to amputate",
+    "asp": "impf",
+    "cls": "4e",
+    "partner": null,
+    "pres": [
+      "amputujem",
+      "amputuješ",
+      "amputuje",
+      "amputujeme",
+      "amputujete",
+      "amputujú"
+    ],
+    "past": [
+      "amputoval",
+      "amputovala",
+      "amputovalo",
+      "amputovali"
+    ],
+    "imp": [
+      "amputuj",
+      "amputujme",
+      "amputujte"
+    ],
+    "score": 51,
+    "tb": 1
+  },
+  {
+    "w": "premieňať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "premieňam",
+      "premieňaš",
+      "premieňa",
+      "premieňame",
+      "premieňate",
+      "premieňajú"
+    ],
+    "past": [
+      "premieňal",
+      "premieňala",
+      "premieňalo",
+      "premieňali"
+    ],
+    "imp": [
+      "premieňaj",
+      "premieňajme",
+      "premieňajte"
+    ],
+    "score": 51,
+    "tb": 1
+  },
+  {
+    "w": "obuť",
+    "refl": "",
+    "g": "to put on, to provide with shoes, to equip",
+    "asp": "pf",
+    "cls": "4d",
+    "partner": "obúvať",
+    "pres": [
+      "obujem",
+      "obuješ",
+      "obuje",
+      "obujeme",
+      "obujete",
+      "obujú"
+    ],
+    "past": [
+      "obul",
+      "obula",
+      "obulo",
+      "obuli"
+    ],
+    "imp": [
+      "obuj",
+      "obujme",
+      "obujte"
+    ],
+    "score": 50,
+    "tb": 1
+  },
+  {
+    "w": "zamykať",
+    "refl": "",
+    "g": "",
+    "asp": "impf",
+    "cls": "1",
+    "partner": null,
+    "pres": [
+      "zamykám",
+      "zamykáš",
+      "zamyká",
+      "zamykáme",
+      "zamykáte",
+      "zamykajú"
+    ],
+    "past": [
+      "zamykal",
+      "zamykala",
+      "zamykalo",
+      "zamykali"
+    ],
+    "imp": [
+      "zamykaj",
+      "zamykajme",
+      "zamykajte"
+    ],
+    "score": 50,
+    "tb": 1
+  }
+]

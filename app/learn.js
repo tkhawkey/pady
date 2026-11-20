@@ -297,8 +297,15 @@
     if (m) return { word: m, pat: m.w, form: w };
     const hit = D.nouns.find(has);
     if (hit) return { word: hit, pat: hit.pat, form: w };
+    // accent-insensitive: "muz" finds "muž", "zeny" finds "ženy"
+    const b = bareS(w);
+    const lemma = [...D.models, ...D.nouns].find((x) => bareS(x.w) === b);
+    if (lemma) return { word: lemma, pat: lemma.pat || lemma.w, form: lemma.w, typed: w };
+    const hasB = (x) => [...x.s, ...x.p, ...Object.values(x.alt || {}).flat()].find((f) => bareS(f) === b);
+    for (const x of [...D.models, ...D.nouns]) { const f = hasB(x); if (f) return { word: x, pat: x.pat || x.w, form: f, typed: w }; }
     return null;
   }
+  const bareS = (s) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
 
   function resultCard(pats, note) {
     return `<div class="fresult">
@@ -357,7 +364,8 @@
     const r = lookup(q);
     if (!r) { out.innerHTML = '<p class="fnone">Not in the game\'s word list. Answer the questions below instead.</p>'; return; }
     const gl = r.word.g || P.PATTERN_EN[r.pat]?.[0] || '';
-    const formNote = r.form && r.form !== r.word.w ? `<i>${r.form}</i> is a form of <b>${r.word.w}</b> (${gl}). ` : `<b>${r.word.w}</b>${gl ? ` (${gl})` : ''}: `;
+    const accent = r.typed ? `<span class="kaccent-inline">bez diakritiky: <i>${r.typed}</i> → <b>${r.form}</b>.</span> ` : '';
+    const formNote = accent + (r.form && r.form !== r.word.w ? `<i>${r.form}</i> is a form of <b>${r.word.w}</b> (${gl}). ` : `<b>${r.word.w}</b>${gl ? ` (${gl})` : ''}: `);
     out.innerHTML = resultCard([r.pat], `${formNote}${P.GENDER_EN[r.word.gen] || ''}`);
   }
   $('#tab-ktory').addEventListener('input', (e) => { if (e.target.id === 'fInput') { S.fq = e.target.value; runSearch(); } });

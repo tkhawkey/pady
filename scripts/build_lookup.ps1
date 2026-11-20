@@ -65,7 +65,15 @@ foreach ($line in [IO.File]::ReadLines("$Root/raw/sk.jsonl")) {
   }
 }
 
-$bundle = [ordered]@{ slots = $slots; adjs = @($adjs.Values); nouns = @($nouns.Values) }
+# verbs (scripts/build_conj.ps1 -> work/conj_all.json): every decodable verb, for looking up verb forms
+$verbsL = @()
+if (Test-Path "$Root/work/conj_all.json") {
+  $verbsL = @(Get-Content "$Root/work/conj_all.json" -Raw | ConvertFrom-Json | ForEach-Object {
+    , @($_.w, $_.refl, $_.g, $_.asp, $_.partner, @($_.pres), @($_.past), @($_.imp))
+  })
+}
+
+$bundle = [ordered]@{ slots = $slots; adjs = @($adjs.Values); nouns = @($nouns.Values); verbs = $verbsL }
 $json = $bundle | ConvertTo-Json -Depth 5 -Compress
 Set-Content "$Root/app/lookup-data.js" -Value "window.PADY_LOOKUP = $json;" -Encoding utf8
 "lookup-data.js: $([math]::Round((Get-Item "$Root/app/lookup-data.js").Length / 1KB)) KB  adjectives $($adjs.Count)  nouns $($nouns.Count)"

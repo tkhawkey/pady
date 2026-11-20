@@ -101,7 +101,7 @@
   const caseButtons = (only) => `<div class="trcases">${CASES.filter((c) => !only || only.includes(c.k)).map((c, i) => `<button class="trcase c-${c.k}" data-ck="${c.k}"><span class="mk">${i + 1}</span><b>${c.name}</b><small>${c.q}</small></button>`).join('')}</div>`;
   const typeBox = () => `<div class="trtype"><input id="trInput" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder="napíš tvar…">
     <button class="btn small go" id="trCheck" data-en="check (Enter)">OK</button></div>
-    <div class="keys trdia">${DIA.map((ch) => `<button type="button" tabindex="-1" data-ch="${ch}">${ch}</button>`).join('')}</div>`;
+    <div class="keys trdia">${DIA.map((ch, i) => `<button type="button" tabindex="-1" data-ch="${ch}">${ch}<small class="kk">${P.diaKey(i)}</small></button>`).join('')}</div>`;
   const blankFrame = (fr, extra = '') => `<div class="trframe" data-en="${attr(fr.en)}">${esc(fr.sk).replace('___', `<span class="mblank">?</span>`)}</div>${extra}`;
 
   function renderItem(it) {

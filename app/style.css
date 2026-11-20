@@ -198,6 +198,34 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; line-height: 1.05; }
 @keyframes pop { 0% { transform: scale(.7); } 100% { transform: scale(1); } }
 @keyframes shake { 20%, 60% { transform: translateX(-7px) rotate(-2deg); } 40%, 80% { transform: translateX(7px) rotate(2deg); } }
 
+/* ============ Pády | Slovesá ============ */
+:root { --pres: #10b3a3; --past: #c4692b; --fut: #4f5fe0; }
+.sideswitch {
+  display: inline-flex; border: var(--bw) solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--sh); margin-bottom: 14px; background: var(--card);
+}
+.sideswitch button {
+  border: 0; background: transparent; padding: 8px 20px 6px; font-family: var(--font-display); font-weight: 800; font-size: 22px;
+  display: flex; flex-direction: column; align-items: center; line-height: 1.05;
+}
+.sideswitch button small { font-family: var(--font-body); font-size: 12px; font-weight: 800; opacity: .7; }
+.sideswitch button + button { border-left: var(--bw) solid var(--line); }
+.sideswitch button[data-side="nouns"].on { background: var(--dat); color: #fff; }
+.sideswitch button[data-side="verbs"].on { background: var(--pres); color: #fff; }
+body:not(.side-verbs) .only-verbs { display: none !important; }
+body.side-verbs .only-nouns { display: none !important; }
+.hl.green { background: var(--pres); color: #fff; }
+.t-pres { --c: var(--pres); --ci: #fff; }
+.t-past { --c: var(--past); --ci: #fff; }
+.t-fut  { --c: var(--fut);  --ci: #fff; }
+.vp { --c: var(--card); --ci: var(--ink); }
+.legend .lg.t-pres, .legend .lg.t-past, .legend .lg.t-fut { background: var(--c); color: var(--ci); }
+.rl.vp { background: var(--card); color: var(--ink); flex-direction: row; align-items: center; gap: 8px; font-size: 19px; }
+.rl.vp small { order: -1; font-size: 20px; opacity: 1; }
+.bh.th { background: var(--c); color: var(--ci); border: 2px solid var(--line); border-radius: 10px; font-size: 17px; padding: 2px 6px; }
+.board.one-col { grid-template-columns: minmax(110px, 190px) minmax(0, 1fr); }
+.lane.vp { background: var(--card); color: var(--ink); }
+.res-cases .lg.vp { background: var(--card); }
+
 /* case colour helpers */
 .c-nom { --c: var(--nom); --ci: var(--nom-ink); }
 .c-gen { --c: var(--gen); --ci: var(--gen-ink); }
@@ -260,6 +288,15 @@ input.cell.given { opacity: .85; }
 .done-paused { font-size: 13px; font-weight: 800; color: var(--ink-soft); cursor: help; }
 .hud-item.paused { background: var(--cell-empty); }
 .hud-item.paused b::after { content: ' ⏸'; font-size: .75em; }
+
+/* accent hotkey badges (keyboard only) */
+.keys button { position: relative; }
+.keys button .kk {
+  position: absolute; top: -9px; left: 50%; transform: translateX(-50%); font-family: var(--font-body); font-size: 10px; font-weight: 800;
+  background: var(--ink); color: var(--paper); border-radius: 6px; padding: 0 4px; line-height: 1.5; pointer-events: none; white-space: nowrap;
+}
+.keys { padding-top: 8px; }
+@media (hover: none) { .keys button .kk { display: none; } .keys { padding-top: 0; } }
 
 /* tray */
 .tray-wrap {
@@ -539,6 +576,8 @@ input.cell.given { opacity: .85; }
 .kmiss { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: var(--card); border: var(--bw) solid var(--line); border-radius: var(--r); box-shadow: var(--sh-sm); padding: 12px 14px; }
 .kmiss p { margin: 0; flex: 1 1 260px; }
 .kmany { font-weight: 800; margin: 0 0 8px; }
+.kaccent { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 10px; font-weight: 700; color: var(--ink-soft); }
+.kaccent b { color: var(--ink); }
 .kload { color: var(--ink-soft); font-weight: 700; }
 
 .kcard {
@@ -583,6 +622,19 @@ input.cell.given { opacity: .85; }
 .pp { display: flex; align-items: baseline; gap: 4px; opacity: .55; }
 .pp.on { opacity: 1; }
 .pp small { font-family: var(--font-body); font-size: 10px; font-weight: 800; color: var(--ink-soft); }
+
+/* verb word card (Hľadaj) */
+.vtable { display: grid; grid-template-columns: minmax(90px, 140px) repeat(3, minmax(0, 1fr)); gap: 6px; }
+.vtable.with-fut { grid-template-columns: minmax(90px, 140px) repeat(4, minmax(0, 1fr)); }
+.vtable .lcell { font-size: 18px; min-height: 40px; box-shadow: inset 5px 0 0 var(--c); }
+.vtable .bh.th { font-size: 14px; }
+.vimp { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+.vimp .lg { padding: 1px 10px 0; border-radius: 99px; border: 2px solid var(--line); font-family: var(--font-display); font-weight: 700; }
+.vimpf { font-family: var(--font-display); font-weight: 700; font-size: 18px; border: 2px solid color-mix(in srgb, var(--ink) 20%, transparent); border-radius: 10px; padding: 2px 10px; }
+.vimpf small { font-family: var(--font-body); font-size: 11px; font-weight: 800; color: var(--ink-soft); }
+.vimpf.hit { border: 3px solid var(--line); background: var(--nom); color: #1b1035; box-shadow: 0 0 0 4px color-mix(in srgb, var(--nom) 60%, transparent); }
+.kchip.vp { background: var(--card); color: var(--ink); }
+.kuse-row.vp { border-left-color: var(--ink-soft); }
 
 /* ============ Pád! ============ */
 .btn.go.green { background: var(--loc); color: #173000; }
@@ -937,6 +989,20 @@ input.cell.given { opacity: .85; }
   .keys { gap: 4px; }
   .keys button { min-width: 32px; height: 38px; font-size: 18px; }
   .board { grid-template-columns: 40px minmax(0, 1fr) minmax(0, 1fr); gap: 6px; padding: 8px; }
+  .board.one-col { grid-template-columns: 40px minmax(0, 1fr); }
+  .board.verbs { grid-template-columns: 52px minmax(0, 1fr) minmax(0, 1fr); }
+  .board.verbs.one-col { grid-template-columns: 52px minmax(0, 1fr); }
+  .board .rl.vp small { display: none; }
+  .board .rl.vp .abbr { font-size: 17px; }
+  .bh.th { font-size: 12px; padding: 2px 3px; }
+  .sideswitch button { font-size: 18px; padding: 6px 14px 4px; }
+  .vtable, .vtable.with-fut { grid-template-columns: 40px repeat(3, minmax(0, 1fr)); gap: 4px; }
+  .vtable .fcol { display: none; }
+  .vtable .rl .full { display: none; }
+  .vtable .rl .abbr { display: inline; font-weight: 800; }
+  .vtable .rl small { display: none; }
+  .vtable .lcell { font-size: 14px; padding: 2px 3px; }
+  .vtable .bh.th { font-size: 11px; }
   .rl { padding: 2px 0; align-items: center; font-size: 18px; }
   .board .rl .full, .board .rl small { display: none; }
   .board .rl .abbr { display: inline; font-size: 22px; font-weight: 800; }

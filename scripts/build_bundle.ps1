@@ -82,7 +82,15 @@ foreach ($f in 'nouns_candidates.json', 'adj_candidates.json') {
   }
 }
 
-$bundle = [ordered]@{ nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
+# verb conjugations for the Slovesá side (scripts/build_conj.ps1)
+$conj = @()
+if (Test-Path "$Root/data/conj.json") {
+  $conj = @(Get-Content "$Root/data/conj.json" -Raw | ConvertFrom-Json | Where-Object { $_.asp -in 'impf', 'pf' } | ForEach-Object {
+    [ordered]@{ w = $_.w; r = $_.refl; g = (Get-Short $_.g).Trim(); a = $_.asp; c = $_.cls; pr = $_.partner; s = @($_.pres); l = @($_.past); i = @($_.imp) }
+  })
+}
+
+$bundle = [ordered]@{ conj = $conj; nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
 New-Item -ItemType Directory -Force "$Root/app" | Out-Null
 $json = $bundle | ConvertTo-Json -Depth 8 -Compress
 Set-Content "$Root/app/data.js" -Value "window.PADY_DATA = $json;" -Encoding utf8

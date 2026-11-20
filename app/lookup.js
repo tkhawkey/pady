@@ -65,6 +65,89 @@
       const a = { w, g, f: Object.fromEntries(SLOTS.map((s, i) => [s, forms[i]])) };
       for (const f of new Set(forms)) add(f, { type: 'adj', adj: a });
     }
+    // verbs: infinitive, present/future, past (-l forms), imperative
+    for (const [w, refl, g, asp, partner, pres, past, imp] of LK.verbs || []) {
+      const v = { w, refl, g, asp, partner, pres, past, imp };
+      const seen = new Set();
+      const addV = (f) => { if (f && !seen.has(f)) { seen.add(f); add(f, { type: 'verb', verb: v }); } };
+      addV(w); pres.forEach(addV); past.forEach(addV); (imp || []).forEach(addV);
+    }
+  }
+
+  // ---------- verbs ----------
+  const VPERS = () => P.PERSONS;
+  const vname = (v) => (v.refl ? `${v.w} ${v.refl}` : v.w);
+  const AUXV = ['som', 'si', '', 'sme', 'ste', ''];
+  function verbMatches(v, f) {
+    const out = [];
+    if (f === v.w) out.push({ kind: 'inf' });
+    v.pres.forEach((x, i) => { if (x === f) out.push({ kind: v.asp === 'pf' ? 'fut' : 'pres', pi: i }); });
+    v.past.forEach((x, i) => { if (x === f) out.push({ kind: 'past', gi: i }); });
+    (v.imp || []).forEach((x, i) => { if (x === f) out.push({ kind: 'imp', ii: i }); });
+    return out;
+  }
+  const PAST_G = [['muž.', 'masculine'], ['žen.', 'feminine'], ['stred.', 'neuter'], ['množ.', 'plural']];
+  const IMP_P = [['ty', 'you (one)'], ['my', "let's"], ['vy', 'you (several / polite)']];
+  function verbChips(v, ms) {
+    return ms.map((m) => {
+      if (m.kind === 'inf') return `<span class="kchip vp" data-en="<b>neurčitok</b> = infinitive: the dictionary form">neurčitok</span>`;
+      if (m.kind === 'pres' || m.kind === 'fut') {
+        const p = VPERS()[m.pi];
+        return `<span class="kchip ${m.kind === 'pres' ? 't-pres' : 't-fut'}" data-en="${attr(`<b>${p.sk}</b> (${p.en}), ${m.kind === 'pres' ? 'present tense' : 'future tense (perfective verb)'}`)}">${p.icon} ${p.sk} · ${m.kind === 'pres' ? 'prítomný' : 'budúci'}</span>`;
+      }
+      if (m.kind === 'past') {
+        const who = m.gi === 3 ? 'my / vy / oni' : `ja / ty / ${['on', 'ona', 'ono'][m.gi]}`;
+        return `<span class="kchip t-past" data-en="${attr(`past tense, ${PAST_G[m.gi][1]}: on its own for ${m.gi === 3 ? 'oni' : ['on', 'ona', 'ono'][m.gi]}; with <i>${m.gi === 3 ? 'sme / ste' : 'som / si'}</i> for ${m.gi === 3 ? 'my / vy' : 'ja / ty'}`)}">minulý · ${PAST_G[m.gi][0]} (${who})</span>`;
+      }
+      return `<span class="kchip vp" data-en="${attr(`<b>rozkazovací spôsob</b> = imperative (a command) for ${IMP_P[m.ii][1]}`)}">❗ rozkaz · ${IMP_P[m.ii][0]}</span>`;
+    }).join('');
+  }
+  function verbUse(v, ms) {
+    const kinds = new Set(ms.map((m) => m.kind));
+    const lines = [];
+    if (kinds.has('pres')) lines.push(['t-pres', 'Prítomný čas', 'What is happening now, or happens usually.']);
+    if (kinds.has('fut')) lines.push(['t-fut', 'Budúci čas', `<i>${vname(v)}</i> is perfective (one-off, completed), so this "present" form means the <b>future</b>: <i>${v.pres[0]}</i> = I will ${v.g.split(',')[0].replace(/^to /, '')} (and finish).`]);
+    if (kinds.has('past')) lines.push(['t-past', 'Minulý čas', 'The -l form agrees with the subject\'s gender; add <i>som / si</i> (ja / ty) or <i>sme / ste</i> (my / vy). On its own for on / ona / ono / oni.']);
+    if (kinds.has('imp')) lines.push(['vp', 'Rozkazovací spôsob', 'A command: do it!']);
+    return lines.length ? `<div class="kuse">${lines.map(([cls, name, txt]) => `<div class="kuse-row ${cls}"><span class="lg ${cls}">${name}</span><span class="kuse-text">${txt}</span></div>`).join('')}</div>` : '';
+  }
+  function verbTable(v, f, ms) {
+    const hit = (kind, pi, gi) => ms.some((m) => (m.kind === kind && (m.pi === pi)) || (kind === 'past' && m.kind === 'past' && m.gi === gi));
+    const join = (...xs) => xs.filter(Boolean).join(' ');
+    const simpleCls = v.asp === 'pf' ? 't-fut' : 't-pres';
+    const showFut = v.asp !== 'pf';
+    let h = `<div class="vtable${showFut ? ' with-fut' : ''}">
+      <div></div>
+      <div class="bh th ${simpleCls}" data-en="${v.asp === 'pf' ? 'future (perfective verb: no present)' : 'present tense'}">${v.asp === 'pf' ? 'Budúci' : 'Prítomný'}</div>
+      <div class="bh th t-past" data-en="past tense, masculine subject">Minulý · muž.</div>
+      <div class="bh th t-past" data-en="past tense, feminine subject">Minulý · žen.</div>
+      ${showFut ? '<div class="bh th t-fut fcol" data-en="future: budem / budeš… + infinitive">Budúci</div>' : ''}`;
+    const BUD = ['budem', 'budeš', 'bude', 'budeme', 'budete', 'budú'];
+    VPERS().forEach((p, pi) => {
+      const pl = pi >= 3;
+      const pm = pl ? v.past[3] : v.past[0], pf = pl ? v.past[3] : v.past[1];
+      h += `<div class="rl vp" data-en="${attr(`<b>${p.sk}</b> = ${p.en}`)}"><small>${p.icon}</small><span class="full">${p.sk}</span><span class="abbr">${p.abbr}</span></div>`;
+      h += `<div class="lcell ${simpleCls}${ms.some((m) => (m.kind === 'pres' || m.kind === 'fut') && m.pi === pi) ? ' hit' : ''}">${join(v.pres[pi], v.refl)}</div>`;
+      h += `<div class="lcell t-past${ms.some((m) => m.kind === 'past' && m.gi === (pl ? 3 : 0)) ? ' hit' : ''}">${join(pm, AUXV[pi], v.refl)}</div>`;
+      h += `<div class="lcell t-past${ms.some((m) => m.kind === 'past' && m.gi === (pl ? 3 : 1)) ? ' hit' : ''}">${join(pf, AUXV[pi], v.refl)}</div>`;
+      if (showFut) h += `<div class="lcell t-fut fcol">${join(BUD[pi], v.refl, v.w)}</div>`;
+    });
+    h += '</div>';
+    if (v.imp?.some(Boolean)) {
+      h += `<div class="vimp"><span class="lg vp" data-en="<b>rozkazovací spôsob</b> = imperative (commands)">❗ Rozkazovací</span>` +
+        v.imp.map((x, i) => x ? `<span class="vimpf${ms.some((m) => m.kind === 'imp' && m.ii === i) ? ' hit' : ''}"><small>${IMP_P[i][0]}</small> ${join(x, v.refl)}!</span>` : '').join('') + '</div>';
+    }
+    if (v.past[2]) h += `<p class="legend-note">Neuter (<i>ono</i>): <b>${join(v.past[2], v.refl)}</b>. Past tense: the -l form + <i>som/si/sme/ste</i> for ja/ty/my/vy.</p>`;
+    return h;
+  }
+  function renderVerbCard(v, f, el) {
+    const ms = verbMatches(v, f);
+    const asp = P.ASPECT[v.asp];
+    const aspChip = asp ? `<span class="chip ghost" data-en="${attr(asp[1])}">${asp[0]}</span>` : '';
+    const partner = v.partner ? `<button class="chip ghost" data-q="${attr(v.partner)}" data-en="${attr(`aspect partner: tap to look up <b>${v.partner}</b>`)}">↔ ${esc(v.partner)}</button>` : '';
+    el.innerHTML = cardHead(f, vname(v), 'sloveso', '<b>sloveso</b> = verb', aspChip + partner, v.g) +
+      `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar je</b> = this form is">Tento tvar je</span>${verbChips(v, ms)}</div>` +
+      verbUse(v, ms) + verbTable(v, f, ms);
   }
 
   // ---------- live noun tables from Wiktionary ----------
@@ -272,7 +355,7 @@
     const sc = $('#lookup');
     if (sc.dataset.built) return;
     sc.dataset.built = '1';
-    $('#kDia').innerHTML = DIA.map((ch) => `<button type="button" tabindex="-1" data-ch="${ch}">${ch}</button>`).join('');
+    $('#kDia').innerHTML = DIA.map((ch, i) => `<button type="button" tabindex="-1" data-ch="${ch}">${ch}<small class="kk">${P.diaKey(i)}</small></button>`).join('');
     $('#kDia').addEventListener('pointerdown', (e) => {
       const b = e.target.closest('button'); if (!b) return;
       e.preventDefault();
@@ -311,16 +394,25 @@
     if (!f) { out.innerHTML = ''; renderRecent(); return; }
     try { await loadData(); } catch { out.innerHTML = '<p class="kload">The lookup dictionary (lookup-data.js) is missing.</p>'; return; }
     if (q !== f) return;   // a newer search started meanwhile
-    const hits = IDX.get(f) || [];
+    let form = f, hits = IDX.get(f) || [], accentNote = '';
+    // searching is accent-insensitive: "muz" finds "muž" straight away
+    if (!hits.length) {
+      const cands = [...(BARE.get(bare(f)) || [])];
+      if (cands.length) {
+        const isHead = (c) => (IDX.get(c) || []).some((h) => (h.noun?.w || h.adj?.w || h.verb?.w) === c);
+        cands.sort((a, b) => (isHead(b) - isHead(a)) || ((IDX.get(b) || []).length - (IDX.get(a) || []).length));
+        form = cands[0]; hits = IDX.get(form);
+        const others = cands.slice(1, 6);
+        accentNote = `<div class="kaccent"><span data-en="no accents typed: showing the match with accents">bez diakritiky:</span> <b>${esc(f)}</b> → <b>${esc(form)}</b>
+          ${others.length ? `<span class="kcan-label" data-en="<b>alebo</b> = or">alebo</span>${others.map((s) => `<button class="exchip" data-q="${attr(s)}">${esc(s)}</button>`).join('')}` : ''}</div>`;
+      }
+    }
     if (commit) {
-      history.replaceState(null, '', `#hladaj/${encodeURIComponent(f)}`);
-      if (hits.length) pushRecent(f);
+      history.replaceState(null, '', `#hladaj/${encodeURIComponent(form)}`);
+      if (hits.length) pushRecent(form);
     }
     if (!hits.length) {
-      const sugg = [...(BARE.get(bare(f)) || [])].filter((x) => x !== f).slice(0, 6);
-      out.innerHTML = sugg.length
-        ? `<div class="kmiss"><span class="kcan-label" data-en="<b>mysleli ste</b> = did you mean">Mysleli ste</span>${sugg.map((s) => `<button class="exchip" data-q="${attr(s)}">${esc(s)}</button>`).join('')}</div>`
-        : `<div class="kmiss"><p><b>${esc(f)}</b> isn't in the dictionary. It may be a verb, pronoun or number, or a noun/adjective we don't have.</p>
+      out.innerHTML = `<div class="kmiss"><p><b>${esc(f)}</b> isn't in the dictionary. It may be a pronoun or number, or a word we don't have.</p>
            <a class="btn small ghost" href="https://en.wiktionary.org/wiki/${encodeURIComponent(f)}#Slovak" target="_blank" rel="noopener">Wiktionary ↗</a></div>`;
       renderRecent();
       return;
@@ -328,14 +420,16 @@
     // one card per word (a form can belong to several words: noun + adjective, two nouns…)
     const seen = new Set(); const cards = [];
     for (const h of hits) {
-      const key = h.type + '|' + (h.noun?.w || h.adj?.w);
+      const key = h.type + '|' + (h.noun?.w || h.adj?.w || h.verb?.w);
       if (seen.has(key)) continue; seen.add(key); cards.push(h);
     }
-    out.innerHTML = (cards.length > 1 ? `<p class="kmany">This form fits <b>${cards.length}</b> words:</p>` : '') +
+    out.innerHTML = accentNote + (cards.length > 1 ? `<p class="kmany">This form fits <b>${cards.length}</b> words:</p>` : '') +
       cards.map((_, i) => `<article class="kcard" id="kc${i}"></article>`).join('');
     cards.forEach((h, i) => {
       const el = $(`#kc${i}`);
-      if (h.type === 'adj') renderAdjCard(h.adj, f, el); else renderNounCard(h.noun, f, el);
+      if (h.type === 'adj') renderAdjCard(h.adj, form, el);
+      else if (h.type === 'verb') renderVerbCard(h.verb, form, el);
+      else renderNounCard(h.noun, form, el);
     });
     renderRecent();
   }

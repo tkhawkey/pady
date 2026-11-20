@@ -1,8 +1,11 @@
-nouns kept: 249   adjectives kept: 251   rejected: 14
-treebank check - noun tokens: 5906 match / 8 mismatch;  adj tokens: 2543 match / 8 mismatch
+nouns kept: 596   adjectives kept: 299   rejected: 17
+treebank check - noun tokens: 8320 match / 15 mismatch;  adj tokens: 2714 match / 11 mismatch
 
 --- rejected
 noun stať: missing ins_p
+noun známy: missing ins_p
+noun bývalý: missing ins_p
+noun vlna: missing ins_p
 adj vydatá: nom sg != lemma
 adj červí: missing pl_ins
 adj rybí: missing pl_ins
@@ -22,10 +25,20 @@ adj americký gen_s: americké
 adj bezpečný nom_s: nebezpečné (absent)
 adj bieloruský gen_s: bielorusk0ho (absent)
 adj celý acc_s: celých
+adj ďaleký gen_s: neďalekého (absent)
+adj ďaleký loc_s: neďalekej (absent)
 adj dnešný gen_p: dnešních (absent)
+adj medzinárodný gen_s: mezinárodnej (absent)
 adj skúsený nom_s: neskúsená (absent)
 adj známy acc_p: neznáme (absent)
+noun dokument ins_p: dokumentami (ours: dokumentmi/)
+noun hosť dat_s: hosťovi (ours: hosti/)
+noun hosť ins_s: hosťom (ours: hosťou/)
 noun list ins_p: listami (ours: listmi/)
 noun oblasť loc_p: oblastich (ours: oblastiach/)
 noun pes nom_p: psi (ours: psovia/psy)
+noun pizza loc_s: pizze (ours: pizzi/)
 noun sekunda gen_p: sekúd (ours: sekúnd/)
+noun sviňa gen_p: sviní (ours: svíň/)
+noun teória dat_s: teórie (ours: teórii/)
+noun územie loc_s: územi (ours: území/)

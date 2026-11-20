@@ -150,6 +150,12 @@
     <div class="pad-area">
       <div class="pad-field" id="padField">
         <div class="pad-level" id="padLevel"></div>
+        <div class="pad-msg" id="padMsg" aria-live="polite"></div>
+        <button class="pad-pause" id="padPause" aria-label="Pauza" data-en="pause (Space or P)">⏸</button>
+        <div class="pad-overlay" id="padOverlay" hidden>
+          <div><h3 data-en="<b>pauza</b> = pause. The clock is stopped too.">Pauza</h3>
+          <button class="btn go green" id="padResume" data-en="continue (Space)">Pokračuj ▶</button></div>
+        </div>
       </div>
       <div class="pad-lanes" id="padLanes"></div>
       <p class="kbd-hint pad" data-en="Keys 1–6 or N G D A L I pick a case for the lowest falling form">1–6 alebo N G D A L I</p>
@@ -167,6 +173,7 @@
     </div>
 
     <div class="tray-wrap">
+      <div class="done-bar" id="doneBar" aria-live="polite"></div>
       <div class="tray" id="tray"></div>
       <div class="keys" id="diaBar"></div>
       <p class="kbd-hint" data-en="Enter = check the cell and jump to the next one (down the singular column, then the plural)">Enter = skontroluj a ďalej</p>

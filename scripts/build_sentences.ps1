@@ -39,5 +39,19 @@ foreach ($f in Get-ChildItem "$Root/raw/ud/*.conllu") {
 $step = [math]::Max(1, [math]::Floor($out.Count / $Max))
 $pick = for ($i = 0; $i -lt $out.Count -and ($i / $step) -lt $Max; $i += $step) { , $out[$i] }
 ConvertTo-Json -InputObject @($pick) -Depth 5 -Compress | Set-Content "$Root/work/sentences.json" -Encoding utf8
+
+# meanings for every noun/adjective lemma in the kept sentences, straight from the Wiktionary dump
+$need = @{}; foreach ($s in $pick) { foreach ($t in $s) { if ($t[3]) { $need[$t[3]] = 1 } } }
+$gl = [ordered]@{}
+$reWord = [regex]'"word": "([^"]+)", "lang": "Slovak"'
+foreach ($line in [IO.File]::ReadLines("$Root/raw/sk.jsonl")) {
+  $m = $reWord.Match($line); if (-not $m.Success -or -not $need[$m.Groups[1].Value] -or $gl.Contains($m.Groups[1].Value)) { continue }
+  if ($line -notmatch '^\{"pos": "(noun|adj|name)"') { continue }
+  $o = $line | ConvertFrom-Json
+  $g = @($o.senses | Where-Object { $_.glosses -and -not $_.form_of } | Select-Object -First 2 | ForEach-Object { ($_.glosses[-1] -replace '\s*\([^)]*\)', '') -split '[,;]\s*' } | ForEach-Object { $_.Trim() } | Where-Object { $_ } | Select-Object -Unique -First 3) -join ', '
+  if ($g) { $gl[$o.word] = $g }
+}
+$gl | ConvertTo-Json -Compress | Set-Content "$Root/work/sentence_glosses.json" -Encoding utf8
+"meanings: $($gl.Count) of $($need.Count) sentence lemmas"
 "candidates: $($out.Count)  kept: $(@($pick).Count)"
 @($pick) | Select-Object -First 3 | ForEach-Object { ($_ | ForEach-Object { if ($_[1]) { "$($_[0])[$($_[1])]" } elseif ($_[2] -eq 'p') { "*$($_[0])*" } else { $_[0] } }) -join ' ' }

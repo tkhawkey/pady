@@ -69,7 +69,20 @@ if (Test-Path "$Root/work/adj_pairs.json") {
 
 $sents = if (Test-Path "$Root/work/sentences.json") { Get-Content "$Root/work/sentences.json" -Raw | ConvertFrom-Json } else { @() }
 
-$bundle = [ordered]@{ nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); built = (Get-Date -Format 'yyyy-MM-dd') }
+# meanings for every noun/adjective lemma in the sentences (shown inline after "Vyfarbi vetu")
+$sentGloss = [ordered]@{}
+if (Test-Path "$Root/work/sentence_glosses.json") {
+  foreach ($p in (Get-Content "$Root/work/sentence_glosses.json" -Raw | ConvertFrom-Json).PSObject.Properties) { $sentGloss[$p.Name] = $p.Value }
+}
+$need = @{}; foreach ($s in $sents) { foreach ($t in $s) { if ($t[3]) { $need[$t[3]] = 1 } } }
+foreach ($f in 'nouns_candidates.json', 'adj_candidates.json') {
+  if (-not (Test-Path "$Root/work/$f")) { continue }
+  foreach ($c in (Get-Content "$Root/work/$f" -Raw | ConvertFrom-Json)) {
+    if ($need[$c.word] -and -not $sentGloss.Contains($c.word) -and $c.gloss) { $sentGloss[$c.word] = (Get-Short $c.gloss).Trim() }
+  }
+}
+
+$bundle = [ordered]@{ nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
 New-Item -ItemType Directory -Force "$Root/app" | Out-Null
 $json = $bundle | ConvertTo-Json -Depth 8 -Compress
 Set-Content "$Root/app/data.js" -Value "window.PADY_DATA = $json;" -Encoding utf8

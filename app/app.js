@@ -218,12 +218,14 @@
 
   function startRound(mode) {
     let pool = D.nouns.filter((n) => opts.pattern === 'all' || n.pat === opts.pattern);
-    // favour frequent words: shuffle the top 120 (or whole pool if smaller)
-    pool = shuffle(pool.slice(0, Math.max(120, opts.len)));
+    // favour frequent words: shuffle the top 200 (or whole pool if smaller)
+    pool = shuffle(pool.slice(0, Math.max(200, opts.len)));
     G = {
       mode, words: mode === 'magnet' ? buildMagnetItems() : mode === 'pad' ? pool : pool.slice(0, opts.len), idx: 0, score: 0, combo: 0, maxCombo: 0,
       right: 0, wrong: 0, hints: 0, caseMiss: {}, start: Date.now(), card: null, sel: null,
+      pausedMs: 0, pausedAt: null, awaitNext: false,
     };
+    $('#game').classList.remove('card-done');
     $('#game').classList.toggle('mode-grid', mode === 'grid');
     $('#game').classList.toggle('mode-magnet', mode === 'magnet');
     $('#game').classList.toggle('mode-pad', mode === 'pad');
@@ -231,9 +233,31 @@
     $('#hudCardWrap').dataset.en = mode === 'pad' ? '<b>životy</b> = lives. Lose one when a form lands or you pick a wrong case; +1 every 15 catches.' : '<b>slovo</b> = word (which word you\'re on)';
     show('game');
     stopTimer();
-    timerId = setInterval(() => { $('#hudTime').textContent = fmtTime(Date.now() - G.start); }, 250);
+    timerId = setInterval(() => { $('#hudTime').textContent = fmtTime(elapsed()); }, 250);
     nextCard();
   }
+
+  // ---------- the game clock only counts answering time ----------
+  function elapsed() {
+    if (!G) return 0;
+    return Date.now() - G.start - G.pausedMs - (G.pausedAt ? Date.now() - G.pausedAt : 0);
+  }
+  function pauseClock() {
+    if (!G || G.pausedAt) return;
+    G.pausedAt = Date.now();
+    $('#hudTime').closest('.hud-item').classList.add('paused');
+  }
+  function resumeClock() {
+    if (!G || !G.pausedAt) return;
+    G.pausedMs += Date.now() - G.pausedAt; G.pausedAt = null;
+    $('#hudTime').closest('.hud-item').classList.remove('paused');
+  }
+  // switching tab/app freezes the clock too
+  document.addEventListener('visibilitychange', () => {
+    if (!G || !$('#game').classList.contains('active')) return;
+    if (document.hidden) { G.hiddenPause = !G.pausedAt; pauseClock(); }
+    else if (G.hiddenPause) { G.hiddenPause = false; if (!G.awaitNext && !G.pad?.paused) resumeClock(); }
+  });
 
   function buildCard(noun) {
     const pick = opts.kind === 'noun' ? null : pickAdj(noun);
@@ -383,14 +407,41 @@
     const C = G.card;
     const [x, y] = centerOf($('#wordCard'));
     let msg = 'Hotovo!';
-    if (C.mistakes === 0 && !C.hinted && !C.almosts) { G.score += 30; msg = 'ČISTÉ! +30'; }
+    const clean = C.mistakes === 0 && !C.hinted && !C.almosts;
+    if (clean) { G.score += 30; msg = 'ČISTÉ! +30'; }
     renderHud();
     setTimeout(() => { floater(msg, x, y, true); confetti(x, y); sfx.done(); }, 200);
-    setTimeout(() => {
-      G.idx++;
-      if (G.idx < G.words.length) nextCard(); else finish();
-    }, 1250);
+    // pause here: the finished table stays on screen, the clock stops, the player moves on when ready
+    pauseClock();
+    G.awaitNext = true;
+    G.doneAt = Date.now();   // the Enter that finished the last cell must not also skip the pause
+    const last = G.idx + 1 >= G.words.length;
+    const bits = [];
+    if (C.mistakes) bits.push(`${C.mistakes} ${C.mistakes === 1 ? 'chyba' : C.mistakes < 5 ? 'chyby' : 'chýb'}`);
+    if (C.almosts) bits.push(`${C.almosts}× diakritika`);
+    if (C.hinted) bits.push('s nápovedou');
+    const sum = clean ? 'Čisté! Bez chyby.' : bits.join(' · ');
+    const sumEn = clean ? 'Clean! No mistakes.' : 'mistakes / accent slips / hints on this word';
+    $('#doneBar').innerHTML = `<span class="done-sum" data-en="${attr(sumEn)}"><b>Hotovo!</b> ${sum}</span>
+      <span class="done-paused" data-en="The clock is paused: take your time to look at the finished table">⏸ čas stojí</span>
+      <button class="btn go" id="doneNext" data-en="${last ? 'see your results (Enter)' : 'next word (Enter)'}">${last ? 'Výsledky →' : 'Ďalej →'}</button>`;
+    $('#game').classList.add('card-done');
+    setTimeout(() => $('#doneNext')?.focus({ preventScroll: true }), 50);
   }
+
+  function cardNext() {
+    if (!G?.awaitNext || Date.now() - (G.doneAt || 0) < 350) return;
+    G.awaitNext = false;
+    $('#game').classList.remove('card-done');
+    resumeClock();
+    G.idx++;
+    if (G.idx < G.words.length) nextCard(); else finish();
+  }
+  document.addEventListener('click', (e) => { if (e.target.closest('#doneNext')) cardNext(); });
+  document.addEventListener('keydown', (e) => {
+    if (!G?.awaitNext || !$('#game').classList.contains('active')) return;
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cardNext(); }
+  });
 
   function hint() {
     if (G.mode === 'grid') return gridHint();
@@ -606,10 +657,12 @@
       const z = it.z;
       const re = new RegExp(`(?<![\\p{L}])${z.f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}])`, 'u');
       const sent = esc(z.t).replace(re, `<span class="mblank wide">?</span>`);
-      const lemmaTip = attr(`the noun here is <b>${z.l}</b>${nounTable(z.l)?.g ? ` (${nounTable(z.l).g})` : ''}, ${z.num === 's' ? 'singular' : 'plural'}`);
+      // meanings inline: the noun to put in the gap, and the verb that decides its case
+      const ng = nounTable(z.l)?.g || PATTERN_EN[z.l]?.[0] || '';
       $('#mPrompt').innerHTML = `<span class="msent">${sent}</span>
-        <span class="mhint"><span class="chip ghost" data-en="${lemmaTip}">${esc(z.l)} · ${z.num === 's' ? 'sg' : 'pl'}</span>
-        <span class="chip ghost" data-en="${attr(`<b>${it.v.v}</b> = ${it.v.g}`)}">${esc(it.v.v)}${it.p ? ` ${esc(it.p)}` : ''} + ?</span></span>`;
+        <span class="mhint"><span class="chip ghost">${esc(z.l)} · ${z.num === 's' ? 'sg' : 'pl'}</span>${ng ? `<span class="gl">${esc(ng)}</span>` : ''}
+        <span class="sep">·</span>
+        <span class="chip ghost">${esc(it.v.v)}${it.p ? ` ${esc(it.p)}` : ''} + ?</span><span class="gl">${esc(it.v.g)}</span></span>`;
       const cap = z.f[0] !== z.f[0].toLowerCase();
       const fix = (s) => (cap ? s[0].toUpperCase() + s.slice(1) : s);
       const correct = z.f;
@@ -628,6 +681,7 @@
     const C = G.card; if (!C || C.answered) return;
     const it = C.item;
     C.answered = true;
+    pauseClock();   // reading the rule and the example sentence doesn't count against you
     let ok, rightCk;
     if (it.kind === 'case') {
       ok = it.cases.includes(btn.dataset.c);
@@ -689,6 +743,7 @@
   function magnetNext() {
     if (G?.mode !== 'magnet' || !G.card?.answered || !$('#game').classList.contains('active')) return;
     clearTimeout(G.autoNext);
+    resumeClock();
     G.idx++;
     if (G.idx < G.words.length) renderMagnet(); else finish();
   }
@@ -715,7 +770,8 @@
     $$('#padField .drop').forEach((e) => e.remove());
     $('#padLanes').innerHTML = CASES.map((c, i) => `<button class="lane c-${c.k}" data-ck="${c.k}" aria-label="${c.name}">
         <span class="mk">${i + 1}</span><b class="full">${c.name}</b><b class="abbr">${c.abbr}</b></button>`).join('');
-    G.pad = { items: [], lives: 3, caught: 0, level: 1, speed: 0.12, spawnEvery: 2.6, sinceSpawn: 2.2, last: performance.now(), running: true, ni: 0, over: false };
+    G.pad = { items: [], lives: 3, caught: 0, level: 1, speed: 0.12, spawnEvery: 2.6, sinceSpawn: 2.2, last: performance.now(), running: true, ni: 0, over: false, paused: false, freezing: false };
+    $('#padOverlay').hidden = true; $('#padMsg').classList.remove('show'); $('#padPause').textContent = '⏸';
     renderLives(); renderHud(); padBanner('Level 1');
     padRAF = requestAnimationFrame(padTick);
   }
@@ -755,7 +811,11 @@
   function padTick(now) {
     const P = G?.pad; if (!P || !P.running) return;
     const dt = Math.min(0.05, (now - P.last) / 1000); P.last = now;
-    if (!document.hidden) {
+    // end of the short freeze after a miss
+    if (P.freezing && now >= P.freezeUntil && !P.paused && !P.over) {
+      P.freezing = false; $('#padMsg').classList.remove('show'); resumeClock();
+    }
+    if (!document.hidden && !P.paused && !P.freezing) {
       const H = $('#padField').clientHeight;
       P.sinceSpawn += dt;
       if (P.sinceSpawn >= P.spawnEvery && P.items.filter((i) => !i.done).length < 6) { P.sinceSpawn = 0; padSpawn(); }
@@ -780,7 +840,7 @@
   }
 
   function padAnswer(ck) {
-    const P = G?.pad; if (!P || !P.running) return;
+    const P = G?.pad; if (!P || !P.running || P.paused || P.freezing) return;
     const it = padTarget(); if (!it) return;
     const lane = $(`.lane[data-ck="${ck}"]`);
     lane?.classList.remove('hit'); void lane?.offsetWidth; lane?.classList.add('hit');
@@ -812,7 +872,15 @@
     G.caseMiss[home] = (G.caseMiss[home] || 0) + 1;
     statBump(it.noun, home, it.cell.num, false);
     sfx.bad();
-    floater(`${it.cell.main} = ${caseNames(it.valid)}`, Math.min(Math.max(x, 140), innerWidth - 140), y);
+    // freeze for a moment and show the answer big, so it can actually be read (clock stops too)
+    const chips = CASES.filter((c) => it.valid.has(c.k)).map((c) => `<span class="lg c-${c.k}">${c.name}</span>`).join(' ');
+    const meaning = `${it.noun.w}${it.noun.g ? ` = ${it.noun.g}` : ''}`;
+    $('#padMsg').innerHTML = `<b>${it.cell.main}</b> <span class="eq">=</span> ${chips}
+      <span class="pm-word">← ${meaning}</span>
+      ${wrongCk ? `<small>nie ${CASES.find((c) => c.k === wrongCk).name}</small>` : '<small>spadlo! · it landed</small>'}`;
+    $('#padMsg').classList.add('show');
+    P.freezing = true; P.freezeUntil = performance.now() + 1600;
+    pauseClock();
     if (wrongCk) $(`.lane[data-ck="${wrongCk}"]`)?.classList.add('shake');
     setTimeout(() => $$('.lane.shake').forEach((l) => l.classList.remove('shake')), 420);
     padRemove(it, 'bad');
@@ -829,6 +897,17 @@
     padMiss(it, r.left + r.width / 2, r.top);
   }
 
+  function padPause(on) {
+    const P = G?.pad; if (!P || !P.running || P.over) return;
+    P.paused = on ?? !P.paused;
+    $('#padOverlay').hidden = !P.paused;
+    $('#padPause').textContent = P.paused ? '▶' : '⏸';
+    if (P.paused) pauseClock();
+    else if (!P.freezing) resumeClock();
+  }
+  $('#padPause').addEventListener('click', () => padPause());
+  $('#padResume').addEventListener('click', () => padPause(false));
+
   $('#padLanes').addEventListener('pointerdown', (e) => {
     const b = e.target.closest('.lane'); if (!b) return;
     e.preventDefault();
@@ -836,6 +915,7 @@
   });
   document.addEventListener('keydown', (e) => {
     if (G?.mode !== 'pad' || !$('#game').classList.contains('active') || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === ' ' || e.key.toLowerCase() === 'p' || (e.key === 'Escape' && G.pad?.paused)) { e.preventDefault(); padPause(e.key === 'Escape' ? false : undefined); return; }
     const n = parseInt(e.key, 10);
     const ck = n >= 1 && n <= 6 ? CASES[n - 1].k : PAD_LETTERS[e.key.toLowerCase()];
     if (ck) { e.preventDefault(); padAnswer(ck); }
@@ -900,7 +980,8 @@
   // ---------- results ----------
   function finish() {
     stopTimer(); stopPad();
-    const ms = Date.now() - G.start;
+    resumeClock();
+    const ms = elapsed();
     const total = G.right + G.wrong;
     const acc = total ? G.right / total : 0;
     const stars = acc >= 0.95 && G.hints === 0 ? 3 : acc >= 0.8 ? 2 : 1;

@@ -90,7 +90,13 @@
     if (it.kind === 'color') colorSelect(firstOpenTarget());
   }
 
-  const lemmaChip = (n, num) => `<span class="chip ghost" data-en="${attr(`<b>${n.w}</b> = ${n.g || ''}${num ? `, ${num === 's' ? 'singular' : 'plural'}` : ''}`)}">${esc(n.w)}${num ? ` · ${num === 's' ? 'sg' : 'pl'}` : ''}</span>`;
+  // the word you're working with always shows its meaning inline (hover is for interface labels only)
+  const lemmaChip = (n, num) => `<span class="chip ghost">${esc(n.w)}${num ? ` · ${num === 's' ? 'sg' : 'pl'}` : ''}</span>${n.g ? ` <span class="gl">${esc(n.g)}</span>` : ''}`;
+  // meaning of any noun/adjective lemma we have data for
+  const GLOSS = new Map();
+  for (const n of [...D.nouns, ...D.adjs]) if (n.g && !GLOSS.has(n.w)) GLOSS.set(n.w, n.g);
+  for (const m of D.models) if (!GLOSS.has(m.w)) GLOSS.set(m.w, P.PATTERN_EN[m.w]?.[0] || '');
+  const glossOf = (w) => GLOSS.get(w) || D.glosses?.[w] || '';
   const optionButtons = (opts) => `<div class="tropts">${opts.map((o, i) => `<button class="tropt" data-ans="${attr(o)}"><span class="mk">${i + 1}</span>${esc(o)}</button>`).join('')}</div>`;
   const caseButtons = (only) => `<div class="trcases">${CASES.filter((c) => !only || only.includes(c.k)).map((c, i) => `<button class="trcase c-${c.k}" data-ck="${c.k}"><span class="mk">${i + 1}</span><b>${c.name}</b><small>${c.q}</small></button>`).join('')}</div>`;
   const typeBox = () => `<div class="trtype"><input id="trInput" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder="napíš tvar…">
@@ -107,7 +113,7 @@
       }
       if (it.type === 'pickCase') {
         return tag('Ktorý pád to môže byť?', 'Which case could this form be? (any that fits counts)') +
-          `<div class="trbig">${esc(it.answer)}</div><div class="trsub">${lemmaChip(it.noun)} <span class="gl">${esc(it.noun.g || '')}</span></div>` + caseButtons();
+          `<div class="trbig">${esc(it.answer)}</div><div class="trsub">${lemmaChip(it.noun)}</div>` + caseButtons();
       }
       const head = blankFrame(it.frame, `<div class="trsub">${lemmaChip(it.noun, it.num)} ${caseChip(it.ck, it.num)}</div>`);
       return tag(it.type === 'type' ? 'Napíš správny tvar' : 'Vyber správny tvar', it.type === 'type' ? 'Type the right form' : 'Pick the right form') +
@@ -125,7 +131,7 @@
       const re = new RegExp(`(?<![\\p{L}])${z.f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}])`, 'u');
       return tag('Doplň vetu', 'Fill the real sentence') +
         `<div class="trsent">${esc(z.t).replace(re, '<span class="mblank wide">?</span>')}</div>
-         <div class="trsub">${lemmaChip(it.noun, z.num)} <span class="chip ghost" data-en="${attr(`<b>${it.vx.v.v}</b> = ${it.vx.v.g}`)}">${esc(it.vx.v.v)}${it.vx.p ? ' ' + esc(it.vx.p) : ''} + ?</span></div>` + optionButtons(it.options);
+         <div class="trsub">${lemmaChip(it.noun, z.num)} <span class="sep">·</span> <span class="chip ghost">${esc(it.vx.v.v)}${it.vx.p ? ' ' + esc(it.vx.p) : ''} + ?</span> <span class="gl">${esc(it.vx.v.g)}</span></div>` + optionButtons(it.options);
     }
     if (it.kind === 'color') {
       it.marks = it.marks || {};
@@ -261,8 +267,17 @@
     const bad = targets().filter((j) => it.marks[j] !== LETTER_CK[it.sent[j][1]]);
     const text = it.sent.map((t) => t[0] + (t[5] ? '' : ' ')).join('').trim();
     $('#trFeed').className = `trfeed show ${bad.length ? 'no' : 'ok'}`;
+    // every coloured word with its base form and meaning: the vocabulary is half the point of a real sentence
+    const rows = targets().map((j) => {
+      const [form, c, kind, lemma, num] = it.sent[j];
+      const ok = it.marks[j] === LETTER_CK[c];
+      const g = glossOf(lemma);
+      return `<li class="${ok ? 'ok' : 'no'}"><b>${esc(form)}</b> <span class="lem">← ${esc(lemma)}</span>${g ? ` <span class="gl">${esc(g)}</span>` : ''}
+        <span class="pos">${kind === 'a' ? 'príd.' : 'podst.'}</span> ${caseChip(LETTER_CK[c], num)}${ok ? '' : ' <span class="xmark">✗</span>'}</li>`;
+    }).join('');
     $('#trFeed').innerHTML = `<div class="mrule"><span class="mres">${bad.length ? 'Skoro!' : 'Výborne!'}</span>
-      ${bad.length ? bad.map((j) => `<b>${esc(it.sent[j][0])}</b> = ${caseChip(LETTER_CK[it.sent[j][1]], it.sent[j][4])}`).join(' · ') : 'Every word in the right colour.'}</div>
+      ${bad.length ? `${bad.length} of ${targets().length} in the wrong colour.` : 'Every word in the right colour.'}
+      <ul class="cwords">${rows}</ul></div>
       <div class="trfeed-actions">${sayBtn(text)}<button class="btn small go" id="trNext">Ďalej →</button></div>`;
   }
 

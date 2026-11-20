@@ -214,6 +214,7 @@
           <div class="exrow"><span class="opt-label sm" data-en="<b>príklady</b> = examples. Tap a word to see the same endings on it.">Príklady</span>${exChips}</div>
           <label class="toggle" data-en="<b>len koncovky</b> = endings only"><input type="checkbox" id="endOnly" ${S.endOnly ? 'checked' : ''}> Len koncovky</label>
         </div>
+        <div class="pword"><b>${word.w}</b> <span class="gl">${word.g || P.PATTERN_EN[pat][0]}</span>${word.w === pat ? ' <span class="pmodel">· vzor</span>' : ''}</div>
         ${caseTable(word, pat)}
         <div class="pfoot">
           <ul class="tips">${TIPS[pat].map((t) => `<li>${t}</li>`).join('')}</ul>

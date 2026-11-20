@@ -83,7 +83,44 @@
     const keys = E.APAIRS.map((v) => `va|${v.w}`);
     const items = []; const used = new Set();
     while (items.length < 10 && used.size < keys.length) { const k = keys[Math.floor(Math.random() * Math.min(keys.length, 30))]; if (used.has(k)) continue; used.add(k); const it = E.itemForKey(k); if (it) items.push(it); }
-    runSession({ title: 'Páry', titleEn: 'Aspect pairs: ongoing ↔ completed', items, mode: 'color' });
+    runSession({ title: 'Páry', titleEn: 'Aspect pairs: ongoing ↔ completed', items, mode: 'color', again: startPairs });
+  }
+
+  // Pasca: the traps Slovak writers really fall into (s/z, v/vo, -í/-é), in real treebank sentences
+  const TRAP_CATS = {
+    sz: { sk: 's alebo z?', en: 's/so + instrumental (with) or z/zo + genitive (from, out of)? The case of the noun decides.' },
+    voc: { sk: 'v alebo vo?', en: 'Short or long preposition (v/vo, z/zo, s/so, k/ku)? Listen to the next word.' },
+    vir: { sk: '-í alebo -é?', en: 'Male persons (-í/-i: dobrí, ktorí, tí) or everything else (-é/-e: dobré, ktoré, tie)?' },
+  };
+  function trapStats() { const s = P.save(); s.traps = s.traps || {}; for (const c in TRAP_CATS) s.traps[c] = s.traps[c] || { r: 0, w: 0 }; return s.traps; }
+  function startTraps(only) {
+    const all = D.traps || []; if (!all.length) return;
+    const st = trapStats();
+    const cats = only ? [only] : Object.keys(TRAP_CATS);
+    // weaker categories come up more often
+    const weight = (c) => (st[c].w + 1) / (st[c].r + st[c].w + 2) + 0.25;
+    const items = [], used = new Set();
+    while (items.length < 10) {
+      let r = Math.random() * cats.reduce((a, c) => a + weight(c), 0), cat = cats[0];
+      for (const c of cats) { r -= weight(c); if (r <= 0) { cat = c; break; } }
+      const pool = all.filter((x) => x.c === cat);
+      const tr = pool[Math.floor(Math.random() * pool.length)];
+      if (used.has(tr) && used.size < all.length) continue;
+      used.add(tr);
+      items.push({ kind: 'trap', key: null, tr, options: Math.random() < 0.5 ? [tr.a, tr.x] : [tr.x, tr.a] });
+    }
+    runSession({ title: 'Pasca', titleEn: only ? TRAP_CATS[only].en : 'Traps: the spots where even Slovaks slip', items, mode: 'trap', again: () => startTraps(only) });
+  }
+  function trapSentence(tr, done) {
+    return tr.t.map(([form, ns], i) => {
+      const sp = ns ? '' : ' ';
+      if (i === tr.i) return (done ? `<span class="mfilled tans">${esc(tr.a)}</span>` : '<span class="mblank">?</span>') + sp;
+      if (i === tr.h) {
+        const ck = tr.c === 'sz' ? tr.k : '';
+        return `<span class="tclue${done && ck ? ` c-${ck} on` : done ? ' on' : ''}">${esc(form)}</span>${sp}`;
+      }
+      return esc(form) + sp;
+    }).join('');
   }
 
   function renderTrain() {
@@ -140,6 +177,11 @@
       return tag(it.type === 'type' ? 'Napíš správny tvar' : 'Vyber správny tvar', it.type === 'type' ? 'Type the right form (the pronoun is optional)' : 'Pick the right form') +
         verbHead(v) + verbSub(v, ` ${tenseChip(it.tense)}${gChip}`) + `<div class="trframe">${frame}</div>` +
         (it.type === 'type' ? typeBox() : optionButtons(it.options));
+    }
+    if (it.kind === 'trap') {
+      const cat = TRAP_CATS[it.tr.c];
+      return tag(`Pasca · ${cat.sk}`, cat.en) + `<div class="trsent">${trapSentence(it.tr, false)}</div>` +
+        `<p class="trhint" data-en="the underlined word is your clue">Pozri sa na podčiarknuté slovo.</p>` + optionButtons(it.options);
     }
     if (it.kind === 'aspect') {
       return tag(it.toPf ? 'Nájdi dokonavý pár' : 'Nájdi nedokonavý pár', it.toPf ? 'Find the perfective partner (one-off, completed)' : 'Find the imperfective partner (ongoing, repeated)') +
@@ -223,6 +265,7 @@
       return { good: false };
     }
     if (it.kind === 'aspect') return { good: ans === it.answer };
+    if (it.kind === 'trap') return { good: ans === it.tr.a };
     if (it.kind === 'verb') return { good: it.vx.cases.map((l) => LETTER_CK[l]).includes(ans) };
     if (it.kind === 'vform') return { good: ans === it.z.f };
     return { good: false };
@@ -252,6 +295,7 @@
   function record(it, good) {
     if (good) T.right++; else T.wrong++;
     T.log.push({ key: it.key, good, tier: it.tier });
+    if (it.kind === 'trap') { const st = trapStats()[it.tr.c]; good ? st.r++ : st.w++; P.persist(); }
     if (T.mode !== 'place' && it.key) E.review(it.key, good);
     const sfx = P.sfx; good ? sfx.good(T.right) : sfx.bad();
   }
@@ -281,6 +325,24 @@
         const was = other.length ? `<b>${esc(a)}</b> is ${other.map((x) => `${personChip(x.pk)} ${tenseChip(x.t)}`).join(' / ')}. ` : '';
         body = `${almost ? 'Check the accents: ' : was}${esc(PRON(it.pi, it.g))} → <b>${esc(it.answer)}</b>.${rule ? ` <span class="why-rule">Remember: ${rule}.</span>` : ''}`;
       }
+    } else if (it.kind === 'trap') {
+      const tr = it.tr, a = tr.a.toLowerCase(), clue = tr.h >= 0 ? tr.t[tr.h][0] : '';
+      say = tr.t.map(([f, ns]) => f + (ns ? '' : ' ')).join('').trim();
+      $('#trCard .trsent').innerHTML = trapSentence(tr, true);
+      if (tr.c === 'sz') {
+        body = a.startsWith('s')
+          ? `<b>${esc(tr.a)}</b> + ${caseChip('ins')} = <i>with</i>: <b>${esc(clue)}</b> is instrumental. <span class="why-rule">z/zo + genitív = from, out of, off (z mesta, zo stola).</span>`
+          : `<b>${esc(tr.a)}</b> + ${caseChip('gen')} = <i>from, out of, off</i>: <b>${esc(clue)}</b> is genitive. <span class="why-rule">s/so + inštrumentál = with (s mamou, so sestrou).</span>`;
+      } else if (tr.c === 'voc') {
+        const long = ['vo', 'zo', 'so', 'ku'].includes(a);
+        body = long
+          ? `<b>${esc(tr.a)}</b> ${esc(clue)}: the next word starts with a clashing sound, so the preposition gets a vowel. <span class="why-rule">vo + v/f (vo vode) · zo, so + s/z/š/ž (zo školy, so ženou) · ku + k/g (ku koncu) · vo mne, zo mňa, so mnou, ku mne.</span>`
+          : `<b>${esc(tr.a)}</b> ${esc(clue)}: no clash, so the short form. <span class="why-rule">Long forms only before the same kind of sound: vo vode, zo školy, so ženou, ku koncu.</span>`;
+      } else {
+        body = tr.k === 'v'
+          ? `<b>${esc(tr.a)}</b>: <b>${esc(clue)}</b> are male persons → the "men" form. <span class="why-rule">Only men (or mixed groups) take it: dobrí, ktorí, tí, moji, dvaja, traja, štyria. Everything else: dobré, ktoré, tie, moje, dve, tri, štyri.</span>`
+          : `<b>${esc(tr.a)}</b>: <b>${esc(clue)}</b> are not male persons → the "everything else" form. <span class="why-rule">The -í form is only for men: dobrí muži, ktorí, tí, dvaja, štyria. Women, things, animals: dobré ženy, ktoré, tie, dve, štyri.</span>`;
+      }
     } else if (it.kind === 'aspect') {
       const pfW = it.toPf ? it.answer : it.q, ipfW = it.toPf ? it.q : it.answer;
       body = `<b>${esc(ipfW)}</b> ↔ <b>${esc(pfW)}</b> <span class="why-rule">${esc(ipfW)} = ongoing / repeated (I was doing, I do); ${esc(pfW)} = one-off, completed (I did it; its present means the future).</span>`;
@@ -308,11 +370,17 @@
       say = it.z.t;
       const blank = $('#trCard .mblank'); if (blank) blank.outerHTML = `<span class="mfilled c-${LETTER_CK[it.z.c]}">${esc(it.z.f)}</span>`;
     }
+    // the same form in a real sentence, with English (only when Tatoeba has this exact form)
+    const exW = it.kind === 'noun' ? it.noun : it.kind === 'adj' ? it.adj : null;
+    const exLemma = it.kind === 'vconj' ? it.v?.w : exW?.w;
+    const ex = exLemma && it.answer ? E.example(exLemma, String(it.answer).split(/[ ,/]/).pop()) : null;
+    if (ex) say = ex[0];   // 🔊 reads the whole sentence
     fb.className = `trfeed show ${good ? (almost ? 'almost' : 'ok') : 'no'}`;
     fb.innerHTML = `<div class="mrule"><span class="mres">${good ? (almost ? 'Takmer!' : 'Správne!') : 'Ups!'}</span> ${body}</div>
+      ${ex ? E.exHtml(ex, exW, { say: false }) : ''}
       <div class="trfeed-actions">${say ? sayBtn(say) : ''}<button class="btn small go" id="trNext" data-en="next (Enter)">Ďalej →</button></div>`;
     clearTimeout(T.auto);
-    if (good && !almost && it.kind !== 'verb') T.auto = setTimeout(next, 1300);
+    if (good && !almost && it.kind !== 'verb') T.auto = setTimeout(next, ex ? 2800 : 1300);
   }
 
   function next() {
@@ -451,10 +519,10 @@
       <p class="res-note">${note}</p>
       <div class="res-actions">
         ${T.mode === 'unit' ? '<button class="btn go blue" data-go="path">Cesta →</button>' : ''}
-        ${T.mode === 'color' ? '<button class="btn go" id="trAgain">Ešte raz</button>' : ''}
+        ${T.mode === 'color' || T.mode === 'trap' ? '<button class="btn go" id="trAgain">Ešte raz</button>' : ''}
         <button class="btn ghost" data-go="home">Domov</button>
       </div></div>`;
-    $('#trAgain')?.addEventListener('click', startColor);
+    $('#trAgain')?.addEventListener('click', T.again || startColor);
     $('#trBar').style.width = '100%';
     const [x, y] = P.centerOf(end.querySelector('h2'));
     if (passed || acc >= 0.9) setTimeout(() => { P.confetti(x, y, 60); P.sfx.done(); }, 200);
@@ -647,6 +715,7 @@
     renderHome,
     startColor,
     startPairs,
+    startTraps,
     render(id) {
       if (id === 'train') renderTrain();
       if (id === 'path') renderPath();

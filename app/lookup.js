@@ -147,7 +147,7 @@
     const partner = v.partner ? `<button class="chip ghost" data-q="${attr(v.partner)}" data-en="${attr(`aspect partner: tap to look up <b>${v.partner}</b>`)}">↔ ${esc(v.partner)}</button>` : '';
     el.innerHTML = cardHead(f, vname(v), 'sloveso', '<b>sloveso</b> = verb', aspChip + partner, v.g) +
       `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar je</b> = this form is">Tento tvar je</span>${verbChips(v, ms)}</div>` +
-      verbUse(v, ms) + verbTable(v, f, ms);
+      verbUse(v, ms) + verbTable(v, f, ms) + exBlock(v.w);
   }
 
   // ---------- live noun tables from Wiktionary ----------
@@ -304,6 +304,13 @@
   const sayBtn = (text) => (window.PADYEngine?.canSpeak() ? `<button class="say" data-say="${attr(text)}" aria-label="Vypočuť" data-en="listen">🔊</button>` : '');
   const cardWords = new Map();   // "type:word" -> entry to store when added
 
+  // real sentences with English (Tatoeba); the form is coloured by case when it can only be one
+  function exBlock(w, word) {
+    const E = window.PADYEngine; if (!E) return '';
+    const list = E.exList(w); if (!list.length) return '';
+    return `<div class="kex"><h4 data-en="<b>v praxi</b> = in real use: short sentences from Tatoeba, with English">V praxi</h4>${list.map((x) => E.exHtml(x, word)).join('')}</div>`;
+  }
+
   function cardHead(f, lemma, posSk, posEn, chips, gloss, actions = '') {
     return `<header class="khead">
       <div class="kform">${esc(f)} ${sayBtn(f)}</div>
@@ -332,7 +339,7 @@
     el.innerHTML = cardHead(f, t.w, 'podst. meno', '<b>podstatné meno</b> = noun', genChip + patChip, t.g, myBtn('noun', t.w)) +
       `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar môže byť</b> = this form can be">Tento tvar môže byť</span>${matchChips(m, false)}</div>` +
       useBlock(m) + nounTable(t, f) +
-      (t.extra ? '<p class="legend-note">Table loaded live from Wiktionary.</p>' : '');
+      (t.extra ? '<p class="legend-note">Table loaded live from Wiktionary.</p>' : '') + exBlock(t.w, t);
   }
 
   function renderAdjCard(a, f, el) {
@@ -341,7 +348,7 @@
     el.innerHTML = cardHead(f, a.w, 'príd. meno', '<b>prídavné meno</b> = adjective: it agrees with its noun in gender, number and case', '', a.g, myBtn('adj', a.w)) +
       `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar môže byť</b> = this form can be">Tento tvar môže byť</span>${matchChips(m, true)}</div>` +
       useBlock(m) + adjTable(a, f) +
-      '<p class="legend-note">Look at the noun it goes with: its gender and case decide which of these it is.</p>';
+      '<p class="legend-note">Look at the noun it goes with: its gender and case decide which of these it is.</p>' + exBlock(a.w, a);
   }
 
   // ---------- page ----------

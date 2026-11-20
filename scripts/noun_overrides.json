@@ -1,0 +1,19 @@
+{
+  "_note": "Hand fixes where Wiktionary's table is wrong and the Ľ. Štúr Institute groups are right (see data/stur_check.txt). Case order: nom gen dat acc loc ins. alt replaces the word's alternative forms.",
+  "hosť": {
+    "gender": "m-pers", "pattern": "chlap",
+    "sg": ["hosť", "hosťa", "hosťovi", "hosťa", "hosťovi", "hosťom"],
+    "pl": ["hostia", "hostí", "hosťom", "hostí", "hosťoch", "hosťami"],
+    "alt": {}
+  },
+  "upír": {
+    "gender": "m-pers", "pattern": "chlap",
+    "sg": ["upír", "upíra", "upírovi", "upíra", "upírovi", "upírom"],
+    "pl": ["upíri", "upírov", "upírom", "upírov", "upíroch", "upírmi"],
+    "alt": {}
+  },
+  "pes": {
+    "pl": ["psy", "psov", "psom", "psov", "psoch", "psami"],
+    "alt": { "nom_p": ["psi", "psovia"], "acc_p": ["psy"], "dat_s": ["psu"], "loc_s": ["psu"] }
+  }
+}

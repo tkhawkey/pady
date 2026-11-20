@@ -27,6 +27,7 @@ The verb side has its own Začni tu, path (9 units), daily dose, mastery map and
 | **Tabuľka** | The classic grid: type all the forms. Accent slips get half points. |
 | **Magnet** | Which case does the verb take? Level 2: fill a real sentence with the right form. |
 | **Pád!** | Arcade: forms fall, tap the right case lane before they land. |
+| **Pasca** (trap) | The spots where even Slovaks slip, in real treebank sentences: *s* or *z* (+ instrumental / + genitive)? *v* or *vo*? *dobrí* or *dobré*? One underlined word is the clue; weak categories come up more. |
 
 Every Slovak label shows English on hover (or long-press on a phone). Answers are never translated.
 Wrong answers are explained ("*-y* is the *žena* ending; *ulica* follows *ulica*: *ulice*").
@@ -44,10 +45,20 @@ All word forms come from existing sources, not from an AI:
 - **Noun and adjective declensions:** English Wiktionary, via the [kaikki.org](https://kaikki.org) extract
   and the Wiktionary REST API for full noun tables.
 - **Word selection:** [FrequencyWords](https://github.com/hermitdave/FrequencyWords) (OpenSubtitles 2018, Slovak),
-  re-ranked so a word only gets credit for frequency that is really its own (`scripts/check_homographs.ps1`).
+  re-ranked so a word only gets credit for frequency that is really its own (`scripts/check_homographs.ps1`),
+  then blended with lemma + part-of-speech ranks from the Araneum Slovacum VII corpus (Ľ. Štúr Institute of
+  Linguistics, `scripts/build_araneum.ps1`): a word's order is the geometric mean of its spoken (subtitles) and
+  written (web corpus) rank.
+- **Example sentences with English** ("V praxi" in Hľadaj, and after answers in the daily dose):
+  [Tatoeba](https://tatoeba.org) Slovak–English pairs, 2–9 words, filtered for adult content
+  (`scripts/build_tatoeba.ps1`). A form only counts as a hit when exactly one of our words has it. 1,660 words have sentences.
 - **Verb–case government, example sentences, adjective + noun pairs:** the hand-annotated
   [Slovak UD treebank (SNK)](https://github.com/UniversalDependencies/UD_Slovak-SNK).
-- **Validation:** every noun form is checked against real usage in the treebank (`data/validation_report.txt`).
+- **Validation:** every noun form is checked against real usage in the treebank (`data/validation_report.txt`),
+  and every game noun table cell by cell against the Ľ. Štúr Institute morphology groups (`scripts/check_stur.ps1`,
+  `data/stur_check.txt`): 6,483 of 6,518 cells agree. Where both forms are in real use (*garážam / garážiam*,
+  *dažďmi / dažďami*, *študentmi / študentami*) both are accepted (`data/stur_alts.json`); where Wiktionary was
+  wrong (*hosť*, *upír*, *psy*) the table is fixed by hand in `scripts/noun_overrides.json`.
 - English glosses for ~200 verbs that have no Wiktionary entry, the pattern tips and the preposition lists
   were written by hand (marked `glossSource: manual` in `data/verbs.json`).
 
@@ -72,6 +83,10 @@ Invoke-WebRequest https://raw.githubusercontent.com/hermitdave/FrequencyWords/ma
 ./scripts/build_sentences.ps1  # real sentences for Vyfarbi vetu
 ./scripts/build_conj.ps1       # verb conjugations, decoded from the dump + checked against the treebank
 ./scripts/build_vsentences.ps1 # real sentences for Vyfarbi vetu on the verb side
+./scripts/build_araneum.ps1    # needs araneum_top60k.tsv (local, not committed) -> data/freq_araneum.json
+./scripts/build_tatoeba.ps1    # needs the Tatoeba Slovak-English pairs TSV (local) -> work/tatoeba_ex.json
+./scripts/check_stur.ps1       # needs groups-nouns.yaml (local) -> data/stur_check.txt, data/stur_alts.json
+./scripts/build_traps.ps1      # Pasca items from the treebank -> work/traps.json
 ./scripts/build_bundle.ps1     # -> app/data.js
 ./scripts/build_lookup.ps1     # -> app/lookup-data.js (~1,400 adjectives, ~4,400 nouns for Hľadaj)
 ```
@@ -86,5 +101,11 @@ case table live from the Wiktionary REST API (needs a connection; known forms ar
 - Wiktionary content: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 - UD Slovak SNK: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 - FrequencyWords: see that repository's licence.
+- Tatoeba sentences: [CC BY 2.0 FR](https://creativecommons.org/licenses/by/2.0/fr/); each sentence links back to
+  its page on tatoeba.org (the "Tatoeba" link under it), which names its author.
+- Morphology groups: Ľ. Štúr Institute of Linguistics, Slovak Academy of Sciences (used only to check our tables
+  and to accept extra variants).
+- Araneum Slovacum VII frequency list: Ľ. Štúr Institute of Linguistics, Slovak Academy of Sciences. Only the
+  rank of each word we use is stored (`data/freq_araneum.json`).
 
 The derived data in `data/` and `app/data.js` is shared under the same CC BY-SA 4.0 terms.

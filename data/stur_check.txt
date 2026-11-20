@@ -1,0 +1,1208 @@
+Game nouns compared with the Ľ. Štúr Institute groups (2026-11-20)
+cells compared: 6518   agree: 6475   disagree: 43   nouns not in Štúr: 6 (oko, tisíc, banka, ucho, rob, vodič)
+
+== DISAGREE (no form in common) ==
+vďaka  gen p   ours: vdiak   Štúr: vďak
+pes  nom p   ours: psovia/psy   Štúr: psi
+stop  gen s   ours: stopa   Štúr: stopu
+autobus  nom p   ours: autobusy   Štúr: autobusi
+autobus  dat s   ours: autobusu   Štúr: autobusovi
+autobus  acc s   ours: autobus   Štúr: autobusa
+autobus  acc p   ours: autobusy   Štúr: autobusov
+hosť  gen s   ours: hosti   Štúr: hosťa
+hosť  dat s   ours: hosti   Štúr: hosťovi
+hosť  dat p   ours: hostiam   Štúr: hosťom
+hosť  acc s   ours: hosť   Štúr: hosťa
+hosť  loc s   ours: hosti   Štúr: hosťovi
+hosť  loc p   ours: hostiach   Štúr: hosťoch
+hosť  ins s   ours: hosťou   Štúr: hosťom
+pláž  dat p   ours: plážiam   Štúr: plážam
+pláž  loc p   ours: plážiach   Štúr: plážach
+medveď  nom p   ours: medvede   Štúr: medvedi
+medveď  acc p   ours: medvede   Štúr: medveďov
+upír  nom p   ours: upíry   Štúr: upíri
+upír  dat s   ours: upíru   Štúr: upírovi
+upír  acc s   ours: upír   Štúr: upíra
+upír  acc p   ours: upíry   Štúr: upírov
+upír  loc s   ours: upíre   Štúr: upírovi
+pizza  gen p   ours: pizz   Štúr: pízz
+súťaž  dat p   ours: súťažam   Štúr: súťažiam
+súťaž  loc p   ours: súťažach   Štúr: súťažiach
+had  acc p   ours: hady   Štúr: hadov
+oceán  nom p   ours: oceány   Štúr: oceáni
+oceán  dat s   ours: oceánu   Štúr: oceánovi
+oceán  acc s   ours: oceán   Štúr: oceána
+oceán  acc p   ours: oceány   Štúr: oceánov
+dážď  ins p   ours: dažďmi   Štúr: dažďami
+štít  nom p   ours: štíty   Štúr: štíti
+štít  dat s   ours: štítu   Štúr: štítovi
+štít  acc s   ours: štít   Štúr: štíta
+štít  acc p   ours: štíty   Štúr: štítov
+krádež  dat p   ours: krádežam   Štúr: krádežiam
+krádež  loc p   ours: krádežach   Štúr: krádežiach
+garáž  dat p   ours: garážiam   Štúr: garážam
+garáž  loc p   ours: garážiach   Štúr: garážach
+púšť  dat p   ours: púštiam   Štúr: púšťam
+púšť  loc p   ours: púštiach   Štúr: púšťach
+bordel  loc s   ours: bordele   Štúr: bordeli
+
+== AGREE, but one side has an extra variant ==
+srdce  ins p   ours: srdcami   Štúr also: srdciami
+policajt  ins p   ours: policajtmi   Štúr also: policajtami
+list  ins p   ours: listmi   Štúr also: listami
+prezident  ins p   ours: prezidentmi   Štúr also: prezidentami
+pôjd  ins p   ours: pôjdmi   Štúr also: pôjdami
+strýko  ins p   ours: strýkami   Štúr also: strýkmi
+more  ins p   ours: morami   Štúr also: moriami
+chuť  nom p   ours: chuti   Štúr also: chute
+chuť  gen s   ours: chuti   Štúr also: chute
+chuť  acc p   ours: chuti   Štúr also: chute
+študent  ins p   ours: študentmi   Štúr also: študentami
+pole  ins p   ours: poľami   Štúr also: poliami
+vajce  ins p   ours: vajcami   Štúr also: vajciami
+piča  gen s   ours: piče   Štúr also: piči
+piča  gen p   ours: pičí   Štúr also: píč
+piatok  gen s   ours: piatka   Štúr also: piatku
+schod  gen s   ours: schoda   Štúr also: schodu
+had  nom p   ours: hady   Štúr also: hadi
+pondelok  gen s   ours: pondelka   Štúr also: pondelku
+štít  gen s   our MAIN form štítu is not in Štúr (štíta)
+bozk  ins p   ours: bozkmi   Štúr also: bozkami
+kokot  nom p   ours: kokoty   Štúr also: kokoti
+kokot  dat s   ours: kokotu   Štúr also: kokotovi
+kokot  acc s   ours: kokot   Štúr also: kokota
+kokot  acc p   ours: kokoty   Štúr also: kokotov
+kokot  loc s   ours: kokote   Štúr also: kokotovi
+
+== Hľadaj nouns: 3952 checked, 1130 list a form the derived Štúr table doesn't have ==
+(rough: the derivation misses vocatives and stem changes such as voda -> vôd, so most of these are not errors)
+yeti: yeti, yetiovia, yetiho, yetiov, yetimu, yetiom, yetim, yetioch, yetiami
+lama: lám
+pizza: pizz
+matka: matka, matky, matiek, matke, matkám, matku, matkách, matkou, matkami
+zima: zím
+lampa: lampa, lampy, lámp, lampe, lampám, lampu, lampách, lampou, lampami
+suka: súk
+mapa: máp
+cement: cementa
+piano: pián
+stop: stopa
+syn: synu
+brat: brate, bratu
+kopa: kôp
+beta: biet
+tulipán: tulipány, tulipánu
+kilo: kíl
+abbé: abbé, abbéovia, abbého, abbéov, abbému, abbéom, abbém, abbéoch, abbéami
+samuraj: samuraj, samurajovia, samuraja, samurajov, samurajovi, samurajom, samurajoch, samurajmi
+es: esy, esa, esov, esu, esom, ese, esoch, esmi
+baba: báb
+vodka: vodka, vodky, vodiek, vodke, vodkám, vodku, vodkách, vodkou, vodkami
+popcorn: popcornami
+volt: volta, voltami
+rosa: rôs
+formula: formúl
+dandy: dandy, dandyovia, dandyho, dandyov, dandymu, dandyom, dandym, dandyoch, dandyami
+pero: pier
+luna: lún
+sobota: sobôt
+ryska: ryska, rysky, rysiek, ryske, ryskám, rysku, ryskách, ryskou, ryskami
+muka: múk
+bodka: bodka, bodky, bodiek, bodke, bodkám, bodku, bodkách, bodkou, bodkami
+hlava: hláv
+valaška: valaška, valašky, valašiek, valaške, valaškám, valašku, valaškách, valaškou, valaškami
+ponorka: ponorka, ponorky, ponoriek, ponorke, ponorkám, ponorku, ponorkách, ponorkou, ponorkami
+panna: panna, panny, panien, panne, pannám, pannu, pannách, pannou, pannami
+hmla: hmla, hmly, hmiel, hmle, hmlám, hmlu, hmlách, hmlou, hmlami
+priateľ: priateľu
+priateľka: priateliek
+švagor: švagre
+pán: pane
+hruška: hruška, hrušky, hrušiek, hruške, hruškám, hrušku, hruškách, hruškou, hruškami
+stoik: stoikovia
+chlap: chlape
+metla: metla, metly, metál, metiel, metle, metlám, metlu, metlách, metlou, metlami
+zmrzlina: zmrzlín
+dedina: dedín
+dedinčanka: dedinčanka, dedinčanky, dedinčaniek, dedinčanke, dedinčankám, dedinčanku, dedinčankách, dedinčankou, dedinčankami
+deva: diev
+žaba: žiab
+žirafa: žiráf
+šíp: šípy, šípu
+kapusta: kapusta, kapusty, kapúst, kapuste, kapustám, kapustu, kapustách, kapustou, kapustami
+uhorka: uhorka, uhorky, uhoriek, uhorke, uhorkám, uhorku, uhorkách, uhorkou, uhorkami
+malina: malín
+sklo: skiel
+peha: pieh
+cárovič: cárovičovia
+koza: kôz
+pasta: pasta, pasty, pást, paste, pastám, pastu, pastách, pastou, pastami
+kuba: kúb
+soľ: soli, solí, soliam, soliach
+človek: človeče
+kurva: kurva, kurvy, kuriev, kurve, kurvám, kurvu, kurvách, kurvou, kurvami
+otec: otče
+metro: metier
+fragment: fragmenta
+hora: hôr
+sauna: sauna, sauny, sáun, saune, saunám, saunu, saunách, saunou, saunami
+kamera: kamier
+krava: kráv
+medveď: medvede
+mačka: mačka, mačky, mačiek, mačke, mačkám, mačku, mačkách, mačkou, mačkami
+skala: skál
+kožušina: kožušín
+kobyla: kobýl
+kobra: kobra, kobry, kobier, kobre, kobrám, kobru, kobrách, kobrou, kobrami
+kostra: kostra, kostry, kostier, kostre, kostrám, kostru, kostrách, kostrou, kostrami
+šošovka: šošovka, šošovky, šošoviek, šošovke, šošovkám, šošovku, šošovkách, šošovkou, šošovkami
+ľadnička: ľadnička, ľadničky, ľadničiek, ľadničke, ľadničkám, ľadničku, ľadničkách, ľadničkou, ľadničkami
+kyselina: kyselín
+kmotor: kmotre
+kmotra: kmotra, kmotry, kmotier, kmotre, kmotrám, kmotru, kmotrách, kmotrou, kmotrami
+fotograf: fotografovia
+rodina: rodín
+hodina: hodín
+pes: psovia, psy, psu
+cudzina: cudzín
+politika: politík
+cica: ciciam, ciciach
+cicavec: cicavce
+cicka: cicka, cicky, ciciek, cicke, cickám, cicku, cickách, cickou, cickami
+mucha: mucha, muchy, múch, muche, muchám, muchu, muchách, muchou, muchami
+ruka: rúk
+ručička: ručička, ručičky, ručičiek, ručičke, ručičkám, ručičku, ručičkách, ručičkou, ručičkami
+noha: nôh
+nohavica: nohavíc, nohaviciam, nohaviciach, nohavicami
+muška: muška, mušky, mušiek, muške, muškám, mušku, muškách, muškou, muškami
+birmovka: birmovka, birmovky, birmoviek, birmovke, birmovkám, birmovku, birmovkách, birmovkou, birmovkami
+špageta: špagiet
+zdrobnenina: zdrobnenín
+zelenina: zelenín
+cigareta: cigariet
+cigara: cigár
+matematika: matematík
+matematička: matematička, matematičky, matematičiek, matematičke, matematičkám, matematičku, matematičkách, matematičkou, matematičkami
+pláž: plážiam, plážiach
+brada: brád
+autobus: autobusy, autobusu
+mikrobus: mikrobusy, mikrobusu
+trolejbus: trolejbusy, trolejbusu
+voda: vôd
+okno: okien
+mať: mater
+veda: vied
+zombie: zombieho, zombiemu, zombiem
+adresa: adries
+jak: jaky
+strýc: strýc, strýcovia, strýca, strýcov, strýcovi, strýcom, strýcoch, strýcmi
+dingo: dingy
+kuna: kún
+figa: fíg
+embargo: embárg
+robota: robôt
+pony: ponyho, ponymu, ponym
+tango: táng
+nebo: nebesá, nebesia, nebies, nebesám, nebesiam, nebesách, nebesiach, nebesami
+paprika: paprík
+puma: púm
+foxhound: foxhoundami
+flauta: flauta, flauty, fláut, flaute, flautám, flautu, flautách, flautou, flautami
+bordel: bordele
+smaragd: smaragda
+busta: busta, busty, búst, buste, bustám, bustu, bustách, bustou, bustami
+zombi: zombi, zombiovia, zombiho, zombiov, zombimu, zombiom, zombim, zombioch, zombiami
+motto: môtt
+turban: turbany, turbanu
+cestovina: cestovín
+gitara: gitár
+lipa: líp
+leto: liet
+množina: množín
+lakota: lakôt
+eskimo: eskím
+nula: núl
+smoking: smokinga
+strela: striel
+boh: bože
+fistula: fistúl
+azbuka: azbúk
+abeceda: abecied
+pivo: pív
+sloveso: slovies
+jablko: jabĺk
+jutro: jutár
+babička: babička, babičky, babičiek, babičke, babičkám, babičku, babičkách, babičkou, babičkami
+perla: perál, periel
+diva: dív
+streda: stried
+bomba: bômb
+iskra: iskra, iskry, iskier, iskre, iskrám, iskru, iskrách, iskrou, iskrami
+teta: tiet
+džin: džinovia, džina, džinovi
+hala: hál
+domovina: domovín
+gazela: gaziel
+farba: farba, farby, farieb, farbe, farbám, farbu, farbách, farbou, farbami
+železo: želiez
+harfa: harfa, harfy, hárf, harfe, harfám, harfu, harfách, harfou, harfami
+osa: ôs
+dobro: dobier
+vidlička: vidlička, vidličky, vidličiek, vidličke, vidličkám, vidličku, vidličkách, vidličkou, vidličkami
+kosa: kôs
+jazero: jazier
+republika: republík
+jahoda: jahôd
+volant: volanty, volantu
+izba: izba, izby, izieb, izbe, izbám, izbu, izbách, izbou, izbami
+rak: raky
+huba: húb
+bunda: bunda, bundy, búnd, bunde, bundám, bundu, bundách, bundou, bundami
+kocka: kocka, kocky, kociek, kocke, kockám, kocku, kockách, kockou, kockami
+ikra: ikra, ikry, ikier, ikre, ikrám, ikru, ikrách, ikrou, ikrami
+pavúk: pavúky
+lopta: lôpt
+kino: kín
+koruna: korún
+slivka: slivák, sliviek
+peklo: pekiel
+ruda: rúd
+beseda: besied
+vedro: vedier
+sekunda: sekunda, sekundy, sekúnd, sekunde, sekundám, sekundu, sekundách, sekundou, sekundami
+blcha: blcha, blchy, bĺch, blche, blchám, blchu, blchách, blchou, blchami
+slza: sĺz
+hlina: hlín
+lopata: lopát
+sloboda: slobôd
+zob: y, u, ov, om, e, och, mi
+hra: hra, hry, hier, hre, hrám, hru, hrách, hrou, hrami
+telo: tiel
+britva: britva, britvy, britiev, britve, britvám, britvu, britvách, britvou, britvami
+hrdlo: hrdiel
+puto: pút
+mohyla: mohýl
+kuli: kuli, kuliovia, kuliho, kuliov, kulimu, kuliom, kulim, kulioch, kuliami
+lono: lôn
+pusa: pús
+straka: strák
+sekera: sekier
+zrno: zŕn
+krčma: krčma, krčmy, krčiem, krčme, krčmám, krčmu, krčmách, krčmou, krčmami
+cvikla: cvikla, cvikly, cvikiel, cvikle, cviklám, cviklu, cviklách, cviklou, cviklami
+hrb: hrby, hrbu
+puška: puška, pušky, pušiek, puške, puškám, pušku, puškách, puškou, puškami
+čipka: čipka, čipky, čipiek, čipke, čipkám, čipku, čipkách, čipkou, čipkami
+jarmo: jariem
+pálenka: pálenka, pálenky, páleniek, pálenke, pálenkám, pálenku, pálenkách, pálenkou, pálenkami
+pleva: pliev
+slanina: slanín
+lanka: lanka, lanky, laniek, lanke, lankám, lanku, lankách, lankou, lankami
+pravda: pravda, pravdy, právd, pravde, pravdám, pravdu, pravdách, pravdou, pravdami
+helma: helma, helmy, heliem, helme, helmám, helmu, helmách, helmou, helmami
+faul: faulami
+škoda: škôd
+celta: cielt
+ión: ióny, iónu
+striga: stríg
+oliva: olív
+ryba: rýb
+kniha: kníh
+granula: granúl
+čelo: čiel
+kvark: kvarkami
+chrobák: chrobáky
+korma: koriem
+číslovka: číslovka, číslovky, čísloviek, číslovke, číslovkám, číslovku, číslovkách, číslovkou, číslovkami
+kladivo: kladív
+protivník: protivníče
+hrdinka: hrdinka, hrdinky, hrdiniek, hrdinke, hrdinkám, hrdinku, hrdinkách, hrdinkou, hrdinkami
+podprsenka: podprsenka, podprsenky, podprseniek, podprsenke, podprsenkám, podprsenku, podprsenkách, podprsenkou, podprsenkami
+tapeta: tapiet
+mantinel: mantinele
+prostata: prostát
+ekliptika: ekliptík
+krypta: krypta, krypty, krýpt, krypte, kryptám, kryptu, kryptách, kryptou, kryptami
+tužka: tužka, tužky, tužiek, tužke, tužkám, tužku, tužkách, tužkou, tužkami
+lano: lán
+hruď: hrude, hrudí, hrudi, hrudiam, hrudiach
+drak: draky
+lebka: lebka, lebky, lebiek, lebke, lebkám, lebku, lebkách, lebkou, lebkami
+lýtko: lýtk
+kreveta: kreviet
+šnek: šnekovi
+labuť: labute, labutí, labuti, labutiam, labutiach
+breza: briez
+tepna: tepna, tepny, tepien, tepne, tepnám, tepnu, tepnách, tepnou, tepnami
+slezina: slezín
+včela: včiel
+žralok: žraloky
+slabika: slabík
+struna: strún
+tuleň: tulene
+loď: lode, lodí, lodi, lodiam, lodiach
+oceán: oceány, oceánu
+plátno: pláten, plátien
+teplota: teplôt
+bažant: bažanty
+kavka: kavka, kavky, kaviek, kavke, kavkám, kavku, kavkách, kavkou, kavkami
+plechovka: plechovka, plechovky, plechoviek, plechovke, plechovkám, plechovku, plechovkách, plechovkou, plechovkami
+rivalita: rivalít
+žehlička: žehlička, žehličky, žehličiek, žehličke, žehličkám, žehličku, žehličkách, žehličkou, žehličkami
+stolička: stolička, stoličky, stoličiek, stoličke, stoličkám, stoličku, stoličkách, stoličkou, stoličkami
+pyžamo: pyžiam
+služba: služba, služby, služieb, službe, službám, službu, službách, službou, službami
+palivo: palív
+slimák: slimáky
+ponožka: ponožka, ponožky, ponožiek, ponožke, ponožkám, ponožku, ponožkách, ponožkou, ponožkami
+vydra: vydra, vydry, vydier, vydre, vydrám, vydru, vydrách, vydrou, vydrami
+divadlo: divadiel
+hyponymum: hyponým
+hyperonymum: hyperoným
+vlnka: vlnka, vlnky, vlniek, vlnke, vlnkám, vlnku, vlnkách, vlnkou, vlnkami
+manželka: manželka, manželky, manželiek, manželke, manželkám, manželku, manželkách, manželkou, manželkami
+bašta: bášt
+medovina: medovín
+sopka: sopka, sopky, sopiek, sopke, sopkám, sopku, sopkách, sopkou, sopkami
+kaktus: kaktusy, kaktusu
+mitra: mitra, mitry, mitier, mitre, mitrám, mitru, mitrách, mitrou, mitrami
+eukalyptus: eukalyptmi
+postava: postáv
+gramatika: gramatík
+krádež: krádežam, krádežach
+malta: malta, malty, mált, malte, maltám, maltu, maltách, maltou, maltami
+univerzita: univerzít
+jatka: jatka, jatky, jatiek, jatke, jatkám, jatku, jatkách, jatkou, jatkami
+chladnička: chladnička, chladničky, chladničiek, chladničke, chladničkám, chladničku, chladničkách, chladničkou, chladničkami
+pomsta: pômst
+osoba: osôb
+gauč: gaučami
+mešita: mešít
+pečeň: pečenou, pečenami
+baterka: baterka, baterky, bateriek, baterke, baterkám, baterku, baterkách, baterkou, baterkami
+chlapec: chlapče
+vnučka: vnučka, vnučky, vnučiek, vnučke, vnučkám, vnučku, vnučkách, vnučkou, vnučkami
+obec: obece, obecí, obeci, obeciam, obeciach, obecou, obecami
+múr: múry, múru
+motýľ: motýle
+motorka: motorka, motorky, motoriek, motorke, motorkám, motorku, motorkách, motorkou, motorkami
+synonymum: synoným
+antonymum: antoným
+lysina: lysín
+oslava: osláv
+hádanka: hádanka, hádanky, hádaniek, hádanke, hádankám, hádanku, hádankách, hádankou, hádankami
+sirota: sirôt
+pružina: pružín
+jachta: jácht
+miliarda: miliarda, miliardy, miliárd, miliarde, miliardám, miliardu, miliardách, miliardou, miliardami
+bankovka: bankovka, bankovky, bankoviek, bankovke, bankovkám, bankovku, bankovkách, bankovkou, bankovkami
+hudba: hudba, hudby, hudieb, hudbe, hudbám, hudbu, hudbách, hudbou, hudbami
+zlo: ziel
+krajina: krajín
+brdo: bŕd
+bedro: bedier
+žurnalistika: žurnalistík
+alka: alka, alky, aliek, alke, alkám, alku, alkách, alkou, alkami
+krmivo: krmív
+heslo: hesiel
+percento: percient
+herečka: herečka, herečky, herečiek, herečke, herečkám, herečku, herečkách, herečkou, herečkami
+chalupa: chalúp
+punč: punčami
+lepidlo: lepidiel
+princ: princ, princovia, princa, princov, princovi, princom, princoch, princmi
+banán: banány, banánu
+povaha: pováh
+hnát: hnáta
+kobylka: kobylka, kobylky, kobyliek, kobylke, kobylkám, kobylku, kobylkách, kobylkou, kobylkami
+štít: štíty, štítu
+hračka: hračka, hračky, hračiek, hračke, hračkám, hračku, hračkách, hračkou, hračkami
+pokuta: pokút
+tvorba: tvorba, tvorby, tvorieb, tvorbe, tvorbám, tvorbu, tvorbách, tvorbou, tvorbami
+mrkva: mrkva, mrkvy, mrkiev, mrkve, mrkvám, mrkvu, mrkvách, mrkvou, mrkvami
+slina: slín
+kravata: kravát
+mrakodrap: mrakodrapa
+brzda: brzda, brzdy, bŕzd, brzde, brzdám, brzdu, brzdách, brzdou, brzdami
+kvaka: kvák
+seriál: seriála
+menšina: menšín
+archa: árch
+proso: prosá, prôs, prosám, prosách, prosami
+tma: tma, tmy, tiem, tme, tmám, tmu, tmách, tmou, tmami
+jama: jám
+rastlina: rastlín
+drevo: driev
+písmo: písem, písiem
+koleda: kolied
+pneumatika: pneumatík
+sedlo: sediel
+maňuška: maňuška, maňušky, maňušiek, maňuške, maňuškám, maňušku, maňuškách, maňuškou, maňuškami
+andulka: andulka, andulky, anduliek, andulke, andulkám, andulku, andulkách, andulkou, andulkami
+hnida: hníd
+jadro: jadier
+stavba: stavba, stavby, stavieb, stavbe, stavbám, stavbu, stavbách, stavbou, stavbami
+žula: žúl
+zápalka: zápalka, zápalky, zápaliek, zápalke, zápalkám, zápalku, zápalkách, zápalkou, zápalkami
+charita: charít
+náplň: náplňam, náplňach
+čerpadlo: čerpadiel
+pumpa: pumpa, pumpy, púmp, pumpe, pumpám, pumpu, pumpách, pumpou, pumpami
+obloha: oblôh
+kladka: kladka, kladky, kladiek, kladke, kladkám, kladku, kladkách, kladkou, kladkami
+výbušnina: výbušnín
+voňavka: voňavka, voňavky, voňaviek, voňavke, voňavkám, voňavku, voňavkách, voňavkou, voňavkami
+hovno: hovien
+vulkán: vulkány, vulkánu
+žezlo: žeziel
+babona: babôn
+cysta: cysta, cysty, cýst, cyste, cystám, cystu, cystách, cystou, cystami
+chabina: chabín
+turistika: turistík
+pôžička: pôžička, pôžičky, pôžičiek, pôžičke, pôžičkám, pôžičku, pôžičkách, pôžičkou, pôžičkami
+svetlo: svetiel
+nádrž: nádržam, nádržach
+sušička: sušička, sušičky, sušičiek, sušičke, sušičkám, sušičku, sušičkách, sušičkou, sušičkami
+bambus: bambusy, bambusu
+zástrčka: zástrčka, zástrčky, zástrčiek, zástrčke, zástrčkám, zástrčku, zástrčkách, zástrčkou, zástrčkami
+čmeľ: čmele
+orol: orly
+kolibrík: kolibríky
+lastovička: lastovička, lastovičky, lastovičiek, lastovičke, lastovičkám, lastovičku, lastovičkách, lastovičkou, lastovičkami
+sýkorka: sýkorka, sýkorky, sýkoriek, sýkorke, sýkorkám, sýkorku, sýkorkách, sýkorkou, sýkorkami
+mašina: mašín
+surovina: surovín
+upír: upíry, upíru, upíre
+bylina: bylín
+dátum: dáta, dát, dátu, dátam, dáte, dátach, dátom, dátami
+koreň: korene, koreni
+papraď: paprade, papradí, papradi, papradiam, papradiach
+vlna: vĺn
+choroba: chorôb
+rybka: rybka, rybky, rybiek, rybke, rybkám, rybku, rybkách, rybkou, rybkami
+fág: fága
+volavka: volavka, volavky, volaviek, volavke, volavkám, volavku, volavkách, volavkou, volavkami
+chodidlo: chodidiel
+ceruza: cerúz
+maslo: masiel
+kofa: kôf
+kloaka: kloák
+apostata: apostatovia
+fotka: fotka, fotky, fotiek, fotke, fotkám, fotku, fotkách, fotkou, fotkami
+priorita: priorít
+hrivna: hrivna, hrivny, hrivien, hrivne, hrivnám, hrivnu, hrivnách, hrivnou, hrivnami
+desiata: desiata, desiate, desiatej, desiatych, desiatym, desiatu, desiatou, desiatymi
+marhuľa: marhule, marhúľ, marhuli, marhuliam, marhuliach
+hurka: hurka, hurky, huriek, hurke, hurkám, hurku, hurkách, hurkou, hurkami
+biodiverzita: biodiverzít
+kvíz: kvíza
+tieň: tiene, tieni
+lesbička: lesbička, lesbičky, lesbičiek, lesbičke, lesbičkám, lesbičku, lesbičkách, lesbičkou, lesbičkami
+napodobenina: napodobenín
+temnota: temnôt
+krivda: krivda, krivdy, krívd, krivde, krivdám, krivdu, krivdách, krivdou, krivdami
+barina: barín
+kalkulačka: kalkulačka, kalkulačky, kalkulačiek, kalkulačke, kalkulačkám, kalkulačku, kalkulačkách, kalkulačkou, kalkulačkami
+kapsula: kapsúl
+súlož: súložam, súložach
+dula: dúl
+mozaika: mozaík
+nozdra: nozdra, nozdry, nozdier, nozdre, nozdrám, nozdru, nozdrách, nozdrou, nozdrami
+rašelina: rašelín
+poduška: poduška, podušky, podušiek, poduške, poduškám, podušku, poduškách, poduškou, poduškami
+plazma: plazma, plazmy, plaziem, plazme, plazmám, plazmu, plazmách, plazmou, plazmami
+vzducholoď: vzducholode, vzducholodí, vzducholodi, vzducholodiam, vzducholodiach
+rebro: rebier
+šiška: šiška, šišky, šišiek, šiške, šiškám, šišku, šiškách, šiškou, šiškami
+žumpa: žumpa, žumpy, žúmp, žumpe, žumpám, žumpu, žumpách, žumpou, žumpami
+vrah: vrah, vrahovia, vraha, vrahov, vrahovi, vrahom, vrahoch, vrahmi
+srna: sŕn
+bradavka: bradavka, bradavky, bradaviek, bradavke, bradavkám, bradavku, bradavkách, bradavkou, bradavkami
+klenba: klenba, klenby, klenieb, klenbe, klenbám, klenbu, klenbách, klenbou, klenbami
+črevo: čriev
+dužina: dužín
+hradba: hradba, hradby, hradieb, hradbe, hradbám, hradbu, hradbách, hradbou, hradbami
+nehoda: nehôd
+koleso: kolies
+celebrita: celebrít
+apokalypsa: apokalypsa, apokalypsy, apokalýps, apokalypse, apokalypsám, apokalypsu, apokalypsách, apokalypsou, apokalypsami
+burina: burín
+narkomanka: narkomanka, narkomanky, narkomaniek, narkomanke, narkomankám, narkomanku, narkomankách, narkomankou, narkomankami
+zlomenina: zlomenín
+prť: prte, prtí, prti, prtiam, prtiach
+plť: plte, pltí, plti, pltiam, pltiach
+bavlna: bavĺn
+špička: špička, špičky, špičiek, špičke, špičkám, špičku, špičkách, špičkou, špičkami
+črta: čŕt
+pointa: poínt
+garáž: garážiam, garážiach
+dovolenka: dovolenka, dovolenky, dovoleniek, dovolenke, dovolenkám, dovolenku, dovolenkách, dovolenkou, dovolenkami
+skanzen: skanzeny, skanzenu
+nokturno: nokturien
+sprcha: sprcha, sprchy, spŕch, sprche, sprchám, sprchu, sprchách, sprchou, sprchami
+jazda: jazda, jazdy, jázd, jazde, jazdám, jazdu, jazdách, jazdou, jazdami
+sabotáž: sabotážiam, sabotážiach
+tykadlo: tykadiel
+brucho: brucho, bruchá, brucha, brúch, bruchu, bruchám, bruchách, bruchom, bruchami
+tŕň: tŕne, tŕni
+vetva: vetva, vetvy, vetiev, vetve, vetvám, vetvu, vetvách, vetvou, vetvami
+vtákopysk: vtákopysky
+vták: vtáky
+cytoplazma: cytoplazma, cytoplazmy, cytoplaziem, cytoplazme, cytoplazmám, cytoplazmu, cytoplazmách, cytoplazmou, cytoplazmami
+príslovka: príslovka, príslovky, prísloviek, príslovke, príslovkám, príslovku, príslovkách, príslovkou, príslovkami
+predložka: predložka, predložky, predložiek, predložke, predložkám, predložku, predložkách, predložkou, predložkami
+skratka: skratka, skratky, skratiek, skratke, skratkám, skratku, skratkách, skratkou, skratkami
+výhra: výher, výhier
+vstupenka: vstupenka, vstupenky, vstupeniek, vstupenke, vstupenkám, vstupenku, vstupenkách, vstupenkou, vstupenkami
+predstava: predstáv
+bitka: bitka, bitky, bitiek, bitke, bitkám, bitku, bitkách, bitkou, bitkami
+činka: činka, činky, činiek, činke, činkám, činku, činkách, činkou, činkami
+batyskaf: batyskafa
+žila: žíl
+charakteristika: charakteristík
+pravačka: pravačka, pravačky, pravačiek, pravačke, pravačkám, pravačku, pravačkách, pravačkou, pravačkami
+žiletka: žiletka, žiletky, žiletiek, žiletke, žiletkám, žiletku, žiletkách, žiletkou, žiletkami
+basistka: basistka, basistky, basistiek, basistke, basistkám, basistku, basistkách, basistkou, basistkami
+fujara: fujár
+vesna: vesna, vesny, vesien, vesne, vesnám, vesnu, vesnách, vesnou, vesnami
+vorvaň: vorvane
+koliba: kolíb
+džber: džbery, džberu
+kadidlo: kadidiel
+sračka: sračka, sračky, sračiek, sračke, sračkám, sračku, sračkách, sračkou, sračkami
+sasanka: sasanka, sasanky, sasaniek, sasanke, sasankám, sasanku, sasankách, sasankou, sasankami
+vitráž: vitrážiam, vitrážiach
+dážď: dažďmi
+predkožka: predkožka, predkožky, predkožiek, predkožke, predkožkám, predkožku, predkožkách, predkožkou, predkožkami
+škvrna: škvŕn
+svadba: svadba, svadby, svadieb, svadbe, svadbám, svadbu, svadbách, svadbou, svadbami
+praded: praded, pradedovia, pradeda, pradedov, pradedovi, pradedom, pradedoch, pradedmi
+kvisling: kvisling, kvislingovia, kvislinga, kvislingov, kvislingovi, kvislingom, kvislingoch, kvislingmi
+skalpel: skalpele
+slnko: sĺnk
+kameň: kamene, kameni
+zeler: zelere
+klada: klád
+roľa: role, rolí, roli, roliam, roliach
+vineta: viniet
+saxofonistka: saxofonistka, saxofonistky, saxofonistiek, saxofonistke, saxofonistkám, saxofonistku, saxofonistkách, saxofonistkou, saxofonistkami
+architektka: architektka, architektky, architektiek, architektke, architektkám, architektku, architektkách, architektkou, architektkami
+škuner: škunere
+čivava: čiváv
+kamzík: kamzíky
+špajza: špajza, špajzy, špájz, špajze, špajzám, špajzu, špajzách, špajzou, špajzami
+jeseň: jesenou, jesenami
+bunka: bunka, bunky, buniek, bunke, bunkám, bunku, bunkách, bunkou, bunkami
+hosť: hosti, hostiam, hostiach, hosťou
+prsteň: prstene, prsteni
+mäkčeň: mäkčene, mäkčeni
+jeleň: jelene
+kefa: kief
+česť: ctí, ctiam, ctiach, cťami
+žriebä: žriebence, žriebeniec, žriebencom, žriebencoch, žriebencami
+kôš: koše, koša, košov, košu, košom, koši, košoch, košmi
+črep: črepy, črepu
+princezná: princezná, princezné, princeznej, princezien, princeznám, princeznú, princeznách, princeznou, princeznami
+kráľovná: kráľovná, kráľovné, kráľovnej, kráľovien, kráľovnám, kráľovnú, kráľovnách, kráľovnou, kráľovnami
+depo: diep
+kĺb: kĺby, kĺbu
+sŕňa: sŕnence, sŕneniec, sŕnencom, sŕnencoch, sŕnencami
+tŕnie: tŕniam, tŕniach, tŕniami
+ďasno: ďasien
+storočie: stáročia, stáročí, stáročiam, stáročiach, stáročiami
+učiteľka: učiteliek
+mydlo: mydiel
+púšť: púštiam, púštiach
+vĺča: vĺčence, vĺčeniec, vĺčencom, vĺčencoch, vĺčencami
+milisekunda: milisekunda, milisekundy, milisekúnd, milisekunde, milisekundám, milisekundu, milisekundách, milisekundou, milisekundami
+čižma: čižma, čižmy, čižiem, čižme, čižmám, čižmu, čižmách, čižmou, čižmami
+jazva: jazva, jazvy, jaziev, jazve, jazvám, jazvu, jazvách, jazvou, jazvami
+krúžok: krúžka
+čemer: čemere
+efendi: efendi, efendiovia, efendiho, efendiov, efendimu, efendiom, efendim, efendioch, efendiami
+žlna: žĺn
+palacinka: palacinka, palacinky, palaciniek, palacinke, palacinkám, palacinku, palacinkách, palacinkou, palacinkami
+zať: zať, zaťovia, zaťa, zaťov, zaťovi, zaťom, zaťoch, zaťmi
+mledzivo: mledzív
+pastvina: pastvín
+stehlík: stehlíky
+matika: matík
+hĺbkomer: hĺbkomery, hĺbkomeru
+gazdiná: gazdiná, gazdiné, gazdinej, gazdín, gazdinám, gazdinú, gazdinách, gazdinou, gazdinami
+gazdinka: gazdinka, gazdinky, gazdiniek, gazdinke, gazdinkám, gazdinku, gazdinkách, gazdinkou, gazdinkami
+škatuľa: škatule, škatúľ, škatuli, škatuliam, škatuliach
+dača: dáč
+hnojivo: hnojív
+hriva: hrív
+bobona: bobôn
+riť: riti, rití, ritiam, ritiach
+švihadlo: švihadiel
+užovka: užovka, užovky, užoviek, užovke, užovkám, užovku, užovkách, užovkou, užovkami
+džungľa: džungle, džunglí, džungli, džungliam, džungliach
+jabĺčko: jabĺčk
+jaseň: jasene, jaseni
+päsť: päste, pästí, pästi, pästiam, pästiach
+rajčina: rajčín
+spálňa: spálne, spální, spálni
+ponuka: ponúk
+korytnačka: korytnačka, korytnačky, korytnačiek, korytnačke, korytnačkám, korytnačku, korytnačkách, korytnačkou, korytnačkami
+žihľava: žihliav
+oblička: oblička, obličky, obličiek, obličke, obličkám, obličku, obličkách, obličkou, obličkami
+ľadvina: ľadvín
+ceruzka: ceruzka, ceruzky, ceruziek, ceruzke, ceruzkám, ceruzku, ceruzkách, ceruzkou, ceruzkami
+chrúst: chrústy
+chvastúň: chvastúni
+debna: debna, debny, debien, debne, debnám, debnu, debnách, debnou, debnami
+dvojbodka: dvojbodka, dvojbodky, dvojbodiek, dvojbodke, dvojbodkám, dvojbodku, dvojbodkách, dvojbodkou, dvojbodkami
+fazuľa: fazule, fazúľ, fazuli, fazuliam, fazuliach
+diabol: diablu
+hnačka: hnačka, hnačky, hnačiek, hnačke, hnačkám, hnačku, hnačkách, hnačkou, hnačkami
+kukučka: kukučka, kukučky, kukučiek, kukučke, kukučkám, kukučku, kukučkách, kukučkou, kukučkami
+radlo: radiel
+súťaž: súťažam, súťažach
+stať: state, statí, stati, statiam, statiach
+väčšina: väčšín
+zmluva: zmlúv
+vďaka: vdiak
+smršť: smršte, smrští, smršti, smrštiam, smrštiach
+štvrť: štvrte, štvrtí, štvrti, štvrtiam, štvrtiach
+vlha: vlh
+žrď: žrde, žrdí, žrdi, žrdiam, žrdiach
+kľuka: kľúk
+kengura: kengúr
+žbrnda: žbrnda, žbrndy, žbŕnd, žbrnde, žbrndám, žbrndu, žbrndách, žbrndou, žbrndami
+capina: capín
+súdruh: súdruh, súdruhovia, súdruha, súdruhov, súdruhovi, súdruhom, súdruhoch, súdruhmi
+cibuľa: cibule, cibúľ, cibuli, cibuliam, cibuliach
+električka: električka, električky, električiek, električke, električkám, električku, električkách, električkou, električkami
+dážďovka: dážďovka, dážďovky, dážďoviek, dážďovke, dážďovkám, dážďovku, dážďovkách, dážďovkou, dážďovkami
+ďatelina: ďatelín
+pipka: pipka, pipky, pipiek, pipke, pipkám, pipku, pipkách, pipkou, pipkami
+zátvorka: zátvorka, zátvorky, zátvoriek, zátvorke, zátvorkám, zátvorku, zátvorkách, zátvorkou, zátvorkami
+žuvačka: žuvačka, žuvačky, žuvačiek, žuvačke, žuvačkám, žuvačku, žuvačkách, žuvačkou, žuvačkami
+špargľa: špargle, šparglí, špargli, špargliam, špargliach
+žerucha: žerucha, žeruchy, žerúch, žeruche, žeruchám, žeruchu, žeruchách, žeruchou, žeruchami
+žmýkačka: žmýkačka, žmýkačky, žmýkačiek, žmýkačke, žmýkačkám, žmýkačku, žmýkačkách, žmýkačkou, žmýkačkami
+zápražka: zápražka, zápražky, zápražiek, zápražke, zápražkám, zápražku, zápražkách, zápražkou, zápražkami
+infantka: infantka, infantky, infantiek, infantke, infantkám, infantku, infantkách, infantkou, infantkami
+hovädo: hoviad
+chemička: chemička, chemičky, chemičiek, chemičke, chemičkám, chemičku, chemičkách, chemičkou, chemičkami
+potravina: potravín
+moľ: mole
+pásavka: pásavka, pásavky, pásaviek, pásavke, pásavkám, pásavku, pásavkách, pásavkou, pásavkami
+okuliarnik: okuliarniky
+svokra: svokra, svokry, svokier, svokre, svokrám, svokru, svokrách, svokrou, svokrami
+ostriež: ostriežu, ostrieži
+nezábudka: nezábudka, nezábudky, nezábudiek, nezábudke, nezábudkám, nezábudku, nezábudkách, nezábudkou, nezábudkami
+kôrovec: kôrovcu
+machuľa: machule, machúľ, machuli, machuliam, machuliach
+lastúrnik: lastúrniky
+modlivka: modlivka, modlivky, modliviek, modlivke, modlivkám, modlivku, modlivkách, modlivkou, modlivkami
+morka: morka, morky, moriek, morke, morkám, morku, morkách, morkou, morkami
+moriak: moriaky
+nepárnokopytník: nepárnokopytníky
+párnokopytník: párnokopytníky
+skrutka: skrutka, skrutky, skrutiek, skrutke, skrutkám, skrutku, skrutkách, skrutkou, skrutkami
+lietadlo: lietadiel
+zrkadlo: zrkadiel
+žurnalistka: žurnalistka, žurnalistky, žurnalistiek, žurnalistke, žurnalistkám, žurnalistku, žurnalistkách, žurnalistkou, žurnalistkami
+obora: obôr
+pazucha: pazucha, pazuchy, pazúch, pazuche, pazuchám, pazuchu, pazuchách, pazuchou, pazuchami
+obrna: obŕn
+rybička: rybička, rybičky, rybičiek, rybičke, rybičkám, rybičku, rybičkách, rybičkou, rybičkami
+dlátko: dlátk
+básnička: básnička, básničky, básničiek, básničke, básničkám, básničku, básničkách, básničkou, básničkami
+hadička: hadička, hadičky, hadičiek, hadičke, hadičkám, hadičku, hadičkách, hadičkou, hadičkami
+kašička: kašička, kašičky, kašičiek, kašičke, kašičkám, kašičku, kašičkách, kašičkou, kašičkami
+slzička: slzička, slzičky, slzičiek, slzičke, slzičkám, slzičku, slzičkách, slzičkou, slzičkami
+mrkvička: mrkvička, mrkvičky, mrkvičiek, mrkvičke, mrkvičkám, mrkvičku, mrkvičkách, mrkvičkou, mrkvičkami
+žemlička: žemlička, žemličky, žemličiek, žemličke, žemličkám, žemličku, žemličkách, žemličkou, žemličkami
+strukovina: strukovín
+žemľa: žemle, žemieľ, žemlí, žemli, žemliam, žemliach
+pičovina: pičovín
+bidlo: bidiel
+chujovina: chujovín
+kuriatko: kuriatk
+žiačik: žiačik, žiačikovia, žiačika, žiačikov, žiačikovi, žiačikom, žiačikoch, žiačikmi
+vnúčik: vnúčik, vnúčikovia, vnúčika, vnúčikov, vnúčikovi, vnúčikom, vnúčikoch, vnúčikmi
+dráčik: dráčiky
+vojačik: vojačik, vojačikovia, vojačika, vojačikov, vojačikovi, vojačikom, vojačikoch, vojačikmi
+sadlo: sadiel
+chunta: chunta, chunty, chúnt, chunte, chuntám, chuntu, chuntách, chuntou, chuntami
+dcérenka: dcérenka, dcérenky, dcéreniek, dcérenke, dcérenkám, dcérenku, dcérenkách, dcérenkou, dcérenkami
+starenka: starenka, starenky, stareniek, starenke, starenkám, starenku, starenkách, starenkou, starenkami
+dedinka: dedinka, dedinky, dediniek, dedinke, dedinkám, dedinku, dedinkách, dedinkou, dedinkami
+škrupinka: škrupinka, škrupinky, škrupiniek, škrupinke, škrupinkám, škrupinku, škrupinkách, škrupinkou, škrupinkami
+škrupina: škrupín
+perinka: perinka, perinky, periniek, perinke, perinkám, perinku, perinkách, perinkou, perinkami
+dievčinka: dievčinka, dievčinky, dievčiniek, dievčinke, dievčinkám, dievčinku, dievčinkách, dievčinkou, dievčinkami
+knižočka: knižočka, knižočky, knižočiek, knižočke, knižočkám, knižočku, knižočkách, knižočkou, knižočkami
+chvíľočka: chvíľočka, chvíľočky, chvíľočiek, chvíľočke, chvíľočkám, chvíľočku, chvíľočkách, chvíľočkou, chvíľočkami
+čiapočka: čiapočka, čiapočky, čiapočiek, čiapočke, čiapočkám, čiapočku, čiapočkách, čiapočkou, čiapočkami
+sliepočka: sliepočka, sliepočky, sliepočiek, sliepočke, sliepočkám, sliepočku, sliepočkách, sliepočkou, sliepočkami
+polievočka: polievočka, polievočky, polievočiek, polievočke, polievočkám, polievočku, polievočkách, polievočkou, polievočkami
+vlajočka: vlajočka, vlajočky, vlajočiek, vlajočke, vlajočkám, vlajočku, vlajočkách, vlajočkou, vlajočkami
+topánočka: topánočka, topánočky, topánočiek, topánočke, topánočkám, topánočku, topánočkách, topánočkou, topánočkami
+škáročka: škáročka, škáročky, škáročiek, škáročke, škáročkám, škáročku, škáročkách, škáročkou, škáročkami
+fajočka: fajočka, fajočky, fajočiek, fajočke, fajočkám, fajočku, fajočkách, fajočkou, fajočkami
+otázočka: otázočka, otázočky, otázočiek, otázočke, otázočkám, otázočku, otázočkách, otázočkou, otázočkami
+šáločka: šáločka, šáločky, šáločiek, šáločke, šáločkám, šáločku, šáločkách, šáločkou, šáločkami
+triesočka: triesočka, triesočky, triesočiek, triesočke, triesočkám, triesočku, triesočkách, triesočkou, triesočkami
+sviečočka: sviečočka, sviečočky, sviečočiek, sviečočke, sviečočkám, sviečočku, sviečočkách, sviečočkou, sviečočkami
+čiaročka: čiaročka, čiaročky, čiaročiek, čiaročke, čiaročkám, čiaročku, čiaročkách, čiaročkou, čiaročkami
+synáčik: synáčku
+mištička: mištička, mištičky, mištičiek, mištičke, mištičkám, mištičku, mištičkách, mištičkou, mištičkami
+trávička: trávička, trávičky, trávičiek, trávičke, trávičkám, trávičku, trávičkách, trávičkou, trávičkami
+vežička: vežička, vežičky, vežičiek, vežičke, vežičkám, vežičku, vežičkách, vežičkou, vežičkami
+kaviarnička: kaviarnička, kaviarničky, kaviarničiek, kaviarničke, kaviarničkám, kaviarničku, kaviarničkách, kaviarničkou, kaviarničkami
+iskrička: iskrička, iskričky, iskričiek, iskričke, iskričkám, iskričku, iskričkách, iskričkou, iskričkami
+tehlička: tehlička, tehličky, tehličiek, tehličke, tehličkám, tehličku, tehličkách, tehličkou, tehličkami
+čižmička: čižmička, čižmičky, čižmičiek, čižmičke, čižmičkám, čižmičku, čižmičkách, čižmičkou, čižmičkami
+jašterička: jašterička, jašteričky, jašteričiek, jašteričke, jašteričkám, jašteričku, jašteričkách, jašteričkou, jašteričkami
+líštička: líštička, líštičky, líštičiek, líštičke, líštičkám, líštičku, líštičkách, líštičkou, líštičkami
+tučniak: tučniaky
+plameň: plamene, plameni
+šatka: šatka, šatky, šatiek, šatke, šatkám, šatku, šatkách, šatkou, šatkami
+kresadlo: kresadiel
+ujček: ujček, ujčekovia, ujčeka, ujčekov, ujčekovi, ujčekom, ujčekoch, ujčekami
+sestrička: sestrička, sestričky, sestričiek, sestričke, sestričkám, sestričku, sestričkách, sestričkou, sestričkami
+braček: braček, bračekovia, bračeka, bračekov, bračekovi, bračekom, bračekoch, bračekami
+jazierko: jazierk
+strecha: striech
+lapka: lapka, lapky, lapiek, lapke, lapkám, lapku, lapkách, lapkou, lapkami
+puchor: puchromi
+kačka: kačka, kačky, kačiek, kačke, kačkám, kačku, kačkách, kačkou, kačkami
+osol: osly
+popkorn: popkornami
+jačmeň: jačmene, jačmeni
+nanosekunda: nanosekunda, nanosekundy, nanosekúnd, nanosekunde, nanosekundám, nanosekundu, nanosekundách, nanosekundou, nanosekundami
+oceľ: ocele, ocelí, oceli, oceliam, oceliach
+vozidlo: vozidiel
+hrozienko: hrozienk
+mláďatko: mláďatk
+hojdačka: hojdačka, hojdačky, hojdačiek, hojdačke, hojdačkám, hojdačku, hojdačkách, hojdačkou, hojdačkami
+brhlík: brhlíky
+somarina: somarín
+skupáň: skupáni
+cudzinka: cudzinka, cudzinky, cudziniek, cudzinke, cudzinkám, cudzinku, cudzinkách, cudzinkou, cudzinkami
+blamáž: blamážiam, blamážiach
+kreslo: kresiel
+posteľ: postele, postelí, posteli, posteliam, posteliach
+pedagogika: pedagogík
+čremcha: čriemch
+borovička: borovička, borovičky, borovičiek, borovičke, borovičkám, borovičku, borovičkách, borovičkou, borovičkami
+podpňovka: podpňovka, podpňovky, podpňoviek, podpňovke, podpňovkám, podpňovku, podpňovkách, podpňovkou, podpňovkami
+ringlota: ringlôt
+škrkavka: škrkavka, škrkavky, škrkaviek, škrkavke, škrkavkám, škrkavku, škrkavkách, škrkavkou, škrkavkami
+kopytník: kopytníky, kopytníku
+gravidita: gravidít
+diverzita: diverzít
+kmeň: kmene, kmeni
+nacionalistka: nacionalistka, nacionalistky, nacionalistiek, nacionalistke, nacionalistkám, nacionalistku, nacionalistkách, nacionalistkou, nacionalistkami
+drumbľa: drumble, drumbieľ, drumblí, drumbli, drumbliam, drumbliach
+kremeň: kremene, kremeni
+basketbalistka: basketbalistka, basketbalistky, basketbalistiek, basketbalistke, basketbalistkám, basketbalistku, basketbalistkách, basketbalistkou, basketbalistkami
+brunetka: brunetka, brunetky, brunetiek, brunetke, brunetkám, brunetku, brunetkách, brunetkou, brunetkami
+pančucha: pančucha, pančuchy, pančúch, pančuche, pančuchám, pančuchu, pančuchách, pančuchou, pančuchami
+bosorka: bosorka, bosorky, bosoriek, bosorke, bosorkám, bosorku, bosorkách, bosorkou, bosorkami
+starký: starký, starkí, starkého, starkých, starkému, starkým, starkom, starkými
+starká: starká, starké, starkej, starkých, starkým, starkú, starkou, starkými
+stryná: stryná, stryné, strynej, strýn, strynám, strynú, strynách, strynou, strynami
+prilba: prilba, prilby, prílb, prilieb, prilbe, prilbám, prilbu, prilbách, prilbou, prilbami
+veľryba: veľrýb
+exonymum: exoným
+grizly: grizly, grizlyovia, grizlyho, grizlyov, grizlymu, grizlyom, grizlym, grizlyoch, grizlyami
+efedra: efedra, efedry, efedier, efedre, efedrám, efedru, efedrách, efedrou, efedrami
+lyska: lyska, lysky, lysiek, lyske, lyskám, lysku, lyskách, lyskou, lyskami
+sieň: sne, sní, sni, sniam, sniach, sňou, sňami
+psychopatka: psychopatka, psychopatky, psychopatiek, psychopatke, psychopatkám, psychopatku, psychopatkách, psychopatkou, psychopatkami
+analfabetka: analfabetka, analfabetky, analfabetiek, analfabetke, analfabetkám, analfabetku, analfabetkách, analfabetkou, analfabetkami
+cyprus: cyprusa
+lyko: lýk
+gólmanka: gólmanka, gólmanky, gólmaniek, gólmanke, gólmankám, gólmanku, gólmankách, gólmankou, gólmankami
+traktoristka: traktoristka, traktoristky, traktoristiek, traktoristke, traktoristkám, traktoristku, traktoristkách, traktoristkou, traktoristkami
+neha: nieh
+konkubinát: konkubináta
+kanoistka: kanoistka, kanoistky, kanoistiek, kanoistke, kanoistkám, kanoistku, kanoistkách, kanoistkou, kanoistkami
+sólistka: sólistka, sólistky, sólistiek, sólistke, sólistkám, sólistku, sólistkách, sólistkou, sólistkami
+fašistka: fašistka, fašistky, fašistiek, fašistke, fašistkám, fašistku, fašistkách, fašistkou, fašistkami
+nacistka: nacistka, nacistky, nacistiek, nacistke, nacistkám, nacistku, nacistkách, nacistkou, nacistkami
+osla: osla, osly, osiel, osle, oslám, oslu, oslách, oslou, oslami
+osľa: oslence, osliat, osleniec, oslencom, oslencoch, oslencami
+puzdro: puzdier
+onuca: onúc
+šťuka: šťúk
+karpina: karpín
+kučera: kučier
+počítadlo: počítadiel
+chrupka: chrupka, chrupky, chrupiek, chrupke, chrupkám, chrupku, chrupkách, chrupkou, chrupkami
+štart: štartami
+cárovná: cárovná, cárovné, cárovnej, cárovien, cárovnám, cárovnú, cárovnách, cárovnou, cárovnami
+paveda: pavied
+pseudoveda: pseudovied
+gameball: gameballa
+humno: humien
+piliar: piliare
+imelo: imiel
+plameniak: plameniaky
+krhla: krhla, krhly, krhiel, krhle, krhlám, krhlu, krhlách, krhlou, krhlami
+jedľa: jedle, jedlí, jedli, jedliam, jedliach
+bršlen: bršleny, bršlenu
+sviňa: svíň
+zľava: zliav
+steblo: stebiel
+bralo: brál
+dračka: dračka, dračky, dračiek, dračke, dračkám, dračku, dračkách, dračkou, dračkami
+xantipa: xantíp
+mucholapka: mucholapka, mucholapky, mucholapiek, mucholapke, mucholapkám, mucholapku, mucholapkách, mucholapkou, mucholapkami
+fúz: fúzami
+nabíjačka: nabíjačka, nabíjačky, nabíjačiek, nabíjačke, nabíjačkám, nabíjačku, nabíjačkách, nabíjačkou, nabíjačkami
+piaď: piade, piadí, piadi, piadiam, piadiach
+prívesok: príveska
+kľučka: kľučka, kľučky, kľučiek, kľučke, kľučkám, kľučku, kľučkách, kľučkou, kľučkami
+jedináčik: jedináčik, jedináčikovia, jedináčika, jedináčikov, jedináčikovi, jedináčikom, jedináčikoch, jedináčikmi
+strúhadlo: strúhadiel
+prameň: pramene, prameni
+tamariška: tamariška, tamarišky, tamarišiek, tamariške, tamariškám, tamarišku, tamariškách, tamariškou, tamariškami
+slabina: slabín
+naberačka: naberačka, naberačky, naberačiek, naberačke, naberačkám, naberačku, naberačkách, naberačkou, naberačkami
+strelivo: strelív
+tylo: týl
+poloboh: poloboh, polobohovia, poloboha, polobohov, polobohovi, polobohom, polobohoch, polobohmi
+spájkovačka: spájkovačka, spájkovačky, spájkovačiek, spájkovačke, spájkovačkám, spájkovačku, spájkovačkách, spájkovačkou, spájkovačkami
+vavrín: vavríny, vavrínu
+kvetina: kvetín
+stredovek: stredoveka
+šikanovanie: šikanovaniam, šikanovaniach, šikanovaniami
+hríb: hríbami
+čechračka: čechračka, čechračky, čechračiek, čechračke, čechračkám, čechračku, čechračkách, čechračkou, čechračkami
+miešačka: miešačka, miešačky, miešačiek, miešačke, miešačkám, miešačku, miešačkách, miešačkou, miešačkami
+frajerka: frajerka, frajerky, frajeriek, frajerke, frajerkám, frajerku, frajerkách, frajerkou, frajerkami
+bedľa: bedle, bedlí, bedli, bedliam, bedliach
+hrozno: hrozien
+nepriateľka: nepriateliek
+chápadlo: chápadiel
+pažiť: pažite, pažití, pažiti, pažitiam, pažitiach
+čkavka: čkavka, čkavky, čkaviek, čkavke, čkavkám, čkavku, čkavkách, čkavkou, čkavkami
+háveď: hávedí, háveďam, háveďach, háveďami
+vôňa: vône, vôní, vôni
+žľaza: žliaz
+sexuológ: sexuológ, sexuológovia, sexuológa, sexuológov, sexuológovi, sexuológom, sexuológoch, sexuológmi
+sexuologička: sexuologička, sexuologičky, sexuologičiek, sexuologičke, sexuologičkám, sexuologičku, sexuologičkách, sexuologičkou, sexuologičkami
+pošva: pošva, pošvy, pošiev, pošve, pošvám, pošvu, pošvách, pošvou, pošvami
+kuša: kúš
+žaluď: žalude, žaludi
+ľudstvo: ľudstvá, ľudstiev, ľudstvám, ľudstvách, ľudstvami
+niť: nite, nití, niti, nitiam, nitiach
+zavinovačka: zavinovačka, zavinovačky, zavinovačiek, zavinovačke, zavinovačkám, zavinovačku, zavinovačkách, zavinovačkou, zavinovačkami
+mentalita: mentalít
+dospelý: dospelý, dospelí, dospelého, dospelých, dospelému, dospelým, dospelom, dospelými
+guľatina: guľatín
+polemika: polemík
+rezivo: rezív
+krividlo: krividiel
+ryha: rýh
+klaviristka: klaviristka, klaviristky, klaviristiek, klaviristke, klaviristkám, klaviristku, klaviristkách, klaviristkou, klaviristkami
+decht: dechty, dechtu
+datľa: datle, datlí, datli, datliam, datliach
+majster: majstre
+bakuľa: bakule, bakúľ, bakuli, bakuliam, bakuliach
+krivuľa: krivule, krivúľ, krivuli, krivuliam, krivuliach
+danielik: danieliky
+križovatka: križovatka, križovatky, križovatiek, križovatke, križovatkám, križovatku, križovatkách, križovatkou, križovatkami
+samolepka: samolepka, samolepky, samolepiek, samolepke, samolepkám, samolepku, samolepkách, samolepkou, samolepkami
+slávik: sláviky
+snehuliak: snehuliaky
+rakva: rakva, rakvy, rakiev, rakve, rakvám, rakvu, rakvách, rakvou, rakvami
+bagáž: bagáží, bagážiam, bagážiach, bagážami
+biológ: biológ, biológovia, biológa, biológov, biológovi, biológom, biológoch, biológmi
+biologička: biologička, biologičky, biologičiek, biologičke, biologičkám, biologičku, biologičkách, biologičkou, biologičkami
+fľaška: fľaška, fľašky, fľašiek, fľaške, fľaškám, fľašku, fľaškách, fľaškou, fľaškami
+hýľ: hýle
+južanka: južanka, južanky, južaniek, južanke, južankám, južanku, južankách, južankou, južankami
+lekno: lekien
+kataklizma: kataklizma, kataklizmy, katakliziem, kataklizme, kataklizmám, kataklizmu, kataklizmách, kataklizmou, kataklizmami
+abatiša: abatíš
+briketa: brikiet
+brutalita: brutalít
+častuška: častuška, častušky, častušiek, častuške, častuškám, častušku, častuškách, častuškou, častuškami
+charizma: charizma, charizmy, chariziem, charizme, charizmám, charizmu, charizmách, charizmou, charizmami
+klebeta: klebiet
+darvinistka: darvinistka, darvinistky, darvinistiek, darvinistke, darvinistkám, darvinistku, darvinistkách, darvinistkou, darvinistkami
+ďumbier: ďumbiere
+solička: solička, soličky, soličiek, soličke, soličkám, soličku, soličkách, soličkou, soličkami
+bradáň: bradáne
+onucka: onucka, onucky, onuciek, onucke, onuckám, onucku, onuckách, onuckou, onuckami
+aktualita: aktualít
+úvoz: úvoza
+výstavba: výstavba, výstavby, výstavieb, výstavbe, výstavbám, výstavbu, výstavbách, výstavbou, výstavbami
+cestujúci: cestujúci, cestujúceho, cestujúcich, cestujúcemu, cestujúcim, cestujúcom, cestujúcimi
+kamufláž: kamuflážiam, kamuflážiach
+nádobka: nádobka, nádobky, nádobiek, nádobke, nádobkám, nádobku, nádobkách, nádobkou, nádobkami
+spúšť: spúštiam, spúštiach
+motovidlo: motovidiel
+pinka: pinka, pinky, piniek, pinke, pinkám, pinku, pinkách, pinkou, pinkami
+doska: dosák, dosiek
+tabuľa: tabule, tabúľ, tabuli, tabuliam, tabuliach
+mačička: mačička, mačičky, mačičiek, mačičke, mačičkám, mačičku, mačičkách, mačičkou, mačičkami
+zlosyn: zlosyn, zlosynovia, zlosyna, zlosynov, zlosynovi, zlosynom, zlosynoch, zlosynmi
+výnimka: výnimka, výnimky, výnimiek, výnimke, výnimkám, výnimku, výnimkách, výnimkou, výnimkami
+sekerka: sekerka, sekerky, sekeriek, sekerke, sekerkám, sekerku, sekerkách, sekerkou, sekerkami
+hrada: hrád
+palička: palička, paličky, paličiek, paličke, paličkám, paličku, paličkách, paličkou, paličkami
+zostava: zostáv
+kliatba: kliatob
+konzulka: konzulka, konzulky, konzuliek, konzulke, konzulkám, konzulku, konzulkách, konzulkou, konzulkami
+dratva: dratva, dratvy, dratiev, dratve, dratvám, dratvu, dratvách, dratvou, dratvami
+púť: pútiam, pútiach
+vlhkomer: vlhkomery, vlhkomeru
+kambala: kambál
+kryha: krýh
+vyžla: vyžla, vyžly, vyžiel, vyžle, vyžlám, vyžlu, vyžlách, vyžlou, vyžlami
+korčuľa: korčule, korčúľ, korčulí, korčuli, korčuliam, korčuliach
+soboľ: sobole
+hrebeň: hrebene, hrebeni
+vokáň: vokáne, vokáni
+kôlňa: kôlne, kôlní, kôlni
+veronika: veroník
+štetka: štetka, štetky, štetiek, štetke, štetkám, štetku, štetkách, štetkou, štetkami
+pšeno: pšien
+peháň: peháni
+odpoveď: odpovede, odpovedí, odpovedi, odpovediam, odpovediach
+kaška: kaška, kašky, kašiek, kaške, kaškám, kašku, kaškách, kaškou, kaškami
+behúň: behúni
+vyza: výz
+čvarga: čvarga, čvargy, čvárg, čvarge, čvargám, čvargu, čvargách, čvargou, čvargami
+maškrta: maškŕt
+výpožička: výpožička, výpožičky, výpožičiek, výpožičke, výpožičkám, výpožičku, výpožičkách, výpožičkou, výpožičkami
+bábätko: bábätk
+lehota: lehôt
+mykológ: mykológ, mykológovia, mykológa, mykológov, mykológovi, mykológom, mykológoch, mykológmi
+filológ: filológ, filológovia, filológa, filológov, filológovi, filológom, filológoch, filológmi
+etymológ: etymológ, etymológovia, etymológa, etymológov, etymológovi, etymológom, etymológoch, etymológmi
+geológ: geológ, geológovia, geológa, geológov, geológovi, geológom, geológoch, geológmi
+gynekológ: gynekológ, gynekológovia, gynekológa, gynekológov, gynekológovi, gynekológom, gynekológoch, gynekológmi
+ekológ: ekológ, ekológovia, ekológa, ekológov, ekológovi, ekológom, ekológoch, ekológmi
+astrológ: astrológ, astrológovia, astrológa, astrológov, astrológovi, astrológom, astrológoch, astrológmi
+patológ: patológ, patológovia, patológa, patológov, patológovi, patológom, patológoch, patológmi
+antropológ: antropológ, antropológovia, antropológa, antropológov, antropológovi, antropológom, antropológoch, antropológmi
+teológ: teológ, teológovia, teológa, teológov, teológovi, teológom, teológoch, teológmi
+pedagóg: pedagóg, pedagógovia, pedagóga, pedagógov, pedagógovi, pedagógom, pedagógoch, pedagógmi
+psychológ: psychológ, psychológovia, psychológa, psychológov, psychológovi, psychológom, psychológoch, psychológmi
+politológ: politológ, politológovia, politológa, politológov, politológovi, politológom, politológoch, politológmi
+sociológ: sociológ, sociológovia, sociológa, sociológov, sociológovi, sociológom, sociológoch, sociológmi
+archeológ: archeológ, archeológovia, archeológa, archeológov, archeológovi, archeológom, archeológoch, archeológmi
+vrava: vráv
+reďkovka: reďkovka, reďkovky, reďkoviek, reďkovke, reďkovkám, reďkovku, reďkovkách, reďkovkou, reďkovkami
+končatina: končatín
+podošva: podošva, podošvy, podošiev, podošve, podošvám, podošvu, podošvách, podošvou, podošvami
+nákovka: nákovka, nákovky, nákoviek, nákovke, nákovkám, nákovku, nákovkách, nákovkou, nákovkami
+ošípaná: ošípaná, ošípané, ošípanej, ošípaných, ošípaným, ošípanú, ošípanou, ošípanými
+haruľa: harule, harúľ, haruli, haruliam, haruliach
+hašlerka: hašlerka, hašlerky, hašleriek, hašlerke, hašlerkám, hašlerku, hašlerkách, hašlerkou, hašlerkami
+dážďovník: dážďovníky
+rároh: rároha, rárohovi
+grúň: grúne, grúni
+oskoruša: oskorúš
+potočník: potočníkovi
+kaďa: kade, kadí, kadi, kadiam, kadiach
+spisovateľka: spisovateliek
+tiráž: tirážiam, tirážiach
+gebuzina: gebuzín
+škridla: škridla, škridly, škridiel, škridle, škridlám, škridlu, škridlách, škridlou, škridlami
+kobka: kobka, kobky, kobiek, kobke, kobkám, kobku, kobkách, kobkou, kobkami
+korzo: kôrz
+primiešanina: primiešanín
+šliapadlo: šliapadiel
+mieň: miene
+putika: putík
+tácňa: tácne, tácní, tácni
+deistka: deistka, deistky, deistiek, deistke, deistkám, deistku, deistkách, deistkou, deistkami
+švagriná: švagriná, švagriné, švagrinej, švagrín, švagrinám, švagrinú, švagrinách, švagrinou, švagrinami
+kňažná: kňažná, kňažné, kňažnej, kňažien, kňažnám, kňažnú, kňažnách, kňažnou, kňažnami
+cisárovná: cisárovná, cisárovné, cisárovnej, cisárovien, cisárovnám, cisárovnú, cisárovnách, cisárovnou, cisárovnami
+šľachtičná: šľachtičná, šľachtičné, šľachtičnej, šľachtičien, šľachtičnám, šľachtičnú, šľachtičnách, šľachtičnou, šľachtičnami
+testiná: testiná, testiné, testinej, testín, testinám, testinú, testinách, testinou, testinami
+chlapča: chlapčence, chlapčeniec, chlapčencom, chlapčencoch, chlapčencami
+ujčiná: ujčiná, ujčiné, ujčinej, ujčín, ujčinám, ujčinú, ujčinách, ujčinou, ujčinami
+chyžná: chyžná, chyžné, chyžnej, chyžných, chyžným, chyžnú, chyžnou, chyžnými
+konečná: konečná, konečné, konečnej, konečných, konečným, konečnú, konečnou, konečnými
+etnonymum: etnoným
+geonymum: geoným
+exoetnonymum: exoetnoným
+chňapka: chňapka, chňapky, chňapiek, chňapke, chňapkám, chňapku, chňapkách, chňapkou, chňapkami
+hadži: hadži, hadžiovia, hadžiho, hadžiov, hadžimu, hadžiom, hadžim, hadžioch, hadžiami
+čierťaž: čierťažam, čierťažach
+dlaha: dláh
+väzivo: väzív
+čereň: čerene, čereni
+spojler: spojlere
+clivota: clivôt
+vierozvest: vierozvesti
+lôžko: lôžk
+zlomok: zlomka
+okáľ: okáľovi
+lexikón: lexikóny, lexikónu
+škumpa: škumpa, škumpy, škúmp, škumpe, škumpám, škumpu, škumpách, škumpou, škumpami
+výškomer: výškomery, výškomeru
+teplomer: teplomery, teplomeru
+uhlomer: uhlomery, uhlomeru
+dražoba: dražôb
+antuka: antúk
+brejkbal: brejkbala
+rebrina: rebrín
+ribstol: ribstoly, ribstolu
+lojalita: lojalít
+kolobežka: kolobežka, kolobežky, kolobežiek, kolobežke, kolobežkám, kolobežku, kolobežkách, kolobežkou, kolobežkami
+pozostatok: pozostatka
+pľušť: pľušte, pľuští, pľušti, pľuštiam, pľuštiach
+jahňada: jahniad
+hubertus: hubertusy, hubertusu
+česadlo: česadiel
+svák: svák, svákovia, sváka, svákov, svákovi, svákom, svákoch, svákmi
+ciciak: ciciaky, ciciaku
+závitovka: závitovka, závitovky, závitoviek, závitovke, závitovkám, závitovku, závitovkách, závitovkou, závitovkami
+povala: povál
+maštaľ: maštale, maštalí, maštali, maštaliam, maštaliach
+kapsľa: kapsle, kapslí, kapsli, kapsliam, kapsliach
+mladucha: mladucha, mladuchy, mladúch, mladuche, mladuchám, mladuchu, mladuchách, mladuchou, mladuchami
+keťas: keti, keťa, keťov, keťovi, keťom, keťoch, keťmi
+škamra: škamra, škamry, škamier, škamre, škamrám, škamru, škamrách, škamrou, škamrami
+bajúz: bajúze
+hrča: hrč
+chajda: chajda, chajdy, chájd, chajde, chajdám, chajdu, chajdách, chajdou, chajdami
+trubiroh: trubiroh, trubirohovia, trubiroha, trubirohov, trubirohovi, trubirohom, trubirohoch, trubirohmi
+kŕmidlo: kŕmidiel
+baranček: barančeky
+jazykoveda: jazykovied
+utečenka: utečenka, utečenky, utečeniek, utečenke, utečenkám, utečenku, utečenkách, utečenkou, utečenkami
+víťazka: víťazka, víťazky, víťaziek, víťazke, víťazkám, víťazku, víťazkách, víťazkou, víťazkami
+diakonka: diakonka, diakonky, diakoniek, diakonke, diakonkám, diakonku, diakonkách, diakonkou, diakonkami
+súdružka: súdružka, súdružky, súdružiek, súdružke, súdružkám, súdružku, súdružkách, súdružkou, súdružkami
+riaditeľka: riaditeliek
+kamoška: kamoška, kamošky, kamošiek, kamoške, kamoškám, kamošku, kamoškách, kamoškou, kamoškami
+výškarka: výškarka, výškarky, výškariek, výškarke, výškarkám, výškarku, výškarkách, výškarkou, výškarkami
+povaľačka: povaľačka, povaľačky, povaľačiek, povaľačke, povaľačkám, povaľačku, povaľačkách, povaľačkou, povaľačkami
+archeologička: archeologička, archeologičky, archeologičiek, archeologičke, archeologičkám, archeologičku, archeologičkách, archeologičkou, archeologičkami
+sociologička: sociologička, sociologičky, sociologičiek, sociologičke, sociologičkám, sociologičku, sociologičkách, sociologičkou, sociologičkami
+politologička: politologička, politologičky, politologičiek, politologičke, politologičkám, politologičku, politologičkách, politologičkou, politologičkami
+psychologička: psychologička, psychologičky, psychologičiek, psychologičke, psychologičkám, psychologičku, psychologičkách, psychologičkou, psychologičkami
+teologička: teologička, teologičky, teologičiek, teologičke, teologičkám, teologičku, teologičkách, teologičkou, teologičkami
+astrologička: astrologička, astrologičky, astrologičiek, astrologičke, astrologičkám, astrologičku, astrologičkách, astrologičkou, astrologičkami
+ekologička: ekologička, ekologičky, ekologičiek, ekologičke, ekologičkám, ekologičku, ekologičkách, ekologičkou, ekologičkami
+gynekologička: gynekologička, gynekologičky, gynekologičiek, gynekologičke, gynekologičkám, gynekologičku, gynekologičkách, gynekologičkou, gynekologičkami
+geologička: geologička, geologičky, geologičiek, geologičke, geologičkám, geologičku, geologičkách, geologičkou, geologičkami
+etymologička: etymologička, etymologičky, etymologičiek, etymologičke, etymologičkám, etymologičku, etymologičkách, etymologičkou, etymologičkami
+filologička: filologička, filologičky, filologičiek, filologičke, filologičkám, filologičku, filologičkách, filologičkou, filologičkami
+mykologička: mykologička, mykologičky, mykologičiek, mykologičke, mykologičkám, mykologičku, mykologičkách, mykologičkou, mykologičkami
+bedmintonistka: bedmintonistka, bedmintonistky, bedmintonistiek, bedmintonistke, bedmintonistkám, bedmintonistku, bedmintonistkách, bedmintonistkou, bedmintonistkami
+futbalistka: futbalistka, futbalistky, futbalistiek, futbalistke, futbalistkám, futbalistku, futbalistkách, futbalistkou, futbalistkami
+huslistka: huslistka, huslistky, huslistiek, huslistke, huslistkám, huslistku, huslistkách, huslistkou, huslistkami
+scenáristka: scenáristka, scenáristky, scenáristiek, scenáristke, scenáristkám, scenáristku, scenáristkách, scenáristkou, scenáristkami
+gitaristka: gitaristka, gitaristky, gitaristiek, gitaristke, gitaristkám, gitaristku, gitaristkách, gitaristkou, gitaristkami
+teroristka: teroristka, teroristky, teroristiek, teroristke, teroristkám, teroristku, teroristkách, teroristkou, teroristkami
+libretistka: libretistka, libretistky, libretistiek, libretistke, libretistkám, libretistku, libretistkách, libretistkou, libretistkami
+baptistka: baptistka, baptistky, baptistiek, baptistke, baptistkám, baptistku, baptistkách, baptistkou, baptistkami
+flautistka: flautistka, flautistky, flautistiek, flautistke, flautistkám, flautistku, flautistkách, flautistkou, flautistkami
+fotografistka: fotografistka, fotografistky, fotografistiek, fotografistke, fotografistkám, fotografistku, fotografistkách, fotografistkou, fotografistkami
+mučiteľka: mučiteliek
+spotrebiteľka: spotrebiteliek
+veliteľka: veliteliek
+páchateľka: páchateliek
+spolupáchateľka: spolupáchateliek
+pandrava: pandráv
+chrústik: chrústiky
+svetadiel: svetadiely, svetadielu
+kontajner: kontajnere
+brečka: brečka, brečky, brečiek, brečke, brečkám, brečku, brečkách, brečkou, brečkami
+špachtľa: špachtle, špachtlí, špachtli, špachtliam, špachtliach
+sihoť: sihote, sihotí, sihoti, sihotiam, sihotiach
+stôs: stôsy, stôsu
+soľnička: soľnička, soľničky, soľničiek, soľničke, soľničkám, soľničku, soľničkách, soľničkou, soľničkami
+záporka: záporka, záporky, záporiek, záporke, záporkám, záporku, záporkách, záporkou, záporkami
+mladoň: mladoni
+ležadlo: ležadiel
+bobrík: bobríky
+jarabička: jarabička, jarabičky, jarabičiek, jarabičke, jarabičkám, jarabičku, jarabičkách, jarabičkou, jarabičkami
+barinka: barinka, barinky, bariniek, barinke, barinkám, barinku, barinkách, barinkou, barinkami
+blška: blška, blšky, blšiek, blške, blškám, blšku, blškách, blškou, blškami
+chajdička: chajdička, chajdičky, chajdičiek, chajdičke, chajdičkám, chajdičku, chajdičkách, chajdičkou, chajdičkami
+cviklička: cviklička, cvikličky, cvikličiek, cvikličke, cvikličkám, cvikličku, cvikličkách, cvikličkou, cvikličkami
+dcéruška: dcéruška, dcérušky, dcérušiek, dcéruške, dcéruškám, dcérušku, dcéruškách, dcéruškou, dcéruškami
+debnička: debnička, debničky, debničiek, debničke, debničkám, debničku, debničkách, debničkou, debničkami
+snehuliačik: snehuliačikovia
+vňať: vňate, vňatí, vňati, vňatiam, vňatiach
+špinka: špinka, špinky, špiniek, špinke, špinkám, špinku, špinkách, špinkou, špinkami
+šmuha: šmúh
+machuľka: machuliek
+ľavačka: ľavačka, ľavačky, ľavačiek, ľavačke, ľavačkám, ľavačku, ľavačkách, ľavačkou, ľavačkami
+ďatelinka: ďatelinka, ďatelinky, ďateliniek, ďatelinke, ďatelinkám, ďatelinku, ďatelinkách, ďatelinkou, ďatelinkami
+fazuľka: fazuliek
+moľa: mole, molí, moli, moliam, moliach
+mäsko: miask
+kmeť: kmeť, kmeťovia, kmeťa, kmeťov, kmeťovi, kmeťom, kmeťoch, kmeťmi
+medvieďatko: medvieďatk
+používateľka: používateliek
+cenovka: cenovka, cenovky, cenoviek, cenovke, cenovkám, cenovku, cenovkách, cenovkou, cenovkami
+jablonka: jablonka, jablonky, jabloniek, jablonke, jablonkám, jablonku, jablonkách, jablonkou, jablonkami
+húsenička: húsenička, húseničky, húseničiek, húseničke, húseničkám, húseničku, húseničkách, húseničkou, húseničkami
+ďatlík: ďatlíky
+bažantík: bažantíky
+lysinka: lysinka, lysinky, lysiniek, lysinke, lysinkám, lysinku, lysinkách, lysinkou, lysinkami
+mozoček: mozočeky, mozočeka, mozočekov, mozočeku, mozočekom, mozočekoch, mozočekmi
+želiezko: želiezk
+pecúch: pecúch, pecúchovia, pecúcha, pecúchov, pecúchovi, pecúchom, pecúchoch, pecúchmi
+nemota: nemôt
+svätenička: svätenička, sväteničky, sväteničiek, sväteničke, sväteničkám, sväteničku, sväteničkách, sväteničkou, sväteničkami
+granulka: granulka, granulky, granuliek, granulke, granulkám, granulku, granulkách, granulkou, granulkami
+dubleta: dubliet
+mydlina: mydlín
+hunka: hunka, hunky, huniek, hunke, hunkám, hunku, hunkách, hunkou, hunkami
+studnička: studnička, studničky, studničiek, studničke, studničkám, studničku, studničkách, studničkou, studničkami
+životopisec: životopisce, životopiscu
+hľuzovka: hľuzovka, hľuzovky, hľuzoviek, hľuzovke, hľuzovkám, hľuzovku, hľuzovkách, hľuzovkou, hľuzovkami
+bačovka: bačovka, bačovky, bačoviek, bačovke, bačovkám, bačovku, bačovkách, bačovkou, bačovkami
+obyvateľka: obyvateliek
+sadzička: sadzička, sadzičky, sadzičiek, sadzičke, sadzičkám, sadzičku, sadzičkách, sadzičkou, sadzičkami
+svetobôľ: svetobôľa
+sloník: sloníky
+učňovka: učňovka, učňovky, učňoviek, učňovke, učňovkám, učňovku, učňovkách, učňovkou, učňovkami
+dlžoba: dlžôb
+burinka: burinka, burinky, buriniek, burinke, burinkám, burinku, burinkách, burinkou, burinkami
+hviezdička: hviezdička, hviezdičky, hviezdičiek, hviezdičke, hviezdičkám, hviezdičku, hviezdičkách, hviezdičkou, hviezdičkami
+mydielko: mydielk
+čerešnička: čerešnička, čerešničky, čerešničiek, čerešničke, čerešničkám, čerešničku, čerešničkách, čerešničkou, čerešničkami
+kapustička: kapustička, kapustičky, kapustičiek, kapustičke, kapustičkám, kapustičku, kapustičkách, kapustičkou, kapustičkami
+hrčka: hrčka, hrčky, hrčiek, hrčke, hrčkám, hrčku, hrčkách, hrčkou, hrčkami
+jahniatko: jahniatk
+neznámy: neznámy, neznámi, neznámeho, neznámych, neznámemu, neznámym, neznámom, neznámymi
+známy: známy, známi, známeho, známych, známemu, známym, známom, známymi
+zmenka: zmenka, zmenky, zmeniek, zmenke, zmenkám, zmenku, zmenkách, zmenkou, zmenkami
+skomolenina: skomolenín
+bernolákovčina: bernolákovčín
+hviezdokopa: hviezdokôp
+jazvička: jazvička, jazvičky, jazvičiek, jazvičke, jazvičkám, jazvičku, jazvičkách, jazvičkou, jazvičkami
+hadík: hadíky
+hádik: hádiky
+háďatko: háďatk
+disneyovka: disneyovka, disneyovky, disneyoviek, disneyovke, disneyovkám, disneyovku, disneyovkách, disneyovkou, disneyovkami
+dreň: drenou, drenami
+dostavba: dostavba, dostavby, dostavieb, dostavbe, dostavbám, dostavbu, dostavbách, dostavbou, dostavbami
+nadstavba: nadstavba, nadstavby, nadstavieb, nadstavbe, nadstavbám, nadstavbu, nadstavbách, nadstavbou, nadstavbami
+prestavba: prestavba, prestavby, prestavieb, prestavbe, prestavbám, prestavbu, prestavbách, prestavbou, prestavbami
+prístavba: prístavba, prístavby, prístavieb, prístavbe, prístavbám, prístavbu, prístavbách, prístavbou, prístavbami
+zástavba: zástavba, zástavby, zástavieb, zástavbe, zástavbám, zástavbu, zástavbách, zástavbou, zástavbami
+bielkovina: bielkovín
+neurčitok: neurčitka
+vydriduch: vydriduch, vydriduchovia, vydriducha, vydriduchov, vydriduchovi, vydriduchom, vydriduchoch, vydriduchmi
+milota: milôt
+cestovateľka: cestovateliek
+pôst: pôsta
+podržtaška: podržtašky, podržtašiek, podržtaške, podržtaškám, podržtaškách, podržtaškou
+mečbal: mečbala
+setbal: setbala
+hostiteľka: hostiteliek
+prírodoveda: prírodovied
+sviatok: sviatka
+bystruška: bystruška, bystrušky, bystrušiek, bystruške, bystruškám, bystrušku, bystruškách, bystruškou, bystruškami
+štúrovčina: štúrovčín

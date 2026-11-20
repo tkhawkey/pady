@@ -539,10 +539,38 @@
   }
   const canSpeak = () => !!(skVoice || findVoice());
 
+  // ---------- real example sentences with English (Tatoeba, CC BY 2.0 FR) ----------
+  // ex entries: [slovak, english, form as written, tatoeba id]
+  const exList = (w) => D.ex?.[w] || window.PADY_LOOKUP?.ex?.[w] || [];
+  function example(w, form) {
+    const list = exList(w);
+    if (!form) return list[0] || null;
+    const f = form.toLowerCase();
+    return list.find((x) => x[2].toLowerCase() === f) || null;
+  }
+  // the cases a form could be in this word's table (only colour it when there is exactly one)
+  function caseOfForm(word, form) {
+    const f = form.toLowerCase(), set = new Set();
+    if (word?.s) CASES.forEach((c, i) => { if (word.s[i] === f || word.p[i] === f || word.alt?.[`${c.k}_s`]?.includes(f) || word.alt?.[`${c.k}_p`]?.includes(f)) set.add(c.k); });
+    else if (word?.f) for (const [slot, v] of Object.entries(word.f)) if (v === f) set.add(slot.split('_')[1]);
+    return set.size === 1 ? [...set][0] : '';
+  }
+  function exHtml(ex, word, { say = true } = {}) {
+    if (!ex) return '';
+    const [sk, en, form, id] = ex;
+    const ck = word ? caseOfForm(word, form) : '';
+    const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+    const re = new RegExp(`(^|[^\\p{L}])(${form.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?![\\p{L}])`, 'u');
+    const skH = esc(sk).replace(re, (m, a, b) => `${a}<mark class="${ck ? `c-${ck}` : 'plain'}"${ck ? ` data-en="${P.attr(P.caseTip(CASES[CI[ck]]))}"` : ''}>${b}</mark>`);
+    const sayB = say && canSpeak() ? `<button class="say" data-say="${P.attr(sk)}" aria-label="Vypočuť" data-en="listen">🔊</button>` : '';
+    return `<div class="tex"><div class="tex-sk">${skH} ${sayB}</div><div class="tex-en">${esc(en)} <a class="tex-src" href="https://tatoeba.org/sentences/show/${id}" target="_blank" rel="noopener" data-en="real sentence from Tatoeba (CC BY 2.0 FR)">Tatoeba</a></div></div>`;
+  }
+
   window.PADYEngine = {
     review, seed, boxOf, masteryOf, dueKeys, today, UNITS, TIERS, VERBS, TOP_VERBS, MODELS,
     unitMastery, unitDone, currentUnit, buildDose, buildUnitSession, itemForKey, tierItems, applyPlacement,
     explain, cellNeeds, frame, addMyWord, removeMyWord, myWords, hasMyWord, speak, canSpeak, parseKey, CI,
+    example, exList, exHtml,
     setUnitDone(id) { store().units[id] = true; P.persist(); },
     // verbs
     VUNITS, VTIERS, VGROUPS, VPOOL, CONJ, APAIRS, TENSE_SK, TENSE_CLS, PK, unitsFor, vform, vname, vgroup, vByW, isVerbKey, vcolorItem,

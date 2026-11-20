@@ -1,0 +1,189 @@
+{
+  "srdce": {
+    "ins_p": [
+      "srdciami"
+    ]
+  },
+  "policajt": {
+    "ins_p": [
+      "policajtami"
+    ]
+  },
+  "list": {
+    "ins_p": [
+      "listami"
+    ]
+  },
+  "prezident": {
+    "ins_p": [
+      "prezidentami"
+    ]
+  },
+  "pôjd": {
+    "ins_p": [
+      "pôjdami"
+    ]
+  },
+  "strýko": {
+    "ins_p": [
+      "strýkmi"
+    ]
+  },
+  "more": {
+    "ins_p": [
+      "moriami"
+    ]
+  },
+  "chuť": {
+    "nom_p": [
+      "chute"
+    ],
+    "gen_s": [
+      "chute"
+    ],
+    "acc_p": [
+      "chute"
+    ]
+  },
+  "študent": {
+    "ins_p": [
+      "študentami"
+    ]
+  },
+  "pole": {
+    "ins_p": [
+      "poliami"
+    ]
+  },
+  "vajce": {
+    "ins_p": [
+      "vajciami"
+    ]
+  },
+  "piča": {
+    "gen_s": [
+      "piči"
+    ],
+    "gen_p": [
+      "píč"
+    ]
+  },
+  "piatok": {
+    "gen_s": [
+      "piatku"
+    ]
+  },
+  "schod": {
+    "gen_s": [
+      "schodu"
+    ]
+  },
+  "had": {
+    "nom_p": [
+      "hadi"
+    ],
+    "acc_p": [
+      "hadov"
+    ]
+  },
+  "pondelok": {
+    "gen_s": [
+      "pondelku"
+    ]
+  },
+  "bozk": {
+    "ins_p": [
+      "bozkami"
+    ]
+  },
+  "kokot": {
+    "nom_p": [
+      "kokoti"
+    ],
+    "dat_s": [
+      "kokotovi"
+    ],
+    "acc_s": [
+      "kokota"
+    ],
+    "acc_p": [
+      "kokotov"
+    ],
+    "loc_s": [
+      "kokotovi"
+    ]
+  },
+  "vďaka": {
+    "gen_p": [
+      "vďak"
+    ]
+  },
+  "stop": {
+    "gen_s": [
+      "stopu"
+    ]
+  },
+  "pláž": {
+    "dat_p": [
+      "plážam"
+    ],
+    "loc_p": [
+      "plážach"
+    ]
+  },
+  "medveď": {
+    "nom_p": [
+      "medvedi"
+    ],
+    "acc_p": [
+      "medveďov"
+    ]
+  },
+  "pizza": {
+    "gen_p": [
+      "pízz"
+    ]
+  },
+  "súťaž": {
+    "dat_p": [
+      "súťažiam"
+    ],
+    "loc_p": [
+      "súťažiach"
+    ]
+  },
+  "dážď": {
+    "ins_p": [
+      "dažďami"
+    ]
+  },
+  "krádež": {
+    "dat_p": [
+      "krádežiam"
+    ],
+    "loc_p": [
+      "krádežiach"
+    ]
+  },
+  "garáž": {
+    "dat_p": [
+      "garážam"
+    ],
+    "loc_p": [
+      "garážach"
+    ]
+  },
+  "púšť": {
+    "dat_p": [
+      "púšťam"
+    ],
+    "loc_p": [
+      "púšťach"
+    ]
+  },
+  "bordel": {
+    "loc_s": [
+      "bordeli"
+    ]
+  }
+}

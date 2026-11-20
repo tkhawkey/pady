@@ -111,8 +111,20 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    Páry game (44 aspect pairs, kept only if mutual or prefix-formed); Vyfarbi vetu for verbs (600 treebank
    sentences: who is doing it?).
 
+10. ✅ **Your downloads, round 1**: Tatoeba Slovak–English pairs → up to 3 short real sentences with English for
+   1,660 words ("V praxi" in Hľadaj; after an answer in the daily dose when the sentence has that exact form,
+   coloured by case when the form can only be one case). Araneum lemma + POS ranks blended with the subtitle
+   ranks to order nouns, adjectives and verbs.
+11. ✅ **Second opinion on the tables**: every game noun checked cell by cell against the Ľ. Štúr Institute groups
+   (99.5% agree). Fixed hosť (back in the game), upír, pes (psy); variants in real use accepted both ways.
+12. ✅ **Pasca** (traps): picked from the top of the chiby native-error lists, built from treebank sentences.
+   s/so + Ins vs z/zo + Gen (160); v/vo, z/zo, s/so, k/ku (160: long forms only where the core rule applies, short
+   forms only before a vowel or consonant + vowel, so optional cases like *vo sne* never appear); male-person
+   plural -í vs everything else -é incl. ktorí/ktoré, tí/tie, dvaja/dve (158, only where a clue noun is in the
+   sentence). Mixed or one category; per-category stats weight the mix.
+
 ## Next (needs your extra content / data)
-- Tatoeba sentence pairs → English translations for every example; sentence-level chunks.
+- Tatoeba for Vyfarbi vetu (needs every noun in a sentence to be unambiguous) and for Magnet frames.
 - Pronouns (ja/mňa/mne…) and numbers + case (dve ženy / päť žien).
 - Verb conjugation in Hľadaj.
 

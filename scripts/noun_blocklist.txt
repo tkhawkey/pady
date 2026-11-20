@@ -8,7 +8,6 @@ tisíc     # numeral, declines differently
 milión    # numeral, declines differently
 pôjd      # Wiktionary artefact (forms belong to ísť)
 riť       # vulgar
-hosť      # Wiktionary table follows kosť (feminine); the masculine forms (hosťovi, hosťom) are what's used
 bál       # "ball (dance)": almost always the verb form "was afraid"
 žila      # "vein": almost always "she lived"
 veko      # "lid": the forms are really vek (age)

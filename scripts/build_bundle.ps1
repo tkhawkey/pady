@@ -20,9 +20,33 @@ if (Test-Path "$Root/work/noun_ownership.json") {
 $srcNouns = Get-Content "$Root/data/nouns.json" -Raw | ConvertFrom-Json |
   Where-Object { $_.word -notin $block } |
   Sort-Object { $ownRank[$_.word] ?? 9999 }
+
+# blend the subtitle order (spoken, everyday) with Araneum lemma+POS ranks (scripts/build_araneum.ps1):
+# position = geometric mean of the two positions within our list; words missing from Araneum keep their own.
+$ara = if (Test-Path "$Root/data/freq_araneum.json") { Get-Content "$Root/data/freq_araneum.json" -Raw | ConvertFrom-Json } else { $null }
+function Get-Blended($items, $pos, $key) {
+  $items = @($items); if (-not $ara) { return $items }
+  $sub = @{}; for ($i = 0; $i -lt $items.Count; $i++) { $sub[(& $key $items[$i])] = $i + 1 }
+  $aPos = @{}; $j = 0
+  foreach ($w in ($items | ForEach-Object { & $key $_ } | Where-Object { $ara.$pos.$_ } | Sort-Object { $ara.$pos.$_ })) { $j++; $aPos[$w] = $j }
+  $items | Sort-Object { $w = & $key $_; [math]::Sqrt($sub[$w] * ($aPos[$w] ?? $sub[$w])) }
+}
+$srcNouns = Get-Blended $srcNouns 'S' { param($x) $x.word }
+# hand fixes (scripts/noun_overrides.json) and extra accepted variants from the Štúr cross-check (data/stur_alts.json)
+$over = Get-Content "$Root/scripts/noun_overrides.json" -Raw | ConvertFrom-Json
+$sturAlts = if (Test-Path "$Root/data/stur_alts.json") { Get-Content "$Root/data/stur_alts.json" -Raw | ConvertFrom-Json } else { $null }
 $nouns = foreach ($n in $srcNouns) {
+  $o = $over.($n.word)
+  if ($o) {
+    if ($o.gender) { $n.gender = $o.gender }; if ($o.pattern) { $n.pattern = $o.pattern }
+    for ($i = 0; $i -lt 6; $i++) { if ($o.sg) { $n.sg.($cases[$i]) = $o.sg[$i] }; if ($o.pl) { $n.pl.($cases[$i]) = $o.pl[$i] } }
+    if ($null -ne $o.alt) { $n.alt = $o.alt }
+  }
   $alt = [ordered]@{}
   foreach ($p in $n.alt.PSObject.Properties) { $alt[$p.Name] = @($p.Value) }
+  if ($sturAlts.($n.word) -and -not $o) {
+    foreach ($p in $sturAlts.($n.word).PSObject.Properties) { $alt[$p.Name] = @(@($alt[$p.Name]) + @($p.Value) | Where-Object { $_ } | Select-Object -Unique) }
+  }
   [ordered]@{
     w = $n.word; g = (Get-Short $n.gloss).Trim(); gen = $n.gender
     pat = $(if ($n.pattern) { $n.pattern } else { 'other' })
@@ -30,7 +54,7 @@ $nouns = foreach ($n in $srcNouns) {
   }
 }
 
-$adjs = foreach ($a in (Get-Content "$Root/data/adjectives.json" -Raw | ConvertFrom-Json)) {
+$adjs = foreach ($a in (Get-Blended (Get-Content "$Root/data/adjectives.json" -Raw | ConvertFrom-Json) 'A' { param($x) $x.word })) {
   $f = [ordered]@{}
   foreach ($p in $a.forms.PSObject.Properties) { $f[$p.Name] = $p.Value }
   [ordered]@{ w = $a.word; g = (Get-Short $a.gloss).Trim(); k = $a.kind; f = $f }
@@ -89,7 +113,8 @@ if (Test-Path "$Root/data/conj.json") {
   $partnerOf = @{}
   if (Test-Path "$Root/work/conj_all.json") { foreach ($v in (Get-Content "$Root/work/conj_all.json" -Raw | ConvertFrom-Json)) { if ($v.partner) { $partnerOf[$v.w] = $v.partner } } }
   $crude = @('prdieť', 'srať', 'jebať', 'chcať', 'drbať', 'šukať', 'mrdať', 'naštvať', 'močiť')
-  $conj = @(Get-Content "$Root/data/conj.json" -Raw | ConvertFrom-Json | Where-Object { $_.asp -in 'impf', 'pf' -and $_.w -notin $crude } | ForEach-Object {
+  $conjSrc = Get-Blended (Get-Content "$Root/data/conj.json" -Raw | ConvertFrom-Json | Where-Object { $_.asp -in 'impf', 'pf' -and $_.w -notin $crude }) 'V' { param($x) $x.w }
+  $conj = @($conjSrc | ForEach-Object {
     $pr = $_.partner
     # trusted: mutual, or the perfective = a standard prefix + the imperfective (vidieť → uvidieť, čítať → prečítať)
     $prefixed = $pr -and $_.asp -eq 'impf' -and $pr -match "^(u|na|z|s|zo|so|po|pre|vy|za|o|ob|pri|do|od|roz|pod|nad|v)$([regex]::Escape($_.w))$"
@@ -106,7 +131,20 @@ if (Test-Path "$Root/work/vsentence_glosses.json") {
   foreach ($p in (Get-Content "$Root/work/vsentence_glosses.json" -Raw | ConvertFrom-Json).PSObject.Properties) { $vgloss[$p.Name] = (Get-Short $p.Value).Trim() }
 }
 
-$bundle = [ordered]@{ conj = $conj; vsents = @($vsents); vglosses = $vgloss; nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
+# real example sentences with English (scripts/build_tatoeba.ps1): game words here, the rest go to lookup-data.js
+$ex = [ordered]@{}
+if (Test-Path "$Root/work/tatoeba_ex.json") {
+  $tat = Get-Content "$Root/work/tatoeba_ex.json" -Raw | ConvertFrom-Json
+  foreach ($w in (@($nouns | ForEach-Object { $_.w }) + @($adjs | ForEach-Object { $_.w }) + @($conj | ForEach-Object { $_.w }) + @($models | ForEach-Object { $_.w }))) {
+    if ($tat.$w -and -not $ex.Contains($w)) { $ex[$w] = @($tat.$w | ForEach-Object { , @($_) }) }
+  }
+  "examples (game words): $($ex.Count)"
+}
+
+# Pasca (traps) items from the treebank (scripts/build_traps.ps1)
+$traps = if (Test-Path "$Root/work/traps.json") { @(Get-Content "$Root/work/traps.json" -Raw | ConvertFrom-Json) } else { @() }
+
+$bundle = [ordered]@{ traps = $traps; ex = $ex; conj = $conj; vsents = @($vsents); vglosses = $vgloss; nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
 New-Item -ItemType Directory -Force "$Root/app" | Out-Null
 $json = $bundle | ConvertTo-Json -Depth 8 -Compress
 Set-Content "$Root/app/data.js" -Value "window.PADY_DATA = $json;" -Encoding utf8

@@ -73,7 +73,19 @@ if (Test-Path "$Root/work/conj_all.json") {
   })
 }
 
-$bundle = [ordered]@{ slots = $slots; adjs = @($adjs.Values); nouns = @($nouns.Values); verbs = $verbsL }
+# Tatoeba examples for words outside the game data (run build_bundle.ps1 first: its words are already in data.js)
+$exL = [ordered]@{}
+if (Test-Path "$Root/work/tatoeba_ex.json") {
+  $inData = @{}
+  $dj = Get-Content "$Root/app/data.js" -Raw
+  $dobj = $dj.Substring($dj.IndexOf('{')).TrimEnd().TrimEnd(';') | ConvertFrom-Json
+  if ($dobj.ex) { foreach ($p in $dobj.ex.PSObject.Properties) { $inData[$p.Name] = 1 } }
+  foreach ($p in (Get-Content "$Root/work/tatoeba_ex.json" -Raw | ConvertFrom-Json).PSObject.Properties) {
+    if (-not $inData[$p.Name]) { $exL[$p.Name] = @($p.Value | ForEach-Object { , @($_) }) }
+  }
+  "examples (lookup-only words): $($exL.Count)"
+}
+$bundle = [ordered]@{ slots = $slots; adjs = @($adjs.Values); nouns = @($nouns.Values); verbs = $verbsL; ex = $exL }
 $json = $bundle | ConvertTo-Json -Depth 5 -Compress
 Set-Content "$Root/app/lookup-data.js" -Value "window.PADY_LOOKUP = $json;" -Encoding utf8
 "lookup-data.js: $([math]::Round((Get-Item "$Root/app/lookup-data.js").Length / 1KB)) KB  adjectives $($adjs.Count)  nouns $($nouns.Count)"

@@ -126,6 +126,11 @@ if (Test-Path "$Root/data/conj.json") {
 
 # verb sentences for "Vyfarbi vetu" on the verb side (scripts/build_vsentences.ps1)
 $vsents = if (Test-Path "$Root/work/vsentences.json") { Get-Content "$Root/work/vsentences.json" -Raw | ConvertFrom-Json } else { @() }
+# only sentences whose verbs are all common (among the 250 most frequent in the app), so no "kolísať" or "prizývať"
+$vrank = @{}; for ($i = 0; $i -lt [math]::Min(250, $conj.Count); $i++) { $vrank[$conj[$i].w] = 1 }
+$before = @($vsents).Count
+$vsents = @($vsents | Where-Object { -not @($_ | Where-Object { $_[2] -eq 'v' -and -not $vrank[$_[3]] }).Count })
+"verb sentences: $($vsents.Count) of $before kept (all verbs common)"
 $vgloss = [ordered]@{}
 if (Test-Path "$Root/work/vsentence_glosses.json") {
   foreach ($p in (Get-Content "$Root/work/vsentence_glosses.json" -Raw | ConvertFrom-Json).PSObject.Properties) { $vgloss[$p.Name] = (Get-Short $p.Value).Trim() }
@@ -146,7 +151,10 @@ $traps = if (Test-Path "$Root/work/traps.json") { @(Get-Content "$Root/work/trap
 
 $prons = if (Test-Path "$Root/work/pron_sents.json") { @(Get-Content "$Root/work/pron_sents.json" -Raw | ConvertFrom-Json) } else { @() }
 
-$bundle = [ordered]@{ prons = $prons; traps = $traps; ex = $ex; conj = $conj; vsents = @($vsents); vglosses = $vgloss; nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
+# aspect pairs, most common first (scripts/build_pairs.ps1)
+$apairs = if (Test-Path "$Root/work/apairs.json") { @(Get-Content "$Root/work/apairs.json" -Raw | ConvertFrom-Json | Select-Object -First 40 | ForEach-Object { [ordered]@{ w = $_.w; pr = $_.pr; g = $_.g } }) } else { @() }
+
+$bundle = [ordered]@{ apairs = $apairs; prons = $prons; traps = $traps; ex = $ex; conj = $conj; vsents = @($vsents); vglosses = $vgloss; nouns = @($nouns); adjs = @($adjs); verbs = @($verbs); models = $models; pairs = $pairs; sents = @($sents); glosses = $sentGloss; built = (Get-Date -Format 'yyyy-MM-dd') }
 New-Item -ItemType Directory -Force "$Root/app" | Out-Null
 $json = $bundle | ConvertTo-Json -Depth 8 -Compress
 Set-Content "$Root/app/data.js" -Value "window.PADY_DATA = $json;" -Encoding utf8

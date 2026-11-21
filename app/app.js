@@ -225,8 +225,11 @@
 
   function startRound(mode) {
     const side = save.side === 'verbs' && mode !== 'magnet' ? 'verbs' : 'nouns';
+    // verbs: the 80 most common only (filters apply inside that); a narrow filter may reach to 150 to have enough
+    const vfit = (v) => (opts.vasp === 'all' || v.a === opts.vasp) && (opts.vgrp === 'all' || v.grp === opts.vgrp);
+    const vpool = (n) => (D.conj || []).slice(0, n).filter(vfit);
     let pool = side === 'verbs'
-      ? (D.conj || []).filter((v) => (opts.vasp === 'all' || v.a === opts.vasp) && (opts.vgrp === 'all' || v.grp === opts.vgrp)).slice(0, 150)   // most frequent verbs
+      ? (vpool(80).length >= 8 ? vpool(80) : vpool(150))
       : D.nouns.filter((n) => opts.pattern === 'all' || n.pat === opts.pattern).slice(0, Math.max(200, opts.len));
     pool = shuffle(pool);
     G = {
@@ -912,8 +915,8 @@
       <div class="mrule"><span class="mres" data-en="${ok ? 'right' : 'not quite'}">${ok ? 'Správne!' : 'Ups!'}</span> ${rule}</div>
       ${example ? `<p class="mex" data-en="A real sentence from the Slovak treebank">${example}</p>` : ''}
       <button class="btn small go" id="mNext" data-en="next (Enter)">Ďalej →</button>`;
+    // no auto-skip: the rule and the real sentence are there to be read (Enter / Ďalej when ready)
     clearTimeout(G.autoNext);
-    if (ok) G.autoNext = setTimeout(magnetNext, it.kind === 'form' ? 1600 : 2200);
   }
 
   function magnetNext() {
@@ -1057,9 +1060,12 @@
     const meaning = `${it.card.title}${(it.card.verb || it.noun).g ? ` = ${(it.card.verb || it.noun).g}` : ''}`;
     $('#padMsg').innerHTML = `<b>${it.cell.main}</b> <span class="eq">=</span> ${chips}
       <span class="pm-word">← ${meaning}</span>
-      ${wrongCk ? `<small>nie ${G.padRows.find((r) => r.k === wrongCk).name}</small>` : '<small>spadlo! · it landed</small>'}`;
+      ${wrongCk ? `<small>nie ${G.padRows.find((r) => r.k === wrongCk).name}</small>` : '<small>spadlo! · it landed</small>'}
+      ${P.lives > 1 ? '<button class="btn small go pm-go" id="padGo" data-en="continue (Enter / Space / tap)">Ďalej →</button>' : ''}`;
     $('#padMsg').classList.add('show');
-    P.freezing = true; P.freezeUntil = performance.now() + 1600;
+    // stays frozen until you've read it: tap anywhere, Enter or Space
+    P.freezing = true; P.freezeUntil = Infinity;
+    setTimeout(() => $('#padGo')?.focus({ preventScroll: true }), 30);
     pauseClock();
     if (wrongCk) $(`.lane[data-ck="${wrongCk}"]`)?.classList.add('shake');
     setTimeout(() => $$('.lane.shake').forEach((l) => l.classList.remove('shake')), 420);
@@ -1087,14 +1093,24 @@
   }
   $('#padPause').addEventListener('click', () => padPause());
   $('#padResume').addEventListener('click', () => padPause(false));
+  // after a miss: carry on only when you're ready
+  function padUnfreeze() {
+    const P = G?.pad; if (!P || !P.freezing || P.over || P.paused) return false;
+    P.freezing = false; P.last = performance.now();
+    $('#padMsg').classList.remove('show'); resumeClock();
+    return true;
+  }
+  $('#padField').addEventListener('pointerdown', (e) => { if (G?.pad?.freezing && !e.target.closest('#padPause')) { e.preventDefault(); padUnfreeze(); } });
 
   $('#padLanes').addEventListener('pointerdown', (e) => {
     const b = e.target.closest('.lane'); if (!b) return;
     e.preventDefault();
+    if (G?.pad?.freezing) { padUnfreeze(); return; }
     padAnswer(b.dataset.ck);
   });
   document.addEventListener('keydown', (e) => {
     if (G?.mode !== 'pad' || !$('#game').classList.contains('active') || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (G.pad?.freezing && !G.pad.paused && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); padUnfreeze(); return; }
     if (e.key === ' ' || e.key.toLowerCase() === 'p' || (e.key === 'Escape' && G.pad?.paused)) { e.preventDefault(); padPause(e.key === 'Escape' ? false : undefined); return; }
     const n = parseInt(e.key, 10);
     const ck = n >= 1 && n <= 6 ? G.padRows[n - 1].k : G.side === 'verbs' ? null : PAD_LETTERS[e.key.toLowerCase()];

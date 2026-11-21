@@ -80,9 +80,10 @@
   }
   // Páry: aspect pairs (robiť ↔ urobiť)
   function startPairs() {
-    const keys = E.APAIRS.map((v) => `va|${v.w}`);
-    const items = []; const used = new Set();
-    while (items.length < 10 && used.size < keys.length) { const k = keys[Math.floor(Math.random() * Math.min(keys.length, 30))]; if (used.has(k)) continue; used.add(k); const it = E.itemForKey(k); if (it) items.push(it); }
+    // the 20 most common pairs only (dávať/dať, robiť/urobiť, kupovať/kúpiť…)
+    const keys = E.APAIRS.slice(0, 20).map((v) => `va|${v.w}`);
+    const items = [];
+    for (const k of keys.sort(() => Math.random() - 0.5)) { if (items.length >= 10) break; const it = E.itemForKey(k); if (it) items.push(it); }
     runSession({ title: 'Páry', titleEn: 'Aspect pairs: ongoing ↔ completed', items, mode: 'color', again: startPairs });
   }
 
@@ -467,8 +468,9 @@
     fb.innerHTML = `<div class="mrule"><span class="mres">${good ? (almost ? 'Takmer!' : 'Správne!') : 'Ups!'}</span> ${body}</div>
       ${ex ? E.exHtml(ex, exW, { say: false }) : ''}
       <div class="trfeed-actions">${say ? sayBtn(say) : ''}<button class="btn small go" id="trNext" data-en="next (Enter)">Ďalej →</button></div>`;
+    // no auto-skip: there's always something to read here, so you move on when you're ready (Enter / Ďalej)
     clearTimeout(T.auto);
-    if (good && !almost && it.kind !== 'verb') T.auto = setTimeout(next, ex ? 2800 : 1300);
+    setTimeout(() => $('#trNext')?.focus({ preventScroll: true }), 30);
   }
 
   function next() {

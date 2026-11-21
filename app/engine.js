@@ -453,8 +453,10 @@
   }
   const vname = (v) => vjoin(v.w, v.r);
 
-  // aspect pairs: imperfective verbs whose perfective partner we know
-  const APAIRS = CONJ.filter((v) => v.a === 'impf' && v.pr).slice(0, 40);
+  // aspect pairs, most common first (Wiktionary-backed, ranked by Araneum: scripts/build_pairs.ps1)
+  const APAIRS = (D.apairs?.length ? D.apairs.map((p) => ({ w: p.w, pr: p.pr, g: p.g || vByW(p.w)?.g || '', a: 'impf' }))
+    : CONJ.filter((v) => v.a === 'impf' && v.pr)).slice(0, 40);
+  const pairByW = (w) => APAIRS.find((x) => x.w === w);
 
   const ALLG = ['am', 'im', 'em', 'ujem', 'irr'];
   const VUNITS = [
@@ -470,7 +472,7 @@
   ];
   for (const u of VUNITS) {
     u.side = 'verbs';
-    u.keys = u.aspect ? APAIRS.map((x) => `va|${x.w}`)
+    u.keys = u.aspect ? APAIRS.slice(0, 25).map((x) => `va|${x.w}`)
       : u.grps.flatMap((g) => u.tenses.flatMap((t) => (t === 'imp' ? ['p2s', 'p1p', 'p2p'] : PK).map((pk) => `vb:${g}|${t}_${pk}`)));
   }
   const isVerbKey = (k) => k.startsWith('vb:') || k.startsWith('va|');
@@ -479,7 +481,7 @@
     let pool = VPOOL[grp] || [];
     if (tense === 'pres') pool = pool.filter((v) => v.a === 'impf');
     if (tense === 'imp') pool = pool.filter((v) => v.i?.some(Boolean));
-    pool = pool.slice(0, 15);   // the most frequent verbs of the group
+    pool = pool.slice(0, 12);   // the most frequent verbs of the group
     return pool.length ? pick(pool) : null;
   }
   function vconjItem(key, type, verb) {
@@ -502,10 +504,11 @@
     return it;
   }
   function aspectItem(key) {
-    const v = vByW(key.slice(3)); if (!v || !v.pr) return null;
+    const v = pairByW(key.slice(3)); if (!v || !v.pr) return null;
     const flip = Math.random() < 0.5;   // ask for the perfective (robiť → ?) or the imperfective (urobiť → ?)
     const q = flip ? v.pr : vname(v), answer = flip ? v.w : v.pr;
-    const pool = APAIRS.filter((x) => x.w !== v.w).map((x) => (flip ? x.w : x.pr));
+    // distractors from the common pairs too, so a rare verb never shows up as a wrong option
+    const pool = APAIRS.slice(0, 25).filter((x) => x.w !== v.w).map((x) => (flip ? x.w : x.pr));
     return { kind: 'aspect', key, v, q, answer, toPf: !flip, options: shuffle([answer, ...shuffle([...new Set(pool)]).slice(0, 3)]) };
   }
   const vtypeForBox = (box) => (box == null || box <= 1 ? pick(['pickForm', 'pickForm', 'pickPerson'])

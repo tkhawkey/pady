@@ -48,8 +48,12 @@ body {
   min-height: 100dvh;
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
+  /* phones: taps on text must not select it (Android's "Touch to Search" / define popup, iOS callout).
+     Typing fields keep normal selection. */
+  user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
 }
-button { font: inherit; color: inherit; cursor: pointer; }
+input, textarea, [contenteditable] { user-select: text; -webkit-user-select: text; -webkit-touch-callout: default; }
+button { font: inherit; color: inherit; cursor: pointer; touch-action: manipulation; }
 h1, h2, h3 { font-family: var(--font-display); margin: 0; line-height: 1.05; }
 
 .screen { display: none; max-width: 980px; margin: 0 auto; padding: 16px 16px 40px; }
@@ -756,6 +760,7 @@ input.cell.given { opacity: .85; }
   box-shadow: 6px 6px 0 var(--shadow); padding: 12px 18px; transition: opacity .15s, transform .2s cubic-bezier(.2,1.6,.4,1);
 }
 .pad-msg.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.pad-msg .pm-go { margin-top: 4px; }
 .pad-msg b { font-family: var(--font-display); font-size: 30px; }
 .pad-msg .eq { font-weight: 800; font-size: 22px; color: var(--ink-soft); }
 .pad-msg .lg { padding: 2px 12px 0; border-radius: 99px; border: 2px solid var(--line); font-family: var(--font-display); font-weight: 700; font-size: 18px; }

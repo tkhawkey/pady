@@ -2,7 +2,7 @@
    App files: served from cache, refreshed in the background (so updates arrive on the next open).
    lookup-data.js and fonts: cached the first time they are used.
    Wiktionary tables (Hľadaj): network first, cached copy when offline. */
-const CACHE = 'pady-v10';
+const CACHE = 'pady-v11';
 const CORE = [
   './', 'index.html', 'style.css', 'app.js', 'engine.js', 'learn.js', 'lookup.js', 'trainer.js', 'data.js',
   'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png',

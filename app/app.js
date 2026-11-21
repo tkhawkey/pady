@@ -324,11 +324,21 @@
     const g = Math.random() < 0.5 ? 'm' : 'f';   // gender for the singular past forms on this card
     const cols = tenseCols(v);
     const pastCol = cols.find((c) => c.key === 'past');
+    // with a past column the whole card is "a man speaking" or "a woman speaking": the row labels say so
+    // (ja 👩 / ty 👩 / ona fit the present/future column too: those forms don't change with gender)
+    const fem = g === 'f', gi = fem ? '👩' : '👨';
     if (pastCol) {
-      pastCol.name = `Minulý čas · ${g === 'm' ? 'muž.' : 'žen.'}`;
-      pastCol.tip = `<b>minulý čas</b> = past tense, here with a <b>${g === 'm' ? 'masculine' : 'feminine'}</b> subject (ja/ty/${g === 'm' ? 'on' : 'ona'}). ` + pastCol.tip.split(': ')[1];
+      pastCol.name = `Minulý čas · ${gi} ${fem ? 'žena' : 'muž'}`;
+      pastCol.tip = `<b>minulý čas</b> = past tense. On this card ${fem ? 'a <b>woman</b>' : 'a <b>man</b>'} is speaking (and ${fem ? 'she' : 'he'} talks to ${fem ? 'a woman' : 'a man'}): <i>ja ${fem ? 'robila' : 'robil'} som, ty ${fem ? 'robila' : 'robil'} si, ${fem ? 'ona robila' : 'on robil'}</i>. ` + pastCol.tip.split(': ')[1];
     }
-    const rows = PERSONS.map((p, i) => ({ k: p.k, cls: 'vp', name: i === 2 && pastCol && cols.length === 1 ? (g === 'm' ? 'on' : 'ona') : p.sk, abbr: p.abbr, q: p.icon, tip: `<b>${p.sk}</b> = ${p.en}` }));
+    const rows = PERSONS.map((p, i) => {
+      let name = p.sk, abbr = p.abbr, tip = `<b>${p.sk}</b> = ${p.en}`;
+      if (pastCol && i < 2) { name = `${p.sk} ${gi}`; abbr = `${p.abbr}<span class="gmark">${gi}</span>`; tip = `<b>${p.sk}</b> = ${p.en}: ${fem ? 'a woman' : 'a man'} (past: <i>${fem ? '-la' : '-l'} ${i ? 'si' : 'som'}</i>)`; }
+      if (pastCol && i === 2) { name = abbr = fem ? 'ona' : 'on'; tip = fem ? '<b>ona</b> = she' : '<b>on</b> = he'; }
+      if (!pastCol && i === 2) abbr = '<span class="stack">on<br>ona<br>ono</span>';
+      if (i === 5) abbr = '<span class="stack">oni<br>ony</span>';
+      return { k: p.k, cls: 'vp', name, abbr, q: p.icon, tip };
+    });
     const cells = [];
     PERSONS.forEach((p, pi) => cols.forEach((col, j) => {
       const main = col.key === 'past' ? pastForm(v, pi, g) : simpleForm(v, pi);
@@ -948,8 +958,10 @@
   function startPad() {
     $$('#padField .drop').forEach((e) => e.remove());
     // lanes: the six cases (nouns) or the six persons (verbs)
+    // verbs: the 3rd-person lanes take every pronoun of that person, so say so, on phones too (stacked)
+    const STACK = { p3s: '<span class="stack">on<br>ona<br>ono</span>', p3p: '<span class="stack">oni<br>ony</span>' };
     G.padRows = G.side === 'verbs'
-      ? PERSONS.map((p) => ({ k: p.k, cls: 'vp', name: `${p.icon} ${p.sk}`, abbr: p.abbr }))
+      ? PERSONS.map((p) => ({ k: p.k, cls: 'vp', name: `${p.icon} ${p.sk}`, abbr: STACK[p.k] || p.abbr }))
       : CASES.map((c) => ({ k: c.k, cls: `c-${c.k}`, name: c.name, abbr: c.abbr }));
     $('#padLanes').innerHTML = G.padRows.map((r, i) => `<button class="lane ${r.cls}" data-ck="${r.k}" aria-label="${r.name}">
         <span class="mk">${i + 1}</span><b class="full">${r.name}</b><b class="abbr">${r.abbr}</b></button>`).join('');
@@ -1283,24 +1295,37 @@
   document.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse' && tipFor) hideTip(); }, true);
   document.addEventListener('focusout', hideTip);
 
-  // touch: press and hold
+  // touch: plain labels (headings, chips, row names: tapping them does nothing else) show their English on a single
+  // tap; anything that is also a button keeps press-and-hold, but short. A tip stays until the next tap elsewhere.
+  const ACTION = 'button, a, input, select, textarea, label, [onclick], .tile, .ctok, .lane, [data-go], [data-q], [data-ans], [data-ck]';
+  let tapEl = null;
   document.addEventListener('pointerdown', (e) => {
     if (e.pointerType === 'mouse') return;
     const el = e.target.closest('[data-en]');
-    if (!el) { hideTip(); return; }
+    clearTimeout(tipHideT);
+    if (!el) { hideTip(); tapEl = null; return; }
+    if (tipFor && tipFor !== el) hideTip();
     lpStart = [e.clientX, e.clientY];
     clearTimeout(lpTimer);
-    lpTimer = setTimeout(() => { swallowClick = true; showTip(el); navigator.vibrate?.(10); }, 420);
+    if (el.closest(ACTION)) {
+      tapEl = null;
+      lpTimer = setTimeout(() => { swallowClick = true; showTip(el); navigator.vibrate?.(8); }, 250);
+    } else {
+      tapEl = el;
+    }
   });
   document.addEventListener('pointermove', (e) => {
-    if (lpStart && Math.hypot(e.clientX - lpStart[0], e.clientY - lpStart[1]) > 10) { clearTimeout(lpTimer); lpStart = null; }
+    if (lpStart && Math.hypot(e.clientX - lpStart[0], e.clientY - lpStart[1]) > 10) { clearTimeout(lpTimer); lpStart = null; tapEl = null; }
   });
-  const endPress = () => {
-    clearTimeout(lpTimer); lpStart = null;
-    if (tipFor && swallowClick) { tipHideT = setTimeout(hideTip, 2200); }
-  };
-  document.addEventListener('pointerup', endPress);
-  document.addEventListener('pointercancel', endPress);
+  document.addEventListener('pointerup', (e) => {
+    clearTimeout(lpTimer);
+    if (e.pointerType !== 'mouse' && tapEl && lpStart) {
+      // tap a plain label: toggle its tip
+      if (tipFor === tapEl) hideTip(); else showTip(tapEl);
+    }
+    lpStart = null; tapEl = null;
+  });
+  document.addEventListener('pointercancel', () => { clearTimeout(lpTimer); lpStart = null; tapEl = null; });
   // a long-press shows the tip instead of pressing the button underneath
   document.addEventListener('click', (e) => {
     if (swallowClick) { swallowClick = false; e.preventDefault(); e.stopPropagation(); }

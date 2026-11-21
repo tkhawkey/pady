@@ -540,7 +540,8 @@
       <div class="bh th t-past" data-en="past tense, feminine subject">Minulý · žen.</div>`;
     e.PK.forEach((pk, pi) => {
       const p = P.PERSONS[pi], pl = pi >= 3;
-      h += `<div class="rl vp" data-en="${attr(`<b>${p.sk}</b> = ${p.en}`)}"><small>${p.icon}</small><span class="full">${p.sk}</span><span class="abbr">${p.abbr}</span></div>`;
+      const ab = pi === 2 ? '<span class="stack">on<br>ona<br>ono</span>' : pi === 5 ? '<span class="stack">oni<br>ony</span>' : p.abbr;
+      h += `<div class="rl vp" data-en="${attr(`<b>${p.sk}</b> = ${p.en}`)}"><small>${p.icon}</small><span class="full">${p.sk}</span><span class="abbr">${ab}</span></div>`;
       h += `<div class="lcell ${simple[1]}">${hl(v.s[pi], stemS)}${v.r ? aux(v.r) : ''}</div>`;
       h += `<div class="lcell t-past">${hl(pl ? v.l[3] : v.l[0], stemL)}${aux(AUX[pi])}${v.r ? aux(v.r) : ''}</div>`;
       h += `<div class="lcell t-past">${hl(pl ? v.l[3] : v.l[1], stemL)}${aux(AUX[pi])}${v.r ? aux(v.r) : ''}</div>`;

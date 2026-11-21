@@ -30,7 +30,7 @@ The verb side has its own Začni tu, path (9 units), daily dose, mastery map and
 | **Zámená a čísla** | Pronouns in real treebank sentences (*mne / mi / mňa*, *jeho / ho / neho*, *ňom*, *nimi*): pick the right form; the short and long form of one case are never set against each other. Numbers + nouns: *jedna žena, dve ženy, päť žien, dvaja muži / piati muži*. Both have a Ťahák page; Hľadaj looks up pronoun forms. |
 | **Pasca** (trap) | The spots where even Slovaks slip, in real treebank sentences: *s* or *z* (+ instrumental / + genitive)? *v* or *vo*? *dobrí* or *dobré*? One underlined word is the clue; weak categories come up more. |
 
-Every Slovak label shows English on hover (or long-press on a phone). Answers are never translated.
+Every Slovak label shows English on hover. On a phone: tap a label, or press and hold a button. Answers are never translated.
 Wrong answers are explained ("*-y* is the *žena* ending; *ulica* follows *ulica*: *ulice*").
 Words you look up in Hľadaj can be added to **Moje slová** and come back in the daily dose.
 🔊 buttons use the browser's Slovak voice when one is installed.

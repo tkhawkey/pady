@@ -168,6 +168,7 @@
     if (id === 'learn') { stopTimer(); renderTop(); window.PADYLearn?.render(); }
     if (id === 'lookup') { stopTimer(); renderTop(); window.PADYLookup?.render(); }
     if (['start', 'path', 'train'].includes(id)) { stopTimer(); renderTop(); window.PADYTrainer?.render(id); }
+    if (id === 'catch') { stopTimer(); renderTop(); window.PADYUlovok?.render(); }
     if (id === 'game') showWhy('');
     else if (location.hash.startsWith('#hladaj')) history.replaceState(null, '', location.pathname + location.search);
   }
@@ -199,6 +200,7 @@
     });
     renderTop();
     window.PADYTrainer?.renderHome();
+    window.PADYUlovok?.homeCard();
   }
   const bestKey = (mode) => (save.side === 'verbs' && mode !== 'magnet' ? `verb-${mode}:${opts.vtense}:${opts.vasp}:${opts.vgrp}:${opts.len}`
     : mode === 'magnet' ? `magnet:${opts.mlevel}:${opts.len}`

@@ -52,6 +52,16 @@
     <section class="modes">
       <div class="journey" id="journey"></div>
 
+      <article class="mode big ulovok-card" id="modeUlovok">
+        <div class="ulovok-text">
+          <div class="mode-tag" data-en="<b>úlovok</b> = the catch (sentence mining)">Úlovok 🎣</div>
+          <h2 data-en="real sentences from TV shows">Vety zo seriálov</h2>
+          <p>Real lines from shows, with their official English subtitles. Catch the ones that are one new word away, then drill them.</p>
+          <p class="best" id="ulovokNote"></p>
+        </div>
+        <button class="btn go" data-go="catch" data-en="open Úlovok">Úlovok →</button>
+      </article>
+
       <article class="mode big settings only-verbs" id="vsettings">
         <div class="mode-tag" data-en="<b>nastavenie</b> = settings for the verb games">Nastavenie</div>
         <div class="opt">
@@ -331,6 +341,33 @@
     <div id="kOut" aria-live="polite"></div>
   </main>
 
+  <!-- ÚLOVOK (sentence mining from subtitle packs) -->
+  <main id="catch" class="screen">
+    <div id="uHead">
+      <div class="learn-head">
+        <button class="hud-quit" data-go="home" aria-label="Domov" data-en="<b>domov</b> = home">←</button>
+        <div>
+          <h1 data-en="<b>úlovok</b> = the catch">Úlovok 🎣</h1>
+          <p class="sub small">Real sentences from your shows. Catch the ones you can almost read.</p>
+        </div>
+      </div>
+      <nav class="ltabs" id="uTabs">
+        <button data-utab="dnes" class="on" data-en="<b>dnes</b> = today">Dnes</button>
+        <button data-utab="slovnik" data-en="<b>slovník</b> = your words">Slovník</button>
+        <button data-utab="balicky" data-en="<b>balíčky</b> = packs (your shows)">Balíčky</button>
+      </nav>
+      <div id="uBody"></div>
+    </div>
+    <div id="uRun" hidden>
+      <div class="trhead">
+        <button class="hud-quit" data-uact="home" aria-label="Koniec" data-en="Stop (your progress so far is kept)">✕</button>
+        <div class="trtitle"><b id="uRunTitle"></b><span id="uRunCount"></span></div>
+      </div>
+      <div class="trprog"><span id="uRunBar"></span></div>
+      <div class="trcard ucard-run" id="uCard"></div>
+    </div>
+  </main>
+
   <!-- RESULTS -->
   <main id="results" class="screen">
     <div class="results-card">
@@ -362,6 +399,7 @@
   <script src="learn.js"></script>
   <script src="lookup.js"></script>
   <script src="trainer.js"></script>
+  <script src="ulovok.js"></script>
   <script>
     // installable + offline (only when served over http/https, e.g. GitHub Pages)
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {

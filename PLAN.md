@@ -127,6 +127,15 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    numbers 1–10 + noun (agreement, 2–4 + nom. pl., 5+ + gen. pl., male persons dvaja/piati); Ťahák tab; pronouns in Hľadaj.
 14. ✅ **Hľadaj tables checked**: 3,861 / 4,406 nouns ship with a table confirmed by Wiktionary + Štúr (offline);
    the remaining ~550 load live and say "not double-checked".
+15. ✅ **Úlovok, MVP** (sentence mining from official subtitles; `app/ulovok.js`, `scripts/build_pack.ps1`):
+   one importable pack per episode, kept only on the device (IndexedDB), never uploaded. Daily catch of
+   sentences one new word away; tap any word (meaning, case + the preposition behind it, person/tense,
+   frequency); "Neznám slovo" / "Neznám tvar" / "Poznám"; caught sentences return as read → fill-in (forms of
+   the same word, from Hunspell) → colour the cases → translate → listen. Slovník: learning, to drill,
+   what to catch next, recognise-only (rare), colloquial. Cases you trip on are counted per case.
+   Test pack: Ted Lasso S03E01 (535 sentences).
+   Next for Úlovok: Úlovok cards in the daily dose; a 40-word vocabulary check instead of the level guess;
+   "Pred pozeraním" only if Slovak-dubbed shows with matching subtitles turn up.
 
 ## Next (needs your extra content / data)
 - Tatoeba for Vyfarbi vetu (needs every noun in a sentence to be unambiguous) and for Magnet frames.

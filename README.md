@@ -28,6 +28,7 @@ The verb side has its own Začni tu, path (9 units), daily dose, mastery map and
 | **Magnet** | Which case does the verb take? Level 2: fill a real sentence with the right form. |
 | **Pád!** | Arcade: forms fall, tap the right case lane before they land. |
 | **Zámená a čísla** | Pronouns in real treebank sentences (*mne / mi / mňa*, *jeho / ho / neho*, *ňom*, *nimi*): pick the right form; the short and long form of one case are never set against each other. Numbers + nouns: *jedna žena, dve ženy, päť žien, dvaja muži / piati muži*. Both have a Ťahák page; Hľadaj looks up pronoun forms. |
+| **Úlovok** (the catch) | Sentence mining from TV subtitles. Import a pack (one episode: Slovak lines + the official English subtitle, every word tagged and glossed). Each day: 10 sentences that are one new word away. Tap any word for its meaning, case (and the preposition behind it), person and tense. Keep a sentence and it comes back as reading, fill-in, colour the cases, translating and listening. Packs stay on the device: subtitles are copyrighted and are never part of this site. |
 | **Pasca** (trap) | The spots where even Slovaks slip, in real treebank sentences: *s* or *z* (+ instrumental / + genitive)? *v* or *vo*? *dobrí* or *dobré*? One underlined word is the clue; weak categories come up more. |
 
 Every Slovak label shows English on hover. On a phone: tap a label, or press and hold a button. Answers are never translated.
@@ -96,6 +97,19 @@ Invoke-WebRequest https://raw.githubusercontent.com/hermitdave/FrequencyWords/ma
 ./scripts/build_bundle.ps1     # -> app/data.js
 ./scripts/build_lookup.ps1     # -> app/lookup-data.js (~1,400 adjectives, ~4,400 nouns for Hľadaj)
 ```
+
+**Úlovok packs** (local only; subtitles are copyrighted, so `work/` is never committed):
+
+```powershell
+./scripts/subs_align.ps1 -Name <title>      # official Slovak + English .srt -> sentence pairs (work/subs/<title>/pairs.json)
+# grammar tags: UDPipe 2 (slovak-snk-ud-2.17, Charles University web service) -> work/subs/<title>/tagged.conllu
+./scripts/build_pack.ps1 -Name <title> -Title 'Show' -Ep 'S01E01' -From 'Streaming service'
+#   -> work/packs/<title>.ulovok.json; open it in Úlovok -> Balíčky -> Importovať
+```
+
+`build_pack.ps1` checks UDPipe's lemmas against the treebank + app dictionary, takes meanings from the app data,
+the A1–B1 vocabulary bank and Wiktionary (meanings written by Claude are marked AI in the app), all forms of each
+word from Hunspell sk_SK, and per-title fixes (excluded lines, names, slang glosses) from `work/subs/<title>/fixes.json`.
 
 Hľadaj loads `app/lookup-data.js` only when opened. Nouns outside the game data get their full
 case table live from the Wiktionary REST API (needs a connection; known forms are shown offline).

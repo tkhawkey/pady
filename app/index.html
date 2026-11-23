@@ -29,7 +29,8 @@
       <span class="pill level" data-en="Your level. The bar fills with XP.">Lv <b id="levelVal">1</b>
         <span class="xpbar"><span id="xpFill"></span></span>
       </span>
-      <button class="pill icon" id="muteBtn" aria-label="Zvuk" data-en="Sound on / off">🔊</button>
+      <button class="pill icon" id="muteBtn" aria-label="Zvuk" data-en="Sound and voice">🔊</button>
+      <div class="sound-panel" id="soundPanel" hidden></div>
     </div>
   </header>
 
@@ -323,6 +324,7 @@
     <div class="ksearch">
       <input id="kInput" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="search"
         placeholder="napr. čerstvých" aria-label="Slovo">
+      <div class="ksuggest" id="kSuggest" aria-label="Návrhy"></div>
       <div class="keys kdia" id="kDia"></div>
       <div class="krecent" id="kRecent"></div>
     </div>

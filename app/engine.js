@@ -525,11 +525,23 @@
   ];
 
   // ---------- speech ----------
+  // the browser's Slovak voices (Edge: Lukáš ♂ / Viktória ♀ online voices; Android: the system voice; Firefox on
+  // Windows: only voices installed in Windows). The choice is remembered on this device.
   let skVoice = null;
+  const voicePref = () => { try { return localStorage.getItem('pady.voice') || ''; } catch { return ''; } };
+  const skVoices = () => ('speechSynthesis' in window ? speechSynthesis.getVoices().filter((v) => /^sk/i.test(v.lang)) : []);
   function findVoice() {
-    if (!('speechSynthesis' in window)) return null;
-    skVoice = speechSynthesis.getVoices().find((v) => /^sk/i.test(v.lang)) || null;
+    const vs = skVoices(), pref = voicePref();
+    skVoice = vs.find((v) => v.name === pref) || vs.find((v) => /natural|online/i.test(v.name)) || vs[0] || null;
     return skVoice;
+  }
+  function setVoice(name) { try { localStorage.setItem('pady.voice', name); } catch { /* ignore */ } findVoice(); }
+  // a friendly label: "Microsoft Lukas Online (Natural) - Slovak (Slovakia)" -> "Lukáš ♂"
+  function voiceLabel(v) {
+    const n = v.name.replace(/^Microsoft\s+/i, '').replace(/\s*Online.*$|\s*-\s*Slovak.*$|\s*\(.*\)\s*$/gi, '').trim();
+    const known = { lukas: ['Lukáš', '♂'], filip: ['Filip', '♂'], viktoria: ['Viktória', '♀'] };
+    const k = known[n.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase()];
+    return k ? `${k[0]} ${k[1]}` : n || v.name;
   }
   if ('speechSynthesis' in window) { findVoice(); speechSynthesis.onvoiceschanged = () => { findVoice(); document.dispatchEvent(new Event('pady-voices')); }; }
   function speak(text) {
@@ -611,6 +623,7 @@
     unitMastery, unitDone, currentUnit, buildDose, buildUnitSession, itemForKey, tierItems, applyPlacement,
     explain, cellNeeds, frame, addMyWord, removeMyWord, myWords, hasMyWord, speak, canSpeak, parseKey, CI,
     example, exList, exHtml, PRONS, PRON, NUMS, numPhrases,
+    skVoices, setVoice, voiceLabel, currentVoice: () => skVoice,
     setUnitDone(id) { store().units[id] = true; P.persist(); },
     // verbs
     VUNITS, VTIERS, VGROUPS, VPOOL, CONJ, APAIRS, TENSE_SK, TENSE_CLS, PK, unitsFor, vform, vname, vgroup, vByW, isVerbKey, vcolorItem,

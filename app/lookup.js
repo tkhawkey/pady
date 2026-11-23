@@ -401,11 +401,15 @@
       i.dispatchEvent(new Event('input', { bubbles: true }));
     });
     let t = null;
-    $('#kInput').addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => search($('#kInput').value, false), 220); });
+    $('#kInput').addEventListener('input', () => {
+      clearTimeout(t);
+      renderSuggest($('#kInput').value);
+      t = setTimeout(() => search($('#kInput').value, false), 220);
+    });
     $('#kInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); search($('#kInput').value, true); } });
     $('#lookup').addEventListener('click', (e) => {
       const s = e.target.closest('[data-q]');
-      if (s) { $('#kInput').value = s.dataset.q; search(s.dataset.q, true); return; }
+      if (s) { $('#kInput').value = s.dataset.q; $('#kSuggest').innerHTML = ''; search(s.dataset.q, true); return; }
       const p = e.target.closest('.link-pat');
       if (p) L.openPattern(p.dataset.pat);
       const my = e.target.closest('[data-my]');
@@ -415,6 +419,39 @@
         my.outerHTML = myBtn(type, w);
       }
     });
+  }
+
+  // ---------- suggestions while typing (accent-free prefix: "cerst" -> čerstvý, čerstvých…) ----------
+  let SORTED = null;   // bare (accent-free) forms, sorted, for prefix search
+  const lemmaOf = (h) => h.noun?.w || h.adj?.w || h.verb?.w || h.pron?.k;
+  function suggest(raw) {
+    const b = bare(norm(raw));
+    if (b.length < 2 || !BARE) return [];
+    if (!SORTED) SORTED = [...BARE.keys()].sort();
+    let lo = 0, hi = SORTED.length;   // first key >= b
+    while (lo < hi) { const m = (lo + hi) >> 1; if (SORTED[m] < b) lo = m + 1; else hi = m; }
+    const common = new Set([...D.nouns.map((n) => n.w), ...D.adjs.map((a) => a.w), ...(D.conj || []).map((v) => v.w)]);
+    const byLemma = new Map();   // one suggestion per word: the lemma itself if it matches, else its shortest matching form
+    for (let i = lo, seen = 0; i < SORTED.length && SORTED[i].startsWith(b) && seen < 600; i++, seen++) {
+      for (const form of BARE.get(SORTED[i])) {
+        for (const h of IDX.get(form) || []) {
+          const lem = lemmaOf(h); if (!lem) continue;
+          const cur = byLemma.get(lem), isLem = form === lem;
+          if (!cur || (isLem && !cur.isLem) || (!cur.isLem && !isLem && form.length < cur.form.length)) byLemma.set(lem, { form, lem, isLem });
+        }
+      }
+    }
+    return [...byLemma.values()]
+      .sort((x, y) => (common.has(y.lem) - common.has(x.lem)) || (x.form.length - y.form.length) || x.form.localeCompare(y.form))
+      .slice(0, 8);
+  }
+  function renderSuggest(raw) {
+    const el = $('#kSuggest'); if (!el) return;
+    if (!IDX) { loadData().then(() => { if ($('#kInput').value === raw) renderSuggest(raw); }).catch(() => {}); return; }
+    const list = suggest(raw);
+    // nothing to suggest when the typed word is already complete and the only match
+    if (list.length === 1 && bare(list[0].form) === bare(norm(raw))) { el.innerHTML = ''; return; }
+    el.innerHTML = list.map((s) => `<button class="exchip sug" data-q="${attr(s.form)}">${esc(s.form)}${s.isLem ? '' : `<small>${esc(s.lem)}</small>`}</button>`).join('');
   }
 
   function renderRecent() {
@@ -444,7 +481,14 @@
           ${others.length ? `<span class="kcan-label" data-en="<b>alebo</b> = or">alebo</span>${others.map((s) => `<button class="exchip" data-q="${attr(s)}">${esc(s)}</button>`).join('')}` : ''}</div>`;
       }
     }
+    // a half-typed word: let the suggestions do the talking; Enter takes the first one
+    if (!hits.length) {
+      const sug = suggest(raw);
+      if (sug.length && !commit) { out.innerHTML = ''; return; }
+      if (sug.length && commit) { $('#kInput').value = sug[0].form; $('#kSuggest').innerHTML = ''; return search(sug[0].form, true); }
+    }
     if (commit) {
+      $('#kSuggest').innerHTML = '';
       history.replaceState(null, '', `#hladaj/${encodeURIComponent(form)}`);
       if (hits.length) pushRecent(form);
     }

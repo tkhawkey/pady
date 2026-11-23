@@ -216,7 +216,32 @@
     const b = e.target.closest('button'); if (!b || b.disabled) return;
     opts.pattern = b.dataset.pat; renderHome();
   });
-  $('#muteBtn').addEventListener('click', () => { save.muted = !save.muted; persist(); renderTop(); });
+  // 🔊 opens a small panel: game sounds on/off + which Slovak voice reads things out
+  function renderSoundPanel() {
+    const E = window.PADYEngine, vs = E?.skVoices() || [], cur = E?.currentVoice();
+    const ff = /firefox/i.test(navigator.userAgent);
+    $('#soundPanel').innerHTML = `
+      <div class="sp-row"><span data-en="<b>zvuky</b> = game sounds (pops, combos)">Zvuky</span>
+        <button class="chip${save.muted ? '' : ' on'}" id="spSfx">${save.muted ? '🔇 vypnuté' : '🔊 zapnuté'}</button></div>
+      <div class="sp-row"><span data-en="<b>hlas</b> = the Slovak voice that reads words and sentences out">Hlas</span>
+        <div class="sp-voices">${vs.length
+          ? vs.map((v) => `<button class="chip${cur && v.name === cur.name ? ' on' : ''}" data-voice="${attr(v.name)}" data-en="${attr(v.name)}">${E.voiceLabel(v)}</button>`).join('')
+          : `<p class="sp-none">This browser has no Slovak voice.${ff ? ' Firefox can only use the speech voices Windows hands to older programs, and a Slovak one is usually not among them (adding Slovak in Windows settings may or may not help). Easiest: use Edge, which brings its own Slovak voices (Lukáš ♂, Viktória ♀).' : ' Try Edge or Chrome, or add a Slovak voice in your system\'s speech settings.'}</p>`}</div></div>
+      ${vs.length > 1 ? '' : vs.length ? '<p class="sp-note">Your browser offers one Slovak voice. On phones the voice comes from the system\'s text-to-speech settings.</p>' : ''}`;
+  }
+  $('#muteBtn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    const p = $('#soundPanel'); p.hidden = !p.hidden;
+    if (!p.hidden) renderSoundPanel();
+  });
+  $('#soundPanel').addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (e.target.closest('#spSfx')) { save.muted = !save.muted; persist(); renderTop(); renderSoundPanel(); if (!save.muted) sfx.good(1); return; }
+    const v = e.target.closest('[data-voice]');
+    if (v) { window.PADYEngine.setVoice(v.dataset.voice); renderSoundPanel(); window.PADYEngine.speak('Ahoj, takto znie môj hlas.'); }
+  });
+  document.addEventListener('click', (e) => { if (!e.target.closest('#soundPanel, #muteBtn')) $('#soundPanel').hidden = true; });
+  document.addEventListener('pady-voices', () => { if (!$('#soundPanel').hidden) renderSoundPanel(); });
 
   // ---------- game state ----------
   let G = null;

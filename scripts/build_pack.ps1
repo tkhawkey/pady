@@ -17,6 +17,8 @@ $fixes = if (Test-Path "$dir/fixes.json") { Get-Content "$dir/fixes.json" -Raw -
 $exclude = @{}; foreach ($i in @($judg.mismatch) + @($judg.error) + @($fixes.exclude)) { if ($i) { $exclude[[int]$i] = 1 } }
 $approx = @{}; foreach ($i in @($judg.loose) + @($fixes.approx)) { if ($i) { $approx[[int]$i] = 1 } }
 $names = @{}; foreach ($n in @($fixes.names)) { if ($n) { $names[$n] = 1 } }
+# words: form -> [lemma, upos, optional UD feats] for tokens UDPipe got wrong (Bože tagged as a name, Skús as a noun)
+$wordFix = @{}; if ($fixes.words) { foreach ($p in $fixes.words.PSObject.Properties) { $wordFix[$p.Name] = @($p.Value) } }
 $colloq = @{}; if ($fixes.colloquial) { foreach ($p in $fixes.colloquial.PSObject.Properties) { $colloq[$p.Name] = $p.Value } }
 
 # ---- UDPipe sentences ----
@@ -75,17 +77,26 @@ foreach ($f in 'vocab_glosses.json', 'ai_glosses.json') {
 # form -> possible lemmas (UD treebank + app dictionary). UDPipe guesses a lemma for words it has never seen
 # (urobť, pracuť, zema); when its lemma is unknown anywhere, a real lemma for that exact form wins.
 $formLex = @{}
+$formInfo = @{}   # treebank: lower-case form -> { "lemma`tupos`tfeats" -> count } (to re-tag false names, below)
 function Add-Form($form, $lemma) { $f = $form.ToLowerInvariant(); if (-not $formLex.ContainsKey($f)) { $formLex[$f] = @{} }; $formLex[$f][$lemma.ToLowerInvariant()] = 1 }
 foreach ($file in Get-ChildItem "$Root/raw/ud/*.conllu") {
   foreach ($line in [IO.File]::ReadLines($file.FullName)) {
     if (-not $line -or $line[0] -eq '#') { continue }
-    $c = $line.Split("`t"); if ($c[0] -match '^\d+$' -and $c[3] -ne 'PROPN') { Add-Form $c[1] $c[2] }
+    $c = $line.Split("`t"); if ($c[0] -match '^\d+$' -and $c[3] -ne 'PROPN') {
+      Add-Form $c[1] $c[2]
+      $k = $c[1].ToLowerInvariant(); $a = "$($c[2].ToLowerInvariant())`t$($c[3])`t$($c[5])"
+      if (-not $formInfo.ContainsKey($k)) { $formInfo[$k] = @{} }; $formInfo[$k][$a] = 1 + ($formInfo[$k][$a] ?? 0)
+    }
   }
 }
 foreach ($n in $D.nouns) { foreach ($x in @($n.s) + @($n.p)) { if ($x) { Add-Form $x $n.w } } }
 foreach ($n in $L.nouns) { if ($n.Count -ge 5 -and $n[4]) { foreach ($x in @($n[4][0]) + @($n[4][1])) { Add-Form $x $n[0] } } else { foreach ($x in $n[3]) { Add-Form $x $n[0] } } }
 foreach ($a in $L.adjs) { foreach ($x in $a[2]) { Add-Form $x $a[0] } }
 foreach ($v in $L.verbs) { Add-Form $v[0] $v[0]; foreach ($k in 5, 6, 7) { foreach ($x in @($v[$k])) { if ($x) { Add-Form $x $v[0] } } } }
+$lemmaPos = @{}
+foreach ($n in $D.nouns) { $lemmaPos[$n.w] = 'NOUN' }; foreach ($n in $L.nouns) { if (-not $lemmaPos[$n[0]]) { $lemmaPos[$n[0]] = 'NOUN' } }
+foreach ($a in $L.adjs) { if (-not $lemmaPos[$a[0]]) { $lemmaPos[$a[0]] = 'ADJ' } }; foreach ($v in $L.verbs) { if (-not $lemmaPos[$v[0]]) { $lemmaPos[$v[0]] = 'VERB' } }
+$nUnname = 0; $unnameEx = @()
 $trusted = @{}; foreach ($k in $ara.Keys) { $trusted[$k] = 1 }; foreach ($k in $gloss.Keys) { $trusted[$k] = 1 }
 foreach ($e in $formLex.Values) { foreach ($k in $e.Keys) { $trusted[$k] = 1 } }
 $nFixed = 0; $fixedEx = @()
@@ -93,10 +104,13 @@ $nFixed = 0; $fixedEx = @()
 # names: word forms that only ever appear capitalised in this episode, at least once mid-sentence (Ted, Rebecca, Natov)
 $seenLower = @{}; $midCap = @{}
 foreach ($p in $keep) {
-  $w = @([regex]::Matches($p.sk, '\p{L}+') | ForEach-Object Value)
-  for ($i = 0; $i -lt $w.Count; $i++) {
-    $k = $w[$i].ToLowerInvariant()
-    if ($w[$i] -cmatch '^\p{Ll}') { $seenLower[$k] = 1 } elseif ($i -gt 0) { $midCap[$k] = 1 }
+  # one subtitle line can hold several sentences ("Ahoj, Henry. Tešíš sa…"): a word right after . ! ? … or a dash
+  # starts a sentence, so its capital letter says nothing
+  foreach ($m in [regex]::Matches($p.sk, '\p{L}+')) {
+    $k = $m.Value.ToLowerInvariant()
+    $before = $p.sk.Substring(0, $m.Index).TrimEnd(' ', '"', '„', '“', '»', '«', "'")
+    $start = -not $before -or $before -match '[.!?…:–—-]$'
+    if ($m.Value -cmatch '^\p{Ll}') { $seenLower[$k] = 1 } elseif (-not $start) { $midCap[$k] = 1 }
   }
 }
 
@@ -125,6 +139,20 @@ for ($si = 0; $si -lt $keep.Count; $si++) {
     }
     elseif ($r[0] -match '^\d+$' -and [int]$r[0] -le $skipTo) { continue }
     $form = $r[1]; $lemma = $r[2].ToLowerInvariant(); $upos = $r[3]; $f = $r[5]
+    $cf0 = $form.ToLowerInvariant()
+    if ($wordFix[$cf0]) { $wf = $wordFix[$cf0]; $lemma = $wf[0]; $upos = $wf[1]; if ($wf.Count -ge 3) { $f = $wf[2] } }
+    # UDPipe calls many capitalised sentence-initial words names (Poď, Tešíš, Ahoj, Potom). If this form is not a name
+    # by our own rule and the treebank or the dictionary knows it as an ordinary word, use that analysis instead.
+    if ($upos -eq 'PROPN' -and -not $names[$cf0] -and -not ($midCap[$cf0] -and -not $seenLower[$cf0])) {
+      if ($formInfo[$cf0]) {
+        $best = $formInfo[$cf0].GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 1
+        $lemma, $upos, $f = $best.Key.Split("`t"); if ($f -eq '_') { $f = '' }
+        $nUnname++; if ($unnameEx.Count -lt 80) { $unnameEx += "$form→$lemma/$upos" }
+      } elseif ($formLex[$cf0]) {
+        $l2 = $formLex[$cf0].Keys | Where-Object { $lemmaPos[$_] } | Sort-Object { $ara[$_] ?? 999999 } | Select-Object -First 1
+        if ($l2) { $lemma = $l2; $upos = $lemmaPos[$l2]; $f = ''; $nUnname++; if ($unnameEx.Count -lt 80) { $unnameEx += "$form→$lemma/$upos (dict)" } }
+      }
+    }
     $ck = ''
     if ($upos -in 'NOUN', 'PROPN', 'ADJ', 'PRON', 'DET', 'NUM') { $c = Get-Feat $f 'Case'; if ($c) { $ck = $CASEMAP[$c] } }
     # jeho / jej / ich (his, her, their) never change form: UDPipe gives them the noun's case, but colouring them would mislead
@@ -133,6 +161,7 @@ for ($si = 0; $si -lt $keep.Count; $si++) {
     if (-not $pr -and $upos -in 'ADJ', 'DET', 'NUM' -and $byId[$r[6]]) { $pr = $prepOf[$r[6]] }   # adjective takes its noun's preposition
     $cf = $form.ToLowerInvariant()
     if ($colloq.ContainsKey($cf)) { $lemma = $colloq[$cf][0] }
+    elseif ($wordFix[$cf]) { }
     elseif (($names[$cf] -or ($midCap[$cf] -and -not $seenLower[$cf])) -and $upos -ne 'PUNCT') { $upos = 'PROPN'; $ck = '' ; $lemma = $cf }
     # najskôr, najmä, najprv: superlative adverbs that are words of their own (najskôr = at first, not "soonest" of skoro)
     elseif ($upos -eq 'ADV' -and (Get-Feat $f 'Degree') -eq 'Sup' -and $ara[$cf]) { $lemma = $cf }
@@ -205,6 +234,7 @@ $path = "$Root/work/packs/$Name.ulovok.json"
 "pack: $path  $([math]::Round((Get-Item $path).Length / 1KB)) KB"
 "sentences $($out.Count) (excluded $nEx, approximate $nApprox)  lemmas $($lex.Count)  context lines $($ctx.Count)"
 "lemmas corrected from the dictionary: $nFixed  e.g. $($fixedEx -join ', ')"
+"false names turned back into words: $nUnname  $($unnameEx -join ', ')"
 "no gloss ($($noGloss.Count)): $($noGloss -join ', ')"
 # the sentence each unglossed lemma comes from (to write a gloss that fits)
 $ng = @{}; foreach ($x in $noGloss) { $ng[($x -split ' ')[0]] = 1 }

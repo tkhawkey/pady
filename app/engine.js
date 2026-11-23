@@ -618,7 +618,17 @@
     return `<div class="tex"><div class="tex-sk">${skH} ${sayB}</div><div class="tex-en">${esc(en)} <a class="tex-src" href="https://tatoeba.org/sentences/show/${id}" target="_blank" rel="noopener" data-en="real sentence from Tatoeba (CC BY 2.0 FR)">Tatoeba</a></div></div>`;
   }
 
+  // English for a treebank sentence (app/tr-data.js, written by Claude: the treebank has no translations).
+  // Shown only after you've answered, so it never gives the answer away.
+  const trEn = (sk) => (sk && window.PADY_TR?.[String(sk).trim()]) || '';
+  function trHtml(sk) {
+    const en = trEn(sk); if (!en) return '';
+    const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+    return `<div class="tr-en">${esc(en)} <span class="uai" data-en="Translated by Claude (AI): the treebank has no English. Usually right, but unchecked.">AI</span></div>`;
+  }
+
   window.PADYEngine = {
+    trEn, trHtml,
     review, seed, boxOf, masteryOf, dueKeys, today, UNITS, TIERS, VERBS, TOP_VERBS, MODELS,
     unitMastery, unitDone, currentUnit, buildDose, buildUnitSession, itemForKey, tierItems, applyPlacement,
     explain, cellNeeds, frame, addMyWord, removeMyWord, myWords, hasMyWord, speak, canSpeak, parseKey, CI,

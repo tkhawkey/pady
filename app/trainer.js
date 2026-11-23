@@ -196,7 +196,9 @@
   }
 
   // the word you're working with always shows its meaning inline (hover is for interface labels only)
-  const lemmaChip = (n, num) => `<span class="chip ghost">${esc(n.w)}${num ? ` · ${num === 's' ? 'sg' : 'pl'}` : ''}</span>${n.g ? ` <span class="gl">${esc(n.g)}</span>` : ''}`;
+  // gender belongs to the word (žena is always žen.), number to the form, so the number sits on the case chip
+  const genChip = (n) => (n.gen && P.GENDER_LABEL[n.gen] ? ` <span class="chip ghost" data-en="${attr(P.GENDER_EN[n.gen] || '')}">${P.GENDER_LABEL[n.gen]}</span>` : '');
+  const lemmaChip = (n, num) => `<span class="chip ghost">${esc(n.w)}${num ? ` · ${num === 's' ? 'sg' : 'pl'}` : ''}</span>${genChip(n)}${n.g ? ` <span class="gl">${esc(n.g)}</span>` : ''}`;
   // meaning of any noun/adjective lemma we have data for
   const GLOSS = new Map();
   for (const n of [...D.nouns, ...D.adjs]) if (n.g && !GLOSS.has(n.w)) GLOSS.set(n.w, n.g);
@@ -439,7 +441,9 @@
     } else if (it.kind === 'noun') {
       say = it.answer;
       if (it.type === 'pickCase') {
-        body = `<b>${esc(it.answer)}</b> = ${[...it.valid].map((k) => caseChip(k)).join(' ')}`;
+        // every cell this form fills, with its number (ženy = Genitív sg · Nominatív pl · Akuzatív pl)
+        const cells = CASES.flatMap((c, i) => ['s', 'p'].filter((num) => it.noun[num][i] === it.answer).map((num) => caseChip(c.k, num)));
+        body = `<b>${esc(it.answer)}</b> = ${cells.join(' <span class="or">·</span> ')}`;
         if (!good) body += ` <span class="why-not">(${esc(CASES[CI[ans]]?.name || '')} nie)</span>`;
       } else {
         body = good && !almost
@@ -464,8 +468,11 @@
     const exLemma = it.kind === 'vconj' ? it.v?.w : exW?.w;
     const ex = exLemma && it.answer ? E.example(exLemma, String(it.answer).split(/[ ,/]/).pop()) : null;
     if (ex) say = ex[0];   // 🔊 reads the whole sentence
+    // a real treebank sentence on screen: its English, now that you've answered
+    const trSk = it.kind === 'pron' || it.kind === 'trap' ? say : it.kind === 'verb' ? it.vx.ex[0] : it.kind === 'vform' ? it.z.t : '';
     fb.className = `trfeed show ${good ? (almost ? 'almost' : 'ok') : 'no'}`;
     fb.innerHTML = `<div class="mrule"><span class="mres">${good ? (almost ? 'Takmer!' : 'Správne!') : 'Ups!'}</span> ${body}</div>
+      ${trSk ? E.trHtml(trSk) : ''}
       ${ex ? E.exHtml(ex, exW, { say: false }) : ''}
       <div class="trfeed-actions">${say ? sayBtn(say) : ''}<button class="btn small go" id="trNext" data-en="next (Enter)">Ďalej →</button></div>`;
     // no auto-skip: there's always something to read here, so you move on when you're ready (Enter / Ďalej)
@@ -524,7 +531,7 @@
     }).join('');
     $('#trFeed').innerHTML = `<div class="mrule"><span class="mres">${bad.length ? 'Skoro!' : 'Výborne!'}</span>
       ${bad.length ? `${bad.length} of ${targets().length} in the wrong colour.` : 'Every word in the right colour.'}
-      <ul class="cwords">${rows}</ul></div>
+      ${E.trHtml(text)}<ul class="cwords">${rows}</ul></div>
       <div class="trfeed-actions">${sayBtn(text)}<button class="btn small go" id="trNext">Ďalej →</button></div>`;
   }
 
@@ -541,7 +548,7 @@
     $('#trFeed').className = `trfeed show ${bad.length ? 'no' : 'ok'}`;
     $('#trFeed').innerHTML = `<div class="mrule"><span class="mres">${bad.length ? 'Skoro!' : 'Výborne!'}</span>
       ${bad.length ? `${bad.length} of ${targets().length} with the wrong person.` : 'Every verb with the right person.'}
-      <ul class="cwords">${rows}</ul></div>
+      ${E.trHtml(text)}<ul class="cwords">${rows}</ul></div>
       <div class="trfeed-actions">${sayBtn(text)}<button class="btn small go" id="trNext">Ďalej →</button></div>`;
   }
 

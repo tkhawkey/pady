@@ -938,19 +938,21 @@
   function showMagnetFeedback(ok) {
     const it = G.card.item;
     const caseChip = (L) => { const c = CASES.find((x) => x.k === LETTER_CK[L]); return `<span class="lg c-${c.k}" data-en="${attr(P_caseTipShort(c))}">${c.name}</span>`; };
-    let rule, example;
+    let rule, example, trSk;
     if (it.kind === 'case') {
       rule = `${esc(it.v.v)} ${it.p ? `<b>${esc(it.p)}</b> ` : ''}+ ${it.cases.map(caseChip).join(' <span class="or">alebo</span> ')}`;
       const ex = it.ex[rand(Math.max(1, Math.min(it.ex.length, 3)))];
-      example = ex ? `„${esc(ex)}“` : '';
+      example = ex ? `„${esc(ex)}“` : ''; trSk = ex;
     } else {
       rule = `${esc(it.v.v)} ${it.p ? `<b>${esc(it.p)}</b> ` : ''}+ ${caseChip(it.c)} → <b>${esc(it.z.f)}</b>`;
-      example = '';
+      example = ''; trSk = it.z.t;   // the sentence is on the card: its English, now that you've answered
     }
+    const trH = window.PADYEngine?.trHtml(trSk) || '';
     $('#mFeed').className = `mfeed show ${ok ? 'ok' : 'no'}`;
     $('#mFeed').innerHTML = `
       <div class="mrule"><span class="mres" data-en="${ok ? 'right' : 'not quite'}">${ok ? 'Správne!' : 'Ups!'}</span> ${rule}</div>
       ${example ? `<p class="mex" data-en="A real sentence from the Slovak treebank">${example}</p>` : ''}
+      ${trH ? `<div class="mex-en">${trH}</div>` : ''}
       <button class="btn small go" id="mNext" data-en="next (Enter)">Ďalej →</button>`;
     // no auto-skip: the rule and the real sentence are there to be read (Enter / Ďalej when ready)
     clearTimeout(G.autoNext);

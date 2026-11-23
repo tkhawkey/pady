@@ -137,6 +137,10 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    Next for Úlovok: Úlovok cards in the daily dose; a 40-word vocabulary check instead of the level guess;
    "Pred pozeraním" only if Slovak-dubbed shows with matching subtitles turn up.
 
+16. ✅ **English for treebank sentences**: all 2,623 sentences the games show (Vyfarbi vetu for cases and verbs,
+   Magnet + Tvar, Pasca, Zámená, Ťahák case cards) translated by Claude into `app/tr-data.js`, marked AI. Shown only
+   after you answer (before, it would give away the person or the case); in the Ťahák cards, straight away.
+
 ## Next (needs your extra content / data)
 - Tatoeba for Vyfarbi vetu (needs every noun in a sentence to be unambiguous) and for Magnet frames.
 - Numbers in other cases (s dvoma ženami, o piatich mužoch), possessives (môj, tvoj, svoj).

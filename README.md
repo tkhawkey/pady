@@ -63,6 +63,9 @@ All word forms come from existing sources, not from an AI:
   wrong (*hosť*, *upír*, *psy*) the table is fixed by hand in `scripts/noun_overrides.json`.
 - **Hľadaj nouns:** 3,861 of 4,406 ship with a table that two sources agree on (Wiktionary + Štúr,
   `data/lookup_check.txt`), so they work offline. The rest are fetched live from Wiktionary and marked "not double-checked".
+- **English for treebank sentences** (Vyfarbi vetu, Magnet, Pasca, Zámená, the Ťahák case cards): the treebank has
+  no translations, so Claude translated all ~2,600 sentences (`scripts/tr_collect.ps1` → `work/tr/` → `scripts/build_tr.ps1`
+  → `app/tr-data.js`). They appear only after you answer, marked AI.
 - English glosses for ~200 verbs that have no Wiktionary entry, the pattern tips and the preposition lists
   were written by hand (marked `glossSource: manual` in `data/verbs.json`).
 
@@ -109,7 +112,9 @@ Invoke-WebRequest https://raw.githubusercontent.com/hermitdave/FrequencyWords/ma
 
 `build_pack.ps1` checks UDPipe's lemmas against the treebank + app dictionary, takes meanings from the app data,
 the A1–B1 vocabulary bank and Wiktionary (meanings written by Claude are marked AI in the app), all forms of each
-word from Hunspell sk_SK, and per-title fixes (excluded lines, names, slang glosses) from `work/subs/<title>/fixes.json`.
+word from Hunspell sk_SK, and per-title fixes (excluded lines, names, slang glosses, mis-tagged words) from `work/subs/<title>/fixes.json`.
+Names are not tappable. UDPipe tags many capitalised sentence-initial words as names (*Poď*, *Tešíš*), so a word only stays
+a name if it is capitalised mid-sentence, listed in `names`, or unknown to the treebank and the dictionaries.
 
 Hľadaj loads `app/lookup-data.js` only when opened. Nouns outside the game data get their full
 case table live from the Wiktionary REST API (needs a connection; known forms are shown offline).

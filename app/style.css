@@ -884,6 +884,10 @@ input.cell.given { opacity: .85; }
 .tex mark { background: var(--c, transparent); color: inherit; padding: 0 4px; border-radius: 6px; border: 2px solid var(--line); }
 .tex mark.plain { background: transparent; text-decoration: underline 3px; text-underline-offset: 3px; border: 0; padding: 0; }
 .tex-en { font-size: 14px; color: var(--ink-soft); font-style: italic; }
+/* English for a treebank sentence, after you've answered: the same light-blue look as Úlovok's English strip */
+.tr-en { background: #e3f0ff; color: #13254a; border: 2px solid var(--line); border-radius: 10px; padding: 6px 10px; margin: 8px 0;
+  font-weight: 700; font-size: 16px; line-height: 1.4; text-align: left; }
+.mex-en { flex-basis: 100%; order: 3; }
 .tex-src { font-style: normal; font-size: 11px; color: var(--ink-soft); opacity: .7; margin-left: 6px; }
 .kex { margin-top: 18px; }
 .kex h4 { margin: 0 0 8px; font-family: var(--font-display); font-size: 18px; }
@@ -1321,7 +1325,10 @@ input.cell.given { opacity: .85; }
 .uen.top { margin-top: 0; }
 .uhint { margin: 6px 0; }
 .uword { max-width: 760px; margin: 10px auto; text-align: left; border: var(--bw) solid var(--line); border-left-width: 10px; border-left-color: var(--nom);
-  border-radius: 14px; padding: 10px 14px; background: var(--card); box-shadow: var(--sh-sm); animation: screenIn .25s; }
+  border-radius: 14px; padding: 10px 44px 10px 14px; background: var(--card); box-shadow: var(--sh-sm); animation: screenIn .25s; position: relative; }
+.uw-x { position: absolute; top: 6px; right: 6px; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--line); background: var(--cell-empty);
+  color: var(--ink); font: 800 20px/1 var(--font-body); cursor: pointer; display: grid; place-items: center; padding: 0; }
+.uw-x:hover { background: var(--nom); color: #1b1035; }
 .uw-head { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
 .uw-head > b { font-family: var(--font-display); font-size: 24px; }
 .uw-lemma { font-family: var(--font-display); font-size: 22px; color: var(--acc); font-weight: 800; }

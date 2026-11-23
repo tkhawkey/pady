@@ -164,6 +164,7 @@
     const say = E.canSpeak() ? `<button class="say" data-say="${attr(l)}" aria-label="Vypočuť" data-en="listen">🔊</button>` : '';
     const canForm = !!(t[3] || ((t[2] === 'VERB' || t[2] === 'AUX') && t[4]));
     return `<div class="uword">
+      <button class="uw-x" data-uw="x" aria-label="Zavrieť" data-en="close (Esc)">×</button>
       <div class="uw-head"><b>${esc(t[0])}</b>${low(t[0]) !== l ? ` <span class="uw-arrow">→</span> <span class="uw-lemma">${esc(l)}</span>` : ''} ${say}
         ${pos ? `<span class="chip ghost" data-en="${attr(pos[1])}">${pos[0]}</span>` : ''} ${freqChip(l)}${collMark(l)}</div>
       <div class="uw-gloss">${esc(lx.g || '—')}${aiMark(l)}</div>
@@ -452,7 +453,7 @@
     } else if (type === 'cloze') {
       const z = cur.cloze;
       h += `<div class="uen top">${esc(s.en)}</div><div class="usent" id="uSent">${cur.answered ? sentHtml(s, { colors: cur.colors, marks: { [z.i]: 'tg' } }) : sentHtml(s, { blankAt: z.i })}</div>${srcLine(s)}`;
-      h += cur.answered ? `${tools}<div id="uWord">${cur.sel != null ? wordHtml(s, cur.sel) : wordHtml(s, z.i)}</div>${feedback()}` :
+      h += cur.answered ? `${tools}<div id="uWord">${cur.sel != null ? wordHtml(s, cur.sel) : ''}</div>${feedback()}` :
         `<div class="tropts">${z.options.map((o, i) => `<button class="tropt" data-uopt="${attr(o)}"><span class="mk">${i + 1}</span>${esc(o)}</button>`).join('')}</div>`;
     } else if (type === 'color') {
       const tg = cur.ctargets, now = tg[cur.ci];
@@ -619,6 +620,9 @@
       return;
     }
     const uw = t.closest('[data-uw]');
+    if (uw?.dataset.uw === 'x') return closeWord();
+    // click away: anywhere outside the word card that isn't a word or a button
+    if (cur.sel != null && !t.closest('.uword, button, textarea, input, a')) return closeWord();
     if (uw && cur.sel != null) {
       const tok = cur.s.t[cur.sel], l = tok[1];
       if (uw.dataset.uw === 'u') { markWord(l, 'u'); if (S.words[l] === 'u') cur.flagged.add(l); else cur.flagged.delete(l); }
@@ -637,6 +641,12 @@
     const cs = t.closest('[data-ucase]'); if (cs) return answerColor(cs.dataset.ucase);
     const lo = t.closest('[data-ulisten]'); if (lo && !cur.answered) return answerListen(+lo.dataset.ulisten, lo);
   });
+
+  function closeWord() {
+    cur.sel = null;
+    $$('#uSent .uw').forEach((x) => x.classList.remove('sel'));
+    const box = $('#uWord'); if (box) box.innerHTML = '';
+  }
 
   function answerCloze(ans, btn) {
     const z = cur.cloze, ok = ans === z.right;
@@ -668,6 +678,7 @@
 
   document.addEventListener('keydown', (e) => {
     if (!screen()?.classList.contains('active') || !cur || !RUN) return;
+    if (e.key === 'Escape' && cur.sel != null) { e.preventDefault(); return closeWord(); }
     if (e.target.matches('input, textarea') && e.key !== 'Enter') return;
     if (e.target.matches('textarea') && e.key === 'Enter' && !e.ctrlKey && !e.metaKey) { e.preventDefault(); return act('reveal'); }
     const card = $('#uCard');

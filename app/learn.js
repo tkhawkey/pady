@@ -501,7 +501,7 @@
           ${prep.length ? `<h4 data-en="<b>slovesá s predložkou</b> = verbs + preposition + this case">Slovesá s predložkou</h4>
             <div class="chipline">${prep.map(verbChip).join('')}</div>` : ''}
           ${c.k === 'nom' ? `<p class="cex-s">The form in the dictionary, and the subject: <i><b>Žena</b> číta.</i> Also after <i>byť</i>: <i>To je <b>pes</b>.</i></p>` : ''}
-          ${ex ? `<p class="cex-s" data-en="A real sentence from the Slovak treebank">„${ex}“</p>` : ''}
+          ${ex ? `<p class="cex-s" data-en="A real sentence from the Slovak treebank">„${ex}“</p>${window.PADYEngine?.trHtml(ex) || ''}` : ''}
         </div>
       </article>`;
     }).join('')}</div>

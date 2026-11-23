@@ -148,9 +148,10 @@
     return h.trim();
   }
   const plainSk = (s) => s.t.map((t) => t[0] + (t[6] ? '' : ' ')).join('').trim();
-  function ctxHtml(s) {
+  // English of the surrounding lines only once this sentence's English is on screen (so you can try first)
+  function ctxHtml(s, showEn) {
     const p = s.pack, i = p.ctxAt.get(s.id); if (i == null) return '';
-    const line = (c, cur) => `<div class="uctx-line${cur ? ' cur' : ''}"><span>${esc(c[1])}</span><small>${esc(c[2])}</small></div>`;
+    const line = (c, cur) => `<div class="uctx-line${cur ? ' cur' : ''}"><span>${esc(c[1])}</span>${showEn ? `<small>${esc(c[2])}</small>` : ''}</div>`;
     const before = p.ctx.slice(Math.max(0, i - 2), i), after = p.ctx.slice(i + 1, i + 3);
     return `${before.map((c) => line(c)).join('')}${line(p.ctx[i], true)}${after.map((c) => line(c)).join('')}`;
   }
@@ -428,15 +429,16 @@
     let h = `<div class="trtask" data-en="${attr(task[1])}">${task[0]}</div>`;
     const sayBtn = E.canSpeak() ? `<button class="say" data-say="${attr(plainSk(s))}" aria-label="Vypočuť" data-en="listen (Slovak voice)">🔊</button>` : '';
     const tools = `<div class="utools">${sayBtn}
-      <button class="btn small ${S.colors ? 'go yellow' : 'ghost'}" data-uact="colors" data-en="<b>pády</b> = colour every noun, adjective and pronoun by its case">🎨 Pády</button>
+      <button class="btn small ${cur.colors ? 'go yellow' : 'ghost'}" data-uact="colors" data-en="<b>pády</b> = colour every noun, adjective and pronoun by its case">🎨 Pády</button>
       <button class="btn small ghost" data-uact="ctx" data-en="<b>kontext</b> = the lines just before and after">⋯ Kontext</button></div>`;
-    const ctx = cur.showCtx ? `<div class="uctx">${ctxHtml(s)}</div>` : '';
+    const enShown = !(type === 'catch' || type === 'read') || cur.revealed;
+    const ctx = cur.showCtx ? `<div class="uctx">${ctxHtml(s, enShown)}</div>` : '';
     const wordBox = cur.sel != null ? wordHtml(s, cur.sel) : `<p class="uhint usmall">Ťukni na slovo · <span class="tip-mouse">click</span><span class="tip-touch">tap</span> any word for its meaning and form.</p>`;
     const en = `<div class="uen">${esc(s.en)}</div>`;
 
     if (type === 'catch' || type === 'read') {
       const marks = {}; if (type === 'read' && c) s.t.forEach((t, i) => { if (c.tg.includes(t[1])) marks[i] = 'tg'; });
-      h += `<div class="usent" id="uSent">${sentHtml(s, { colors: S.colors, unk: type === 'catch', marks })}</div>${srcLine(s)}${tools}${ctx}`;
+      h += `<div class="usent" id="uSent">${sentHtml(s, { colors: cur.colors, unk: type === 'catch', marks })}</div>${srcLine(s)}${tools}${ctx}`;
       h += cur.revealed ? en : '';
       h += `<div id="uWord">${wordBox}</div>`;
       h += cur.revealed
@@ -449,7 +451,7 @@
         : `<div class="uchoice"><button class="btn go yellow" data-uact="reveal" data-en="show the official English subtitle (Space)">Ukáž preklad <small>␣</small></button></div>`;
     } else if (type === 'cloze') {
       const z = cur.cloze;
-      h += `<div class="uen top">${esc(s.en)}</div><div class="usent" id="uSent">${cur.answered ? sentHtml(s, { colors: S.colors, marks: { [z.i]: 'tg' } }) : sentHtml(s, { blankAt: z.i })}</div>${srcLine(s)}`;
+      h += `<div class="uen top">${esc(s.en)}</div><div class="usent" id="uSent">${cur.answered ? sentHtml(s, { colors: cur.colors, marks: { [z.i]: 'tg' } }) : sentHtml(s, { blankAt: z.i })}</div>${srcLine(s)}`;
       h += cur.answered ? `${tools}<div id="uWord">${cur.sel != null ? wordHtml(s, cur.sel) : wordHtml(s, z.i)}</div>${feedback()}` :
         `<div class="tropts">${z.options.map((o, i) => `<button class="tropt" data-uopt="${attr(o)}"><span class="mk">${i + 1}</span>${esc(o)}</button>`).join('')}</div>`;
     } else if (type === 'color') {
@@ -468,13 +470,13 @@
           <div class="uchoice"><button class="btn go yellow" data-uact="reveal" data-en="show the official Slovak subtitle">Ukáž originál</button></div>`;
       } else {
         h += `${cur.mine ? `<div class="umine"><small data-en="what you wrote">Ty:</small> ${esc(cur.mine)}</div>` : ''}
-          <div class="usent" id="uSent">${sentHtml(s, { colors: S.colors })}</div>${tools}<div id="uWord">${wordBox}</div>
+          <div class="usent" id="uSent">${sentHtml(s, { colors: cur.colors })}</div>${tools}<div id="uWord">${wordBox}</div>
           <p class="usmall">The official subtitle is one good answer, not the only one. Same meaning, right forms? Count it.</p>${gradeButtons()}`;
       }
     } else if (type === 'listen') {
       const L = cur.listen;
       h += `<div class="ulisten"><button class="btn go" data-uact="replay" data-en="play it again">🔊 Ešte raz</button></div>`;
-      h += cur.answered ? `<div class="usent" id="uSent">${sentHtml(s, { colors: S.colors })}</div><div class="uen">${esc(s.en)}</div>${tools}<div id="uWord">${wordBox}</div>${feedback()}`
+      h += cur.answered ? `<div class="usent" id="uSent">${sentHtml(s, { colors: cur.colors })}</div><div class="uen">${esc(s.en)}</div>${tools}<div id="uWord">${wordBox}</div>${feedback()}`
         : `<div class="ulopts">${L.map((o, i) => `<button class="tropt ulopt" data-ulisten="${i}"><span class="mk">${i + 1}</span>${esc(plainSk(o))}</button>`).join('')}</div>`;
     }
     $('#uCard').innerHTML = h;
@@ -550,7 +552,7 @@
       case 'review': return startReview();
       case 'home': RUN = null; tab = 'dnes'; return render();
       case 'hunt': return startCatch(0, el.dataset.lemma);
-      case 'colors': S.colors = !S.colors; persist(); return drawItem();
+      case 'colors': cur.colors = !cur.colors; return drawItem();
       case 'ctx': cur.showCtx = !cur.showCtx; return drawItem();
       case 'replay': return E.speak(plainSk(s));
       case 'reveal':
@@ -625,7 +627,7 @@
         const ck = tok[3]; const k = ck || 'verb';
         S.miss[k] = (S.miss[k] || 0) + 1; persist(); uw.classList.add('go'); uw.textContent = '✓ Zapísané'; P.toast(ck ? `Zapísané: ${CASES[CI[ck]].name}` : 'Zapísané'); return;
       } else if (uw.dataset.uw === 'look') { history.replaceState(null, '', `#hladaj/${encodeURIComponent(low(tok[0]))}`); P.show('lookup'); return; }
-      $('#uSent').innerHTML = sentHtml(cur.s, { colors: S.colors, unk: cur.type === 'catch' });
+      $('#uSent').innerHTML = sentHtml(cur.s, { colors: cur.colors, unk: cur.type === 'catch' });
       $$('#uSent .uw').forEach((x) => x.classList.toggle('sel', +x.dataset.ti === cur.sel));
       $('#uWord').innerHTML = wordHtml(cur.s, cur.sel);
       return;

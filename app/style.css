@@ -1312,10 +1312,13 @@ input.cell.given { opacity: .85; }
 .uctx { max-width: 760px; margin: 6px auto 10px; text-align: left; background: var(--cell-empty); border-radius: 12px; padding: 8px 12px; }
 .uctx-line { padding: 3px 0; opacity: .6; }
 .uctx-line.cur { opacity: 1; font-weight: 800; }
-.uctx-line span { display: block; } .uctx-line small { display: block; color: var(--ink-soft); font-style: italic; }
-.uen { font-size: 18px; font-style: italic; color: var(--ink-soft); margin: 8px auto; max-width: 760px; animation: screenIn .3s; }
+.uctx-line span { display: block; } .uctx-line small { display: block; color: var(--acc); }
+/* the English line: same strip as the Slovak one (size, weight, shape), light instead of dark */
+.uen {
+  background: #e3f0ff; color: #13254a; border-radius: 14px; border: var(--bw) solid var(--line); padding: 20px 16px 18px; margin: 6px auto; max-width: 820px;
+  font-family: var(--font-body); font-weight: 700; font-size: clamp(21px, 4.2vw, 30px); line-height: 1.5; animation: screenIn .3s;
+}
 .uen.top { margin-top: 0; }
-.uen.big { font-size: 24px; color: var(--ink); font-style: normal; font-weight: 700; }
 .uhint { margin: 6px 0; }
 .uword { max-width: 760px; margin: 10px auto; text-align: left; border: var(--bw) solid var(--line); border-left-width: 10px; border-left-color: var(--nom);
   border-radius: 14px; padding: 10px 14px; background: var(--card); box-shadow: var(--sh-sm); animation: screenIn .25s; }
@@ -1353,6 +1356,7 @@ input.cell.given { opacity: .85; }
   .ulevels { grid-template-columns: repeat(2, 1fr); }
   .ucard { padding: 14px; }
   .usent { padding: 14px 10px; line-height: 1.65; }
+  .uen { padding: 14px 10px; }
   .uchoice .btn { flex: 1 1 140px; }
   .uw-acts .btn { flex: 1 1 auto; }
 }

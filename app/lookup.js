@@ -148,6 +148,27 @@
     if (v.past[2]) h += `<p class="legend-note">Neuter (<i>ono</i>): <b>${join(v.past[2], v.refl)}</b>. Past tense: the -l form + <i>som/si/sme/ste</i> for ja/ty/my/vy.</p>`;
     return h;
   }
+  // which school model verb (vzor) this one follows, side by side with the model, and others like it
+  function vzorBlock(v) {
+    const Z = window.PADYVzory; if (!Z) return '';
+    const k = Z.vzorOf(v); if (!k) return '';
+    const open = `<button class="btn small ghost" data-vzor-open="${attr(k)}" data-en="all 14 model verbs in Ťahák (verb side)">Všetky vzory →</button>`;
+    if (k === 'irr') {
+      return `<div class="vzbox"><div class="vzhead"><span class="vz" data-en="<b>nepravidelné</b> = irregular">nepravidelné</span>
+        <span class="vzhow">follows none of the 14 school models: learn it by heart</span></div>${open}</div>`;
+    }
+    const def = Z.BYK[k], m = Z.modelOf(k), type = Z.TYPES.find((t) => t.k === def.t);
+    const key = (x) => `<span><small>ja</small> ${esc(x.pres[0])}</span><span><small>oni</small> ${esc(x.pres[5])}</span><span><small>on</small> ${esc(x.past[0])}</span>`;
+    const same = (Z.members()[k] || []).filter((x) => x.w !== v.w && x.w !== k).slice(0, 10);
+    return `<div class="vzbox">
+      <div class="vzhead"><span class="vz" data-en="<b>vzor</b> = the model verb it conjugates like">vzor</span>
+        <button class="vzname" data-vzor-open="${attr(k)}" data-en="${attr(`see the model <b>${k}</b> and every verb like it`)}">${esc(k)}</button>
+        ${type ? `<span class="lg t-pres" data-en="${attr(`present tense type: ${type.en}`)}">${type.sk}</span>` : ''}<span class="vzhow">${def.how}</span></div>
+      ${v.w !== k && m ? `<div class="vzcmp"><div class="vzrow"><b>${esc(k)}</b>${key(m)}</div><div class="vzrow me"><b>${esc(vname(v))}</b>${key(v)}</div></div>` : ''}
+      <p class="vzrule">${def.rule}</p>
+      ${same.length ? `<div class="vzsame"><span class="opt-label sm" data-en="<b>rovnako</b> = the same way">Rovnako</span>${same.map((x) => `<button class="vzchip${x.common ? ' common' : ''}" data-q="${attr(x.w)}" data-en="${attr(`${x.g}`)}">${esc(x.w)}</button>`).join('')}</div>` : ''}
+      ${open}</div>`;
+  }
   function renderVerbCard(v, f, el) {
     const ms = verbMatches(v, f);
     const asp = P.ASPECT[v.asp];
@@ -155,7 +176,7 @@
     const partner = v.partner ? `<button class="chip ghost" data-q="${attr(v.partner)}" data-en="${attr(`aspect partner: tap to look up <b>${v.partner}</b>`)}">↔ ${esc(v.partner)}</button>` : '';
     el.innerHTML = cardHead(f, vname(v), 'sloveso', '<b>sloveso</b> = verb', aspChip + partner, v.g) +
       `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar je</b> = this form is">Tento tvar je</span>${verbChips(v, ms)}</div>` +
-      verbUse(v, ms) + verbTable(v, f, ms) + exBlock(v.w);
+      verbUse(v, ms) + verbTable(v, f, ms) + vzorBlock(v) + exBlock(v.w);
   }
 
   // ---------- live noun tables from Wiktionary ----------
@@ -410,6 +431,7 @@
     $('#lookup').addEventListener('click', (e) => {
       const s = e.target.closest('[data-q]');
       if (s) { $('#kInput').value = s.dataset.q; $('#kSuggest').innerHTML = ''; search(s.dataset.q, true); return; }
+      const vz = e.target.closest('[data-vzor-open]'); if (vz) { window.PADYLearn?.openVzor(vz.dataset.vzorOpen); return; }
       const p = e.target.closest('.link-pat');
       if (p) L.openPattern(p.dataset.pat);
       const my = e.target.closest('[data-my]');

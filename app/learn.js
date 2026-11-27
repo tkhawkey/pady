@@ -165,8 +165,7 @@
     S.tab = t;
     $$('#learnTabs button').forEach((b) => b.classList.toggle('on', b.dataset.tab === t));
     $$('.ltab').forEach((s) => { s.hidden = s.id !== `tab-${t}`; });
-    if (verbSide() && t === 'male') return setTab('vzory');
-    if (verbSide()) ({ vzory: renderVGroups, ktory: renderVFinder, stlpec: renderVTenses, pady: renderVAspect })[t]();
+    if (verbSide()) ({ vzory: renderVGroups, ktory: renderVFinder, stlpec: renderVTenses, pady: renderVAspect, male: renderVVzory })[t]();
     else ({ vzory: renderVzory, ktory: renderFinder, stlpec: renderColumn, pady: renderCases, male: renderLittle })[t]();
   }
 
@@ -196,7 +195,10 @@
       <p class="legend-note">Each case is coloured as everywhere else. <span class="pf v-S">short</span> forms are unstressed: never first in the sentence, never after a preposition (<i>Vidím ho</i>, but <i>Jeho vidím, nie ju</i>).
         <span class="pf v-N">n-forms</span> come after a preposition: <i>k nemu, pre neho, s ňou, o ňom, na nich</i>.</p>
       ${pt}
-      <div class="res-actions left"><button class="btn go small" onclick="window.PADYTrainer.startPron()">Drill: Zámená →</button></div>
+      <div class="res-actions left"><button class="btn go small" onclick="window.PADYTrainer.startKtoKomu()" data-en="who to whom? pronouns × cases with an English cue">Drill: Kto komu? →</button>
+        <button class="btn go blue small" onclick="window.PADYTrainer.startPron()" data-en="pronouns in real treebank sentences">Drill: Zámená vo vetách →</button></div>
+      <h3 class="lhead" data-en="<b>tvoje zámená</b> = your pronouns: how often you get each one right">Tvoje zámená</h3>
+      ${window.PADYPron?.gridHtml(true) || ''}
       <h3 class="lhead" data-en="<b>čísla</b> = numbers">Čísla + podstatné meno</h3>
       <div class="cards3">
         <article class="rulecard"><b>1</b> agrees like an adjective + nominative singular: <i>jeden stôl, jedna žena, jedno mesto</i>.</article>
@@ -209,7 +211,7 @@
   // tab names follow the side: Vzory / Ktorý vzor? / Stĺpec / Pády  or  Skupiny / Ktorá skupina? / Časy / Vid
   const TAB_LABELS = {
     nouns: { vzory: ['Vzory', '<b>vzory</b> = patterns (model words)'], ktory: ['Ktorý vzor?', '<b>Ktorý vzor?</b> = Which pattern? Find the pattern for any noun.'], stlpec: ['Stĺpec', '<b>stĺpec</b> = column. One case across all 12 patterns.'], pady: ['Pády', '<b>pády</b> = cases. What each case is for, its prepositions and verbs.'], male: ['Zámená a čísla', '<b>zámená a čísla</b> = pronouns and numbers'] },
-    verbs: { vzory: ['Skupiny', '<b>skupiny</b> = groups: verbs conjugate by their ja ending (-ám, -ím, -em, -ujem)'], ktory: ['Ktorá skupina?', '<b>Ktorá skupina?</b> = Which group? Find the group of any verb.'], stlpec: ['Časy', '<b>časy</b> = tenses: how each one is formed'], pady: ['Vid', '<b>vid</b> = aspect: imperfective vs. perfective (robiť ↔ urobiť)'] },
+    verbs: { vzory: ['Skupiny', '<b>skupiny</b> = groups: verbs conjugate by their ja ending (-ám, -ím, -em, -ujem)'], ktory: ['Ktorá skupina?', '<b>Ktorá skupina?</b> = Which group? Find the group of any verb.'], stlpec: ['Časy', '<b>časy</b> = tenses: how each one is formed'], pady: ['Vid', '<b>vid</b> = aspect: imperfective vs. perfective (robiť ↔ urobiť)'], male: ['Vzory', '<b>vzory</b> = the 14 model verbs Slovak children learn at school (chytať, robiť, niesť…)'] },
   };
   function labelTabs() {
     const L = TAB_LABELS[verbSide() ? 'verbs' : 'nouns'];
@@ -669,7 +671,60 @@
   }
   $('#weakSpots').addEventListener('click', (e) => { const b = e.target.closest('[data-open-vgrp]'); if (b) { e.stopPropagation(); S.vgrp = b.dataset.openVgrp; S.vword = null; setTab('vzory'); } }, true);
 
+  // ---------- Vzory (verb side): the 14 school model verbs ----------
+  function vzTable(v) {
+    const stemS = lcp(v.pres.filter(Boolean)), stemL = (v.past[0] || '').replace(/l$/, '');
+    const r = v.refl ? aux(v.refl) : '';
+    let h = `<div class="vtable"><div></div>
+      <div class="bh th t-pres" data-en="present tense">Prítomný</div>
+      <div class="bh th t-past" data-en="past tense, masculine subject">Minulý · muž.</div>
+      <div class="bh th t-past" data-en="past tense, feminine subject">Minulý · žen.</div>`;
+    P.PERSONS.forEach((p, pi) => {
+      const pl = pi >= 3;
+      h += `<div class="rl vp" data-en="${attr(`<b>${p.sk}</b> = ${p.en}`)}"><small>${p.icon}</small><span class="full">${p.sk}</span><span class="abbr">${p.abbr}</span></div>`;
+      h += `<div class="lcell t-pres">${hl(v.pres[pi], stemS)}${r}</div>`;
+      h += `<div class="lcell t-past">${hl(pl ? v.past[3] : v.past[0], stemL)}${aux(AUX[pi])}${r}</div>`;
+      h += `<div class="lcell t-past">${hl(pl ? v.past[3] : v.past[1], stemL)}${aux(AUX[pi])}${r}</div>`;
+    });
+    h += '</div>';
+    if (v.imp?.[0]) h += `<p class="legend-note">Rozkaz: <b>${esc(v.imp[0])}!</b> ${v.imp[2] ? `· <b>${esc(v.imp[2])}!</b>` : ''}</p>`;
+    return h;
+  }
+  async function renderVVzory() {
+    const Z = window.PADYVzory, el = $('#tab-male');
+    if (!window.PADY_LOOKUP) { el.innerHTML = '<p class="kload">Načítavam slovník…</p>'; await Z.ready(); if (S.tab !== 'male' || !verbSide()) return; }
+    const M = Z.members();
+    if (!S.vzor) S.vzor = 'chytať';
+    const k = S.vzor, def = Z.BYK[k] || Z.IRR, list = M[k] || [];
+    const model = Z.modelOf(k) || list[0];
+    const type = Z.TYPES.find((t) => t.k === def.t);
+    const chip = (x) => `<button class="pchip${x.k === k ? ' on' : ''}" data-vzor="${x.k}" data-en="${attr(x.how || '')}">${x.sk || x.k} <small>${(M[x.k] || []).length}</small></button>`;
+    el.innerHTML = `
+      <p class="legend-note">Slovak schools teach verbs by <b>model verbs</b> (vzory): a verb conjugates like its model. The model is decided by the <b>infinitive</b> and the <b>on / oni</b> forms. The <b>Skupiny</b> tab is the simpler learner's view (by the <i>ja</i> ending); these are the finer groups inside it.</p>
+      <div class="ppicker">${Z.TYPES.map((t) => `<div class="pgroup"><span class="pgroup-label" data-en="${attr(`present tense: ${t.en}`)}">${t.sk}</span>${Z.VZORY.filter((x) => x.t === t.k).map(chip).join('')}</div>`).join('')}
+        <div class="pgroup"><span class="pgroup-label" data-en="no model: learn by heart">iné</span>${chip(Z.IRR)}</div></div>
+      <article class="ppage">
+        <header class="phead"><div>
+          <h2><span class="vz" data-en="<b>vzor</b> = model verb">${k === 'irr' ? 'slovesá' : 'vzor'}</span> ${esc(def.sk || k)}</h2>
+          <p class="prule">${def.how}${type ? ` · <span class="lg t-pres" data-en="${attr(`present tense type: ${type.en}`)}">${type.sk}</span>` : ''}</p></div>
+          ${model && k !== 'irr' ? `<span class="gl">${esc(model.g)}</span>` : ''}
+        </header>
+        ${model && k !== 'irr' ? vzTable(model) : ''}
+        <div class="vzrule">${def.rule}</div>
+        <h3 class="lhead" data-en="the other verbs in PÁDY's dictionary that follow this model (common ones first). Tap one to look it up.">Rovnako sa časujú <small>(${list.length})</small></h3>
+        <div class="vzlist">${list.filter((v) => v.w !== k).map((v) => `<button class="vzchip${v.common ? ' common' : ''}" data-look="${attr(v.w)}" data-en="${attr(`<b>${esc(v.w)}</b> = ${esc(v.g)} · ja ${esc(v.pres[0])}, oni ${esc(v.pres[5])}`)}">${esc(v.w)}${v.refl ? ` ${v.refl}` : ''}</button>`).join('')}</div>
+        <p class="legend-note">Sorted by rule from each verb's own forms (Wiktionary). Bold = among the ~400 most common verbs.</p>
+      </article>`;
+  }
+  $('#tab-male').addEventListener('click', (e) => {
+    if (!verbSide()) return;
+    const z = e.target.closest('[data-vzor]'); if (z) { S.vzor = z.dataset.vzor; return renderVVzory(); }
+    const l = e.target.closest('[data-look]'); if (l) { history.replaceState(null, '', `#hladaj/${encodeURIComponent(l.dataset.look)}`); P.show('lookup'); }
+  });
+
   window.PADYLearn = {
+    // Hľadaj → "vzor niesť": the verb side of Ťahák, at that model
+    openVzor(k) { if (!verbSide()) P.setSide('verbs'); S.vzor = k; S.tab = 'male'; P.show('learn'); },
     render() { labelTabs(); if (verbSide()) renderVWeak(); else renderWeak(); setTab(S.tab); },
     openVerb(l) {
       if (l.vgroup) { S.vgrp = l.vgroup; S.vword = null; S.tab = 'vzory'; }

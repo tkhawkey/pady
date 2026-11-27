@@ -162,6 +162,14 @@
         <button class="btn go" onclick="window.PADYTrainer.startTraps()" data-en="Start: 10 traps, mixed (your weak ones come up more)">Pasca →</button>
       </article>
 
+      <article class="mode play" id="modeKtoKomu">
+        <div class="mode-tag little-tag" data-en="<b>zámená</b> = pronouns">Hraj · zámená</div>
+        <h2 data-en="<b>kto komu?</b> = who (does what) to whom?">Kto komu?</h2>
+        <p><i>mu</i> or <i>ho</i>? <i>jej</i> or <i>ju</i>? <i>k nemu</i> or <i>k jemu</i>? The English tells you who; the verb or the preposition decides the case. Read them, pick them, type them. Your mix-ups come up more.</p>
+        <div class="kk-grid" id="kkGrid"></div>
+        <button class="btn go" onclick="window.PADYTrainer.startKtoKomu()" data-en="Start: 10 pronouns (your weak ones come up more)">Kto komu? →</button>
+      </article>
+
       <article class="mode play only-nouns" id="modeLittle">
         <div class="mode-tag little-tag" data-en="<b>malé slová</b> = little words">Hraj · malé slová</div>
         <h2 data-en="<b>zámená a čísla</b> = pronouns and numbers">Zámená a čísla</h2>
@@ -397,6 +405,8 @@
   <script src="tr-data.js"></script>
   <script src="app.js"></script>
   <script src="engine.js"></script>
+  <script src="pron.js"></script>
+  <script src="vzory.js"></script>
   <script src="learn.js"></script>
   <script src="lookup.js"></script>
   <script src="trainer.js"></script>

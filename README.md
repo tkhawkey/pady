@@ -13,7 +13,11 @@ The home screen has a **Pády | Slovesá** switch: cases (nouns, adjectives) or 
 On the verb side, Rozbi to!, Tabuľka and Pád! work with persons (*ja, ty, on…*) × tenses
 (present / past, or future for perfective verbs), and Hľadaj looks up any verb form (*bojím → báť sa*).
 The verb side has its own Začni tu, path (9 units), daily dose, mastery map and Ťahák (groups -ám / -ím /
--em / -ujem, tenses, aspect), plus Páry (aspect pairs) and Vyfarbi vetu ("who is doing it?").
+-em / -ujem, tenses, aspect, and the 14 school model verbs: chytať, rozumieť, robiť, vidieť, kričať, česať, pracovať,
+žuť, chudnúť, žať, niesť, hynúť, brať, trieť), plus Páry (aspect pairs) and Vyfarbi vetu ("who is doing it?").
+Every verb in Hľadaj shows its model (*piecť* → vzor *niesť*) next to the model's forms, with the other verbs like it.
+The model is decided by rule from the verb's own forms (`app/vzory.js`); the list of 14 follows slovake.eu and the
+Krížom-krážom textbook classes.
 
 | Mode | What you do |
 |---|---|
@@ -28,6 +32,7 @@ The verb side has its own Začni tu, path (9 units), daily dose, mastery map and
 | **Magnet** | Which case does the verb take? Level 2: fill a real sentence with the right form. |
 | **Pád!** | Arcade: forms fall, tap the right case lane before they land. |
 | **Zámená a čísla** | Pronouns in real treebank sentences (*mne / mi / mňa*, *jeho / ho / neho*, *ňom*, *nimi*): pick the right form; the short and long form of one case are never set against each other. Numbers + nouns: *jedna žena, dve ženy, päť žien, dvaja muži / piati muži*. Both have a Ťahák page; Hľadaj looks up pronoun forms. |
+| **Kto komu?** (who to whom?) | Pronoun × case: *mu* or *ho*? *jej* or *ju*? *k nemu* or *k jemu*? 36 short sentences with an English cue (who), so the verb or preposition decides the case. Pick the form, read it (who + which case?), or type it. Wrong options are the real mix-ups; a wrong pick shows what that form actually is, and the person's whole row. A grid of your 35 pronoun × case cells (home + Ťahák): tap one to drill it. Weak cells also come back in the daily dose. Sentences written by Claude; forms from Wiktionary. |
 | **Úlovok** (the catch) | Sentence mining from TV subtitles. Import a pack (one episode: Slovak lines + the official English subtitle, every word tagged and glossed). Each day: 10 sentences that are one new word away. Tap any word for its meaning, case (and the preposition behind it), person and tense. Keep a sentence and it comes back as reading, fill-in, colour the cases, translating and listening. Packs stay on the device: subtitles are copyrighted and are never part of this site. |
 | **Pasca** (trap) | The spots where even Slovaks slip, in real treebank sentences: *s* or *z* (+ instrumental / + genitive)? *v* or *vo*? *dobrí* or *dobré*? One underlined word is the clue; weak categories come up more. |
 

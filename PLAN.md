@@ -141,6 +141,16 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    Magnet + Tvar, Pasca, Zámená, Ťahák case cards) translated by Claude into `app/tr-data.js`, marked AI. Shown only
    after you answer (before, it would give away the person or the case); in the Ťahák cards, straight away.
 
+17. ✅ **Kto komu?** (`app/pron.js`): pronoun × case with an English cue. 36 hand-written frames (noun subject, so no
+   reflexive clash) × 7 pronouns; long + short both right without a preposition, n-form after one, ku/so/odo before mne.
+   Three exercises (pick, read: who + case, type), stats per person × case (± preposition), weak-first, a tap-to-drill
+   grid on home and in Ťahák, weak cells in the daily dose.
+
+18. ✅ **Slovesné vzory** (`app/vzory.js`): the 14 school model verbs. All 798 Hľadaj verbs sorted by rule
+   (infinitive ending + on / oni forms; 29 irregular: byť, ísť, jesť, vedieť, povedať, chcieť, môcť, vziať + prefixed).
+   Hľadaj verb card: "vzor niesť" box (model vs. this verb: ja / oni / past, the rule, verbs like it). Ťahák (verb side)
+   → Vzory tab: models grouped by present type, full table, rule, every verb that follows it.
+
 ## Next (needs your extra content / data)
 - Tatoeba for Vyfarbi vetu (needs every noun in a sentence to be unambiguous) and for Magnet frames.
 - Numbers in other cases (s dvoma ženami, o piatich mužoch), possessives (môj, tvoj, svoj).

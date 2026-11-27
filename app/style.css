@@ -888,6 +888,46 @@ input.cell.given { opacity: .85; }
 .tr-en { background: #e3f0ff; color: #13254a; border: 2px solid var(--line); border-radius: 10px; padding: 6px 10px; margin: 8px 0;
   font-weight: 700; font-size: 16px; line-height: 1.4; text-align: left; }
 .mex-en { flex-basis: 100%; order: 3; }
+
+/* ---------- verb models (vzory): Hľadaj box + Ťahák ---------- */
+.vzbox { margin: 14px 0; padding: 12px 14px; border: var(--bw) solid var(--line); border-left-width: 10px; border-left-color: var(--t-pres, #12b5a5);
+  border-radius: 14px; background: var(--card); text-align: left; }
+.vzhead { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.vzname { font: 800 22px var(--font-display); background: var(--nom); color: #1b1035; border: 2px solid var(--line); border-radius: 10px; padding: 0 10px; cursor: pointer; }
+.vzhow { font-size: 14px; color: var(--ink-soft); }
+.vzcmp { display: grid; gap: 4px; margin: 10px 0 4px; }
+.vzrow { display: grid; grid-template-columns: minmax(80px, auto) repeat(3, 1fr); gap: 6px; align-items: center; padding: 4px 8px; border-radius: 8px; background: var(--cell-empty); font-weight: 700; }
+.vzrow.me { background: color-mix(in srgb, var(--nom) 35%, var(--card)); }
+.vzrow small { font-size: 11px; color: var(--ink-soft); font-weight: 700; margin-right: 3px; }
+.vzrule, .vzbox .vzrule { margin: 8px 0; font-size: 15px; line-height: 1.5; }
+.ppage .vzrule { background: var(--cell-empty); border-radius: 12px; padding: 10px 14px; }
+.vzsame, .vzlist { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0 10px; }
+.vzchip { border: 2px solid var(--line); border-radius: 999px; padding: 2px 10px; background: var(--card); color: var(--ink); font: 600 14px var(--font-body); cursor: pointer; }
+.vzchip.common { font-weight: 800; }
+.vzchip:hover { background: var(--nom); color: #1b1035; }
+@media (max-width: 520px) { .vzrow { grid-template-columns: 1fr 1fr; } .vzrow b { grid-column: 1 / -1; } }
+
+/* ---------- Kto komu? ---------- */
+.pk-en { background: #e3f0ff; color: #13254a; border: 2px solid var(--line); border-radius: 12px; padding: 8px 14px; margin: 6px auto 10px;
+  max-width: 640px; font-weight: 700; font-size: 19px; }
+.pk-en b { background: var(--nom); color: #1b1035; border-radius: 6px; padding: 0 4px; }
+.trfeed .pk-en { font-size: 16px; margin: 8px 0; max-width: none; text-align: left; }
+.pmark { background: var(--nom); color: #1b1035; border-radius: 6px; padding: 0 4px; box-shadow: 0 0 0 2px var(--line); }
+.trcases.pwho { grid-template-columns: repeat(auto-fit, minmax(88px, 1fr)); }
+.prow { display: flex; flex-wrap: wrap; gap: 4px; align-items: stretch; margin-top: 8px; font-size: 14px; }
+.prow-p { align-self: center; font-family: var(--font-display); font-size: 18px; margin-right: 4px; }
+.prow-c { display: flex; flex-direction: column; align-items: center; padding: 3px 8px; border-radius: 8px; background: color-mix(in srgb, var(--c) 22%, var(--card));
+  border: 2px solid transparent; font-weight: 700; }
+.prow-c small { font-size: 10px; opacity: .7; }
+.prow-c.on { background: var(--c); color: var(--ci); border-color: var(--line); }
+.kkg { display: grid; grid-template-columns: 34px repeat(7, minmax(0, 1fr)); gap: 3px; margin: 10px 0 4px; font-size: 12px; }
+.kkh { text-align: center; font-weight: 800; }
+.kkr { display: grid; place-items: center; font-weight: 800; border-radius: 6px; background: var(--c); color: var(--ci); }
+.kkc { border: 2px solid var(--line); border-radius: 6px; padding: 4px 2px; font: 700 11px/1.2 var(--font-body); cursor: pointer; color: #1b1035; min-height: 26px; }
+.kk-new { background: var(--cell-empty); color: var(--ink); }
+.kk-bad { background: #ff8a8a; } .kk-mid { background: #ffd27a; } .kk-ok { background: #7fe0a8; }
+.kk-legend .kkc { display: inline-block; width: 14px; min-height: 14px; padding: 0; vertical-align: -2px; cursor: default; }
+@media (max-width: 520px) { .kkc { font-size: 9.5px; } .kkg { grid-template-columns: 28px repeat(7, minmax(0, 1fr)); } }
 .tex-src { font-style: normal; font-size: 11px; color: var(--ink-soft); opacity: .7; margin-left: 6px; }
 .kex { margin-top: 18px; }
 .kex h4 { margin: 0 0 8px; font-family: var(--font-display); font-size: 18px; }

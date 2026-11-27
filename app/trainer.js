@@ -22,6 +22,7 @@
   const sideNow = () => (P.save().side === 'verbs' ? 'verbs' : 'nouns');
   const tiersNow = () => (sideNow() === 'verbs' ? E.VTIERS : E.TIERS);
   function renderHome() {
+    const kk = $('#kkGrid'); if (kk) kk.innerHTML = window.PADYPron?.gridHtml() || '';
     const el = $('#journey'); if (!el) return;
     const s = P.save();
     const side = sideNow(), verbs = side === 'verbs';
@@ -65,7 +66,10 @@
     P.show('train');
   }
   function startDose() {
-    runSession({ title: 'Dnešná dávka', titleEn: "Today's dose", items: E.buildDose(12, sideNow()), mode: 'dose' });
+    const items = E.buildDose(12, sideNow());
+    // pronoun × case cells you keep missing in Kto komu? come back here too
+    for (const it of window.PADYPron?.forDose(2) || []) items.splice(1 + Math.floor(Math.random() * items.length), 0, it);
+    runSession({ title: 'Dnešná dávka', titleEn: "Today's dose", items, mode: 'dose' });
   }
   function startUnit(u, step) {
     const names = { practice: ['Precvič', 'Practise'], write: ['Napíš', 'Write'], test: ['Test', 'Test: 80% to complete the unit'] };
@@ -150,6 +154,25 @@
     const items = shuffle([...all]).slice(0, 10).map((ps) => ({ kind: 'pron', key: null, ps, options: pronOptions(ps) }));
     runSession({ title: 'Zámená', titleEn: 'Pronouns: mňa, mne, ho, jemu, nemu, ňom…', items, mode: 'trap', again: () => startPron(only) });
   }
+  // ---------- Kto komu? pronoun × case, with an English cue (app/pron.js) ----------
+  const PR = () => window.PADYPron;
+  function startKtoKomu(only) {
+    const items = PR().build(10, only);
+    runSession({ title: 'Kto komu?', titleEn: 'Pronouns × cases: mu or ho? jej or ju? k nemu or k jemu?', items, mode: 'trap', again: () => startKtoKomu(only), back: only ? 'learn' : 'home' });
+  }
+  const PWHO = { ja: 'I', ty: 'you', on: 'he', ona: 'she', my: 'we', vy: 'you (pl.)', oni: 'they' };
+  // every person + case a form can be (ju = ona · akuzatív; jej = ona · genitív / datív)
+  function whatIs(form) {
+    const out = [];
+    for (const p of PR().PERS) for (const c of CASES) if (E.PRON[p].c[c.k].some(([f]) => f === form)) out.push([p, c.k]);
+    return out;
+  }
+  // one person's forms across the cases, the asked one outlined: untangles jej / ju / nej / ňou
+  function personRow(p, ck) {
+    return `<div class="prow"><b class="prow-p">${p}</b>${CASES.map((c) => `<span class="prow-c c-${c.k}${c.k === ck ? ' on' : ''}" data-en="${attr(P.caseTip(c))}"><small>${c.abbr}</small>${E.PRON[p].c[c.k].map(([f]) => esc(f)).join(' · ')}</span>`).join('')}</div>`;
+  }
+  const blankHtml = (pre) => `${esc(pre)}<span class="mblank">?</span>`;
+
   // ---------- Čísla: number + noun ----------
   function startNums() {
     const nouns = D.nouns.slice(0, 250).filter((n) => n.s?.[0] && n.p?.[0] && n.p?.[1]);
@@ -239,6 +262,22 @@
       const sent = ps.t.map(([f, ns], i) => (i === ps.i ? '<span class="mblank">?</span>' : esc(f)) + (ns ? '' : ' ')).join('');
       return tag('Daj zámeno do správneho tvaru', 'Put the pronoun into the right form') +
         `<div class="trsent">${sent}</div><div class="trsub"><span class="chip ghost">${esc(P0.k)}</span> <span class="gl">${esc(P0.en)}</span></div>` + optionButtons(it.options);
+    }
+    if (it.kind === 'pc' || it.kind === 'pct') {
+      const f = it.f;
+      return tag(it.kind === 'pct' ? 'Napíš zámeno' : 'Doplň zámeno', 'Put in the pronoun the English asks for. The verb or the preposition decides the case.') +
+        `<div class="pk-en">${PR().enOf(it.p, f)}</div><div class="trsent">${esc(f.sk).replace('___', blankHtml(f.pr ? `${f.pr} ` : ''))}</div>` +
+        (it.kind === 'pct' ? typeBox() : optionButtons(it.options));
+    }
+    if (it.kind === 'prc') {
+      const f = it.f;
+      const sent = esc(PR().filled(f, it.form)).replace(new RegExp(`(^|\\s)(${it.form})(?=[\\s.,!?])`, 'u'), '$1<mark class="pmark">$2</mark>');
+      const who = it.who
+        ? `<div class="trsub">Kto: <span class="chip">${it.who} <span class="gl">${PWHO[it.who]}</span></span></div>
+           <div class="trcases">${PR().PCASES.map((k, i) => { const c = CASES[CI[k]]; return `<button class="trcase c-${k}" data-ck="${k}"><span class="mk">${i + 1}</span><b>${c.name}</b><small>${c.q}</small></button>`; }).join('')}</div>`
+        : `<div class="trcases pwho">${PR().PERS.map((p, i) => `<button class="trcase vp" data-who="${p}"><span class="mk">${i + 1}</span><b>${p}</b><small>${PWHO[p]}</small></button>`).join('')}</div>`;
+      return tag(it.who ? 'Aký pád?' : 'Kto to je?', it.who ? 'Which case is it in, here?' : 'Who is the highlighted word? (then: which case)') +
+        `<div class="trsent">${sent}</div>` + who;
     }
     if (it.kind === 'num') {
       return tag('Koľko?', 'How many? Pick the right number word and noun form') +
@@ -336,12 +375,22 @@
     if (it.kind === 'num') return { good: it.okSet.has(ans) };
     if (it.kind === 'verb') return { good: it.vx.cases.map((l) => LETTER_CK[l]).includes(ans) };
     if (it.kind === 'vform') return { good: ans === it.z.f };
+    if (it.kind === 'pc') return { good: it.ok.includes(ans) };
+    if (it.kind === 'pct') {
+      // "k nemu" / "ku mne" typed with the preposition is fine too
+      let a = norm(ans); const pr = it.f.pr;
+      if (pr) for (const x of [PR().prepFor(pr, a.split(' ').pop()), pr]) if (a.startsWith(`${x} `)) { a = a.slice(x.length + 1); break; }
+      if (it.ok.includes(a)) return { good: true };
+      if (it.ok.map(bare).includes(bare(a))) return { good: true, almost: true };
+      return { good: false };
+    }
+    if (it.kind === 'prc') return { good: it.whoOk.has(it.who) && ans === it.f.ck };
     return { good: false };
   }
 
   function answer(ans, btn) {
     const it = T.cur; if (!it || T.answered || it.kind === 'color' || it.kind === 'vcolor') return;
-    if (it.type === 'type' && !norm(ans)) return;
+    if ((it.type === 'type' || it.kind === 'pct') && !norm(ans)) return;
     T.answered = true;
     const { good, almost } = judge(it, ans);
     record(it, good);
@@ -349,7 +398,7 @@
     if (btn) {
       $$('#trCard .tropt, #trCard .trcase').forEach((b) => {
         const v = b.dataset.ans ?? b.dataset.ck;
-        const isRight = judge(it, v).good;
+        const isRight = it.kind === 'prc' ? v === it.f.ck : judge(it, v).good;
         b.classList.add(isRight ? 'right' : b === btn ? 'wrong' : 'dim');
       });
     } else {
@@ -364,6 +413,7 @@
     if (good) T.right++; else T.wrong++;
     T.log.push({ key: it.key, good, tier: it.tier });
     if (it.kind === 'trap') { const st = trapStats()[it.tr.c]; good ? st.r++ : st.w++; P.persist(); }
+    if (it.cell) PR().record(it.cell, good);
     if (T.mode !== 'place' && it.key) E.review(it.key, good);
     const sfx = P.sfx; good ? sfx.good(T.right) : sfx.bad();
   }
@@ -408,6 +458,38 @@
       }
       else if (siblings.length && !ps.pr) note = `Also: ${siblings.map(esc).join(', ')} (${siblings.some((f) => /^[nň]/.test(f)) ? 'the n-form only after a preposition' : 'short form, unstressed'}).`;
       body = `${esc(P0.k)} → ${caseChip(ps.k)} <b>${esc(ps.a)}</b>${why}. ${note ? `<span class="why-rule">${note}</span>` : ''}`;
+    } else if (it.kind === 'pc' || it.kind === 'pct' || it.kind === 'prc') {
+      const f = it.f, ck = f.ck, p = it.p;
+      // the form to show: yours if it was right (jemu as well as mu), otherwise the usual one
+      const typed = it.kind === 'pct' ? norm(ans).split(' ').pop() : ans;
+      const form = it.kind !== 'prc' && good && it.ok.includes(typed) ? typed : it.answer;
+      const full = PR().filled(f, form);
+      say = full;
+      $('#trCard .trsent').innerHTML = esc(f.sk).replace('___', `${f.pr ? `${esc(PR().prepFor(f.pr, form))} ` : ''}<span class="mfilled c-${ck}">${esc(form)}</span>`);
+      const notes = [];
+      const fs = E.PRON[p].c[ck];
+      const hasN = fs.some(([, v]) => v === 'N'), hasS = fs.some(([, v]) => v === 'S');
+      if (f.pr) {
+        if (hasN) notes.push(`After a preposition, on / ona / oni take the <b>n-form</b>: ${esc(f.pr)} <b>${esc(it.ok[0])}</b>, not ${esc(f.pr)} ${esc(fs.find(([, v]) => v !== 'N')[0])}.`);
+        else if (hasS) notes.push(`After a preposition only the long form: <b>${esc(PR().prepFor(f.pr, it.ok[0]))} ${esc(it.ok[0])}</b>, never ${esc(f.pr)} ${esc(fs.find(([, v]) => v === 'S')[0])}.`);
+        if (PR().prepFor(f.pr, form) !== f.pr) notes.push(`<b>${esc(f.pr)}</b> becomes <b>${esc(PR().prepFor(f.pr, form))}</b> before mne / mnou / mňa.`);
+        notes.push(`<b>${esc(f.pr)}</b> + ${CASES[CI[ck]].name.toLowerCase()}.`);
+      } else {
+        if (hasS) notes.push(`Both work here: <b>${esc(fs.find(([, v]) => v === 'S')[0])}</b> is the normal, unstressed form; <b>${esc(fs.find(([, v]) => v === 'L')?.[0] || '')}</b> stresses it (this person, not someone else) or starts the sentence.`);
+        if (hasN) notes.push(`<b>${esc(fs.find(([, v]) => v === 'N')[0])}</b> is only for after a preposition.`);
+      }
+      // what was the wrong answer, then?
+      let was = '';
+      if (!good && it.kind === 'pc') {
+        const w = whatIs(ans);
+        if (w.length) was = `<b>${esc(ans)}</b> = ${w.map(([q, k]) => `${q} · ${caseChip(k)}`).join(' / ')}. `;
+      }
+      if (!good && it.kind === 'prc') {
+        if (!it.whoOk.has(it.who)) was = `<b>${esc(it.form)}</b> is not ${esc(it.who)}: it's ${[...it.whoOk].join(' / ')}. `;
+        else was = `Right person, but here <b>${esc(it.form)}</b> is ${caseChip(ck)}. `;
+      }
+      body = `${was}<b>${esc(p)}</b> → ${caseChip(ck)} <b>${esc(form)}</b>${notes.length ? ` <span class="why-rule">${notes.join(' ')}</span>` : ''}
+        ${it.kind === 'prc' ? `<div class="pk-en">${PR().enOf(p, f)}</div>` : ''}${personRow(p, ck)}`;
     } else if (it.kind === 'num') {
       say = it.answer;
       const n = it.n;
@@ -555,6 +637,8 @@
   // ---------- events ----------
   $('#trCard').addEventListener('click', (e) => {
     const o = e.target.closest('.tropt'); if (o) return answer(o.dataset.ans, o);
+    const wb = e.target.closest('[data-who]');
+    if (wb && T.cur?.kind === 'prc' && !T.answered) { T.cur.who = wb.dataset.who; $('#trCard').innerHTML = renderItem(T.cur); return; }
     const c = e.target.closest('.trcase');
     if (c) { if (T.cur.kind === 'color' || T.cur.kind === 'vcolor') return colorAnswer(c.dataset.ck); return answer(c.dataset.ck, c); }
     const t = e.target.closest('.ctok'); if (t && !(+t.dataset.i in T.cur.marks)) return colorSelect(+t.dataset.i);
@@ -813,7 +897,7 @@
     startColor,
     startPairs,
     startTraps,
-    startPron,
+    startPron, startKtoKomu,
     startNums,
     render(id) {
       if (id === 'train') renderTrain();

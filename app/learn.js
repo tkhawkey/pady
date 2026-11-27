@@ -521,6 +521,8 @@
     ? `<span class="stem">${stem}</span>${form.length > stem.length ? `<span class="end">${form.slice(stem.length)}</span>` : ''}`
     : `<span class="end chg">${form || '–'}</span>`);
   const aux = (a) => (a ? ` <span class="vaux">${a}</span>` : '');
+  // the past stem all four -l forms share (niesol, niesla → nies; volal, volala → vola): the masculine's extra -o- isn't a stem change
+  const pastStem = (ls) => lcp((ls || []).filter(Boolean)).replace(/l$/, '');
   const AUX = ['som', 'si', '', 'sme', 'ste', ''];
   const VTIPS = {
     am: ['<b>-ám, -áš, -á, -áme, -áte, -ajú</b>: the most regular group.', 'After a long syllable the <b>á</b> shortens (rhythmic law): <i>čítať → čítam, čítaš</i>.', 'Past: just swap <b>-ť</b> for <b>-l</b>: <i>volať → volal</i>.'],
@@ -535,7 +537,7 @@
     const e = E();
     const simple = v.a === 'pf' ? ['Budúci', 't-fut', 'future (perfective verb: its "present" forms mean the future)'] : ['Prítomný', 't-pres', 'present tense'];
     const stemS = lcp(v.s.filter(Boolean));
-    const stemL = (v.l[0] || '').replace(/l$/, '');
+    const stemL = pastStem(v.l);
     let h = `<div class="vtable"><div></div>
       <div class="bh th ${simple[1]}" data-en="${attr(simple[2])}">${simple[0]}</div>
       <div class="bh th t-past" data-en="past tense, masculine subject">Minulý · muž.</div>
@@ -673,7 +675,7 @@
 
   // ---------- Vzory (verb side): the 14 school model verbs ----------
   function vzTable(v) {
-    const stemS = lcp(v.pres.filter(Boolean)), stemL = (v.past[0] || '').replace(/l$/, '');
+    const stemS = lcp(v.pres.filter(Boolean)), stemL = pastStem(v.past);
     const r = v.refl ? aux(v.refl) : '';
     let h = `<div class="vtable"><div></div>
       <div class="bh th t-pres" data-en="present tense">Prítomný</div>
@@ -698,14 +700,15 @@
     const k = S.vzor, def = Z.BYK[k] || Z.IRR, list = M[k] || [];
     const model = Z.modelOf(k) || list[0];
     const type = Z.TYPES.find((t) => t.k === def.t);
-    const chip = (x) => `<button class="pchip${x.k === k ? ' on' : ''}" data-vzor="${x.k}" data-en="${attr(x.how || '')}">${x.sk || x.k} <small>${(M[x.k] || []).length}</small></button>`;
+    const gl = (x) => Z.modelOf(x.k)?.g || '';
+    const chip = (x) => `<button class="pchip${x.k === k ? ' on' : ''}" data-vzor="${x.k}" data-en="${attr(x.k === 'irr' ? 'irregular verbs: no model' : `<b>${x.k}</b> = ${gl(x)}<span class="tip-q">${x.how}</span>`)}">${x.sk || x.k} <small>${(M[x.k] || []).length}</small></button>`;
     el.innerHTML = `
       <p class="legend-note">Slovak schools teach verbs by <b>model verbs</b> (vzory): a verb conjugates like its model. The model is decided by the <b>infinitive</b> and the <b>on / oni</b> forms. The <b>Skupiny</b> tab is the simpler learner's view (by the <i>ja</i> ending); these are the finer groups inside it.</p>
       <div class="ppicker">${Z.TYPES.map((t) => `<div class="pgroup"><span class="pgroup-label" data-en="${attr(`present tense: ${t.en}`)}">${t.sk}</span>${Z.VZORY.filter((x) => x.t === t.k).map(chip).join('')}</div>`).join('')}
         <div class="pgroup"><span class="pgroup-label" data-en="no model: learn by heart">iné</span>${chip(Z.IRR)}</div></div>
       <article class="ppage">
         <header class="phead"><div>
-          <h2><span class="vz" data-en="<b>vzor</b> = model verb">${k === 'irr' ? 'slovesá' : 'vzor'}</span> ${esc(def.sk || k)}</h2>
+          <h2><span class="vz" data-en="<b>vzor</b> = model verb">${k === 'irr' ? 'slovesá' : 'vzor'}</span> <span data-en="${attr(k === 'irr' ? 'irregular' : `<b>${k}</b> = ${model?.g || ''}`)}">${esc(def.sk || k)}</span></h2>
           <p class="prule">${def.how}${type ? ` · <span class="lg t-pres" data-en="${attr(`present tense type: ${type.en}`)}">${type.sk}</span>` : ''}</p></div>
           ${model && k !== 'irr' ? `<span class="gl">${esc(model.g)}</span>` : ''}
         </header>

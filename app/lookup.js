@@ -162,7 +162,7 @@
     const same = (Z.members()[k] || []).filter((x) => x.w !== v.w && x.w !== k).slice(0, 10);
     return `<div class="vzbox">
       <div class="vzhead"><span class="vz" data-en="<b>vzor</b> = the model verb it conjugates like">vzor</span>
-        <button class="vzname" data-vzor-open="${attr(k)}" data-en="${attr(`see the model <b>${k}</b> and every verb like it`)}">${esc(k)}</button>
+        <button class="vzname" data-vzor-open="${attr(k)}" data-en="${attr(`<b>${k}</b> = ${m?.g || ''}<span class="tip-q">tap: the model and every verb like it</span>`)}">${esc(k)}</button>
         ${type ? `<span class="lg t-pres" data-en="${attr(`present tense type: ${type.en}`)}">${type.sk}</span>` : ''}<span class="vzhow">${def.how}</span></div>
       ${v.w !== k && m ? `<div class="vzcmp"><div class="vzrow"><b>${esc(k)}</b>${key(m)}</div><div class="vzrow me"><b>${esc(vname(v))}</b>${key(v)}</div></div>` : ''}
       <p class="vzrule">${def.rule}</p>

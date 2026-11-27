@@ -83,6 +83,19 @@ if (Test-Path "$Root/work/conj_all.json") {
     , @($_.w, $_.refl, $_.g, $_.asp, $_.partner, @($_.pres), @($_.past), @($_.imp))
   })
 }
+# + frequent verbs Wiktionary has no table for: forms from Hunspell (scripts/build_verbs_hun.ps1), meanings by Claude
+# (work/verbs_hun_gloss.json: verb -> [meaning, aspect, sa/si]). The 9th field 'h' tells the app: not double-checked, AI meaning.
+if (Test-Path "$Root/work/verbs_hun.json") {
+  $vg = @{}; if (Test-Path "$Root/work/verbs_hun_gloss.json") { foreach ($p in (Get-Content "$Root/work/verbs_hun_gloss.json" -Raw -Encoding utf8 | ConvertFrom-Json).PSObject.Properties) { $vg[$p.Name] = @($p.Value) } }
+  $nH = 0
+  foreach ($v in (Get-Content "$Root/work/verbs_hun.json" -Raw -Encoding utf8 | ConvertFrom-Json)) {
+    $g = $vg[$v.w]; if (-not $g) { continue }   # no meaning yet: leave it out
+    $asp = if ($v.asp) { $v.asp } else { $g[1] }
+    $refl = if ($v.refl) { $v.refl } else { $g[2] }
+    $verbsL += , @($v.w, $refl, $g[0], $asp, $null, @($v.pres), @($v.past), @($v.imp), 'h'); $nH++
+  }
+  "verbs from Hunspell (+ AI meaning): $nH"
+}
 
 # Tatoeba examples for words outside the game data (run build_bundle.ps1 first: its words are already in data.js)
 $exL = [ordered]@{}

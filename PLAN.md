@@ -151,6 +151,9 @@ After changing anything in `data/`, run `scripts/build_bundle.ps1` to regenerate
    Hľadaj verb card: "vzor niesť" box (model vs. this verb: ja / oni / past, the rule, verbs like it). Ťahák (verb side)
    → Vzory tab: models grouped by present type, full table, rule, every verb that follows it.
 
+19. ✅ **More verbs**: Hľadaj 798 → 3,326 verbs (the Araneum top 3,000; forms from Hunspell with checks, meanings by
+   Claude, marked "not double-checked" + AI). Verb games 394 → 579: the 185 common ones the treebank confirms.
+
 ## Next (needs your extra content / data)
 - Tatoeba for Vyfarbi vetu (needs every noun in a sentence to be unambiguous) and for Magnet frames.
 - Numbers in other cases (s dvoma ženami, o piatich mužoch), possessives (môj, tvoj, svoj).

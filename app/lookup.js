@@ -74,8 +74,8 @@
       for (const fs of Object.values(p.c)) for (const [f] of fs) if (!seen.has(f)) { seen.add(f); add(f, { type: 'pron', pron: p }); }
     }
     // verbs: infinitive, present/future, past (-l forms), imperative
-    for (const [w, refl, g, asp, partner, pres, past, imp] of LK.verbs || []) {
-      const v = { w, refl, g, asp, partner, pres, past, imp };
+    for (const [w, refl, g, asp, partner, pres, past, imp, src] of LK.verbs || []) {
+      const v = { w, refl, g, asp, partner, pres, past, imp, src };
       const seen = new Set();
       const addV = (f) => { if (f && !seen.has(f)) { seen.add(f); add(f, { type: 'verb', verb: v }); } };
       addV(w); pres.forEach(addV); past.forEach(addV); (imp || []).forEach(addV);
@@ -174,9 +174,14 @@
     const asp = P.ASPECT[v.asp];
     const aspChip = asp ? `<span class="chip ghost" data-en="${attr(asp[1])}">${asp[0]}</span>` : '';
     const partner = v.partner ? `<button class="chip ghost" data-q="${attr(v.partner)}" data-en="${attr(`aspect partner: tap to look up <b>${v.partner}</b>`)}">↔ ${esc(v.partner)}</button>` : '';
-    el.innerHTML = cardHead(f, vname(v), 'sloveso', '<b>sloveso</b> = verb', aspChip + partner, v.g) +
+    // src 'h': forms from the Hunspell spelling dictionary (one source), meaning + aspect written by Claude
+    const hun = v.src === 'h';
+    const aiChip = hun ? ' <span class="uai" data-en="The meaning (and the aspect) of this verb were written by Claude (AI): Wiktionary has no entry. Usually right, but unchecked.">AI</span>' : '';
+    el.innerHTML = cardHead(f, vname(v), 'sloveso', '<b>sloveso</b> = verb', aspChip + partner + aiChip, v.g) +
       `<div class="kcan"><span class="kcan-label" data-en="<b>tento tvar je</b> = this form is">Tento tvar je</span>${verbChips(v, ms)}</div>` +
-      verbUse(v, ms) + verbTable(v, f, ms) + vzorBlock(v) + exBlock(v.w);
+      verbUse(v, ms) + verbTable(v, f, ms) +
+      (hun ? '<p class="legend-note">⚠ Forms from the Slovak spelling dictionary (Hunspell) and <b>not double-checked</b>: Wiktionary has no table for this verb. Usually right, but trust them a little less. The imperative follows the school rule.</p>' : '') +
+      vzorBlock(v) + exBlock(v.w);
   }
 
   // ---------- live noun tables from Wiktionary ----------

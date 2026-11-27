@@ -313,6 +313,7 @@
   const ASPECT = {
     impf: ['nedokonavé', '<b>nedokonavé</b> = imperfective: an ongoing or repeated action. Has a present tense; future = <i>budem</i> + infinitive.'],
     pf: ['dokonavé', '<b>dokonavé</b> = perfective: a completed, one-off action. It has no present tense: its "present" forms mean the future.'],
+    both: ['obojvidové', '<b>obojvidové</b> = both aspects: the same verb can be ongoing or completed (common with -ovať loanwords: <i>informovať</i>). Its present forms can mean the present or the future.'],
   };
   const PRES_RULE = [
     'the <b>ja</b> form ends in <b>-m</b> (<i>robím, volám, pracujem</i>)',

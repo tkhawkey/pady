@@ -113,7 +113,23 @@ if (Test-Path "$Root/data/conj.json") {
   $partnerOf = @{}
   if (Test-Path "$Root/work/conj_all.json") { foreach ($v in (Get-Content "$Root/work/conj_all.json" -Raw | ConvertFrom-Json)) { if ($v.partner) { $partnerOf[$v.w] = $v.partner } } }
   $crude = @('prdieť', 'srať', 'jebať', 'chcať', 'drbať', 'šukať', 'mrdať', 'naštvať', 'močiť')
-  $conjSrc = Get-Blended (Get-Content "$Root/data/conj.json" -Raw | ConvertFrom-Json | Where-Object { $_.asp -in 'impf', 'pf' -and $_.w -notin $crude }) 'V' { param($x) $x.w }
+  $conjIn = @(Get-Content "$Root/data/conj.json" -Raw | ConvertFrom-Json | ForEach-Object { $_ })
+  # + common verbs Wiktionary has no table for (scripts/build_verbs_hun.ps1), but only the drill-ready ones: among the
+  # 500 most frequent verbs, forms confirmed by the treebank in 3+ cells with no contradiction (scripts/check_verbs_hun.ps1),
+  # aspect from the treebank too. Only the meaning is Claude's (work/verbs_hun_gloss.json).
+  if ((Test-Path "$Root/work/verbs_hun_check.json") -and (Test-Path "$Root/work/verbs_hun_gloss.json")) {
+    $chk = Get-Content "$Root/work/verbs_hun_check.json" -Raw | ConvertFrom-Json
+    $vg = Get-Content "$Root/work/verbs_hun_gloss.json" -Raw -Encoding utf8 | ConvertFrom-Json
+    $nAdd = 0
+    foreach ($v in @(Get-Content "$Root/work/verbs_hun.json" -Raw -Encoding utf8 | ConvertFrom-Json | ForEach-Object { $_ })) {
+      $c = $chk.($v.w); $g = $vg.($v.w)
+      if (-not $c -or $c.ok -lt 3 -or @($c.bad).Count -or $v.rank -gt 500 -or $v.asp -notin 'impf', 'pf' -or -not $g) { continue }
+      $conjIn += [pscustomobject]@{ w = $v.w; refl = $(if ($v.refl) { $v.refl } else { $g[2] }); g = $g[0]; asp = $v.asp; cls = ''; partner = $null; pres = $v.pres; past = $v.past; imp = $v.imp }
+      $nAdd++
+    }
+    "verbs added from Hunspell (treebank-confirmed, top 500): $nAdd"
+  }
+  $conjSrc = Get-Blended ($conjIn | Where-Object { $_.asp -in 'impf', 'pf' -and $_.w -notin $crude }) 'V' { param($x) $x.w }
   $conj = @($conjSrc | ForEach-Object {
     $pr = $_.partner
     # trusted: mutual, or the perfective = a standard prefix + the imperfective (vidieť → uvidieť, čítať → prečítať)

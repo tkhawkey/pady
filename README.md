@@ -68,6 +68,13 @@ All word forms come from existing sources, not from an AI:
   wrong (*hosť*, *upír*, *psy*) the table is fixed by hand in `scripts/noun_overrides.json`.
 - **Hľadaj nouns:** 3,861 of 4,406 ship with a table that two sources agree on (Wiktionary + Štúr,
   `data/lookup_check.txt`), so they work offline. The rest are fetched live from Wiktionary and marked "not double-checked".
+- **More verbs** (`scripts/build_verbs_hun.ps1`, `scripts/check_verbs_hun.ps1`): English Wiktionary has tables for only
+  ~800 Slovak verbs, missing three in four of the 1,000 most common. The Araneum top 3,000 verbs it lacks (2,528) are
+  conjugated from the Slovak Hunspell dictionary: past forms sorted by ending (Hunspell mis-tags some), the imperative by
+  the school rule from the *oni* form (767 / 768 agree with Wiktionary; Hunspell's own: 91%), tables that contradict
+  themselves dropped. Hľadaj shows them as "not double-checked", with meanings written by Claude (marked AI); aspect and
+  *sa/si* from the treebank where it has the verb. The 185 among the 500 most common whose forms the treebank confirms
+  (3+ cells, no contradiction) also join the verb games.
 - **English for treebank sentences** (Vyfarbi vetu, Magnet, Pasca, Zámená, the Ťahák case cards): the treebank has
   no translations, so Claude translated all ~2,600 sentences (`scripts/tr_collect.ps1` → `work/tr/` → `scripts/build_tr.ps1`
   → `app/tr-data.js`). They appear only after you answer, marked AI.
@@ -102,6 +109,8 @@ Invoke-WebRequest https://raw.githubusercontent.com/hermitdave/FrequencyWords/ma
 ./scripts/build_pronouns.ps1   # pronoun sentences from the treebank -> work/pron_sents.json
 ./scripts/build_lookup_tables.ps1  # checked tables for Hľadaj nouns (Wiktionary x Štúr) -> work/lookup_tables.json
                                    # (run build_lookup.ps1 once before and once after it)
+./scripts/build_verbs_hun.ps1  # needs sk_SK.dic/.aff + the Araneum lemma list -> work/verbs_hun.json (+ meanings to write)
+./scripts/check_verbs_hun.ps1  # treebank second opinion -> work/verbs_hun_check.json (decides which verbs join the games)
 ./scripts/build_bundle.ps1     # -> app/data.js
 ./scripts/build_lookup.ps1     # -> app/lookup-data.js (~1,400 adjectives, ~4,400 nouns for Hľadaj)
 ```
